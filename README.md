@@ -12,7 +12,7 @@ O enunciado dos projetos vem do repositório da disciplina: [santanche/nlp2learn
 | Gabriel Lorhan Rodrigues Dourado | 197496 |
 | George Henrique de Lima Sá | 231529 |
 | João Vitor Gonçalves Oliveira | 237871 |
-| Lucas | ?????? |
+| Lucas Guarnieri | 119756 |
 
 ## Projetos
 
