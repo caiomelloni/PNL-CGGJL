@@ -223,3 +223,7 @@ def parse_reference_range(raw_text: str) -> ReferenceRange:
         )
 
     raise ValueError(f"invalid reference range: {raw_text!r}")
+
+def supported_unit_variants() -> tuple[str, ...]:
+    """Retorna as grafias de unidades reconhecidas pelo normalizador."""
+    return tuple(_UNIT_VARIANTS)
