@@ -1,0 +1,835 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/caiomelloni/PNL-CGGJL/docs/schema/grafo-caso.schema.json",
+  "title": "Grafo de conhecimento de um caso clínico",
+  "type": "object",
+  "required": [
+    "format_version",
+    "case",
+    "nodes",
+    "edges"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "format_version": {
+      "const": "1.0"
+    },
+    "case": {
+      "type": "object",
+      "required": [
+        "case_id",
+        "article_id",
+        "case_text"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "case_id": {
+          "type": "string",
+          "pattern": "^PMC[0-9]+_[0-9]{2}$"
+        },
+        "article_id": {
+          "type": "string",
+          "pattern": "^PMC[0-9]+$"
+        },
+        "case_text": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/node"
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/edge"
+      }
+    }
+  },
+  "$defs": {
+    "anchor": {
+      "type": "object",
+      "required": [
+        "start",
+        "end",
+        "text"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "node": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "label",
+        "attributes",
+        "anchor"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "enum": [
+            "Patient",
+            "Symptom",
+            "Finding",
+            "History",
+            "Exam",
+            "ExamResult",
+            "Diagnosis",
+            "Medication",
+            "Treatment",
+            "AnatomicalSite",
+            "Outcome",
+            "Concept"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "attributes": {
+          "type": "object"
+        },
+        "anchor": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/anchor"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "mentions": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/$defs/anchor"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "Patient"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "attributes": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "article_id": {
+                    "type": "string"
+                  },
+                  "age": {
+                    "type": "number"
+                  },
+                  "age_unit": {
+                    "enum": [
+                      "days",
+                      "months",
+                      "weeks_gestational",
+                      "years"
+                    ]
+                  },
+                  "gender": {
+                    "type": "string"
+                  },
+                  "abbreviation": {
+                    "type": "string"
+                  },
+                  "notes": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "Symptom"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "attributes": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "polarity": {
+                    "enum": [
+                      "absent",
+                      "present"
+                    ]
+                  },
+                  "duration": {
+                    "type": "string"
+                  },
+                  "onset": {
+                    "type": "string"
+                  },
+                  "course": {
+                    "enum": [
+                      "improving",
+                      "intermittent",
+                      "progressive",
+                      "stable",
+                      "worsening"
+                    ]
+                  },
+                  "severity": {
+                    "enum": [
+                      "low-grade",
+                      "mild",
+                      "moderate",
+                      "severe"
+                    ]
+                  },
+                  "abbreviation": {
+                    "type": "string"
+                  },
+                  "notes": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "Finding"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "attributes": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "source": {
+                    "enum": [
+                      "endoscopy",
+                      "imaging",
+                      "lab",
+                      "pathology",
+                      "physical_exam",
+                      "surgical"
+                    ]
+                  },
+                  "polarity": {
+                    "enum": [
+                      "absent",
+                      "present"
+                    ]
+                  },
+                  "certainty": {
+                    "enum": [
+                      "confirmed",
+                      "probable",
+                      "suspected"
+                    ]
+                  },
+                  "size": {
+                    "type": "string"
+                  },
+                  "abbreviation": {
+                    "type": "string"
+                  },
+                  "notes": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "History"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "attributes": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "subject": {
+                    "enum": [
+                      "family",
+                      "patient"
+                    ]
+                  },
+                  "polarity": {
+                    "enum": [
+                      "absent",
+                      "present"
+                    ]
+                  },
+                  "relation_degree": {
+                    "enum": [
+                      "father",
+                      "mother",
+                      "sibling",
+                      "unspecified"
+                    ]
+                  },
+                  "category": {
+                    "enum": [
+                      "condition",
+                      "exposure",
+                      "medication",
+                      "surgery"
+                    ]
+                  },
+                  "abbreviation": {
+                    "type": "string"
+                  },
+                  "notes": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "Exam"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "attributes": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "modality": {
+                    "enum": [
+                      "endoscopy",
+                      "functional",
+                      "imaging",
+                      "laboratory",
+                      "pathology"
+                    ]
+                  },
+                  "timing": {
+                    "type": "string"
+                  },
+                  "abbreviation": {
+                    "type": "string"
+                  },
+                  "contrast": {
+                    "type": "boolean"
+                  },
+                  "notes": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "ExamResult"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "attributes": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "value": {
+                    "type": "number"
+                  },
+                  "unit": {
+                    "type": "string"
+                  },
+                  "reference_range_low": {
+                    "type": "number"
+                  },
+                  "reference_range_high": {
+                    "type": "number"
+                  },
+                  "reference_range_raw": {
+                    "type": "string"
+                  },
+                  "interpretation": {
+                    "enum": [
+                      "abnormal",
+                      "decreased",
+                      "elevated",
+                      "negative",
+                      "normal",
+                      "positive"
+                    ]
+                  },
+                  "interpretation_source": {
+                    "type": "string"
+                  },
+                  "raw_text": {
+                    "type": "string"
+                  },
+                  "abbreviation": {
+                    "type": "string"
+                  },
+                  "notes": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "Diagnosis"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "attributes": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "certainty": {
+                    "enum": [
+                      "confirmed",
+                      "excluded",
+                      "probable",
+                      "suspected"
+                    ]
+                  },
+                  "polarity": {
+                    "enum": [
+                      "absent",
+                      "present"
+                    ]
+                  },
+                  "role": {
+                    "enum": [
+                      "differential",
+                      "principal",
+                      "secondary"
+                    ]
+                  },
+                  "basis": {
+                    "type": "string"
+                  },
+                  "abbreviation": {
+                    "type": "string"
+                  },
+                  "notes": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "Medication"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "attributes": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "dose_value": {
+                    "type": "number"
+                  },
+                  "dose_unit": {
+                    "enum": [
+                      "IU",
+                      "g",
+                      "mL",
+                      "mcg",
+                      "mg",
+                      "units"
+                    ]
+                  },
+                  "frequency": {
+                    "type": "string"
+                  },
+                  "route": {
+                    "enum": [
+                      "inhaled",
+                      "intramuscular",
+                      "intravenous",
+                      "oral",
+                      "subcutaneous",
+                      "topical"
+                    ]
+                  },
+                  "duration": {
+                    "type": "string"
+                  },
+                  "dose_change": {
+                    "enum": [
+                      "discontinued",
+                      "increased",
+                      "initial",
+                      "maintained",
+                      "reduced"
+                    ]
+                  },
+                  "timing": {
+                    "type": "string"
+                  },
+                  "abbreviation": {
+                    "type": "string"
+                  },
+                  "notes": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "Treatment"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "attributes": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "type": {
+                    "enum": [
+                      "procedure",
+                      "radiotherapy",
+                      "supportive",
+                      "surgery",
+                      "transfusion"
+                    ]
+                  },
+                  "status": {
+                    "enum": [
+                      "converted",
+                      "performed",
+                      "planned",
+                      "refused"
+                    ]
+                  },
+                  "converted_to": {
+                    "type": "string"
+                  },
+                  "timing": {
+                    "type": "string"
+                  },
+                  "intent": {
+                    "enum": [
+                      "curative",
+                      "diagnostic",
+                      "palliative",
+                      "supportive"
+                    ]
+                  },
+                  "abbreviation": {
+                    "type": "string"
+                  },
+                  "notes": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "AnatomicalSite"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "attributes": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "laterality": {
+                    "enum": [
+                      "bilateral",
+                      "left",
+                      "right"
+                    ]
+                  },
+                  "region_qualifier": {
+                    "type": "string"
+                  },
+                  "abbreviation": {
+                    "type": "string"
+                  },
+                  "notes": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "Outcome"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "attributes": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "type": {
+                    "enum": [
+                      "complication",
+                      "death",
+                      "discharge",
+                      "improvement",
+                      "recurrence",
+                      "resolution"
+                    ]
+                  },
+                  "timing": {
+                    "type": "string"
+                  },
+                  "length_of_stay": {
+                    "type": "string"
+                  },
+                  "follow_up_duration": {
+                    "type": "string"
+                  },
+                  "polarity": {
+                    "enum": [
+                      "absent",
+                      "present"
+                    ]
+                  },
+                  "abbreviation": {
+                    "type": "string"
+                  },
+                  "notes": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "Concept"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "attributes": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "vocabulary": {
+                    "type": "string"
+                  },
+                  "code": {
+                    "type": "string"
+                  },
+                  "preferred_term": {
+                    "type": "string"
+                  },
+                  "abbreviation": {
+                    "type": "string"
+                  },
+                  "notes": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "edge": {
+      "type": "object",
+      "required": [
+        "id",
+        "source",
+        "target",
+        "relation",
+        "attributes",
+        "anchor"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target": {
+          "type": "string",
+          "minLength": 1
+        },
+        "relation": {
+          "enum": [
+            "HAS_SYMPTOM",
+            "HAS_HISTORY",
+            "HAS_FINDING",
+            "UNDERWENT_EXAM",
+            "HAS_RESULT",
+            "REVEALS",
+            "SUPPORTS",
+            "DIAGNOSED_WITH",
+            "TREATED_WITH",
+            "LOCATED_IN",
+            "HAS_OUTCOME",
+            "REVISES",
+            "SAME_AS"
+          ]
+        },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "trigger": {
+              "type": "string"
+            },
+            "certainty": {
+              "enum": [
+                "asserted",
+                "hedged"
+              ]
+            },
+            "score": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "method": {
+              "type": "string"
+            }
+          }
+        },
+        "anchor": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/anchor"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

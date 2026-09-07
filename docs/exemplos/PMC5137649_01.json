@@ -1,0 +1,1680 @@
+{
+  "format_version": "1.0",
+  "case": {
+    "case_id": "PMC5137649_01",
+    "article_id": "PMC5137649",
+    "case_text": "A 44-year-old woman presented with a 3-day history of right flank and lower quadrant abdominal pain associated with nausea and constipation. Her past medical, family and medication history were otherwise non-contributory and her physical examination was unremarkable. She underwent contrast enhanced computed tomography, demonstrating a 6cm cystic lesion between the stomach and body/tail of the pancreas (Fig 1). She subsequently underwent EUS-FNA, which revealed normal pancreatic echotexture and a cyst measuring 6cm × 9cm that was free of internal septations or associated masses (Fig 2) but compressed the stomach. FNA of the cyst demonstrated no evidence of malignancy but did show the presence of extracellular mucin as well as a carcinoembryonic antigen (CEA) level of 12,476.5ng/ml and a carbohydrate antigen (CA) 19-9 level of 6iu/ml, suggesting the diagnosis of a mucinous pancreatic cystic neoplasm. The patient was therefore referred for surgical resection.\n\nA laparoscopic distal pancreatectomy was planned. At the time of the laparoscopic exploration, entrance to the lesser sac was first obtained and, on mobilising the posterior wall of the stomach, the lesion was noted to be tightly adherent to both the stomach and pancreas. The pancreas was mobilised free of the cyst and it was evident that the lesion originated from the stomach. Intraoperative endoscopy was performed and no mucosal abnormalities of the stomach were noted.\n\nOn further mobilisation, the cyst was adherent to the coeliac axis and the procedure was converted to an open resection. The stomach was fully mobilised and the gastric duplication cyst was noted to be arising from the posterior wall. It was dissected off the coeliac vessels and an enbloc resection of the cyst along with a portion of the posterior wall of the stomach with a surgical stapler was performed. Repeat oesophagogastroduodenoscopy revealed the presence of an intact staple line on the posterior stomach wall and no evidence of bleeding or leak. The gross margins were uninvolved.\n\nFinal pathology revealed a 9.5cm × 4.5cm × 2.0cm cyst with a smooth internal cyst wall consistent with a GDC (Figs 3–5). The patient was discharged home on postoperative day 4, doing well and tolerating a regular diet without any complications. On follow-up, she had complete resolution of her pain and nausea, and a return to regular bowel function and activity."
+  },
+  "nodes": [
+    {
+      "id": "PMC5137649_01:P1",
+      "type": "Patient",
+      "label": "44-year-old woman",
+      "attributes": {
+        "age": 44,
+        "age_unit": "years",
+        "gender": "Female"
+      },
+      "anchor": {
+        "start": 0,
+        "end": 19,
+        "text": "A 44-year-old woman"
+      }
+    },
+    {
+      "id": "PMC5137649_01:S1",
+      "type": "Symptom",
+      "label": "abdominal pain",
+      "attributes": {
+        "polarity": "present",
+        "duration": "3 days"
+      },
+      "anchor": {
+        "start": 54,
+        "end": 99,
+        "text": "right flank and lower quadrant abdominal pain"
+      }
+    },
+    {
+      "id": "PMC5137649_01:S2",
+      "type": "Symptom",
+      "label": "nausea",
+      "attributes": {
+        "polarity": "present"
+      },
+      "anchor": {
+        "start": 116,
+        "end": 122,
+        "text": "nausea"
+      }
+    },
+    {
+      "id": "PMC5137649_01:S3",
+      "type": "Symptom",
+      "label": "constipation",
+      "attributes": {
+        "polarity": "present"
+      },
+      "anchor": {
+        "start": 127,
+        "end": 139,
+        "text": "constipation"
+      }
+    },
+    {
+      "id": "PMC5137649_01:H1",
+      "type": "History",
+      "label": "past medical history",
+      "attributes": {
+        "subject": "patient",
+        "polarity": "absent",
+        "category": "condition"
+      },
+      "anchor": {
+        "start": 141,
+        "end": 220,
+        "text": "Her past medical, family and medication history were otherwise non-contributory"
+      }
+    },
+    {
+      "id": "PMC5137649_01:H2",
+      "type": "History",
+      "label": "family history",
+      "attributes": {
+        "subject": "family",
+        "polarity": "absent",
+        "relation_degree": "unspecified",
+        "category": "condition"
+      },
+      "anchor": {
+        "start": 141,
+        "end": 220,
+        "text": "Her past medical, family and medication history were otherwise non-contributory"
+      }
+    },
+    {
+      "id": "PMC5137649_01:H3",
+      "type": "History",
+      "label": "medication history",
+      "attributes": {
+        "subject": "patient",
+        "polarity": "absent",
+        "category": "medication"
+      },
+      "anchor": {
+        "start": 141,
+        "end": 220,
+        "text": "Her past medical, family and medication history were otherwise non-contributory"
+      }
+    },
+    {
+      "id": "PMC5137649_01:F1",
+      "type": "Finding",
+      "label": "unremarkable physical examination",
+      "attributes": {
+        "source": "physical_exam",
+        "polarity": "present",
+        "certainty": "confirmed"
+      },
+      "anchor": {
+        "start": 225,
+        "end": 266,
+        "text": "her physical examination was unremarkable"
+      }
+    },
+    {
+      "id": "PMC5137649_01:E1",
+      "type": "Exam",
+      "label": "computed tomography",
+      "attributes": {
+        "modality": "imaging",
+        "contrast": true,
+        "timing": "initial"
+      },
+      "anchor": {
+        "start": 282,
+        "end": 319,
+        "text": "contrast enhanced computed tomography"
+      }
+    },
+    {
+      "id": "PMC5137649_01:F2",
+      "type": "Finding",
+      "label": "cystic lesion",
+      "attributes": {
+        "source": "imaging",
+        "polarity": "present",
+        "certainty": "confirmed",
+        "size": "6 cm"
+      },
+      "anchor": {
+        "start": 335,
+        "end": 354,
+        "text": "a 6cm cystic lesion"
+      }
+    },
+    {
+      "id": "PMC5137649_01:A1",
+      "type": "AnatomicalSite",
+      "label": "stomach",
+      "attributes": {},
+      "anchor": {
+        "start": 363,
+        "end": 374,
+        "text": "the stomach"
+      }
+    },
+    {
+      "id": "PMC5137649_01:A2",
+      "type": "AnatomicalSite",
+      "label": "pancreas",
+      "attributes": {
+        "region_qualifier": "body/tail"
+      },
+      "anchor": {
+        "start": 379,
+        "end": 404,
+        "text": "body/tail of the pancreas"
+      }
+    },
+    {
+      "id": "PMC5137649_01:A3",
+      "type": "AnatomicalSite",
+      "label": "flank",
+      "attributes": {
+        "laterality": "right"
+      },
+      "anchor": {
+        "start": 54,
+        "end": 65,
+        "text": "right flank"
+      }
+    },
+    {
+      "id": "PMC5137649_01:A4",
+      "type": "AnatomicalSite",
+      "label": "abdominal quadrant",
+      "attributes": {
+        "region_qualifier": "lower"
+      },
+      "anchor": {
+        "start": 70,
+        "end": 84,
+        "text": "lower quadrant"
+      }
+    },
+    {
+      "id": "PMC5137649_01:E2",
+      "type": "Exam",
+      "label": "endoscopic ultrasound-guided fine needle aspiration",
+      "attributes": {
+        "modality": "endoscopy",
+        "abbreviation": "EUS-FNA",
+        "timing": "follow-up"
+      },
+      "anchor": {
+        "start": 441,
+        "end": 448,
+        "text": "EUS-FNA"
+      }
+    },
+    {
+      "id": "PMC5137649_01:F3",
+      "type": "Finding",
+      "label": "normal pancreatic echotexture",
+      "attributes": {
+        "source": "imaging",
+        "polarity": "present"
+      },
+      "anchor": {
+        "start": 465,
+        "end": 494,
+        "text": "normal pancreatic echotexture"
+      }
+    },
+    {
+      "id": "PMC5137649_01:F4",
+      "type": "Finding",
+      "label": "cyst",
+      "attributes": {
+        "source": "imaging",
+        "polarity": "present",
+        "size": "6 cm × 9 cm"
+      },
+      "anchor": {
+        "start": 499,
+        "end": 525,
+        "text": "a cyst measuring 6cm × 9cm"
+      }
+    },
+    {
+      "id": "PMC5137649_01:F5",
+      "type": "Finding",
+      "label": "internal septations",
+      "attributes": {
+        "source": "imaging",
+        "polarity": "absent"
+      },
+      "anchor": {
+        "start": 535,
+        "end": 583,
+        "text": "free of internal septations or associated masses"
+      }
+    },
+    {
+      "id": "PMC5137649_01:F6",
+      "type": "Finding",
+      "label": "associated masses",
+      "attributes": {
+        "source": "imaging",
+        "polarity": "absent"
+      },
+      "anchor": {
+        "start": 535,
+        "end": 583,
+        "text": "free of internal septations or associated masses"
+      }
+    },
+    {
+      "id": "PMC5137649_01:F7",
+      "type": "Finding",
+      "label": "gastric compression",
+      "attributes": {
+        "source": "imaging",
+        "polarity": "present"
+      },
+      "anchor": {
+        "start": 596,
+        "end": 618,
+        "text": "compressed the stomach"
+      }
+    },
+    {
+      "id": "PMC5137649_01:E3",
+      "type": "Exam",
+      "label": "fine needle aspiration of the cyst",
+      "attributes": {
+        "modality": "pathology",
+        "abbreviation": "FNA"
+      },
+      "anchor": {
+        "start": 620,
+        "end": 635,
+        "text": "FNA of the cyst"
+      }
+    },
+    {
+      "id": "PMC5137649_01:F8",
+      "type": "Finding",
+      "label": "malignancy",
+      "attributes": {
+        "source": "pathology",
+        "polarity": "absent",
+        "certainty": "confirmed"
+      },
+      "anchor": {
+        "start": 649,
+        "end": 674,
+        "text": "no evidence of malignancy"
+      }
+    },
+    {
+      "id": "PMC5137649_01:F9",
+      "type": "Finding",
+      "label": "extracellular mucin",
+      "attributes": {
+        "source": "pathology",
+        "polarity": "present"
+      },
+      "anchor": {
+        "start": 688,
+        "end": 723,
+        "text": "the presence of extracellular mucin"
+      }
+    },
+    {
+      "id": "PMC5137649_01:E4",
+      "type": "Exam",
+      "label": "carcinoembryonic antigen",
+      "attributes": {
+        "modality": "laboratory",
+        "abbreviation": "CEA"
+      },
+      "anchor": {
+        "start": 737,
+        "end": 767,
+        "text": "carcinoembryonic antigen (CEA)"
+      }
+    },
+    {
+      "id": "PMC5137649_01:R1",
+      "type": "ExamResult",
+      "label": "12,476.5 ng/mL",
+      "attributes": {
+        "value": 12476.5,
+        "unit": "ng/mL",
+        "raw_text": "12,476.5ng/ml"
+      },
+      "anchor": {
+        "start": 777,
+        "end": 790,
+        "text": "12,476.5ng/ml"
+      }
+    },
+    {
+      "id": "PMC5137649_01:E5",
+      "type": "Exam",
+      "label": "carbohydrate antigen 19-9",
+      "attributes": {
+        "modality": "laboratory",
+        "abbreviation": "CA 19-9"
+      },
+      "anchor": {
+        "start": 797,
+        "end": 827,
+        "text": "carbohydrate antigen (CA) 19-9"
+      }
+    },
+    {
+      "id": "PMC5137649_01:R2",
+      "type": "ExamResult",
+      "label": "6 [IU]/mL",
+      "attributes": {
+        "value": 6,
+        "unit": "[IU]/mL",
+        "raw_text": "6iu/ml"
+      },
+      "anchor": {
+        "start": 837,
+        "end": 843,
+        "text": "6iu/ml"
+      }
+    },
+    {
+      "id": "PMC5137649_01:D1",
+      "type": "Diagnosis",
+      "label": "mucinous pancreatic cystic neoplasm",
+      "attributes": {
+        "certainty": "suspected",
+        "polarity": "present",
+        "role": "differential",
+        "basis": "extracellular mucin and CEA level"
+      },
+      "anchor": {
+        "start": 856,
+        "end": 910,
+        "text": "the diagnosis of a mucinous pancreatic cystic neoplasm"
+      }
+    },
+    {
+      "id": "PMC5137649_01:T1",
+      "type": "Treatment",
+      "label": "surgical resection",
+      "attributes": {
+        "type": "surgery",
+        "status": "planned",
+        "intent": "curative"
+      },
+      "anchor": {
+        "start": 938,
+        "end": 969,
+        "text": "referred for surgical resection"
+      }
+    },
+    {
+      "id": "PMC5137649_01:T2",
+      "type": "Treatment",
+      "label": "laparoscopic distal pancreatectomy",
+      "attributes": {
+        "type": "surgery",
+        "status": "converted",
+        "converted_to": "open resection",
+        "intent": "curative"
+      },
+      "anchor": {
+        "start": 972,
+        "end": 1020,
+        "text": "A laparoscopic distal pancreatectomy was planned"
+      }
+    },
+    {
+      "id": "PMC5137649_01:A5",
+      "type": "AnatomicalSite",
+      "label": "lesser sac",
+      "attributes": {},
+      "anchor": {
+        "start": 1079,
+        "end": 1093,
+        "text": "the lesser sac"
+      }
+    },
+    {
+      "id": "PMC5137649_01:A6",
+      "type": "AnatomicalSite",
+      "label": "stomach",
+      "attributes": {
+        "region_qualifier": "posterior wall"
+      },
+      "anchor": {
+        "start": 1132,
+        "end": 1165,
+        "text": "the posterior wall of the stomach"
+      }
+    },
+    {
+      "id": "PMC5137649_01:F10",
+      "type": "Finding",
+      "label": "lesion adherent to stomach and pancreas",
+      "attributes": {
+        "source": "surgical",
+        "polarity": "present"
+      },
+      "anchor": {
+        "start": 1167,
+        "end": 1243,
+        "text": "the lesion was noted to be tightly adherent to both the stomach and pancreas"
+      }
+    },
+    {
+      "id": "PMC5137649_01:F11",
+      "type": "Finding",
+      "label": "lesion originating from the stomach",
+      "attributes": {
+        "source": "surgical",
+        "polarity": "present"
+      },
+      "anchor": {
+        "start": 1313,
+        "end": 1351,
+        "text": "the lesion originated from the stomach"
+      }
+    },
+    {
+      "id": "PMC5137649_01:E6",
+      "type": "Exam",
+      "label": "intraoperative endoscopy",
+      "attributes": {
+        "modality": "endoscopy",
+        "timing": "intraoperative"
+      },
+      "anchor": {
+        "start": 1353,
+        "end": 1377,
+        "text": "Intraoperative endoscopy"
+      }
+    },
+    {
+      "id": "PMC5137649_01:F12",
+      "type": "Finding",
+      "label": "gastric mucosal abnormalities",
+      "attributes": {
+        "source": "endoscopy",
+        "polarity": "absent"
+      },
+      "anchor": {
+        "start": 1396,
+        "end": 1446,
+        "text": "no mucosal abnormalities of the stomach were noted"
+      }
+    },
+    {
+      "id": "PMC5137649_01:F13",
+      "type": "Finding",
+      "label": "cyst adherent to the coeliac axis",
+      "attributes": {
+        "source": "surgical",
+        "polarity": "present"
+      },
+      "anchor": {
+        "start": 1474,
+        "end": 1515,
+        "text": "the cyst was adherent to the coeliac axis"
+      }
+    },
+    {
+      "id": "PMC5137649_01:A7",
+      "type": "AnatomicalSite",
+      "label": "coeliac axis",
+      "attributes": {},
+      "anchor": {
+        "start": 1499,
+        "end": 1515,
+        "text": "the coeliac axis"
+      }
+    },
+    {
+      "id": "PMC5137649_01:F14",
+      "type": "Finding",
+      "label": "cyst arising from the posterior gastric wall",
+      "attributes": {
+        "source": "surgical",
+        "polarity": "present"
+      },
+      "anchor": {
+        "start": 1606,
+        "end": 1682,
+        "text": "the gastric duplication cyst was noted to be arising from the posterior wall"
+      }
+    },
+    {
+      "id": "PMC5137649_01:T3",
+      "type": "Treatment",
+      "label": "en bloc resection of the cyst with partial gastrectomy",
+      "attributes": {
+        "type": "surgery",
+        "status": "performed",
+        "intent": "curative"
+      },
+      "anchor": {
+        "start": 1729,
+        "end": 1856,
+        "text": "an enbloc resection of the cyst along with a portion of the posterior wall of the stomach with a surgical stapler was performed"
+      }
+    },
+    {
+      "id": "PMC5137649_01:E7",
+      "type": "Exam",
+      "label": "oesophagogastroduodenoscopy",
+      "attributes": {
+        "modality": "endoscopy",
+        "timing": "intraoperative"
+      },
+      "anchor": {
+        "start": 1858,
+        "end": 1892,
+        "text": "Repeat oesophagogastroduodenoscopy"
+      }
+    },
+    {
+      "id": "PMC5137649_01:F15",
+      "type": "Finding",
+      "label": "intact staple line",
+      "attributes": {
+        "source": "endoscopy",
+        "polarity": "present"
+      },
+      "anchor": {
+        "start": 1918,
+        "end": 1969,
+        "text": "an intact staple line on the posterior stomach wall"
+      }
+    },
+    {
+      "id": "PMC5137649_01:F16",
+      "type": "Finding",
+      "label": "bleeding",
+      "attributes": {
+        "source": "endoscopy",
+        "polarity": "absent"
+      },
+      "anchor": {
+        "start": 1974,
+        "end": 2005,
+        "text": "no evidence of bleeding or leak"
+      }
+    },
+    {
+      "id": "PMC5137649_01:F17",
+      "type": "Finding",
+      "label": "leak",
+      "attributes": {
+        "source": "endoscopy",
+        "polarity": "absent"
+      },
+      "anchor": {
+        "start": 1974,
+        "end": 2005,
+        "text": "no evidence of bleeding or leak"
+      }
+    },
+    {
+      "id": "PMC5137649_01:F18",
+      "type": "Finding",
+      "label": "uninvolved gross margins",
+      "attributes": {
+        "source": "pathology",
+        "polarity": "present"
+      },
+      "anchor": {
+        "start": 2007,
+        "end": 2040,
+        "text": "The gross margins were uninvolved"
+      }
+    },
+    {
+      "id": "PMC5137649_01:E8",
+      "type": "Exam",
+      "label": "final pathology",
+      "attributes": {
+        "modality": "pathology",
+        "timing": "postoperative"
+      },
+      "anchor": {
+        "start": 2043,
+        "end": 2058,
+        "text": "Final pathology"
+      }
+    },
+    {
+      "id": "PMC5137649_01:F19",
+      "type": "Finding",
+      "label": "cyst with smooth internal cyst wall",
+      "attributes": {
+        "source": "pathology",
+        "polarity": "present",
+        "size": "9.5 cm × 4.5 cm × 2.0 cm"
+      },
+      "anchor": {
+        "start": 2068,
+        "end": 2129,
+        "text": "a 9.5cm × 4.5cm × 2.0cm cyst with a smooth internal cyst wall"
+      }
+    },
+    {
+      "id": "PMC5137649_01:D2",
+      "type": "Diagnosis",
+      "label": "gastric duplication cyst",
+      "attributes": {
+        "certainty": "confirmed",
+        "polarity": "present",
+        "role": "principal",
+        "basis": "final pathology",
+        "abbreviation": "GDC"
+      },
+      "anchor": {
+        "start": 2130,
+        "end": 2151,
+        "text": "consistent with a GDC"
+      },
+      "mentions": [
+        {
+          "start": 1606,
+          "end": 1634,
+          "text": "the gastric duplication cyst"
+        },
+        {
+          "start": 2146,
+          "end": 2151,
+          "text": "a GDC"
+        }
+      ]
+    },
+    {
+      "id": "PMC5137649_01:O1",
+      "type": "Outcome",
+      "label": "discharged home",
+      "attributes": {
+        "type": "discharge",
+        "polarity": "present",
+        "timing": "postoperative day 4",
+        "length_of_stay": "4 days"
+      },
+      "anchor": {
+        "start": 2164,
+        "end": 2218,
+        "text": "The patient was discharged home on postoperative day 4"
+      }
+    },
+    {
+      "id": "PMC5137649_01:O2",
+      "type": "Outcome",
+      "label": "complications",
+      "attributes": {
+        "type": "complication",
+        "polarity": "absent"
+      },
+      "anchor": {
+        "start": 2261,
+        "end": 2286,
+        "text": "without any complications"
+      }
+    },
+    {
+      "id": "PMC5137649_01:O3",
+      "type": "Outcome",
+      "label": "resolution of pain and nausea",
+      "attributes": {
+        "type": "resolution",
+        "polarity": "present",
+        "timing": "follow-up"
+      },
+      "anchor": {
+        "start": 2310,
+        "end": 2352,
+        "text": "complete resolution of her pain and nausea"
+      }
+    },
+    {
+      "id": "PMC5137649_01:O4",
+      "type": "Outcome",
+      "label": "return to regular bowel function and activity",
+      "attributes": {
+        "type": "improvement",
+        "polarity": "present",
+        "timing": "follow-up"
+      },
+      "anchor": {
+        "start": 2358,
+        "end": 2405,
+        "text": "a return to regular bowel function and activity"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "PMC5137649_01:e01",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:S1",
+      "relation": "HAS_SYMPTOM",
+      "attributes": {
+        "trigger": "presented with",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 0,
+        "end": 99,
+        "text": "A 44-year-old woman presented with a 3-day history of right flank and lower quadrant abdominal pain"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e02",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:S2",
+      "relation": "HAS_SYMPTOM",
+      "attributes": {
+        "trigger": "associated with",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 85,
+        "end": 139,
+        "text": "abdominal pain associated with nausea and constipation"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e03",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:S3",
+      "relation": "HAS_SYMPTOM",
+      "attributes": {
+        "trigger": "associated with",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 85,
+        "end": 139,
+        "text": "abdominal pain associated with nausea and constipation"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e04",
+      "source": "PMC5137649_01:S1",
+      "target": "PMC5137649_01:A3",
+      "relation": "LOCATED_IN",
+      "attributes": {
+        "trigger": "premodificador anatomico",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 54,
+        "end": 99,
+        "text": "right flank and lower quadrant abdominal pain"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e05",
+      "source": "PMC5137649_01:S1",
+      "target": "PMC5137649_01:A4",
+      "relation": "LOCATED_IN",
+      "attributes": {
+        "trigger": "premodificador anatomico",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 54,
+        "end": 99,
+        "text": "right flank and lower quadrant abdominal pain"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e06",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:H1",
+      "relation": "HAS_HISTORY",
+      "attributes": {
+        "trigger": "history were otherwise non-contributory",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 141,
+        "end": 220,
+        "text": "Her past medical, family and medication history were otherwise non-contributory"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e07",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:H2",
+      "relation": "HAS_HISTORY",
+      "attributes": {
+        "trigger": "history were otherwise non-contributory",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 141,
+        "end": 220,
+        "text": "Her past medical, family and medication history were otherwise non-contributory"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e08",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:H3",
+      "relation": "HAS_HISTORY",
+      "attributes": {
+        "trigger": "history were otherwise non-contributory",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 141,
+        "end": 220,
+        "text": "Her past medical, family and medication history were otherwise non-contributory"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e09",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:F1",
+      "relation": "HAS_FINDING",
+      "attributes": {
+        "trigger": "physical examination",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 225,
+        "end": 266,
+        "text": "her physical examination was unremarkable"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e10",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:E1",
+      "relation": "UNDERWENT_EXAM",
+      "attributes": {
+        "trigger": "underwent",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 268,
+        "end": 319,
+        "text": "She underwent contrast enhanced computed tomography"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e11",
+      "source": "PMC5137649_01:E1",
+      "target": "PMC5137649_01:F2",
+      "relation": "REVEALS",
+      "attributes": {
+        "trigger": "demonstrating",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 282,
+        "end": 354,
+        "text": "contrast enhanced computed tomography, demonstrating a 6cm cystic lesion"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e12",
+      "source": "PMC5137649_01:F2",
+      "target": "PMC5137649_01:A1",
+      "relation": "LOCATED_IN",
+      "attributes": {
+        "trigger": "between",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 335,
+        "end": 404,
+        "text": "a 6cm cystic lesion between the stomach and body/tail of the pancreas"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e13",
+      "source": "PMC5137649_01:F2",
+      "target": "PMC5137649_01:A2",
+      "relation": "LOCATED_IN",
+      "attributes": {
+        "trigger": "between",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 335,
+        "end": 404,
+        "text": "a 6cm cystic lesion between the stomach and body/tail of the pancreas"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e14",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:E2",
+      "relation": "UNDERWENT_EXAM",
+      "attributes": {
+        "trigger": "underwent",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 414,
+        "end": 448,
+        "text": "She subsequently underwent EUS-FNA"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e15",
+      "source": "PMC5137649_01:E2",
+      "target": "PMC5137649_01:F3",
+      "relation": "REVEALS",
+      "attributes": {
+        "trigger": "revealed",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 450,
+        "end": 494,
+        "text": "which revealed normal pancreatic echotexture"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e16",
+      "source": "PMC5137649_01:E2",
+      "target": "PMC5137649_01:F4",
+      "relation": "REVEALS",
+      "attributes": {
+        "trigger": "revealed",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 456,
+        "end": 525,
+        "text": "revealed normal pancreatic echotexture and a cyst measuring 6cm × 9cm"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e17",
+      "source": "PMC5137649_01:E2",
+      "target": "PMC5137649_01:F5",
+      "relation": "REVEALS",
+      "attributes": {
+        "trigger": "free of",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 499,
+        "end": 583,
+        "text": "a cyst measuring 6cm × 9cm that was free of internal septations or associated masses"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e18",
+      "source": "PMC5137649_01:E2",
+      "target": "PMC5137649_01:F6",
+      "relation": "REVEALS",
+      "attributes": {
+        "trigger": "free of",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 499,
+        "end": 583,
+        "text": "a cyst measuring 6cm × 9cm that was free of internal septations or associated masses"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e19",
+      "source": "PMC5137649_01:E2",
+      "target": "PMC5137649_01:F7",
+      "relation": "REVEALS",
+      "attributes": {
+        "trigger": "but",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 584,
+        "end": 618,
+        "text": "(Fig 2) but compressed the stomach"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e20",
+      "source": "PMC5137649_01:F7",
+      "target": "PMC5137649_01:A1",
+      "relation": "LOCATED_IN",
+      "attributes": {
+        "trigger": "objeto direto",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 596,
+        "end": 618,
+        "text": "compressed the stomach"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e21",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:E3",
+      "relation": "UNDERWENT_EXAM",
+      "attributes": {
+        "trigger": "FNA of",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 620,
+        "end": 648,
+        "text": "FNA of the cyst demonstrated"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e22",
+      "source": "PMC5137649_01:E3",
+      "target": "PMC5137649_01:F8",
+      "relation": "REVEALS",
+      "attributes": {
+        "trigger": "demonstrated",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 620,
+        "end": 674,
+        "text": "FNA of the cyst demonstrated no evidence of malignancy"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e23",
+      "source": "PMC5137649_01:E3",
+      "target": "PMC5137649_01:F9",
+      "relation": "REVEALS",
+      "attributes": {
+        "trigger": "did show",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 679,
+        "end": 723,
+        "text": "did show the presence of extracellular mucin"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e24",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:E4",
+      "relation": "UNDERWENT_EXAM",
+      "attributes": {
+        "trigger": "as well as a",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 724,
+        "end": 790,
+        "text": "as well as a carcinoembryonic antigen (CEA) level of 12,476.5ng/ml"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e25",
+      "source": "PMC5137649_01:E4",
+      "target": "PMC5137649_01:R1",
+      "relation": "HAS_RESULT",
+      "attributes": {
+        "trigger": "level of",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 737,
+        "end": 790,
+        "text": "carcinoembryonic antigen (CEA) level of 12,476.5ng/ml"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e26",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:E5",
+      "relation": "UNDERWENT_EXAM",
+      "attributes": {
+        "trigger": "and a",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 791,
+        "end": 843,
+        "text": "and a carbohydrate antigen (CA) 19-9 level of 6iu/ml"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e27",
+      "source": "PMC5137649_01:E5",
+      "target": "PMC5137649_01:R2",
+      "relation": "HAS_RESULT",
+      "attributes": {
+        "trigger": "level of",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 797,
+        "end": 843,
+        "text": "carbohydrate antigen (CA) 19-9 level of 6iu/ml"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e28",
+      "source": "PMC5137649_01:F9",
+      "target": "PMC5137649_01:D1",
+      "relation": "SUPPORTS",
+      "attributes": {
+        "trigger": "suggesting",
+        "certainty": "hedged"
+      },
+      "anchor": {
+        "start": 688,
+        "end": 910,
+        "text": "the presence of extracellular mucin as well as a carcinoembryonic antigen (CEA) level of 12,476.5ng/ml and a carbohydrate antigen (CA) 19-9 level of 6iu/ml, suggesting the diagnosis of a mucinous pancreatic cystic neoplasm"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e29",
+      "source": "PMC5137649_01:R1",
+      "target": "PMC5137649_01:D1",
+      "relation": "SUPPORTS",
+      "attributes": {
+        "trigger": "suggesting",
+        "certainty": "hedged"
+      },
+      "anchor": {
+        "start": 688,
+        "end": 910,
+        "text": "the presence of extracellular mucin as well as a carcinoembryonic antigen (CEA) level of 12,476.5ng/ml and a carbohydrate antigen (CA) 19-9 level of 6iu/ml, suggesting the diagnosis of a mucinous pancreatic cystic neoplasm"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e30",
+      "source": "PMC5137649_01:R2",
+      "target": "PMC5137649_01:D1",
+      "relation": "SUPPORTS",
+      "attributes": {
+        "trigger": "suggesting",
+        "certainty": "hedged"
+      },
+      "anchor": {
+        "start": 688,
+        "end": 910,
+        "text": "the presence of extracellular mucin as well as a carcinoembryonic antigen (CEA) level of 12,476.5ng/ml and a carbohydrate antigen (CA) 19-9 level of 6iu/ml, suggesting the diagnosis of a mucinous pancreatic cystic neoplasm"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e31",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:D1",
+      "relation": "DIAGNOSED_WITH",
+      "attributes": {
+        "trigger": "suggesting the diagnosis of",
+        "certainty": "hedged"
+      },
+      "anchor": {
+        "start": 845,
+        "end": 910,
+        "text": "suggesting the diagnosis of a mucinous pancreatic cystic neoplasm"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e32",
+      "source": "PMC5137649_01:D1",
+      "target": "PMC5137649_01:T1",
+      "relation": "TREATED_WITH",
+      "attributes": {
+        "trigger": "therefore referred for",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 912,
+        "end": 969,
+        "text": "The patient was therefore referred for surgical resection"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e33",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:T2",
+      "relation": "TREATED_WITH",
+      "attributes": {
+        "trigger": "was planned",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 972,
+        "end": 1020,
+        "text": "A laparoscopic distal pancreatectomy was planned"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e34",
+      "source": "PMC5137649_01:T2",
+      "target": "PMC5137649_01:A5",
+      "relation": "LOCATED_IN",
+      "attributes": {
+        "trigger": "entrance to",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 1067,
+        "end": 1112,
+        "text": "entrance to the lesser sac was first obtained"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e35",
+      "source": "PMC5137649_01:T2",
+      "target": "PMC5137649_01:F10",
+      "relation": "REVEALS",
+      "attributes": {
+        "trigger": "was noted to be",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 1167,
+        "end": 1243,
+        "text": "the lesion was noted to be tightly adherent to both the stomach and pancreas"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e36",
+      "source": "PMC5137649_01:T2",
+      "target": "PMC5137649_01:F11",
+      "relation": "REVEALS",
+      "attributes": {
+        "trigger": "it was evident that",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 1293,
+        "end": 1351,
+        "text": "it was evident that the lesion originated from the stomach"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e37",
+      "source": "PMC5137649_01:F11",
+      "target": "PMC5137649_01:A1",
+      "relation": "LOCATED_IN",
+      "attributes": {
+        "trigger": "originated from",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 1313,
+        "end": 1351,
+        "text": "the lesion originated from the stomach"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e38",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:E6",
+      "relation": "UNDERWENT_EXAM",
+      "attributes": {
+        "trigger": "was performed",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 1353,
+        "end": 1391,
+        "text": "Intraoperative endoscopy was performed"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e39",
+      "source": "PMC5137649_01:E6",
+      "target": "PMC5137649_01:F12",
+      "relation": "REVEALS",
+      "attributes": {
+        "trigger": "were noted",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 1396,
+        "end": 1446,
+        "text": "no mucosal abnormalities of the stomach were noted"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e40",
+      "source": "PMC5137649_01:F12",
+      "target": "PMC5137649_01:A1",
+      "relation": "LOCATED_IN",
+      "attributes": {
+        "trigger": "of the",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 1399,
+        "end": 1435,
+        "text": "mucosal abnormalities of the stomach"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e41",
+      "source": "PMC5137649_01:T2",
+      "target": "PMC5137649_01:F13",
+      "relation": "REVEALS",
+      "attributes": {
+        "trigger": "was adherent to",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 1474,
+        "end": 1515,
+        "text": "the cyst was adherent to the coeliac axis"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e42",
+      "source": "PMC5137649_01:F13",
+      "target": "PMC5137649_01:A7",
+      "relation": "LOCATED_IN",
+      "attributes": {
+        "trigger": "adherent to",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 1474,
+        "end": 1515,
+        "text": "the cyst was adherent to the coeliac axis"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e43",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:T3",
+      "relation": "TREATED_WITH",
+      "attributes": {
+        "trigger": "was performed",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 1729,
+        "end": 1856,
+        "text": "an enbloc resection of the cyst along with a portion of the posterior wall of the stomach with a surgical stapler was performed"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e44",
+      "source": "PMC5137649_01:T3",
+      "target": "PMC5137649_01:A6",
+      "relation": "LOCATED_IN",
+      "attributes": {
+        "trigger": "a portion of",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 1772,
+        "end": 1818,
+        "text": "a portion of the posterior wall of the stomach"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e45",
+      "source": "PMC5137649_01:T3",
+      "target": "PMC5137649_01:F14",
+      "relation": "REVEALS",
+      "attributes": {
+        "trigger": "was noted to be",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 1606,
+        "end": 1682,
+        "text": "the gastric duplication cyst was noted to be arising from the posterior wall"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e46",
+      "source": "PMC5137649_01:F14",
+      "target": "PMC5137649_01:A6",
+      "relation": "LOCATED_IN",
+      "attributes": {
+        "trigger": "arising from",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 1651,
+        "end": 1682,
+        "text": "arising from the posterior wall"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e47",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:E7",
+      "relation": "UNDERWENT_EXAM",
+      "attributes": {
+        "trigger": "Repeat",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 1858,
+        "end": 1901,
+        "text": "Repeat oesophagogastroduodenoscopy revealed"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e48",
+      "source": "PMC5137649_01:E7",
+      "target": "PMC5137649_01:F15",
+      "relation": "REVEALS",
+      "attributes": {
+        "trigger": "revealed",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 1893,
+        "end": 1969,
+        "text": "revealed the presence of an intact staple line on the posterior stomach wall"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e49",
+      "source": "PMC5137649_01:E7",
+      "target": "PMC5137649_01:F16",
+      "relation": "REVEALS",
+      "attributes": {
+        "trigger": "and no evidence of",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 1918,
+        "end": 2005,
+        "text": "an intact staple line on the posterior stomach wall and no evidence of bleeding or leak"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e50",
+      "source": "PMC5137649_01:E7",
+      "target": "PMC5137649_01:F17",
+      "relation": "REVEALS",
+      "attributes": {
+        "trigger": "and no evidence of",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 1918,
+        "end": 2005,
+        "text": "an intact staple line on the posterior stomach wall and no evidence of bleeding or leak"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e51",
+      "source": "PMC5137649_01:F15",
+      "target": "PMC5137649_01:A6",
+      "relation": "LOCATED_IN",
+      "attributes": {
+        "trigger": "on the",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 1918,
+        "end": 1969,
+        "text": "an intact staple line on the posterior stomach wall"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e52",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:F18",
+      "relation": "HAS_FINDING",
+      "attributes": {
+        "trigger": "were uninvolved",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 2007,
+        "end": 2040,
+        "text": "The gross margins were uninvolved"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e53",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:E8",
+      "relation": "UNDERWENT_EXAM",
+      "attributes": {
+        "trigger": "revealed",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 2043,
+        "end": 2067,
+        "text": "Final pathology revealed"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e54",
+      "source": "PMC5137649_01:E8",
+      "target": "PMC5137649_01:F19",
+      "relation": "REVEALS",
+      "attributes": {
+        "trigger": "revealed",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 2043,
+        "end": 2129,
+        "text": "Final pathology revealed a 9.5cm × 4.5cm × 2.0cm cyst with a smooth internal cyst wall"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e55",
+      "source": "PMC5137649_01:F19",
+      "target": "PMC5137649_01:D2",
+      "relation": "SUPPORTS",
+      "attributes": {
+        "trigger": "consistent with",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 2102,
+        "end": 2151,
+        "text": "a smooth internal cyst wall consistent with a GDC"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e56",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:D2",
+      "relation": "DIAGNOSED_WITH",
+      "attributes": {
+        "trigger": "consistent with",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 2043,
+        "end": 2151,
+        "text": "Final pathology revealed a 9.5cm × 4.5cm × 2.0cm cyst with a smooth internal cyst wall consistent with a GDC"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e57",
+      "source": "PMC5137649_01:D2",
+      "target": "PMC5137649_01:D1",
+      "relation": "REVISES",
+      "attributes": {
+        "trigger": "Final pathology revealed",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 2043,
+        "end": 2151,
+        "text": "Final pathology revealed a 9.5cm × 4.5cm × 2.0cm cyst with a smooth internal cyst wall consistent with a GDC"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e58",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:O1",
+      "relation": "HAS_OUTCOME",
+      "attributes": {
+        "trigger": "was discharged home on",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 2164,
+        "end": 2218,
+        "text": "The patient was discharged home on postoperative day 4"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e59",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:O2",
+      "relation": "HAS_OUTCOME",
+      "attributes": {
+        "trigger": "without any",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 2235,
+        "end": 2286,
+        "text": "tolerating a regular diet without any complications"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e60",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:O3",
+      "relation": "HAS_OUTCOME",
+      "attributes": {
+        "trigger": "she had",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 2302,
+        "end": 2352,
+        "text": "she had complete resolution of her pain and nausea"
+      }
+    },
+    {
+      "id": "PMC5137649_01:e61",
+      "source": "PMC5137649_01:P1",
+      "target": "PMC5137649_01:O4",
+      "relation": "HAS_OUTCOME",
+      "attributes": {
+        "trigger": "she had",
+        "certainty": "asserted"
+      },
+      "anchor": {
+        "start": 2302,
+        "end": 2405,
+        "text": "she had complete resolution of her pain and nausea, and a return to regular bowel function and activity"
+      }
+    }
+  ]
+}
