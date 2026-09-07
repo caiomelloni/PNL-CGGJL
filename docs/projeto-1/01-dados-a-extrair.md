@@ -76,7 +76,7 @@
 | Atributo | Descrição | Valores possíveis |
 |---|---|---|
 | `label` | Forma normalizada do achado | Texto normalizado — `cystic lesion`, `epigastric tenderness` |
-| `source` | Que tipo de avaliação produziu o achado | `physical_exam` \| `imaging` \| `pathology` \| `lab` |
+| `source` | Que tipo de avaliação produziu o achado | `physical_exam` \| `imaging` \| `pathology` \| `lab` \| `endoscopy` \| `surgical` |
 | `polarity` | Se foi observado ou explicitamente excluído | `present` \| `absent` |
 | `certainty` | Grau de asserção do texto | `confirmed` \| `probable` \| `suspected` |
 | `size` | Dimensão medida, uma ou mais | Número + unidade — `6 cm`; multidimensional `9.5 x 4.5 x 2.0 cm` |
@@ -243,9 +243,9 @@
 | `HAS_HISTORY` | Patient → History |
 | `UNDERWENT_EXAM` | Patient → Exam |
 | `HAS_RESULT` | Exam → ExamResult |
-| `REVEALS` | Exam → Finding |
+| `REVEALS` | Exam \| Treatment → Finding |
 | `HAS_FINDING` | Patient → Finding |
-| `SUPPORTS` | Symptom \| Finding \| ExamResult → Diagnosis |
+| `SUPPORTS` | Symptom \| Finding \| ExamResult \| History → Diagnosis |
 | `DIAGNOSED_WITH` | Patient → Diagnosis |
 | `TREATED_WITH` | Patient \| Diagnosis → Treatment \| Medication |
 | `LOCATED_IN` | Symptom \| Finding \| Treatment → AnatomicalSite |
@@ -263,7 +263,7 @@ Valem para as 12 relações; nenhuma aresta tem atributo próprio.
 | `certainty` | Se a relação é afirmada ou apenas sugerida pelo texto | `asserted` \| `hedged` |
 | `char_start` / `char_end` | Offsets do trecho no `case_text`, para auditoria | Inteiros ≥ 0 |
 
-> O formato da ancoragem (trecho, offsets, ou ambos) é decisão da issue [#2](https://github.com/caiomelloni/PNL-CGGJL/issues/2). Aqui registramos que **alguma** ancoragem é necessária: sem ela não há como auditar nem avaliar a extração depois.
+> Guardamos **trecho e offsets**: sem alguma ancoragem não há como auditar nem avaliar a extração depois. Ver o esquema do grafo em [02](02-esquema-grafo.md).
 
 ### 2.2 Cada aresta
 
@@ -283,15 +283,15 @@ Registra que a investigação foi feita — inclusive quando não produz achado,
 Prende o valor ao exame que o produziu. Sem ela, `12,476.5 ng/ml` é um número sem referente.
 *PMC5137649_01:* *"a carcinoembryonic antigen (CEA) **level of** 12,476.5ng/ml"*
 
-**`REVEALS` · Exam → Finding**
-Registra a **procedência** do achado. O mesmo achado visto por dois exames tem peso diferente de um achado visto por um só.
+**`REVEALS` · Exam | Treatment → Finding**
+Registra a **procedência** do achado. A cirurgia entra como origem porque produz achado intraoperatório tanto quanto um exame. O mesmo achado visto por dois exames tem peso diferente de um achado visto por um só.
 *PMC5137649_01:* *"contrast enhanced computed tomography, **demonstrating** a 6cm cystic lesion"*
 
 **`HAS_FINDING` · Patient → Finding**
 Para achado de exame físico, que não vem de um `Exam` nomeado e por isso liga direto ao paciente.
 *PMC3437073_01:* *"**On examination**, a lobulated subcutaneous mass measuring about 7 cm in diameter"*
 
-**`SUPPORTS` · Symptom | Finding | ExamResult → Diagnosis**
+**`SUPPORTS` · Symptom | Finding | ExamResult | History → Diagnosis**
 É a aresta que torna o grafo um grafo de **raciocínio** e não só de fatos: mostra qual evidência sustenta qual conclusão. Só criada com marca textual explícita (`suggesting`, `after having`, `based on`, `consistent with`).
 *PMC11259348_01:* *"was diagnosed with PCH **after having** positive Donath-Landsteiner test"*
 
