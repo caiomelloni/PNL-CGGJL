@@ -3,7 +3,187 @@
 > Entregável da [issue #2](https://github.com/caiomelloni/PNL-CGGJL/issues/2) — Projeto 1 (MC896, 2026).
 > A issue [#1](https://github.com/caiomelloni/PNL-CGGJL/issues/1) definiu **o que** extrair ([`01-dados-a-extrair.md`](01-dados-a-extrair.md)). Este documento define **como representar** o que foi extraído: o esquema das duas tabelas, o nível de decomposição do grafo, as convenções de identificador e a ancoragem no texto. **Como extrair** é assunto das issues [#3](https://github.com/caiomelloni/PNL-CGGJL/issues/3)–[#6](https://github.com/caiomelloni/PNL-CGGJL/issues/6).
 
-O esquema abaixo é aplicado à mão a um caso real da amostra na [§9](#9-exemplo-aplicado--pmc5137649_01), que serve tanto de referência para a implementação quanto de teste do próprio esquema — a [§8](#8-ajustes-ao-doc-01-revelados-pela-aplicação) registra as três lacunas que essa aplicação revelou.
+O [modelo lógico](#modelo-lógico) logo abaixo é a visão gráfica do que as seções seguintes especificam em texto. O esquema é aplicado à mão a um caso real da amostra na [§9](#9-exemplo-aplicado--pmc5137649_01), que serve tanto de referência para a implementação quanto de teste do próprio esquema — a [§8](#8-ajustes-ao-doc-01-revelados-pela-aplicação) registra as três lacunas que essa aplicação revelou.
+
+---
+
+## Modelo lógico
+
+Visão gráfica do esquema definido neste documento e no [01](01-dados-a-extrair.md). **Como ler:** cada elipse é um *tipo de nó*, cada seta rotulada é um *tipo de aresta* com sua direção origem→destino, e cada caixa tracejada lista as *propriedades* daquele tipo, com o tipo de dado de cada uma. As faixas cinzas do primeiro diagrama são só um agrupamento de leitura — seguem o arco da narrativa clínica, da anamnese ao desfecho — e não fazem parte do esquema.
+
+`enum` marca propriedade de vocabulário fechado, cujos valores admissíveis estão nas tabelas do [01 §1](01-dados-a-extrair.md#1-entidades). Toda propriedade aceita ausência, exceto `label` e as chaves de `Patient`.
+
+> Os diagramas são o modelo **lógico**: mostram cada tipo com todas as suas propriedades, como no doc 01. No esquema **físico** da [§2](#2-esquema-das-colunas), `label`, `case_id` e a ancoragem viram colunas das duas tabelas, e por isso não aparecem entre as chaves de `attributes` listadas na [§4](#4-tipos-de-nó). `label` é obrigatório em todo nó, inclusive em `ExamResult`, onde é a forma legível do valor com a unidade (`12,476.5 ng/mL`).
+
+### Tipos de nó e relações
+
+```mermaid
+flowchart LR
+    Patient(["Patient"])
+
+    subgraph anamnese ["anamnese"]
+        direction TB
+        History(["History"])
+        Symptom(["Symptom"])
+    end
+
+    subgraph investigacao ["investigação"]
+        direction TB
+        Exam(["Exam"])
+        ExamResult(["ExamResult"])
+        Finding(["Finding"])
+    end
+
+    Diagnosis(["Diagnosis"])
+
+    subgraph conduta ["conduta"]
+        direction TB
+        Treatment(["Treatment"])
+        Medication(["Medication"])
+    end
+
+    Outcome(["Outcome"])
+
+    Site(["AnatomicalSite"])
+
+    Patient -- "HAS_HISTORY" --> History
+    Patient -- "HAS_SYMPTOM" --> Symptom
+    Patient -- "UNDERWENT_EXAM" --> Exam
+    Patient -- "HAS_FINDING" --> Finding
+    Patient -- "DIAGNOSED_WITH" --> Diagnosis
+    Patient -- "TREATED_WITH" --> Treatment
+    Patient -- "TREATED_WITH" --> Medication
+    Patient -- "HAS_OUTCOME" --> Outcome
+
+    Exam -- "HAS_RESULT" --> ExamResult
+    Exam -- "REVEALS" --> Finding
+    Treatment -- "REVEALS" --> Finding
+
+    History -- "SUPPORTS" --> Diagnosis
+    Symptom -- "SUPPORTS" --> Diagnosis
+    Finding -- "SUPPORTS" --> Diagnosis
+    ExamResult -- "SUPPORTS" --> Diagnosis
+
+    Diagnosis -- "TREATED_WITH" --> Treatment
+    Diagnosis -- "TREATED_WITH" --> Medication
+    Diagnosis -- "REVISES" --> Diagnosis
+
+    Symptom -- "LOCATED_IN" --> Site
+    Finding -- "LOCATED_IN" --> Site
+    Treatment -- "LOCATED_IN" --> Site
+
+    classDef lane fill:#fafafa,stroke:#d0d0d6,color:#666
+    class anamnese,investigacao,conduta lane
+```
+
+### Propriedades das arestas
+
+As cinco propriedades abaixo valem para **todas** as relações; nenhuma aresta tem propriedade própria. `evidence_text` e os dois offsets são a ancoragem no texto discutida na [§7](#7-ancoragem-no-texto) — no esquema físico eles são colunas, não chaves de `attributes`.
+
+```mermaid
+flowchart LR
+    src(["tipo do nó de origem"])
+    tgt(["tipo do nó de destino"])
+    src -- "RELATION" --> tgt
+    ae["evidence_text: string<br>trigger: string<br>certainty: enum<br>char_start: integer<br>char_end: integer"]
+    src -.- ae
+    ae -.- tgt
+
+    classDef props fill:#fbfbfd,stroke:#b0b0b8,stroke-dasharray:4 3,text-align:left
+    class ae props
+```
+
+### Propriedades dos tipos de nó
+
+**Paciente e anamnese**
+
+```mermaid
+%%{init: {"flowchart": {"wrappingWidth": 320}}}%%
+flowchart TB
+    Patient(["Patient"])
+    aPatient["case_id: string<br>article_id: string<br>age: decimal<br>age_unit: enum<br>gender: enum"]
+    Patient -.- aPatient
+    Symptom(["Symptom"])
+    aSymptom["label: string<br>polarity: enum<br>duration: string<br>onset: string<br>course: enum<br>severity: enum"]
+    Symptom -.- aSymptom
+    History(["History"])
+    aHistory["label: string<br>subject: enum<br>polarity: enum<br>relation_degree: enum<br>category: enum"]
+    History -.- aHistory
+
+    classDef props fill:#fbfbfd,stroke:#b0b0b8,stroke-dasharray:4 3,text-align:left
+    class aPatient,aSymptom,aHistory props
+```
+
+**Investigação**
+
+```mermaid
+%%{init: {"flowchart": {"wrappingWidth": 320}}}%%
+flowchart TB
+    Exam(["Exam"])
+    aExam["label: string<br>modality: enum<br>timing: string<br>abbreviation: string<br>contrast: boolean"]
+    Exam -.- aExam
+    ExamResult(["ExamResult"])
+    aExamResult["value: decimal | enum<br>unit: enum<br>reference_range_low: decimal<br>reference_range_high: decimal<br>reference_range_raw: string<br>interpretation: enum<br>interpretation_source: enum<br>raw_text: string"]
+    ExamResult -.- aExamResult
+    Finding(["Finding"])
+    aFinding["label: string<br>source: enum<br>polarity: enum<br>certainty: enum<br>size: string"]
+    Finding -.- aFinding
+
+    classDef props fill:#fbfbfd,stroke:#b0b0b8,stroke-dasharray:4 3,text-align:left
+    class aExam,aExamResult,aFinding props
+```
+
+**Conclusão e conduta**
+
+```mermaid
+%%{init: {"flowchart": {"wrappingWidth": 320}}}%%
+flowchart TB
+    Diagnosis(["Diagnosis"])
+    aDiagnosis["label: string<br>certainty: enum<br>polarity: enum<br>role: enum<br>basis: string"]
+    Diagnosis -.- aDiagnosis
+    Treatment(["Treatment"])
+    aTreatment["label: string<br>type: enum<br>status: enum<br>converted_to: string<br>timing: string<br>intent: enum"]
+    Treatment -.- aTreatment
+    Medication(["Medication"])
+    aMedication["label: string<br>dose_value: decimal<br>dose_unit: enum<br>frequency: string<br>route: enum<br>duration: string<br>dose_change: enum<br>timing: string"]
+    Medication -.- aMedication
+
+    classDef props fill:#fbfbfd,stroke:#b0b0b8,stroke-dasharray:4 3,text-align:left
+    class aDiagnosis,aTreatment,aMedication props
+```
+
+**Desfecho e eixo anatômico**
+
+```mermaid
+%%{init: {"flowchart": {"wrappingWidth": 320}}}%%
+flowchart TB
+    Outcome(["Outcome"])
+    aOutcome["label: string<br>type: enum<br>timing: string<br>length_of_stay: string<br>follow_up_duration: string<br>polarity: enum"]
+    Outcome -.- aOutcome
+    AnatomicalSite(["AnatomicalSite"])
+    aAnatomicalSite["label: string<br>laterality: enum<br>region_qualifier: string"]
+    AnatomicalSite -.- aAnatomicalSite
+
+    classDef props fill:#fbfbfd,stroke:#b0b0b8,stroke-dasharray:4 3,text-align:left
+    class aOutcome,aAnatomicalSite props
+```
+
+### Extensão prevista: vocabulários controlados
+
+Ainda **não instanciada** — o esquema reserva o tipo e a relação, mas quais vocabulários usar é decisão da [#6](https://github.com/caiomelloni/PNL-CGGJL/issues/6), e até lá as tabelas saem sem nenhuma linha `Concept`. `Concept` é o único tipo global: não pertence a um caso e não tem ancoragem no texto. Ver [§5.3](#53-same_as-e-o-tipo-concept).
+
+```mermaid
+%%{init: {"flowchart": {"wrappingWidth": 320}}}%%
+flowchart LR
+    Any(["Symptom | Finding | Exam | Diagnosis<br>Medication | Treatment | AnatomicalSite"])
+    Concept(["Concept"])
+    Any -- "SAME_AS" --> Concept
+    aConcept["vocabulary: string<br>code: string<br>preferred_term: string"]
+    Concept -.- aConcept
+
+    classDef props fill:#fbfbfd,stroke:#b0b0b8,stroke-dasharray:4 3,text-align:left
+    class aConcept props
+```
 
 ---
 
