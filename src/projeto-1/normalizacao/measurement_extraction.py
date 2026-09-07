@@ -5,7 +5,9 @@ from dataclasses import dataclass
 
 from units import (
     Measurement,
+    ReferenceRange,
     parse_measurement,
+    parse_reference_range,
     supported_unit_variants,
 )
 
@@ -51,6 +53,46 @@ _MEASUREMENT_IN_TEXT = re.compile(
     re.VERBOSE | re.IGNORECASE,
 )
 
+_RANGE_PREFIX_SOURCE = (
+    r"(?:normal\s+range|reference\s+range)\s*[:,]?\s*"
+)
+
+_CLOSED_RANGE_IN_TEXT = re.compile(
+    rf"""
+    (?<![\w.,])
+    (?P<reference_range>
+        (?:{_RANGE_PREFIX_SOURCE})?
+        {_NUMBER_SOURCE}
+        \s*%?
+        \s*(?:-|–|—|\bto\b)\s*
+        {_NUMBER_SOURCE}
+        \s*(?:{_UNIT_SOURCE})?
+    )
+    (?![A-Za-z0-9])
+    """,
+    re.VERBOSE | re.IGNORECASE,
+)
+
+_OPEN_RANGE_IN_TEXT = re.compile(
+    rf"""
+    (?<![\w.,])
+    (?P<reference_range>
+        (?:{_RANGE_PREFIX_SOURCE})?
+        (?:<=|>=|<|>)
+        \s*
+        {_NUMBER_SOURCE}
+        \s*(?:{_UNIT_SOURCE})?
+    )
+    (?![A-Za-z0-9])
+    """,
+    re.VERBOSE | re.IGNORECASE,
+)
+
+_EXPLICIT_RANGE_PREFIX = re.compile(
+    rf"^\s*{_RANGE_PREFIX_SOURCE}",
+    re.IGNORECASE,
+)
+
 _RANGE_BEFORE = re.compile(
     rf"""
     {_NUMBER_SOURCE}
@@ -86,6 +128,14 @@ class ExtractedMeasurement:
     """Medição localizada no texto original."""
 
     measurement: Measurement
+    char_start: int
+    char_end: int
+
+@dataclass(frozen=True)
+class ExtractedReferenceRange:
+    """Faixa de referência localizada no texto original."""
+
+    reference_range: ReferenceRange
     char_start: int
     char_end: int
 
@@ -138,3 +188,46 @@ def find_measurements(text: str) -> list[ExtractedMeasurement]:
         )
 
     return extracted
+
+def find_reference_ranges(
+    text: str,
+) -> list[ExtractedReferenceRange]:
+    """Localiza faixas de referência explícitas no texto."""
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+
+    extracted: list[ExtractedReferenceRange] = []
+
+    patterns = (
+        _CLOSED_RANGE_IN_TEXT,
+        _OPEN_RANGE_IN_TEXT,
+    )
+
+    for pattern in patterns:
+        for match in pattern.finditer(text):
+            raw_text = match.group("reference_range")
+            reference_range = parse_reference_range(raw_text)
+
+            # Uma faixa sem unidade, como "10-20", é ambígua e pode ser
+            # idade, data ou duração. Só a aceitamos quando o texto declara
+            # que se trata de uma faixa de referência.
+            if (
+                reference_range.unit is None
+                and _EXPLICIT_RANGE_PREFIX.match(raw_text) is None
+            ):
+                continue
+
+            start, end = match.span("reference_range")
+
+            extracted.append(
+                ExtractedReferenceRange(
+                    reference_range=reference_range,
+                    char_start=start,
+                    char_end=end,
+                )
+            )
+
+    return sorted(
+        extracted,
+        key=lambda result: result.char_start,
+    )

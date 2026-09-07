@@ -10,7 +10,10 @@ PROJECT_ROOT = Path(__file__).resolve().parents[3]
 MODULE_DIR = PROJECT_ROOT / "src" / "projeto-1" / "normalizacao"
 sys.path.insert(0, str(MODULE_DIR))
 
-from measurement_extraction import find_measurements  # noqa: E402
+from measurement_extraction import (  # noqa: E402
+    find_measurements,
+    find_reference_ranges,
+)
 
 
 class FindMeasurementsTests(unittest.TestCase):
@@ -108,6 +111,93 @@ class FindMeasurementsTests(unittest.TestCase):
         with self.assertRaises(TypeError):
             find_measurements(None)
 
+class FindReferenceRangesTests(unittest.TestCase):
+    def test_finds_closed_reference_range(self):
+        text = (
+            "Troponin was 0.016 ng/mL "
+            "(normal range, 0-0.04 ng/mL)."
+        )
+
+        results = find_reference_ranges(text)
+
+        self.assertEqual(len(results), 1)
+        self.assertEqual(
+            results[0].reference_range.low,
+            Decimal("0"),
+        )
+        self.assertEqual(
+            results[0].reference_range.high,
+            Decimal("0.04"),
+        )
+        self.assertEqual(
+            results[0].reference_range.unit,
+            "ng/mL",
+        )
+
+    def test_finds_percentage_range_without_prefix(self):
+        text = "The expected fraction was 55%-75%."
+
+        results = find_reference_ranges(text)
+
+        self.assertEqual(len(results), 1)
+        self.assertEqual(
+            results[0].reference_range.unit,
+            "%",
+        )
+
+    def test_finds_open_range_without_unit_when_explicit(self):
+        text = "The test had a normal range <20."
+
+        results = find_reference_ranges(text)
+
+        self.assertEqual(len(results), 1)
+        self.assertIsNone(
+            results[0].reference_range.low,
+        )
+        self.assertEqual(
+            results[0].reference_range.high,
+            Decimal("20"),
+        )
+        self.assertIsNone(
+            results[0].reference_range.unit,
+        )
+
+    def test_ignores_ambiguous_number_range(self):
+        text = "The participants were 10-20 years old."
+
+        self.assertEqual(find_reference_ranges(text), [])
+
+    def test_preserves_raw_text_and_offsets(self):
+        text = "Reference range: <=10 AU/mL was reported."
+
+        result = find_reference_ranges(text)[0]
+
+        self.assertEqual(
+            result.reference_range.raw_text,
+            "Reference range: <=10 AU/mL",
+        )
+        self.assertEqual(
+            text[result.char_start:result.char_end],
+            "Reference range: <=10 AU/mL",
+        )
+
+    def test_returns_ranges_in_textual_order(self):
+        text = (
+            "Normal range <20. "
+            "Later, the expected fraction was 55%-75%."
+        )
+
+        results = find_reference_ranges(text)
+
+        self.assertEqual(len(results), 2)
+        self.assertLess(
+            results[0].char_start,
+            results[1].char_start,
+        )
+
+    def test_rejects_non_string_input(self):
+        with self.assertRaises(TypeError):
+            find_reference_ranges(None)
 
 if __name__ == "__main__":
     unittest.main()
