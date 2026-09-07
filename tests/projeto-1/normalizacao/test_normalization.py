@@ -52,5 +52,48 @@ class NormalizeLabelTests(unittest.TestCase):
             normalize_label(123)
 
 
+    def test_restores_ca_19_9_canonical_case(self):
+        self.assertEqual(
+            normalize_label("ca 19-9"),
+            "CA 19-9",
+        )
+
+    def test_normalizes_ca_19_9_spacing_and_dash(self):
+        self.assertEqual(
+            normalize_label("CA19–9 level"),
+            "CA 19-9 level",
+        )
+
+    def test_restores_her2_and_removes_variant_hyphen(self):
+        self.assertEqual(
+            normalize_label("HER-2-positive tumor"),
+            "HER2-positive tumor",
+        )
+
+    def test_restores_ph_inside_label(self):
+        self.assertEqual(
+            normalize_label("SERUM PH"),
+            "serum pH",
+        )
+
+    def test_restores_immunoglobulin_case(self):
+        self.assertEqual(
+            normalize_label("IGG and IGM"),
+            "IgG and IgM",
+        )
+
+    def test_does_not_change_ca_by_itself(self):
+        self.assertEqual(
+            normalize_label("CA"),
+            "ca",
+        )
+
+    def test_does_not_replace_inside_other_words(self):
+        self.assertEqual(
+            normalize_label("phase"),
+            "phase",
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
