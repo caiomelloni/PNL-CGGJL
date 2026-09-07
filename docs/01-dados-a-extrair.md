@@ -76,7 +76,7 @@
 | Atributo | Descrição | Valores possíveis |
 |---|---|---|
 | `label` | Forma normalizada do achado | Texto normalizado — `cystic lesion`, `epigastric tenderness` |
-| `source` | Que tipo de avaliação produziu o achado | `physical_exam` \| `imaging` \| `pathology` \| `lab` \| `endoscopy` \| `surgical` — os dois últimos acrescentados em [02 §8](02-esquema-grafo.md#8-ajustes-ao-doc-01-revelados-pela-aplicação) |
+| `source` | Que tipo de avaliação produziu o achado | `physical_exam` \| `imaging` \| `pathology` \| `lab` \| `endoscopy` \| `surgical` |
 | `polarity` | Se foi observado ou explicitamente excluído | `present` \| `absent` |
 | `certainty` | Grau de asserção do texto | `confirmed` \| `probable` \| `suspected` |
 | `size` | Dimensão medida, uma ou mais | Número + unidade — `6 cm`; multidimensional `9.5 x 4.5 x 2.0 cm` |
@@ -263,7 +263,7 @@ Valem para as 12 relações; nenhuma aresta tem atributo próprio.
 | `certainty` | Se a relação é afirmada ou apenas sugerida pelo texto | `asserted` \| `hedged` |
 | `char_start` / `char_end` | Offsets do trecho no `case_text`, para auditoria | Inteiros ≥ 0 |
 
-> O formato da ancoragem foi decidido em [02 §7](02-esquema-grafo.md#7-ancoragem-no-texto): guardamos **trecho e offsets**, em arestas e também em nós, e os quatro campos viram colunas próprias em vez de chaves de `attributes`. Sem alguma ancoragem não há como auditar nem avaliar a extração depois.
+> Guardamos **trecho e offsets**: sem alguma ancoragem não há como auditar nem avaliar a extração depois. Ver o esquema do grafo em [02](02-esquema-grafo.md).
 
 ### 2.2 Cada aresta
 
@@ -284,7 +284,7 @@ Prende o valor ao exame que o produziu. Sem ela, `12,476.5 ng/ml` é um número 
 *PMC5137649_01:* *"a carcinoembryonic antigen (CEA) **level of** 12,476.5ng/ml"*
 
 **`REVEALS` · Exam | Treatment → Finding**
-Registra a **procedência** do achado. A cirurgia entra como origem porque produz achado intraoperatório tanto quanto um exame — ver [02 §8](02-esquema-grafo.md#8-ajustes-ao-doc-01-revelados-pela-aplicação). O mesmo achado visto por dois exames tem peso diferente de um achado visto por um só.
+Registra a **procedência** do achado. A cirurgia entra como origem porque produz achado intraoperatório tanto quanto um exame. O mesmo achado visto por dois exames tem peso diferente de um achado visto por um só.
 *PMC5137649_01:* *"contrast enhanced computed tomography, **demonstrating** a 6cm cystic lesion"*
 
 **`HAS_FINDING` · Patient → Finding**
