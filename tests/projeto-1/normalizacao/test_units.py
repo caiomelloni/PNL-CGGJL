@@ -14,6 +14,7 @@ from units import (  # noqa: E402
     normalize_number,
     normalize_unit,
     parse_measurement,
+    parse_reference_range,
 )
 
 
@@ -83,6 +84,59 @@ class ParseMeasurementTests(unittest.TestCase):
         self.assertEqual(measurement.value, Decimal("42"))
         self.assertIsNone(measurement.unit)
 
+class ParseReferenceRangeTests(unittest.TestCase):
+    def test_parses_closed_range(self):
+        reference = parse_reference_range("0-0.04 ng/mL")
+
+        self.assertEqual(reference.low, Decimal("0"))
+        self.assertEqual(reference.high, Decimal("0.04"))
+        self.assertEqual(reference.unit, "ng/mL")
+        self.assertEqual(reference.raw_text, "0-0.04 ng/mL")
+
+    def test_parses_percentage_on_both_limits(self):
+        reference = parse_reference_range("55%-75%")
+
+        self.assertEqual(reference.low, Decimal("55"))
+        self.assertEqual(reference.high, Decimal("75"))
+        self.assertEqual(reference.unit, "%")
+
+    def test_accepts_normal_range_prefix(self):
+        reference = parse_reference_range(
+            "normal range, 10-140 U/L"
+        )
+
+        self.assertEqual(reference.low, Decimal("10"))
+        self.assertEqual(reference.high, Decimal("140"))
+        self.assertEqual(reference.unit, "U/L")
+
+    def test_parses_open_upper_limit(self):
+        reference = parse_reference_range("<20")
+
+        self.assertIsNone(reference.low)
+        self.assertEqual(reference.high, Decimal("20"))
+        self.assertIsNone(reference.unit)
+
+    def test_parses_inclusive_open_upper_limit(self):
+        reference = parse_reference_range("<=10 AU/mL")
+
+        self.assertIsNone(reference.low)
+        self.assertEqual(reference.high, Decimal("10"))
+        self.assertEqual(reference.unit, "AU/mL")
+
+    def test_parses_open_lower_limit(self):
+        reference = parse_reference_range(">5 mg/dL")
+
+        self.assertEqual(reference.low, Decimal("5"))
+        self.assertIsNone(reference.high)
+        self.assertEqual(reference.unit, "mg/dL")
+
+    def test_rejects_incompatible_units(self):
+        with self.assertRaises(ValueError):
+            parse_reference_range("55%-75 mg/dL")
+
+    def test_rejects_invalid_range(self):
+        with self.assertRaises(ValueError):
+            parse_reference_range("between ten and twenty")
 
 if __name__ == "__main__":
     unittest.main()

@@ -21,6 +21,41 @@ _MEASUREMENT_PATTERN = re.compile(
     re.VERBOSE,
 )
 
+_RANGE_PREFIX = re.compile(
+    r"^\s*(?:normal\s+range|reference\s+range)\s*[:,]?\s*",
+    re.IGNORECASE,
+)
+
+_CLOSED_RANGE_PATTERN = re.compile(
+    rf"""
+    ^\s*
+    (?P<low>{_NUMBER_PATTERN.pattern})
+    \s*
+    (?P<low_unit>%?)
+    \s*
+    (?:-|–|—|\bto\b)
+    \s*
+    (?P<high>{_NUMBER_PATTERN.pattern})
+    \s*
+    (?P<high_unit>.*?)
+    \s*$
+    """,
+    re.VERBOSE | re.IGNORECASE,
+)
+
+_OPEN_RANGE_PATTERN = re.compile(
+    rf"""
+    ^\s*
+    (?P<operator><=|>=|<|>)
+    \s*
+    (?P<value>{_NUMBER_PATTERN.pattern})
+    \s*
+    (?P<unit>.*?)
+    \s*$
+    """,
+    re.VERBOSE,
+)
+
 _UNIT_VARIANTS = {
     "ng/ml": "ng/mL",
     "ng per milliliter": "ng/mL",
@@ -43,6 +78,7 @@ _UNIT_VARIANTS = {
     "/ul": "/µL",
     "/mm3": "/µL",
     "cells/mm3": "/µL",
+    "au/ml": "AU/mL",
 }
 
 
@@ -51,6 +87,15 @@ class Measurement:
     """Uma medição normalizada, preservando seu texto original."""
 
     value: Decimal
+    unit: str | None
+    raw_text: str
+
+@dataclass(frozen=True)
+class ReferenceRange:
+    """Faixa de referência normalizada."""
+
+    low: Decimal | None
+    high: Decimal | None
     unit: str | None
     raw_text: str
 
@@ -121,3 +166,60 @@ def parse_measurement(raw_text: str) -> Measurement:
         unit=normalize_unit(raw_unit),
         raw_text=raw_text,
     )
+
+def parse_reference_range(raw_text: str) -> ReferenceRange:
+    """Interpreta uma faixa de referência fechada ou aberta."""
+    if not isinstance(raw_text, str):
+        raise TypeError("raw_text must be a string")
+
+    range_text = _RANGE_PREFIX.sub("", raw_text)
+
+    closed_match = _CLOSED_RANGE_PATTERN.fullmatch(range_text)
+
+    if closed_match is not None:
+        low_unit = normalize_unit(
+            closed_match.group("low_unit") or None
+        )
+        high_unit = normalize_unit(
+            closed_match.group("high_unit") or None
+        )
+
+        if (
+            low_unit is not None
+            and high_unit is not None
+            and low_unit != high_unit
+        ):
+            raise ValueError(
+                "reference range uses incompatible units: "
+                f"{raw_text!r}"
+            )
+
+        return ReferenceRange(
+            low=normalize_number(closed_match.group("low")),
+            high=normalize_number(closed_match.group("high")),
+            unit=high_unit or low_unit,
+            raw_text=raw_text,
+        )
+
+    open_match = _OPEN_RANGE_PATTERN.fullmatch(range_text)
+
+    if open_match is not None:
+        operator = open_match.group("operator")
+        value = normalize_number(open_match.group("value"))
+        unit = normalize_unit(open_match.group("unit") or None)
+
+        if operator in {"<", "<="}:
+            low = None
+            high = value
+        else:
+            low = value
+            high = None
+
+        return ReferenceRange(
+            low=low,
+            high=high,
+            unit=unit,
+            raw_text=raw_text,
+        )
+
+    raise ValueError(f"invalid reference range: {raw_text!r}")
