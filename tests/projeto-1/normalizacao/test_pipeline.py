@@ -128,6 +128,7 @@ class SerializationTests(unittest.TestCase):
                 self.assertEqual(tuple(edge_reader.fieldnames or ()), EDGE_COLUMNS)
 
             impact = json.loads(paths.impact.read_text(encoding="utf-8"))
+            graph_markdown = paths.graph.read_text(encoding="utf-8")
 
         self.assertGreater(len(node_rows), 0)
         self.assertGreater(len(edge_rows), 0)
@@ -137,6 +138,9 @@ class SerializationTests(unittest.TestCase):
             impact["acronyms"]["CT"].casefold(),
             "computed tomography",
         )
+        self.assertIn("```mermaid", graph_markdown)
+        self.assertIn("flowchart LR", graph_markdown)
+        self.assertIn("P1 -->|HAS_SYMPTOM|", graph_markdown)
 
 
 class CommandLineTests(unittest.TestCase):
@@ -165,6 +169,7 @@ class CommandLineTests(unittest.TestCase):
             generated,
             [
                 "PMC5137649_01-edges.csv",
+                "PMC5137649_01-graph.md",
                 "PMC5137649_01-impact.json",
                 "PMC5137649_01-nodes.csv",
             ],
@@ -172,6 +177,7 @@ class CommandLineTests(unittest.TestCase):
         self.assertIn("nodes:", printed.getvalue())
         self.assertIn("edges:", printed.getvalue())
         self.assertIn("impact:", printed.getvalue())
+        self.assertIn("graph:", printed.getvalue())
 
 
 if __name__ == "__main__":

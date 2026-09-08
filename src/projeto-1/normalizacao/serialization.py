@@ -5,6 +5,7 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 
+from mermaid_export import render_mermaid_markdown
 from pipeline import PipelineResult
 
 
@@ -26,6 +27,7 @@ class OutputPaths:
     nodes: Path
     edges: Path
     impact: Path
+    graph: Path
 
 
 def _write_csv(
@@ -52,6 +54,7 @@ def export_pipeline_result(
         nodes=output / f"{stem}-nodes.csv",
         edges=output / f"{stem}-edges.csv",
         impact=output / f"{stem}-impact.json",
+        graph=output / f"{stem}-graph.md",
     )
     _write_csv(paths.nodes, NODE_COLUMNS, result.graph.node_rows())
     _write_csv(paths.edges, EDGE_COLUMNS, result.graph.edge_rows())
@@ -63,5 +66,10 @@ def export_pipeline_result(
     with paths.impact.open("w", encoding="utf-8") as output_file:
         json.dump(impact, output_file, ensure_ascii=False, indent=2)
         output_file.write("\n")
+
+    paths.graph.write_text(
+        render_mermaid_markdown(result.graph),
+        encoding="utf-8",
+    )
 
     return paths

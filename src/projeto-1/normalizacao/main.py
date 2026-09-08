@@ -29,6 +29,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     print(f"nodes: {paths.nodes}")
     print(f"edges: {paths.edges}")
     print(f"impact: {paths.impact}")
+    print(f"graph: {paths.graph}")
     return 0
 
 
