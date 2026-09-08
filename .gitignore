@@ -2,3 +2,5 @@
 __pycache__/
 *.py[cod]
 *$py.class
+# Amostra da disciplina — não versionada
+sample/
