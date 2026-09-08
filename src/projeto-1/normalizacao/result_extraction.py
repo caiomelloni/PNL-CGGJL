@@ -14,6 +14,35 @@ from measurement_extraction import (
 # Um ponto entre dois dígitos é decimal; os demais pontos encerram sentença.
 _SENTENCE_BOUNDARY = re.compile(r"\.(?!\d)|[!?]|\n+")
 
+_INTERPRETATION_PATTERNS = {
+    "elevated": re.compile(
+        r"\b(?:elevated|increased|high)\b",
+        re.IGNORECASE,
+    ),
+    "decreased": re.compile(
+        r"\b(?:decreased|reduced|low)\b",
+        re.IGNORECASE,
+    ),
+    "abnormal": re.compile(
+        r"\babnormal\b",
+        re.IGNORECASE,
+    ),
+    "positive": re.compile(
+        r"\bpositive\b",
+        re.IGNORECASE,
+    ),
+    "negative": re.compile(
+        r"\bnegative\b",
+        re.IGNORECASE,
+    ),
+    # O lookahead impede que "normal range" seja interpretado como
+    # uma afirmação de que o resultado medido é normal.
+    "normal": re.compile(
+        r"\bnormal\b(?!\s+(?:reference\s+)?range\b)",
+        re.IGNORECASE,
+    ),
+}
+
 
 @dataclass(frozen=True)
 class LabResultCandidate:
@@ -21,6 +50,8 @@ class LabResultCandidate:
 
     measurement: ExtractedMeasurement
     reference_range: ExtractedReferenceRange | None
+    interpretation: str | None
+    interpretation_source: str | None
     evidence_text: str
     char_start: int
     char_end: int
@@ -107,6 +138,62 @@ def _nearest_compatible_range(
         ),
     )
 
+def _span_distance(
+    first_start: int,
+    first_end: int,
+    second_start: int,
+    second_end: int,
+) -> int:
+    """Calcula a distância entre dois intervalos de caracteres."""
+    if first_end <= second_start:
+        return second_start - first_end
+
+    if second_end <= first_start:
+        return first_start - second_end
+
+    return 0
+
+
+def _find_stated_interpretation(
+    sentence: str,
+    measurement_start: int,
+    measurement_end: int,
+) -> str | None:
+    """Encontra a interpretação declarada mais próxima da medição."""
+    candidates: list[tuple[int, str]] = []
+
+    for interpretation, pattern in _INTERPRETATION_PATTERNS.items():
+        for match in pattern.finditer(sentence):
+            distance = _span_distance(
+                match.start(),
+                match.end(),
+                measurement_start,
+                measurement_end,
+            )
+            candidates.append((distance, interpretation))
+
+    if not candidates:
+        return None
+
+    return min(candidates, key=lambda candidate: candidate[0])[1]
+
+
+def _derive_interpretation(
+    measurement: ExtractedMeasurement,
+    reference_range: ExtractedReferenceRange,
+) -> str:
+    """Compara o valor medido com os limites da faixa."""
+    value = measurement.measurement.value
+    low = reference_range.reference_range.low
+    high = reference_range.reference_range.high
+
+    if low is not None and value < low:
+        return "decreased"
+
+    if high is not None and value > high:
+        return "elevated"
+
+    return "normal"
 
 def find_lab_result_candidates(
     text: str,
@@ -132,11 +219,39 @@ def find_lab_result_candidates(
             sentence_end,
         )
 
+        sentence = text[sentence_start:sentence_end]
+
+        relative_measurement_start = (
+            measurement.char_start - sentence_start
+        )
+        relative_measurement_end = (
+            measurement.char_end - sentence_start
+        )
+
+        interpretation = _find_stated_interpretation(
+            sentence,
+            relative_measurement_start,
+            relative_measurement_end,
+        )
+
+        if interpretation is not None:
+            interpretation_source = "stated"
+        elif reference_range is not None:
+            interpretation = _derive_interpretation(
+                measurement,
+                reference_range,
+            )
+            interpretation_source = "derived"
+        else:
+            interpretation_source = None
+
         results.append(
             LabResultCandidate(
                 measurement=measurement,
                 reference_range=reference_range,
-                evidence_text=text[sentence_start:sentence_end],
+                interpretation=interpretation,
+                interpretation_source=interpretation_source,
+                evidence_text=sentence,
                 char_start=sentence_start,
                 char_end=sentence_end,
             )

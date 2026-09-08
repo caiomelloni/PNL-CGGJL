@@ -111,6 +111,93 @@ class FindLabResultCandidatesTests(unittest.TestCase):
         with self.assertRaises(TypeError):
             find_lab_result_candidates(None)
 
+class ResultInterpretationTests(unittest.TestCase):
+    def test_uses_stated_interpretation(self):
+        text = "C-reactive protein was elevated at 96 mg/L."
+
+        result = find_lab_result_candidates(text)[0]
+
+        self.assertEqual(result.interpretation, "elevated")
+        self.assertEqual(
+            result.interpretation_source,
+            "stated",
+        )
+
+    def test_stated_interpretation_has_priority(self):
+        text = (
+            "The stated normal result was 200 U/L "
+            "(reference range 10-140 U/L)."
+        )
+
+        result = find_lab_result_candidates(text)[0]
+
+        self.assertEqual(result.interpretation, "normal")
+        self.assertEqual(
+            result.interpretation_source,
+            "stated",
+        )
+
+    def test_normal_range_is_not_stated_interpretation(self):
+        text = (
+            "Lipase was 850 U/L "
+            "(normal range 10-140 U/L)."
+        )
+
+        result = find_lab_result_candidates(text)[0]
+
+        self.assertEqual(result.interpretation, "elevated")
+        self.assertEqual(
+            result.interpretation_source,
+            "derived",
+        )
+
+    def test_derives_normal_result(self):
+        text = (
+            "Troponin was 0.016 ng/mL "
+            "(reference range 0-0.04 ng/mL)."
+        )
+
+        result = find_lab_result_candidates(text)[0]
+
+        self.assertEqual(result.interpretation, "normal")
+        self.assertEqual(
+            result.interpretation_source,
+            "derived",
+        )
+
+    def test_derives_decreased_result(self):
+        text = (
+            "The result was 5 U/L "
+            "(reference range 10-140 U/L)."
+        )
+
+        result = find_lab_result_candidates(text)[0]
+
+        self.assertEqual(result.interpretation, "decreased")
+        self.assertEqual(
+            result.interpretation_source,
+            "derived",
+        )
+
+    def test_keeps_interpretation_empty_without_evidence(self):
+        text = "C-reactive protein was 96 mg/L."
+
+        result = find_lab_result_candidates(text)[0]
+
+        self.assertIsNone(result.interpretation)
+        self.assertIsNone(result.interpretation_source)
+
+    def test_uses_closest_interpretation(self):
+        text = (
+            "Marker A was normal at 5 mg/dL, while marker B "
+            "was elevated at 90 mg/dL."
+        )
+
+        results = find_lab_result_candidates(text)
+
+        self.assertEqual(results[0].interpretation, "normal")
+        self.assertEqual(results[1].interpretation, "elevated")
+
 
 if __name__ == "__main__":
     unittest.main()
