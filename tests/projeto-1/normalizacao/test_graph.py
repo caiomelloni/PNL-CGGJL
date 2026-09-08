@@ -1,0 +1,136 @@
+"""Testes do construtor de grafos."""
+
+import sys
+import unittest
+from pathlib import Path
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
+MODULE_DIR = PROJECT_ROOT / "src" / "projeto-1" / "normalizacao"
+sys.path.insert(0, str(MODULE_DIR))
+
+from graph import GraphBuilder  # noqa: E402
+
+
+class GraphBuilderTests(unittest.TestCase):
+    def setUp(self):
+        self.builder = GraphBuilder(
+            case_id="PMC5137649_01",
+            case_text=(
+                "Computed tomography (CT) was performed. "
+                "Later, CT demonstrated a lesion."
+            ),
+        )
+
+    def test_generates_ids_per_node_type(self):
+        first_exam = self.builder.add_node("Exam", "CT")
+        second_exam = self.builder.add_node(
+            "Exam",
+            "Computed Tomography",
+        )
+        symptom = self.builder.add_node(
+            "Symptom",
+            "Abdominal Pain",
+        )
+
+        self.assertEqual(first_exam.node_id, "E1")
+        self.assertEqual(second_exam.node_id, "E2")
+        self.assertEqual(symptom.node_id, "S1")
+
+    def test_normalizes_node_label(self):
+        exam = self.builder.add_node("Exam", "CT")
+
+        self.assertEqual(
+            exam.label,
+            "computed tomography",
+        )
+
+    def test_preserves_patient_identifier_case(self):
+        patient = self.builder.add_node(
+            "Patient",
+            "case PMC5137649_01",
+        )
+
+        self.assertEqual(
+            patient.label,
+            "case PMC5137649_01",
+        )
+
+    def test_generates_sequential_edge_ids(self):
+        patient = self.builder.add_node(
+            "Patient",
+            "case PMC5137649_01",
+        )
+        exam = self.builder.add_node("Exam", "CT")
+        symptom = self.builder.add_node(
+            "Symptom",
+            "abdominal pain",
+        )
+
+        first_edge = self.builder.add_edge(
+            patient.node_id,
+            exam.node_id,
+            "UNDERWENT_EXAM",
+        )
+        second_edge = self.builder.add_edge(
+            patient.node_id,
+            symptom.node_id,
+            "HAS_SYMPTOM",
+        )
+
+        self.assertEqual(first_edge.edge_id, "e1")
+        self.assertEqual(second_edge.edge_id, "e2")
+
+    def test_rejects_missing_source_node(self):
+        exam = self.builder.add_node("Exam", "CT")
+
+        with self.assertRaises(ValueError):
+            self.builder.add_edge(
+                "P99",
+                exam.node_id,
+                "UNDERWENT_EXAM",
+            )
+
+    def test_rejects_missing_target_node(self):
+        patient = self.builder.add_node(
+            "Patient",
+            "case PMC5137649_01",
+        )
+
+        with self.assertRaises(ValueError):
+            self.builder.add_edge(
+                patient.node_id,
+                "E99",
+                "UNDERWENT_EXAM",
+            )
+
+    def test_produces_rows_in_contract_format(self):
+        exam = self.builder.add_node(
+            "Exam",
+            "CT",
+            {"modality": "imaging"},
+        )
+
+        self.assertEqual(
+            self.builder.node_rows(),
+            [
+                {
+                    "case_id": "PMC5137649_01",
+                    "node_id": exam.node_id,
+                    "type": "Exam",
+                    "label": "computed tomography",
+                    "attributes": "modality=imaging",
+                }
+            ],
+        )
+
+    def test_rejects_invalid_case_id(self):
+        with self.assertRaises(ValueError):
+            GraphBuilder(
+                case_id="invalid",
+                case_text="Some text.",
+            )
+
+
+if __name__ == "__main__":
+    unittest.main()
