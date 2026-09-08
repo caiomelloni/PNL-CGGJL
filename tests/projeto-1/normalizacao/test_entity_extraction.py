@@ -12,6 +12,7 @@ sys.path.insert(0, str(MODULE_DIR))
 
 from case_reader import ClinicalCase  # noqa: E402
 from entity_extraction import (  # noqa: E402
+    extract_history,
     extract_patient,
     extract_symptoms,
 )
@@ -242,6 +243,86 @@ class ExtractSymptomsTests(unittest.TestCase):
 
         self.assertEqual(extracted, [])
         self.assertEqual(graph.nodes, [])
+
+
+class ExtractHistoryTests(unittest.TestCase):
+    def _extract(self, text: str):
+        graph = GraphBuilder("PMC5137649_01", text)
+        return graph, extract_history(text, graph)
+
+    def test_extracts_history_list_and_categories(self):
+        text = (
+            "A patient with a past medical history significant for "
+            "hypertension, asthma, and mitral valve replacement."
+        )
+
+        _, extracted = self._extract(text)
+
+        self.assertEqual(
+            [item.node.label for item in extracted],
+            ["hypertension", "asthma", "mitral valve replacement"],
+        )
+        self.assertEqual(
+            [item.node.attributes["category"] for item in extracted],
+            ["condition", "condition", "surgery"],
+        )
+        self.assertTrue(
+            all(item.node.attributes["subject"] == "patient" for item in extracted)
+        )
+
+    def test_extracts_family_history(self):
+        _, extracted = self._extract(
+            "The patient had a family history of breast cancer."
+        )
+
+        self.assertEqual(len(extracted), 1)
+        self.assertEqual(extracted[0].node.label, "breast cancer")
+        self.assertEqual(extracted[0].node.attributes["subject"], "family")
+        self.assertEqual(
+            extracted[0].node.attributes["relation_degree"],
+            "unspecified",
+        )
+
+    def test_does_not_confuse_symptom_duration_with_history(self):
+        graph, extracted = self._extract(
+            "The patient presented with a 3-day history of abdominal pain."
+        )
+
+        self.assertEqual(extracted, [])
+        self.assertEqual(graph.nodes, [])
+
+    def test_stops_before_presentation_clause(self):
+        text = (
+            "A man with a past medical history of hypertension "
+            "presented with abdominal pain."
+        )
+
+        _, extracted = self._extract(text)
+
+        self.assertEqual(len(extracted), 1)
+        self.assertEqual(extracted[0].node.label, "hypertension")
+        self.assertNotIn("abdominal pain", extracted[0].node.label)
+
+    def test_classifies_exposure(self):
+        _, extracted = self._extract(
+            "The patient had a medical history of tobacco exposure."
+        )
+
+        self.assertEqual(
+            extracted[0].node.attributes["category"],
+            "exposure",
+        )
+
+    def test_preserves_evidence_offsets(self):
+        text = "Earlier text. Family history of diabetes."
+
+        _, extracted = self._extract(text)
+        result = extracted[0]
+
+        self.assertEqual(
+            text[result.char_start:result.char_end].strip(),
+            result.evidence_text,
+        )
 
 
 if __name__ == "__main__":
