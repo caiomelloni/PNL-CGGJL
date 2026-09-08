@@ -11,7 +11,10 @@ MODULE_DIR = PROJECT_ROOT / "src" / "projeto-1" / "normalizacao"
 sys.path.insert(0, str(MODULE_DIR))
 
 from case_reader import ClinicalCase  # noqa: E402
-from entity_extraction import extract_patient  # noqa: E402
+from entity_extraction import (  # noqa: E402
+    extract_patient,
+    extract_symptoms,
+)
 from graph import GraphBuilder  # noqa: E402
 
 
@@ -151,6 +154,94 @@ class ExtractPatientTests(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             extract_patient(case, graph)
+
+
+class ExtractSymptomsTests(unittest.TestCase):
+    def _extract(self, text: str):
+        graph = GraphBuilder("PMC5137649_01", text)
+        return graph, extract_symptoms(text, graph)
+
+    def test_extracts_main_and_associated_symptoms(self):
+        text = (
+            "A patient presented with a 3-day history of "
+            "right flank and lower quadrant abdominal pain "
+            "associated with nausea and constipation."
+        )
+
+        graph, extracted = self._extract(text)
+
+        self.assertEqual(
+            [item.node.label for item in extracted],
+            [
+                "right flank and lower quadrant abdominal pain",
+                "nausea",
+                "constipation",
+            ],
+        )
+        self.assertEqual(len(graph.nodes), 3)
+        self.assertEqual(
+            extracted[0].node.attributes["duration"],
+            "3 days",
+        )
+        self.assertIsNone(extracted[1].node.attributes["duration"])
+
+    def test_extracts_atomic_symptom_list(self):
+        _, extracted = self._extract(
+            "The patient presented with fever and cough."
+        )
+
+        self.assertEqual(
+            [item.node.label for item in extracted],
+            ["fever", "cough"],
+        )
+
+    def test_marks_negated_symptoms_as_absent(self):
+        _, extracted = self._extract(
+            "The patient presented with no fever, night sweating, or weight loss."
+        )
+
+        self.assertEqual(
+            [item.node.label for item in extracted],
+            ["fever", "night sweating", "weight loss"],
+        )
+        self.assertTrue(
+            all(
+                item.node.attributes["polarity"] == "absent"
+                for item in extracted
+            )
+        )
+
+    def test_preserves_trigger_and_evidence_offsets(self):
+        text = "Earlier history. The patient complained of nausea."
+
+        _, extracted = self._extract(text)
+        result = extracted[0]
+
+        self.assertEqual(result.trigger, "complained of")
+        self.assertEqual(
+            text[result.char_start:result.char_end],
+            result.evidence_text,
+        )
+
+    def test_deduplicates_repeated_symptom(self):
+        text = (
+            "The patient presented with nausea. "
+            "Later, she reported nausea."
+        )
+
+        graph, extracted = self._extract(text)
+
+        self.assertEqual(len(extracted), 2)
+        self.assertIs(extracted[0].node, extracted[1].node)
+        self.assertEqual(len(graph.nodes), 1)
+
+    def test_returns_empty_without_trigger(self):
+        graph, extracted = self._extract(
+            "Physical examination was unremarkable."
+        )
+
+        self.assertEqual(extracted, [])
+        self.assertEqual(graph.nodes, [])
 
 
 if __name__ == "__main__":
