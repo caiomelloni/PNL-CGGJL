@@ -26,7 +26,7 @@ class GraphBuilderTests(unittest.TestCase):
         first_exam = self.builder.add_node("Exam", "CT")
         second_exam = self.builder.add_node(
             "Exam",
-            "Computed Tomography",
+            "Magnetic Resonance Imaging",
         )
         symptom = self.builder.add_node(
             "Symptom",
@@ -131,6 +131,112 @@ class GraphBuilderTests(unittest.TestCase):
                 case_text="Some text.",
             )
 
+class GraphDeduplicationTests(unittest.TestCase):
+    def setUp(self):
+        self.builder = GraphBuilder(
+            case_id="PMC5137649_01",
+            case_text=(
+                "Computed tomography (CT) was performed. "
+                "Later, CT demonstrated a lesion."
+            ),
+        )
+
+    def test_merges_equivalent_exam_labels(self):
+        first = self.builder.add_node("Exam", "CT")
+        second = self.builder.add_node(
+            "Exam",
+            "Computed Tomography",
+        )
+
+        self.assertIs(first, second)
+        self.assertEqual(first.node_id, "E1")
+        self.assertEqual(len(self.builder.nodes), 1)
+
+    def test_merges_missing_attributes(self):
+        first = self.builder.add_node(
+            "Exam",
+            "CT",
+            {"abbreviation": "CT"},
+        )
+        second = self.builder.add_node(
+            "Exam",
+            "Computed Tomography",
+            {"contrast": True},
+        )
+
+        self.assertIs(first, second)
+        self.assertEqual(
+            first.attributes,
+            {
+                "abbreviation": "CT",
+                "contrast": True,
+            },
+        )
+
+    def test_does_not_merge_different_medication_doses(self):
+        first = self.builder.add_node(
+            "Medication",
+            "Prednisone",
+            {
+                "dose_value": 25,
+                "dose_unit": "mg",
+            },
+        )
+        second = self.builder.add_node(
+            "Medication",
+            "prednisone",
+            {
+                "dose_value": 15,
+                "dose_unit": "mg",
+            },
+        )
+
+        self.assertNotEqual(first.node_id, second.node_id)
+        self.assertEqual(len(self.builder.nodes), 2)
+
+    def test_can_disable_deduplication(self):
+        first = self.builder.add_node(
+            "Exam",
+            "CT",
+            deduplicate=False,
+        )
+        second = self.builder.add_node(
+            "Exam",
+            "CT",
+            deduplicate=False,
+        )
+
+        self.assertNotEqual(first.node_id, second.node_id)
+
+    def test_reports_normalization_impact(self):
+        self.builder.add_node("Exam", "CT")
+        self.builder.add_node(
+            "Exam",
+            "Computed Tomography",
+        )
+
+        impact = self.builder.normalization_impact()
+
+        self.assertEqual(impact.mentions_processed, 2)
+        self.assertEqual(impact.raw_nodes, 2)
+        self.assertEqual(impact.normalized_nodes, 1)
+        self.assertEqual(impact.nodes_merged, 1)
+        self.assertEqual(impact.labels_changed, 2)
+
+    def test_does_not_merge_conflicting_identity_attributes(self):
+        first = self.builder.add_node(
+            "Exam",
+            "CT",
+            {"contrast": True},
+        )
+        second = self.builder.add_node(
+            "Exam",
+            "Computed Tomography",
+            {"contrast": False},
+        )
+
+        self.assertNotEqual(first.node_id, second.node_id)
+        self.assertEqual(len(self.builder.nodes), 2)
 
 if __name__ == "__main__":
     unittest.main()
