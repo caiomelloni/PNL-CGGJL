@@ -41,13 +41,36 @@ A partir de um `case_id`, o texto do caso (`case_text`) passa pelos seguintes pr
 
   Validado com termos reais do caso de exemplo: `"Type 2 Diabetes Mellitus"` e `"NIDDM"` resolvem para o mesmo código (`D003924`) que `"Diabetes Mellitus, Type 2"`; `"Pancreatitis"` → `D010195`; `"Oseltamivir"` → `D053139`. Uma limitação real já observada: `"CT"` (sigla) **não** está cadastrada como sinônimo de `Tomography, X-Ray Computed` no MeSH — siglas curtas/ambíguas em geral não entram no thesaurus, então precisam ser resolvidas dentro do próprio caso (padrão `termo por extenso (SIGLA)`), não via o dicionário.
 
+  **O gazetteer persistido é sempre cru (sem normalizar).** `build_gazetteer_rows()` faz uma única passada pelo XML (antes eu reparseava o arquivo inteiro uma vez por categoria — ineficiente) e gera uma linha por `(termo, categoria)` exatamente como está no MeSH, sem tocar em maiúscula/pontuação. Essas 174.006 linhas ficam salvas, versionadas, em `gazetteer/mesh_gazetteer.csv` (11 MB — bem abaixo do limite do GitHub). A normalização só entra depois, como uma etapa de *carregamento* (`rows_to_raw_gazetteer()` + `build_normalized_gazetteer()`), separada de propósito: se o projeto convergir numa normalização "oficial" compartilhada entre as quatro issues, basta trocar a função injetada (ver próxima seção) — o gazetteer em si não precisa ser regerado, e o arquivo de 313 MB do MeSH não precisa estar presente pra isso.
+
 - **Normalização (processo 2):** implementada em `normalization.py`. Escopo mínimo por decisão deliberada: NFKC + lowercase + remoção de pontuação nas bordas do token, **sem stemming, lematização ou remoção de stop-words** — variação morfológica não coberta pelo MeSH fica a cargo do fuzzy match (processo 5), não da normalização; ver justificativa completa nas notas de progresso da Fase 2 abaixo. A normalização nunca sobrescreve o texto original: só gera a chave usada para consulta no gazetteer, o `label` do nó continua com o texto tal como apareceu no caso (evita ter que reconstruir manualmente a grafia de termos sensíveis a maiúscula, como `IgG`/`CA 19-9`).
 
   Testado com os casos difíceis que o próprio doc 01 já sinalizava: `"(CEA)"` → `"cea"` (parênteses descartados), `"CA 19-9"` → `"ca 19-9"` (hífen interno preservado pelo tokenizador), `"IgG"` → `"igg"`, `"Diabetes Mellitus, Type 2"` e `"Type 2 Diabetes Mellitus"` → ambos sem a vírgula. Reaplicando aos ~58 mil termos do gazetteer da categoria `C`, o número de chaves caiu de 58.284 para 58.062 — a diferença são colisões de maiúscula/pontuação que agora compartilham uma única entrada.
 
   **Bug real encontrado e corrigido durante o teste:** ao juntar tokens normalizados numa janela pra formar a chave de busca, um token que normaliza para string vazia (pontuação pura, ex. `"."`) podia ser silenciosamente absorvido dentro de uma janela — a chave ficava correta (o vazio some ao juntar), mas o span consumido incluía a pontuação (ex. `"constipation ."` em vez de `"constipation"`), o que arriscaria unir span através de fronteiras de frase em outros casos. Corrigido expondo `align_normalized_tokens()`, que descarta tokens vazios *antes* de qualquer janela ser formada, preservando o índice original de cada token restante para reconstruir o span correto depois.
 
-- Os processos 4 (NER), 5 (matching), 6 (ligação ao grafo) e 7 (validação cruzada) ainda não têm código implementado. O processo 8 (gazetteer próprio de `AnatomicalSite`) segue adiado por decisão do autor.
+- **Casamento (processo 5):** implementado em `matching.py`. `greedy_match()` faz exact+longest match numa só função (janela decrescente, exact match é só o caso `w=1`); o que sobra sem casar vai pro `fuzzy_match_leftover()` (rapidfuzz, `fuzz.ratio`, threshold **85** — escolhido testando erros de digitação reais de termos que sabíamos existir no MeSH: `pancreatits`/`naussea`/`hypertention`/`diabetis mellitus type 2` pontuaram 91–96, enquanto palavras que não deveriam casar (`flank`, `she`) pontuaram 57–67; 85 fica com folga segura entre os dois grupos). Desempate: nos dados reais só existe **1 chave ambígua em 58.062** (`"anemia hypoplastic congenital"`, que aponta tanto para `D029502` quanto para `D029503`) — resolvida preferindo o concept cujo `preferred_term` normaliza exatamente para a chave (o termo canônico, não um sinônimo emprestado).
+
+- Os processos 4 (NER), 6 (ligação ao grafo) e 7 (validação cruzada) ainda não têm código implementado. O processo 8 (gazetteer próprio de `AnatomicalSite`) segue adiado por decisão do autor.
+
+## Arquitetura pensada para integração futura
+
+Duas decisões deliberadas para que esta parte seja fácil de encaixar num pipeline geral do projeto (que ainda não existe, mas as outras issues também vão precisar produzir/consumir peças parecidas):
+
+1. **Gazetteer versionado sempre cru, normalização como etapa de carregamento separada e trocável.** Ver processo 3 acima. Concretamente: `build_normalized_gazetteer(raw_gazetteer, normalize_fn=...)` e `align_normalized_tokens(tokens, normalize_fn=...)` aceitam a função de normalização como parâmetro (default: a nossa, em `normalization.py`) — trocar por uma normalização compartilhada do projeto não exige mudar a lógica de casamento nem o arquivo do gazetteer.
+
+2. **Um único ponto de entrada para quem for integrar:** `matching.link_label_to_concept(label, gazetteer) -> Match | None`. Ao contrário de `match_text()` (que varre um texto inteiro atrás de várias menções — usado internamente pelo nosso próprio pipeline), esta função assume que **outra coisa já decidiu os limites da entidade** — o NER de qualquer uma das quatro estratégias (#3-#6), não só a nossa — e só responde "isso tem um conceito equivalente no dicionário, ou não?". Testado com labels que um extrator já teria delimitado:
+
+   ```
+   'epigastric pain'                                  -> Match('pain', D010146, 'Pain', exact)
+   'right flank and lower quadrant abdominal pain'    -> Match('abdominal pain', D015746, 'Abdominal Pain', longest)
+   'naussea'                                          -> Match('nausea', D009325, 'Nausea', fuzzy, score=92.3)
+   'the patient'                                      -> None
+   ```
+
+   (O primeiro caso é um achado real, não um bug: o MeSH não cataloga `"Epigastric Pain"` como termo específico — só o genérico `Pain`. É o mesmo tipo de lacuna de cobertura já documentado para `"CT"` no processo 3.)
+
+   Quem quiser reusar só a técnica de dicionário — de dentro desta issue ou de um pipeline unificado futuro — não precisa conhecer `greedy_match`/`fuzzy_match_leftover` nem a estrutura interna do `Match`; só chama essa função com um label e a categoria de gazetteer certa.
 
 ## Limitações e discussão futura (notas para `docs/projeto-1/06-dicionarios.md`)
 

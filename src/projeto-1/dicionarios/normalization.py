@@ -14,6 +14,7 @@ original, sem alteração.
 from __future__ import annotations
 
 import unicodedata
+from collections.abc import Callable
 
 import nltk
 
@@ -36,7 +37,10 @@ def normalize_tokens(tokens: list[str]) -> list[str]:
     return [t for t in (normalize_token(tok) for tok in tokens) if t]
 
 
-def align_normalized_tokens(tokens: list[str]) -> list[tuple[int, str]]:
+def align_normalized_tokens(
+    tokens: list[str],
+    normalize_fn: Callable[[str], str] = normalize_token,
+) -> list[tuple[int, str]]:
     """Normaliza uma lista de tokens preservando o índice original de cada
     um, mas descartando por completo os que normalizam para vazio (tokens
     de pontuação pura, ex. ".", "(", ")").
@@ -49,16 +53,23 @@ def align_normalized_tokens(tokens: list[str]) -> list[tuple[int, str]]:
     próxima). Descartando aqui, o restante do pipeline nunca vê esses
     tokens — só os índices originais não-consecutivos denunciam que algo
     foi pulado.
+
+    normalize_fn: injetável de propósito — permite trocar depois pela
+    normalização "oficial" do projeto (se a equipe convergir numa única),
+    sem alterar a lógica de alinhamento/descarte de pontuação em si.
     """
     aligned = []
     for index, token in enumerate(tokens):
-        normalized = normalize_token(token)
+        normalized = normalize_fn(token)
         if normalized:
             aligned.append((index, normalized))
     return aligned
 
 
-def normalize_term(text: str) -> str:
+def normalize_term(
+    text: str,
+    normalize_fn: Callable[[str], str] = normalize_token,
+) -> str:
     """Normaliza uma string de termo inteira (ex. entrada do gazetteer).
 
     Tokeniza com o mesmo tokenizador usado no case_text (nltk.word_tokenize),
@@ -66,23 +77,30 @@ def normalize_term(text: str) -> str:
     o termo do MeSH passe pelo mesmo processo aplicado ao texto do caso.
     """
     tokens = nltk.word_tokenize(text)
-    return " ".join(normalize_tokens(tokens))
+    return " ".join(t for t in (normalize_fn(tok) for tok in tokens) if t)
 
 
 def build_normalized_gazetteer(
     raw_gazetteer: dict[str, list[tuple[str, str]]],
+    normalize_fn: Callable[[str], str] = normalize_token,
 ) -> dict[str, list[tuple[str, str]]]:
-    """Reconstrói um gazetteer (saída de mesh_parser.build_raw_gazetteer)
+    """Reconstrói um gazetteer (saída de mesh_parser.rows_to_raw_gazetteer)
     trocando cada chave pela sua forma normalizada.
 
     Duas chaves brutas diferentes podem colidir na mesma chave normalizada
     (ex. variação só de maiúscula) — as entradas são mescladas, sem
     duplicar (code, preferred_term) repetidos.
+
+    normalize_fn: injetável, mesmo motivo do parâmetro homônimo em
+    align_normalized_tokens — o gazetteer persistido em disco
+    (gazetteer/mesh_gazetteer.csv) é sempre cru; é só aqui, no momento de
+    carregar para uso, que uma normalização (esta ou uma futura oficial do
+    projeto) entra em cena.
     """
     normalized: dict[str, list[tuple[str, str]]] = {}
 
     for raw_key, entries in raw_gazetteer.items():
-        key = normalize_term(raw_key)
+        key = normalize_term(raw_key, normalize_fn)
         if not key:
             continue
         bucket = normalized.setdefault(key, [])
