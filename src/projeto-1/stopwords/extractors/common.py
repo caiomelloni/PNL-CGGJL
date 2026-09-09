@@ -16,11 +16,14 @@ class Sentence:
 
 
 def split_sentences(text: str) -> list[Sentence]:
-    """Quebra o texto em sentenças por pontuação terminal, preservando offsets."""
+    """Quebra o texto em sentenças por pontuação terminal, preservando offsets.
+
+    Trata . como terminador apenas quando não seguido por dígito (para decimais como 3.5).
+    """
     sentences = []
     start = 0
     index = 0
-    for match in re.finditer(r"[.!?\n]+", text):
+    for match in re.finditer(r"(?:\.(?!\d)|[!?\n])+", text):
         end = match.start()
         if end > start:
             sentences.append(Sentence(text=text[start:end], start=start, end=end, index=index))
@@ -46,33 +49,41 @@ class Mention:
 
 
 _NEGATION_TRIGGERS = (
-    "no evidence of", "denies", "denied", "deny", "without",
-    "free of", "ruled out", "negative for", "unremarkable for",
-    " no ", "not ",
+    "ruled out", "no evidence of", "negative for", "unremarkable for",
+    "free of", "denies", "denied", "deny", "without", "no", "not",
 )
 
-_HEDGE_SUSPECTED_TRIGGERS = ("suggesting", "suggestive of", "possible")
-_HEDGE_PROBABLE_TRIGGERS = ("consistent with", "likely", "probable", "presumed")
+_HEDGE_SUSPECTED_TRIGGERS = ("suggestive of", "suggesting", "possible")
+_HEDGE_PROBABLE_TRIGGERS = ("consistent with", "probable", "presumed", "likely")
+
+# Compile regex patterns with word boundaries to avoid false positives (e.g., "cannot" matching "not")
+_NEGATION_PATTERN = re.compile(
+    r"\b(?:" + "|".join(re.escape(t) for t in sorted(_NEGATION_TRIGGERS, key=len, reverse=True)) + r")\b",
+    re.IGNORECASE,
+)
+
+_HEDGE_SUSPECTED_PATTERN = re.compile(
+    r"\b(?:" + "|".join(re.escape(t) for t in sorted(_HEDGE_SUSPECTED_TRIGGERS, key=len, reverse=True)) + r")\b",
+    re.IGNORECASE,
+)
+
+_HEDGE_PROBABLE_PATTERN = re.compile(
+    r"\b(?:" + "|".join(re.escape(t) for t in sorted(_HEDGE_PROBABLE_TRIGGERS, key=len, reverse=True)) + r")\b",
+    re.IGNORECASE,
+)
 
 
 def detect_polarity(sentence_text: str) -> str:
     """'absent' se a sentença contém um gatilho de negação, senão 'present'."""
-    lowered = f" {sentence_text.lower()} "
-    for trigger in _NEGATION_TRIGGERS:
-        if trigger in lowered:
-            return "absent"
-    return "present"
+    return "absent" if _NEGATION_PATTERN.search(sentence_text) else "present"
 
 
 def detect_certainty(sentence_text: str) -> str:
     """'suspected'/'probable'/'confirmed' conforme o hedge mais forte encontrado."""
-    lowered = sentence_text.lower()
-    for trigger in _HEDGE_SUSPECTED_TRIGGERS:
-        if trigger in lowered:
-            return "suspected"
-    for trigger in _HEDGE_PROBABLE_TRIGGERS:
-        if trigger in lowered:
-            return "probable"
+    if _HEDGE_SUSPECTED_PATTERN.search(sentence_text):
+        return "suspected"
+    if _HEDGE_PROBABLE_PATTERN.search(sentence_text):
+        return "probable"
     return "confirmed"
 
 

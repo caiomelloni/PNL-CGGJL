@@ -19,6 +19,12 @@ class SplitSentencesTests(unittest.TestCase):
         sentences = split_sentences("no punctuation here")
         self.assertEqual(len(sentences), 1)
 
+    def test_preserves_decimal_points_in_measurements(self):
+        text = "The mass measured 3.5 cm in the largest dimension."
+        sentences = split_sentences(text)
+        self.assertEqual(len(sentences), 1)
+        self.assertEqual(sentences[0].text, "The mass measured 3.5 cm in the largest dimension")
+
 
 class PolarityAndCertaintyTests(unittest.TestCase):
     def test_detects_negation(self):
@@ -32,6 +38,9 @@ class PolarityAndCertaintyTests(unittest.TestCase):
 
     def test_detects_denies(self):
         self.assertEqual(detect_polarity("patient denies chest pain"), "absent")
+
+    def test_does_not_false_positive_on_cannot(self):
+        self.assertEqual(detect_polarity("cannot obtain consent"), "present")
 
     def test_detects_suspected_hedge(self):
         self.assertEqual(detect_certainty("suggesting the diagnosis of a cystic neoplasm"), "suspected")
