@@ -1,10 +1,3 @@
-"""Extração de Exam e Treatment — ambos nascem do mesmo gatilho ('underwent'),
-por isso ficam num extractor só: a classificação entre os dois tipos depende
-de uma pequena lista de palavras-chave, não de um gatilho textual distinto.
-
-Ver docs/projeto-1/01-dados-a-extrair.md, seções 1.5 e 1.9.
-"""
-
 from __future__ import annotations
 
 import re
@@ -30,7 +23,6 @@ _PATHOLOGY_KEYWORDS = ("biopsy", "pathology", "histology", "fna", "aspiration")
 
 
 def _classify(phrase: str) -> tuple[str, str | None]:
-    """Devolve (node_type, modality) para uma frase capturada após 'underwent'."""
     lowered = phrase.lower()
     if any(k in lowered for k in _SURGERY_KEYWORDS):
         return "Treatment", None

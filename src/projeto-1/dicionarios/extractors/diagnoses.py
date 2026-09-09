@@ -1,5 +1,3 @@
-"""Extração de diagnósticos — gatilhos de doc 01, seção 1.7."""
-
 from __future__ import annotations
 
 import re

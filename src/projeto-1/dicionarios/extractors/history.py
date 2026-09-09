@@ -1,11 +1,3 @@
-"""Extração de histórico clínico prévio.
-
-Gatilho deliberadamente restrito a 'past medical history'/'family history'
-(não 'history of' solto) para evitar a armadilha que o doc 01 descreve:
-'a 3-day history of X' marca duração de sintoma atual, não condição
-prévia — ver docs/projeto-1/01-dados-a-extrair.md, seção 1.4.
-"""
-
 from __future__ import annotations
 
 import re

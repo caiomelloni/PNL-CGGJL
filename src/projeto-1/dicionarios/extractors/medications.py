@@ -1,5 +1,3 @@
-"""Extração de medicamentos — padrão 'nome DOSE UNIDADE', doc 01 seção 1.8."""
-
 from __future__ import annotations
 
 import re

@@ -1,12 +1,3 @@
-"""Leitura de sample/metadata.csv — usado na validação cruzada (processo 7).
-
-O parser de lista entre colchetes foi desenvolvido e validado na Fase 0
-(ver README.md): as colunas de lista do CSV (authors, mesh_terms,
-major_mesh_terms, keywords) não são JSON nem lista Python válida — um item
-com vírgula interna vem entre aspas simples, e uma aspa dentro de um item
-já entre aspas vem escapada com barra invertida (ex. "Gov\\'t").
-"""
-
 from __future__ import annotations
 
 import csv
@@ -61,5 +52,4 @@ def read_metadata_row(csv_path: str | Path, article_id: str) -> dict[str, str] |
 
 
 def base_term(term: str) -> str:
-    """Remove o qualificador MeSH (ex. 'Cysts / diagnosis' -> 'Cysts')."""
     return term.split(" / ")[0].strip()

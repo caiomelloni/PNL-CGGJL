@@ -1,7 +1,3 @@
-"""Roda o pipeline sobre todos os casos de um cases.csv e persiste os entregáveis:
-as tabelas de nós/arestas de cada caso, e um resumo da validação cruzada.
-"""
-
 from __future__ import annotations
 
 import argparse
@@ -57,7 +53,7 @@ def run_batch(cases_csv: str | Path, metadata_csv: str | Path, output_dir: str |
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Roda o pipeline sobre todos os casos de cases.csv")
+    parser = argparse.ArgumentParser()
     parser.add_argument("--cases", required=True)
     parser.add_argument("--metadata", required=True)
     parser.add_argument("--output", default="output/dicionarios")

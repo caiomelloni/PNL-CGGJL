@@ -1,5 +1,3 @@
-"""Extração do nó Patient — vem das colunas do CSV, não do case_text."""
-
 from __future__ import annotations
 
 from case_reader import ClinicalCase

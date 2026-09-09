@@ -1,8 +1,3 @@
-"""Extração de sintomas — gatilhos: 'presented with', 'complained of', etc.
-
-Ver docs/projeto-1/01-dados-a-extrair.md, seção 1.2.
-"""
-
 from __future__ import annotations
 
 import re

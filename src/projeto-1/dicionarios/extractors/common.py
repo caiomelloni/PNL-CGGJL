@@ -1,11 +1,3 @@
-"""Utilitários compartilhados pelos extractors baseados em gatilho léxico.
-
-NER aqui é deliberadamente simples (regra + regex, sem POS-tagging): a
-técnica obrigatória desta issue é a ligação a dicionário, não a extração
-em si — ver src/projeto-1/dicionarios/README.md, seção "Limitações", para
-a justificativa completa de por que um NER mínimo ainda é necessário.
-"""
-
 from __future__ import annotations
 
 import re
@@ -21,8 +13,6 @@ _ARTICLE_PREFIX = re.compile(r"^(?:a|an|the)\s+", re.IGNORECASE)
 
 @dataclass(frozen=True)
 class ExtractedEntity:
-    """Um nó extraído, acompanhado da evidência textual que o justifica."""
-
     node: Node
     evidence_text: str
     trigger: str
@@ -31,20 +21,17 @@ class ExtractedEntity:
 
 
 def find_sentence_end(text: str, start: int) -> int:
-    """Acha o fim da sentença (., !, ?, quebra de linha) sem incluir a pontuação."""
     match = re.search(r"[.!?\n]", text[start:])
     return len(text) if match is None else start + match.start()
 
 
 def clean_entity_label(text: str) -> str:
-    """Remove artigo inicial e pontuação nas bordas de um span cru."""
     cleaned = text.strip(" \t,;:()")
     cleaned = _ARTICLE_PREFIX.sub("", cleaned)
     return cleaned.strip()
 
 
 def split_list(text: str) -> list[str]:
-    """Divide uma enumeração (', ', ' and ', ' or ') em partes limpas."""
     return [clean_entity_label(p) for p in _LIST_SEPARATOR.split(text) if clean_entity_label(p)]
 
 

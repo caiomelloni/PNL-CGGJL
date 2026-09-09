@@ -1,5 +1,3 @@
-"""Extração de desfechos — doc 01 seção 1.11."""
-
 from __future__ import annotations
 
 import re

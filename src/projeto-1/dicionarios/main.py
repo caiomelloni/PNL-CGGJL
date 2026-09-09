@@ -1,5 +1,3 @@
-"""CLI: converte um caso clínico em tabelas de nós e arestas."""
-
 from __future__ import annotations
 
 import argparse
@@ -9,13 +7,10 @@ from pipeline import process_case_from_csv
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(
-        description="Converte um caso clínico (case_id) em tabelas de nós e arestas, "
-        "ligando entidades a conceitos do MeSH quando possível."
-    )
-    parser.add_argument("--cases", required=True, help="Caminho para sample/cases.csv")
-    parser.add_argument("--case-id", required=True, help="Identificador PMC..._NN")
-    parser.add_argument("--output", default="output/dicionarios", help="Diretório de saída")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--cases", required=True)
+    parser.add_argument("--case-id", required=True)
+    parser.add_argument("--output", default="output/dicionarios")
     return parser
 
 

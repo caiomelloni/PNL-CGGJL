@@ -1,5 +1,3 @@
-"""Leitura de um caso clínico a partir de sample/cases.csv."""
-
 from __future__ import annotations
 
 import csv
@@ -19,7 +17,6 @@ class ClinicalCase:
 
 
 def read_case(csv_path: str | Path, case_id: str) -> ClinicalCase:
-    """Lê exatamente um caso do CSV usando seu identificador."""
     path = Path(csv_path)
 
     with path.open(encoding="utf-8-sig", newline="") as f:

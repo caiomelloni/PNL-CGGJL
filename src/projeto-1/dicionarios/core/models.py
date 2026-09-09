@@ -1,5 +1,3 @@
-"""Modelos e validações das tabelas de nós e arestas (contrato comum #3-#6)."""
-
 from __future__ import annotations
 
 import re
@@ -42,7 +40,6 @@ _EDGE_ID_PATTERN = re.compile(r"e\d+")
 
 
 def serialize_attributes(attributes: dict[str, Any]) -> str:
-    """Serializa só os atributos preenchidos, formato 'chave=valor; chave=valor'."""
     parts = []
     for key, value in attributes.items():
         if value is None or value == "":

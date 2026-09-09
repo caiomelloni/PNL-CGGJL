@@ -1,5 +1,3 @@
-"""Orquestração: case_id -> grafo completo (entidades + Concept/SAME_AS)."""
-
 from __future__ import annotations
 
 from pathlib import Path

@@ -1,5 +1,3 @@
-"""Exportação das tabelas de nós e arestas em CSV, formato do contrato comum."""
-
 from __future__ import annotations
 
 import csv

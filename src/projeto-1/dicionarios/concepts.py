@@ -1,9 +1,3 @@
-"""Ligação de entidades extraídas a conceitos do gazetteer (Concept + SAME_AS).
-
-É aqui que o resultado do matching (matching.py) efetivamente vira parte do
-grafo — ver README.md, processo 6.
-"""
-
 from __future__ import annotations
 
 from core.graph import GraphBuilder
@@ -19,13 +13,6 @@ def link_entities_to_concepts(
     concept_nodes: dict[str, Node],
     vocabulary: str = "MeSH",
 ) -> None:
-    """Tenta ligar cada entidade a um Concept, tentando os gazetteers na
-    ordem dada (ex.: 'diseases' primeiro, 'mental_disorders' como reserva
-    para Diagnosis). concept_nodes é compartilhado entre chamadas no mesmo
-    caso, para reaproveitar o mesmo nó Concept quando duas entidades
-    diferentes casam com o mesmo código (ex. Symptom e History mencionando
-    o mesmo conceito) — em vez de criar um Concept duplicado.
-    """
     for entity in entities:
         match = None
         for gazetteer in gazetteers:

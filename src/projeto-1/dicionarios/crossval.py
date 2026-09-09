@@ -1,12 +1,3 @@
-"""Validação cruzada (processo 7): conceitos casados no caso vs. mesh_terms do artigo.
-
-Não é gabarito: mesh_terms descreve o artigo (que pode ter mais de um
-caso), curado por humano sobre o texto completo do artigo — não sobre o
-case_text isolado. É só um sinal independente de que o casamento está
-encontrando conceitos plausíveis, não uma métrica de precisão/revocação
-no sentido estrito.
-"""
-
 from __future__ import annotations
 
 from dataclasses import dataclass

@@ -1,15 +1,3 @@
-"""Parsing em streaming do thesaurus MeSH (desc*.xml, formato NLM).
-
-Extrai apenas o necessário para o gazetteer (DescriptorUI, nome preferido,
-tree numbers e termos/sinônimos), sem carregar a árvore XML inteira em
-memória — o arquivo de descriptors tem ~300MB, na maior parte ocupado por
-listas de qualificadores que não usamos aqui.
-
-Não normaliza nada: essa etapa fica a cargo do módulo de normalização
-(Fase 2), aplicado igualmente sobre o texto dos casos e sobre as entradas
-geradas aqui.
-"""
-
 from __future__ import annotations
 
 import csv
@@ -19,17 +7,12 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 
-# Categoria (rótulo livre, usado como coluna no gazetteer persistido) ->
-# prefixos de TreeNumber que definem essa categoria. Ver justificativa de
-# cada mapeamento em README.md, Fase 1. Mantido aqui (não em normalization.py
-# nem em matching.py) porque é conhecimento específico da fonte MeSH — um
-# vocabulário diferente, no futuro, teria seu próprio critério de categoria.
 CATEGORY_PREFIXES: dict[str, tuple[str, ...]] = {
-    "diseases": ("C",),  # Diagnosis, History, Symptom, Finding
-    "drugs": ("D",),  # Medication
-    "exams": ("E01",),  # Exam
-    "treatments": ("E02", "E04"),  # Treatment
-    "mental_disorders": ("F03",),  # Diagnosis (psiquiátrico)
+    "diseases": ("C",),
+    "drugs": ("D",),
+    "exams": ("E01",),
+    "treatments": ("E02", "E04"),
+    "mental_disorders": ("F03",),
 }
 
 GAZETTEER_CSV_COLUMNS = ("term", "code", "preferred_term", "category")
@@ -37,20 +20,13 @@ GAZETTEER_CSV_COLUMNS = ("term", "code", "preferred_term", "category")
 
 @dataclass(frozen=True)
 class MeshDescriptor:
-    """Um DescriptorRecord do MeSH, já reduzido ao que usamos."""
-
     code: str
     preferred_term: str
     tree_numbers: tuple[str, ...]
-    terms: tuple[str, ...]  # preferred_term + todos os entry terms, sem duplicatas
+    terms: tuple[str, ...]
 
 
 def iter_descriptors(xml_path: str | Path):
-    """Percorre o XML em streaming, gerando um MeshDescriptor por vez.
-
-    Usa iterparse + elem.clear() para não reter na memória os elementos já
-    processados — necessário dado o tamanho do arquivo.
-    """
     xml_path = Path(xml_path)
     context = ET.iterparse(str(xml_path), events=("end",))
 
@@ -99,12 +75,6 @@ def build_raw_gazetteer(
     xml_path: str | Path,
     tree_prefixes: tuple[str, ...] | None = None,
 ) -> dict[str, list[tuple[str, str]]]:
-    """Monta {termo: [(code, preferred_term), ...]}, sem normalizar.
-
-    tree_prefixes: se informado, mantém só descriptors cujo tree number
-    comece por algum desses prefixos (ex. ("C",) para doenças). Se None,
-    inclui o MeSH inteiro.
-    """
     gazetteer: dict[str, list[tuple[str, str]]] = defaultdict(list)
 
     for descriptor in iter_descriptors(xml_path):
@@ -125,13 +95,6 @@ def build_gazetteer_rows(
     xml_path: str | Path,
     category_prefixes: dict[str, tuple[str, ...]] = CATEGORY_PREFIXES,
 ) -> list[dict[str, str]]:
-    """Uma única passada pelo XML, gerando uma linha crua por (termo, categoria).
-
-    "Crua" = exatamente como está no MeSH, sem normalizar nada — é essa
-    lista que vira o gazetteer versionado em disco (ver save_gazetteer_csv).
-    Um descriptor que pertença a mais de uma categoria (tree numbers em
-    ramos diferentes) gera uma linha por categoria em que se encaixa.
-    """
     rows: list[dict[str, str]] = []
 
     for descriptor in iter_descriptors(xml_path):
@@ -158,7 +121,6 @@ def build_gazetteer_rows(
 
 
 def save_gazetteer_csv(rows: list[dict[str, str]], csv_path: str | Path) -> None:
-    """Persiste as linhas cruas (ver build_gazetteer_rows) num CSV versionável."""
     csv_path = Path(csv_path)
     csv_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -169,7 +131,6 @@ def save_gazetteer_csv(rows: list[dict[str, str]], csv_path: str | Path) -> None
 
 
 def load_gazetteer_rows(csv_path: str | Path) -> list[dict[str, str]]:
-    """Lê de volta o CSV gerado por save_gazetteer_csv."""
     csv_path = Path(csv_path)
 
     with csv_path.open(encoding="utf-8", newline="") as f:
@@ -180,12 +141,6 @@ def rows_to_raw_gazetteer(
     rows: list[dict[str, str]],
     category: str | None = None,
 ) -> dict[str, list[tuple[str, str]]]:
-    """Agrupa linhas cruas (de load_gazetteer_rows) por termo, sem normalizar.
-
-    category: se informado, mantém só linhas dessa categoria. Se None,
-    junta todas as categorias no mesmo dicionário (uso raro — normalmente
-    quem consome quer uma categoria por vez, ver README).
-    """
     gazetteer: dict[str, list[tuple[str, str]]] = defaultdict(list)
 
     for row in rows:

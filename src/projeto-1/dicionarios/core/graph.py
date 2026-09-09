@@ -1,5 +1,3 @@
-"""Construção incremental do grafo de um caso: gera IDs, guarda nós/arestas."""
-
 from __future__ import annotations
 
 from collections import Counter
