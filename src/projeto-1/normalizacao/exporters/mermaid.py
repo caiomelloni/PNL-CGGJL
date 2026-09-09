@@ -3,6 +3,7 @@
 from html import escape
 
 from ..core.graph import GraphBuilder
+from ..core.models import Node
 
 
 _NODE_STYLES = {
@@ -20,12 +21,56 @@ _NODE_STYLES = {
     "Concept": ("#f3f4f6", "#4b5563"),
 }
 
+_HORIZONTAL_LAYOUT = (
+    '%%{init: {"flowchart": {"wrappingWidth": 300, '
+    '"nodeSpacing": 35, "rankSpacing": 140}}}%%'
+)
 
-def _node_text(node_type: str, label: str, attributes: str) -> str:
-    parts = [f"<b>{escape(node_type)}</b>", escape(label)]
-    if attributes:
-        parts.append(f"<small>{escape(attributes)}</small>")
+
+def _patient_summary(node: Node) -> str:
+    age = node.attributes.get("age")
+    age_unit = str(node.attributes.get("age_unit", "")).casefold()
+    gender = node.attributes.get("gender")
+    unit = {
+        "years": "yo",
+        "year": "yo",
+        "months": "mo",
+        "month": "mo",
+        "weeks": "wk",
+        "week": "wk",
+        "days": "d",
+        "day": "d",
+    }.get(age_unit, age_unit)
+
+    demographics = []
+    if age is not None and age != "":
+        demographics.append(f"{age}{unit}")
+    if gender:
+        demographics.append(str(gender))
+
+    parts = ["<b>Patient</b>"]
+    if demographics:
+        parts.append(escape(" ".join(demographics)))
     return "<br/>".join(parts)
+
+
+def _exam_result_summary(node: Node) -> str:
+    parts = [escape(node.label)]
+    low = node.attributes.get("reference_range_low")
+    high = node.attributes.get("reference_range_high")
+    unit = node.attributes.get("unit")
+    if low is not None and high is not None:
+        suffix = f" {unit}" if unit else ""
+        parts.append(escape(f"ref {low}-{high}{suffix}"))
+    return "<br/>".join(parts)
+
+
+def _node_text(node: Node) -> str:
+    if node.type == "Patient":
+        return _patient_summary(node)
+    if node.type == "ExamResult":
+        return _exam_result_summary(node)
+    return escape(node.label)
 
 
 def render_mermaid_markdown(graph: GraphBuilder) -> str:
@@ -37,6 +82,7 @@ def render_mermaid_markdown(graph: GraphBuilder) -> str:
         f"- Arestas: {len(graph.edges)}",
         "",
         "```mermaid",
+        _HORIZONTAL_LAYOUT,
         "flowchart LR",
     ]
 
@@ -47,8 +93,7 @@ def render_mermaid_markdown(graph: GraphBuilder) -> str:
 
     lines.append("")
     for node in graph.nodes:
-        attributes = node.to_row()["attributes"]
-        label = _node_text(node.type, node.label, attributes)
+        label = _node_text(node)
         lines.append(f'  {node.node_id}["{label}"]:::{node.type}')
 
     lines.append("")

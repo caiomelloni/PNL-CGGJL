@@ -136,8 +136,11 @@ class SerializationTests(unittest.TestCase):
             "computed tomography",
         )
         self.assertIn("```mermaid", graph_markdown)
+        self.assertIn('"nodeSpacing": 35, "rankSpacing": 140', graph_markdown)
         self.assertIn("flowchart LR", graph_markdown)
         self.assertIn("P1 -->|HAS_SYMPTOM|", graph_markdown)
+        self.assertIn('<b>Patient</b><br/>44yo Female', graph_markdown)
+        self.assertNotIn("modality=imaging", graph_markdown)
 
 
 class CommandLineTests(unittest.TestCase):
