@@ -32,6 +32,39 @@ class ExtractSymptomsTests(unittest.TestCase):
         for mention in extract_symptoms(text):
             self.assertEqual(mention.node_type, "Symptom")
 
+    def test_char_offsets_point_to_correct_occurrence(self):
+        """Regression: char_start must point at the SECOND 'pain', not the first."""
+        text = "Patient with pain history presented with pain."
+        mentions = extract_symptoms(text)
+        # Should extract only the "pain" after "presented with"
+        self.assertEqual(len(mentions), 1)
+        pain_mention = mentions[0]
+        self.assertEqual(pain_mention.label, "pain")
+        # The char_start should point at the second occurrence (after "presented with")
+        extracted_text = text[pain_mention.char_start:pain_mention.char_end]
+        self.assertEqual(extracted_text, "pain")
+        # Verify it's the SECOND "pain" by checking position
+        first_pain_pos = text.find("pain")
+        self.assertGreater(pain_mention.char_start, first_pain_pos)
+
+    def test_multiple_triggers_in_same_sentence(self):
+        """Regression: multiple triggers in one sentence should produce separate mentions with correct polarity."""
+        text = "He presented with fever, denies chills."
+        mentions = extract_symptoms(text)
+        # Should produce exactly two mentions
+        self.assertEqual(len(mentions), 2)
+        labels = [m.label for m in mentions]
+        self.assertIn("fever", labels)
+        self.assertIn("chills", labels)
+        # Check polarities
+        fever_mention = next(m for m in mentions if m.label == "fever")
+        chills_mention = next(m for m in mentions if m.label == "chills")
+        self.assertEqual(fever_mention.attributes["polarity"], "present")
+        self.assertEqual(chills_mention.attributes["polarity"], "absent")
+        # Ensure no label contains the word "denies"
+        for mention in mentions:
+            self.assertNotIn("denies", mention.label.lower())
+
 
 if __name__ == "__main__":
     unittest.main()
