@@ -37,3 +37,4 @@ python -m unittest discover `
   -t src/projeto-1 `
   -p "test_*.py"
 ```
+Mais informações em: [DOCS - Normalização](https://github.com/caiomelloni/PNL-CGGJL/blob/feat/issue-4-normalizacao/docs/projeto-1/04-normalizacao.md)
