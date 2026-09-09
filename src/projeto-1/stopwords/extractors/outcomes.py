@@ -13,6 +13,14 @@ _OUTCOME_KEYWORDS = {
     "complication": ("complication",),
 }
 
+_OUTCOME_PATTERNS = {
+    candidate_type: re.compile(
+        r"\b(?:" + "|".join(re.escape(keyword) for keyword in keywords) + r")\b",
+        re.IGNORECASE,
+    )
+    for candidate_type, keywords in _OUTCOME_KEYWORDS.items()
+}
+
 _DURATION_PATTERN = re.compile(
     r"(postoperative day\s+\d+|\d+\s*(day|week|month|year)s?)",
     re.IGNORECASE,
@@ -33,23 +41,22 @@ def extract_outcomes(text: str) -> list[Mention]:
                 search_text = tail
 
         outcome_type = None
-        matched_keyword = None
-        for candidate_type, keywords in _OUTCOME_KEYWORDS.items():
-            for keyword in keywords:
-                if keyword in search_text:
-                    outcome_type = candidate_type
-                    matched_keyword = keyword
-                    break
-            if outcome_type is not None:
+        match_in_search_text = None
+        for candidate_type, pattern in _OUTCOME_PATTERNS.items():
+            match = pattern.search(search_text)
+            if match is not None:
+                outcome_type = candidate_type
+                match_in_search_text = match
                 break
 
         if outcome_type is None:
             continue
 
+        matched_keyword = match_in_search_text.group(0)
         duration_match = _DURATION_PATTERN.search(sentence.text)
         duration = duration_match.group(0) if duration_match else None
 
-        start = sentence.start + offset + search_text.find(matched_keyword)
+        start = sentence.start + offset + match_in_search_text.start()
         mentions.append(Mention(
             node_type="Outcome",
             label=matched_keyword,

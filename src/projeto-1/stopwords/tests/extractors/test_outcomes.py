@@ -26,6 +26,18 @@ class ExtractOutcomesTests(unittest.TestCase):
     def test_no_keyword_no_mentions(self):
         self.assertEqual(extract_outcomes("She rested comfortably."), [])
 
+    def test_no_false_positive_died_in_studied(self):
+        """Regression: 'studied' contains 'died' as substring but should not match."""
+        text = "The tumor was studied over five years."
+        mentions = extract_outcomes(text)
+        self.assertEqual(mentions, [])
+
+    def test_no_false_positive_resolved_in_unresolved(self):
+        """Regression: 'unresolved' contains 'resolved' as substring but should not match."""
+        text = "The infection remained unresolved at discharge."
+        mentions = extract_outcomes(text)
+        self.assertEqual(mentions, [])
+
 
 if __name__ == "__main__":
     unittest.main()
