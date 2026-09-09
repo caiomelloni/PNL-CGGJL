@@ -24,7 +24,7 @@ Modelos de linguagem não participam de nenhuma etapa — extração é regra/re
 
 **Justificativa da escolha final:** cobrir bem com um vocabulário só, em vez de tentar integrar vários parcialmente. O MeSH, sozinho, tem cobertura em quatro das seis categorias de entidade do doc 01 (`Diagnosis`/`History`/`Symptom`/`Finding` via categoria `C`; `Medication` via `D`; `Exam` via `E01`; `Treatment` via `E02`+`E04`; e diagnósticos psiquiátricos via `F03`), sem nenhuma barreira de licença, já está presente como referência em `metadata.csv` (`mesh_terms`), e é a mesma fonte que a validação cruzada (processo 7) usa como sinal independente — usar o mesmo vocabulário nos dois lados evita ter que reconciliar dois sistemas de código diferentes. RxNorm e SNOMED CT ficam documentados como extensão natural, não como lacuna ignorada.
 
-`AnatomicalSite` não tem vocabulário controlado associado nesta entrega — a estratégia planejada era um gazetteer manual próprio (código interno `ANAT00N`), mas essa parte foi **adiada deliberadamente** para ser feita com outra abordagem, a definir. Fica documentada como trabalho futuro. `Patient`, `ExamResult` e `Outcome` não são candidatos a ligação de vocabulário (não são conceitos médicos catalogáveis, são o paciente em si ou valores/desfechos).
+`AnatomicalSite` não tem vocabulário oficial adotado nesta entrega — em vez disso, foi construído um **gazetteer próprio, do zero**, com código interno (`ANAT001`, `ANAT002`, ...). Essa é a segunda técnica que a issue permite demonstrar (vocabulário *construído*, em contraste com o MeSH, que é vocabulário *pronto*) — ver §4.1. `Patient`, `ExamResult` e `Outcome` não são candidatos a ligação de vocabulário (não são conceitos médicos catalogáveis, são o paciente em si ou valores/desfechos).
 
 ## 3. Situação de licença (MeSH)
 
@@ -51,6 +51,21 @@ Verificado na fonte oficial antes de implementar:
 | `mental_disorders` | `F03` (Mental Disorders) | `Diagnosis` (psiquiátrico) | 3.063 | 235 |
 
 **Persistência: sempre cru, nunca normalizado.** `build_gazetteer_rows()` gera uma linha por `(termo, categoria)` **exatamente como está no MeSH** — sem lowercase, sem strip de pontuação. Essas 174.006 linhas ficam versionadas em `src/projeto-1/dicionarios/gazetteer/mesh_gazetteer.csv` (11 MB). A normalização (§5) é aplicada só no momento de carregar o gazetteer para uso (`rows_to_raw_gazetteer()` + `normalization.build_normalized_gazetteer()`), como uma etapa separada e substituível — decisão deliberada para facilitar integração futura: se o projeto convergir numa normalização compartilhada entre as quatro issues, basta injetar a nova função (`normalize_fn=...`), sem regerar o gazetteer nem precisar do arquivo de 313 MB de novo.
+
+### 4.1 Gazetteer próprio: `AnatomicalSite`
+
+Construído sem bootstrap automático no MeSH — decisão deliberada de encarar a curadoria manual, não só cruzar uma lista já pronta contra o corpus. Método:
+
+1. Pesquisa de referências de terminologia anatômica na internet: [SEER Training Modules](https://training.seer.cancer.gov/anatomy/body/terminology.html) (National Cancer Institute) e [Anatomy & Physiology, SUNY/Lumen Learning](https://courses.lumenlearning.com/suny-ap1/chapter/anatomical-terminology/) — usadas como matéria-prima, não como fonte única fechada.
+2. Seleção manual de ~50 conceitos (órgãos e regiões corporais) relevantes ao domínio de relatos clínicos, escritos à mão em `anatomical_site_terms.py`, com sinônimo/forma adjetiva por **mapa explícito** (`stomach ↔ gastric`, `kidney ↔ renal`), não por regra automática de sufixo.
+3. Cada conceito recebe um código interno (`ANAT001`, ...) e `vocabulary=local` no `Concept` gerado — nunca o código do MeSH, mesmo esse existindo pra anatomia (categoria `A`), justamente para manter o contraste pedagógico entre as duas técnicas.
+4. Persistido, versionado, em `gazetteer/anatomical_site_gazetteer.csv` (101 linhas — conteúdo autoral, sem questão de licença).
+
+**NER para esta entidade é mais simples que o resto do pipeline, de propósito:** como o vocabulário é pequeno e fechado (curado por nós), varrer o `case_text` direto contra o próprio gazetteer (`extractors/anatomical_site.py`) já é uma extração razoável — o risco de falso positivo que motivou o NER por gatilho nas outras entidades (§8) é bem menor aqui. Duas salvaguardas: (1) só vira nó se cair dentro do span de evidência de um `Symptom`/`Treatment` já extraído (sem isso não há como formar a aresta `LOCATED_IN`); (2) descartado se cair dentro do span de um `Diagnosis`, para não duplicar o órgão já embutido no nome da doença (`"pancreatitis"` não deve gerar `pancreas`).
+
+**Bug real encontrado ao rodar isso pela primeira vez, que afeta o matching como um todo — não só esta entidade:** o threshold de fuzzy match (85, calibrado em §6 com termos médicos longos) não é seguro para chaves curtas. `fuzz.ratio("had", "head") = 85,7`; o mesmo para `"one"`/`"bone"`, `"fear"`/`"ear"`, `"year"`/`"ear"` — em todos os casos, uma única edição de caractere numa palavra comum do inglês já cruza o limiar, porque a métrica é proporcional ao tamanho total das strings, e strings curtas toleram muito menos edições antes de virarem "diferentes" na prática. Corrigido com `MIN_FUZZY_LENGTH = 5`: fuzzy match não roda mais para tokens/labels com menos de 5 caracteres. A correção também eliminou, de graça, um falso positivo pré-existente em `Medication` (`"that"` casando com `Tacrine`) que não tinha relação com anatomia — só ficou visível porque o novo gazetteer tem muito mais chave curta que o MeSH.
+
+**Resultado nos 56 casos** (comparado antes/depois, `output/dicionarios/` vs. `output/dicionarios_v2/` — este último **não versionado**, por decisão do autor, pendente de revisão antes de substituir o oficial): **+18 nós `AnatomicalSite`, +18 arestas `LOCATED_IN`, +18 arestas `SAME_AS`** (cobertura de 100% nesta categoria — esperado, já que a própria extração é a varredura do dicionário), e **-1** aresta `SAME_AS` em outro lugar (o falso positivo do `"that"`/`Tacrine` corrigido). Termos encontrados: `abdomen`, `abdominal` (×4), `cardiac`, `chest` (×3), `dorsal`, `esophagus.`, `Esophageal`, `forearm`, `gastric`, `palm`, `pancreatic`, `pulmonary`, `skin`.
 
 ## 5. Normalização
 
@@ -85,7 +100,7 @@ Implementada em `src/projeto-1/dicionarios/matching.py`, três técnicas em orde
 | `flank` (não deveria casar) | flank pain | 66,7 |
 | `she` (não deveria casar) | rash | 57,1 |
 
-Os verdadeiros positivos ficam em 91–96; os que não deveriam casar, em 57–67. **85** fica com folga segura entre os dois grupos.
+Os verdadeiros positivos ficam em 91–96; os que não deveriam casar, em 57–67. **85** fica com folga segura entre os dois grupos — **para strings desse comprimento**. A folga não se sustenta para chaves curtas (ver §4.1): `fuzz.ratio` é proporcional ao tamanho total das duas strings, então uma única edição de caractere numa palavra de 3-4 letras já produz uma similaridade de 85%+, mesmo sem nenhuma relação semântica (`"had"` vs `"head"` = 85,7). Corrigido com `MIN_FUZZY_LENGTH = 5`: abaixo desse tamanho, fuzzy match nem é tentado — só exact/longest decidem.
 
 **Desempate.** Quando uma chave normalizada aponta para mais de um conceito — checado contra os dados reais, não hipotético: existe **exatamente 1 caso em 58.062 chaves** da categoria `diseases` (`"anemia hypoplastic congenital"`, que aponta tanto para `D029502` "Anemia, Hypoplastic, Congenital" quanto para `D029503` "Anemia, Diamond-Blackfan"). Regra: preferir o concept cujo `preferred_term` normaliza exatamente para a mesma chave (o termo canônico daquele concept, não um sinônimo emprestado de outro); resolve o caso real corretamente (`D029502`). Sem candidato canônico único, desempata pelo código em ordem alfabética, por determinismo.
 
@@ -106,11 +121,11 @@ Por isso o pipeline implementa um NER simples, baseado em gatilho léxico e rege
 
 ## 9. Resultados sobre a amostra (56 casos)
 
-Pipeline completo executado sem exceção nos 56 casos de `sample/cases.csv` (`src/projeto-1/dicionarios/batch.py`; tabelas em `output/dicionarios/`).
+Pipeline completo executado sem exceção nos 56 casos de `sample/cases.csv` (`src/projeto-1/dicionarios/batch.py`). Duas versões das tabelas existem: `output/dicionarios/` (versionado, sem `AnatomicalSite`) e `output/dicionarios_v2/` (não versionado, já com `AnatomicalSite` e a correção do `MIN_FUZZY_LENGTH` — ver §4.1); a decisão de qual vira a oficial fica pendente de revisão.
 
-**Nós gerados:** 56 `Patient`, 64 `Symptom`, 48 `History`, 46 `Diagnosis`, 41 `Treatment`, 41 `Medication`, 33 `Outcome`, 30 `Exam`, **119 `Concept`**.
+**Nós gerados (com `AnatomicalSite`, `output/dicionarios_v2/`):** 56 `Patient`, 64 `Symptom`, 48 `History`, 46 `Diagnosis`, 41 `Treatment`, 41 `Medication`, 33 `Outcome`, 30 `Exam`, 18 `AnatomicalSite`, **135 `Concept`**.
 
-**Cobertura do casamento:** das 270 entidades de tipo ligável (`Symptom`/`History`/`Diagnosis`/`Exam`/`Treatment`/`Medication`), **122 geraram aresta `SAME_AS` (45,2%)**. Maior que o achado análogo de um colega usando léxico+POS-tagging (14% dos sintagmas dele tinham tipo no léxico) — plausível, já que aqui o matching já é restrito à categoria certa do MeSH por tipo de entidade, em vez de comparar contra um léxico genérico.
+**Cobertura do casamento:** das 288 entidades de tipo ligável (`Symptom`/`History`/`Diagnosis`/`Exam`/`Treatment`/`Medication`/`AnatomicalSite`), **139 geraram aresta `SAME_AS` (48,3%)**. Maior que o achado análogo de um colega usando léxico+POS-tagging (14% dos sintagmas dele tinham tipo no léxico) — plausível, já que aqui o matching já é restrito à categoria certa do vocabulário por tipo de entidade, em vez de comparar contra um léxico genérico. `AnatomicalSite` sozinho tem cobertura de 100% — resultado estrutural, não uma vitória de precisão: como o NER dessa entidade *é* a varredura do dicionário (§4.1), todo nó criado já bateu com uma chave por definição.
 
 **Validação cruzada (processo 7):** 8 dos 50 artigos têm `mesh_terms` vazio (excluídos). Dos 48 restantes, sobreposição média de só **1,1%** dos termos do artigo, com overlap positivo em **6,2%** dos casos. Baixo, mas consistente com o aviso do próprio enunciado — `mesh_terms` descreve o artigo, não o caso. Quebrando por tipo de entidade de origem, a hipótese se confirma: `Diagnosis` (8,7%), `Treatment` (16,7%) e `Exam` (14,3%) batem mais que `Symptom` (0%) e `History` (0%) — curadores indexam pelo tema clínico do artigo, não por cada sintoma do caso.
 
@@ -121,7 +136,9 @@ Pipeline completo executado sem exceção nos 56 casos de `sample/cases.csv` (`s
 | `"CT"` não é sinônimo cadastrado de `Tomography, X-Ray Computed` no MeSH | Siglas curtas/ambíguas do próprio caso não casam via dicionário | Precisam ser resolvidas por expansão local (`termo por extenso (SIGLA)`), não implementado nesta entrega |
 | Match genérico em vez de específico (`"contrast enhanced computed tomography"` → `Tomography` `D014054`, não `Tomography, X-Ray Computed` `D014057`) | `Concept` perde especificidade quando só uma sub-palavra do span casa | Não é erro do algoritmo — o MeSH simplesmente não cataloga a frase composta como sinônimo do descriptor mais específico |
 | NER simples por gatilho léxico | Constructions como `"past medical, family and medication history were otherwise non-contributory"` (sujeito antes do gatilho "history") não são reconhecidas | Aceitável: fica silencioso (não gera nó incorreto), só não gera nó nenhum — trade-off consciente de manter o NER simples |
-| `AnatomicalSite` sem vocabulário | Nenhuma ligação a conceito para sítios anatômicos | Adiado deliberadamente para abordagem futura a definir |
+| `AnatomicalSite` ancorado só em `Symptom`/`Treatment` | Sítio mencionado num trecho de `Finding` (não implementado) fica sem `LOCATED_IN` e não vira nó — ex. `"stomach"`/`"pancreas"` em `"a cystic lesion between the stomach and [...] pancreas"` | Consequência direta de não termos implementado o extractor de `Finding` (§8); reduz a superfície de ancoragem, não a qualidade do que é encontrado |
+| Label de `AnatomicalSite` às vezes inclui pontuação colada (`"esophagus."`) | Cosmético — o conceito casado continua correto | Limite de tokenização (`TreebankWordTokenizer`), não corrigido nesta entrega |
+| Threshold de fuzzy match não é seguro para chaves curtas | Falso positivo em gazetteers com muita chave de 3-4 letras (ex. `"had"`→`"head"`) | Corrigido com `MIN_FUZZY_LENGTH=5` (ver §4.1/§6) — documentado aqui como lição, não como lacuna aberta |
 | RxNorm/SNOMED CT/LOINC/ICD-10 não integrados | Cobertura de `Medication`/`Symptom`/`Exam`/`Diagnosis` limitada ao que o MeSH cataloga | Documentado em §2 como extensão natural, não lacuna ignorada — MeSH sozinho já cobre 4 das 6 categorias linkáveis |
 | Fuzzy match só span a span, não em janelas multi-palavra | Erro de digitação numa frase de mais de uma palavra não é corrigido | Decisão de escopo: MeSH já cataloga a maior parte da variação de fraseado relevante como sinônimo |
 
@@ -132,3 +149,5 @@ Pipeline completo executado sem exceção nos 56 casos de `sample/cases.csv` (`s
 - [Dados a extrair](01-dados-a-extrair.md).
 - [Esquema do grafo](02-esquema-grafo.md).
 - National Library of Medicine — [MeSH XML Data Files](https://www.nlm.nih.gov/mesh/xmlmesh.html), [Terms and Conditions](https://www.nlm.nih.gov/databases/download/terms_and_conditions_mesh.html).
+- [SEER Training Modules — Anatomical Terminology](https://training.seer.cancer.gov/anatomy/body/terminology.html), National Cancer Institute — referência para o gazetteer próprio de `AnatomicalSite` (§4.1).
+- [Anatomy & Physiology I — Anatomical Terminology](https://courses.lumenlearning.com/suny-ap1/chapter/anatomical-terminology/), SUNY / Lumen Learning — idem.
