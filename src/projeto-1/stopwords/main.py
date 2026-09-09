@@ -1,5 +1,6 @@
 """Interface de linha de comando do pipeline de stop-words."""
 
+import sys
 from pathlib import Path
 
 import argparse
@@ -40,8 +41,13 @@ def main(argv: list[str] | None = None) -> int:
     case_ids = [args.case_id] if args.case_id else read_all_case_ids(args.cases)
 
     for case_id in case_ids:
-        case = read_case(args.cases, case_id)
-        result = process_case(case, condition, args.wordlist)
+        try:
+            case = read_case(args.cases, case_id)
+            result = process_case(case, condition, args.wordlist)
+        except (LookupError, ValueError) as error:
+            print(f"erro ao processar {case_id}: {error}", file=sys.stderr)
+            return 1
+
         nodes_path, edges_path = export_pipeline_result(result, args.output)
         print(f"{case_id}: nodes={nodes_path} edges={edges_path}")
 

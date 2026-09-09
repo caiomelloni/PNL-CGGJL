@@ -1,3 +1,5 @@
+import contextlib
+import io
 import tempfile
 import unittest
 from pathlib import Path
@@ -24,6 +26,31 @@ class MainTests(unittest.TestCase):
     def test_requires_case_id_or_all_cases(self):
         with self.assertRaises(SystemExit):
             main(["--cases", str(_FIXTURE)])
+
+    def test_missing_wordlist_with_non_baseline_condition(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            stderr = io.StringIO()
+            with contextlib.redirect_stderr(stderr):
+                exit_code = main([
+                    "--cases", str(_FIXTURE),
+                    "--case-id", "PMC0000001_01",
+                    "--condition", "NAIVE_UNPROTECTED",
+                    "--output", tmp_dir
+                ])
+            self.assertEqual(exit_code, 1)
+            self.assertIn("erro ao processar", stderr.getvalue())
+
+    def test_unknown_case_id(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            stderr = io.StringIO()
+            with contextlib.redirect_stderr(stderr):
+                exit_code = main([
+                    "--cases", str(_FIXTURE),
+                    "--case-id", "NOPE_99",
+                    "--output", tmp_dir
+                ])
+            self.assertEqual(exit_code, 1)
+            self.assertIn("erro ao processar", stderr.getvalue())
 
 
 if __name__ == "__main__":
