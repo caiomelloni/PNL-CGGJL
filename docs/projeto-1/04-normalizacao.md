@@ -93,7 +93,6 @@ As próximas correções podem ser organizadas pela dependência e pelo impacto:
 ## 5. Referências
 
 - [Issue 4 — Parser caso → grafo · estratégia: normalização](https://github.com/caiomelloni/PNL-CGGJL/issues/4).
-- [Relatório técnico completo da normalização](04-normalizacao.md).
+- [Relatório técnico completo da normalização](04-normalizacao-completo.md).
 - [Dados a extrair](01-dados-a-extrair.md).
 - [Esquema do grafo](02-esquema-grafo.md).
-

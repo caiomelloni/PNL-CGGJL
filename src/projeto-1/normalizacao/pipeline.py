@@ -3,15 +3,17 @@
 from dataclasses import dataclass
 from pathlib import Path
 
-from case_reader import ClinicalCase, read_case
-from diagnosis_extraction import extract_diagnoses
-from entity_extraction import extract_history, extract_patient, extract_symptoms
-from exam_extraction import extract_exam_results, extract_exams
-from finding_extraction import extract_findings
-from graph import GraphBuilder
-from outcome_extraction import extract_outcomes
-from relation_extraction import ExtractedCaseEntities, build_relations
-from treatment_extraction import extract_medications, extract_treatments
+from .case_reader import ClinicalCase, read_case
+from .core.graph import GraphBuilder
+from .extractors.diagnoses import extract_diagnoses
+from .extractors.exams import extract_exam_results, extract_exams
+from .extractors.findings import extract_findings
+from .extractors.history import extract_history
+from .extractors.outcomes import extract_outcomes
+from .extractors.patient import extract_patient
+from .extractors.relations import ExtractedCaseEntities, build_relations
+from .extractors.symptoms import extract_symptoms
+from .extractors.treatments import extract_medications, extract_treatments
 
 
 @dataclass(frozen=True)

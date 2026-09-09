@@ -2,9 +2,10 @@
 
 import argparse
 from collections.abc import Sequence
+from pathlib import Path
 
-from pipeline import process_case_from_csv
-from serialization import export_pipeline_result
+from .exporters.csv_exporter import export_pipeline_result
+from .pipeline import process_case_from_csv
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -15,7 +16,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--case-id", required=True, help="Identificador PMC..._NN")
     parser.add_argument(
         "--output",
-        default="output/normalizacao",
+        default=str(Path(__file__).resolve().parent / "output"),
         help="Diretório de saída",
     )
     return parser
