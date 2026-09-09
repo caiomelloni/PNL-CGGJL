@@ -39,12 +39,12 @@ def extract_findings(text: str) -> list[Mention]:
         size_match = _SIZE_PATTERN.search(rest)
         size = size_match.group(0) if size_match else None
 
-        label = rest.split(",")[0].strip()
+        raw_segment = rest.split(",")[0]
+        label = raw_segment.strip()
         if not label:
             continue
-
-        local_start = sentence.text.find(label)
-        start = sentence.start + max(local_start, 0)
+        local_offset = raw_segment.find(label)
+        start = sentence.start + match.start("rest") + local_offset
         mentions.append(Mention(
             node_type="Finding",
             label=label,
