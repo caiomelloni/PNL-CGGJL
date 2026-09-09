@@ -5,7 +5,8 @@ import re
 from .common import Mention, split_sentences
 
 _TREATMENT_TRIGGER = re.compile(
-    r"(?:underwent|was treated with|treated with)\s+(?P<rest>[^.!?\n]+)|(?P<treatment>[^.!?\n]+?)\s+(?:was planned|was converted|was refused)",
+    r"(?:(?P<trigger1>underwent|was treated with|treated with)\s+(?P<rest>[^.!?\n]+))"
+    r"|(?:(?P<treatment>[^.!?\n]+?)\s+(?P<trigger2>was planned|was converted|was refused))",
     re.IGNORECASE,
 )
 
@@ -43,9 +44,14 @@ def extract_treatments(text: str) -> list[Mention]:
         if match is None:
             continue
 
-        # Handle both alternatives in the regex pattern
-        raw_rest = match.group("rest") or match.group("treatment")
-        trigger = match.group(1) if match.group(1) else sentence.text[match.start():match.end()].split()[0]
+        if match.group("rest") is not None:
+            trigger = match.group("trigger1")
+            raw_rest = match.group("rest")
+            start_offset = match.start("rest")
+        else:
+            trigger = match.group("trigger2")
+            raw_rest = match.group("treatment")
+            start_offset = match.start("treatment")
 
         first_segment = re.split(r",| and ", raw_rest)[0]
         label = first_segment.strip()
@@ -60,8 +66,6 @@ def extract_treatments(text: str) -> list[Mention]:
                 status = status_value
                 break
 
-        # Use correct offset for whichever capture group matched
-        start_offset = match.start("rest") if match.group("rest") else match.start("treatment")
         start = sentence.start + start_offset
         mentions.append(Mention(
             node_type="Treatment",

@@ -21,6 +21,16 @@ class ExtractTreatmentsTests(unittest.TestCase):
         mentions = extract_treatments(text)
         self.assertEqual(mentions, [])
 
+    def test_trigger_correct_for_active_voice(self):
+        text = "She underwent a laparoscopic distal pancreatectomy."
+        mentions = extract_treatments(text)
+        self.assertEqual(mentions[0].trigger, "underwent")
+
+    def test_trigger_correct_for_passive_voice(self):
+        text = "A laparoscopic distal pancreatectomy was planned."
+        mentions = extract_treatments(text)
+        self.assertEqual(mentions[0].trigger, "was planned")
+
 
 class ExtractMedicationsTests(unittest.TestCase):
     def test_extracts_dose_and_unit(self):
