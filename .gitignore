@@ -1,0 +1,15 @@
+/sample
+src/projeto-1/dicionarios/data/
+output/dicionarios_v2/
+src/projeto-1/dicionarios/slides/
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.ipynb_checkpoints/
