@@ -170,3 +170,9 @@ Em [`src/projeto-1/stopwords/lexicon/data/`](../../src/projeto-1/stopwords/lexic
   `GUARDED_GLOBAL`/`NAIVE_UNPROTECTED` — a palavra de conteúdo sobrevive, mas `of`/`out`/`with` pode
   ser mascarada. Não afeta a condição escolhida (`GUARDED_LABEL`), que não mascara o texto de
   extração.
+- `polarity_changed` no resumo agregado é um **piso, não um total**: só conta uma inversão quando o
+  `label` do nó sobrevive intacto o suficiente para casar entre o baseline e a variante mascarada.
+  O próprio caso em destaque prova isso — a inversão do `Finding` de anemia é real e discutida acima,
+  mas não está entre os 14/21 contados, porque o `label` também mudou sob mascaramento e o nó passou
+  a contar como `nodes_lost`/`nodes_gained` em vez de `polarity_changed`. Isso reforça, não enfraquece,
+  o argumento contra `NAIVE_UNPROTECTED`: o número real de inversões é maior que o reportado.

@@ -33,12 +33,13 @@ class ProcessCaseTests(unittest.TestCase):
         self.assertEqual(baseline_finding.attributes["polarity"], "absent")
 
         naive_findings = [n for n in naive.graph.nodes if n.type == "Finding"]
-        # under NAIVE_UNPROTECTED with spacy (which contains "no"), the negation
-        # cue is masked before extraction runs — polarity must not stay "absent"
-        # for a finding with the same label as the baseline one.
-        matching = [n for n in naive_findings if n.label == baseline_finding.label]
-        if matching:
-            self.assertNotEqual(matching[0].attributes.get("polarity"), "absent")
+        # under NAIVE_UNPROTECTED with spacy (which contains "no"), the negation cue is
+        # masked before extraction runs — no Finding node in the naive run should still
+        # report polarity=absent for this case.
+        self.assertFalse(
+            any(n.attributes.get("polarity") == "absent" for n in naive_findings),
+            f"expected the negation cue to be lost under NAIVE_UNPROTECTED, but found: {naive_findings}",
+        )
 
     def test_process_case_from_csv(self):
         result = process_case_from_csv(_FIXTURE, "PMC0000001_01")

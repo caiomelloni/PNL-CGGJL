@@ -88,13 +88,16 @@ class DiffGraphsRealPipelineTests(unittest.TestCase):
     def test_naive_unprotected_flips_polarity_with_a_list_lacking_the_cue(self):
         case = ClinicalCase(
             article_id="PMC1", age=None, case_id="PMC1234567_01",
-            case_text="FNA of the cyst demonstrated no evidence of malignancy.",
+            case_text="No recurrence of the parastomal hernia was identified.",
             gender="Female",
         )
         baseline = process_case(case, Condition.BASELINE)
         naive = process_case(case, Condition.NAIVE_UNPROTECTED, "spacy_stopwords")
         result = diff_graphs(baseline.graph, naive.graph)
-        self.assertGreaterEqual(result.polarity_changed + result.nodes_lost, 1)
+        # single-token label ("recurrence") survives masking intact, so diff_graphs'
+        # (type, label) matcher keeps the node paired across baseline/variant and the
+        # polarity flip is directly visible instead of manifesting as nodes_lost/gained.
+        self.assertEqual(result.polarity_changed, 1)
 
 
 if __name__ == "__main__":
