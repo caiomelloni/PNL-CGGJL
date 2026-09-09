@@ -9,6 +9,7 @@ from rapidfuzz import fuzz, process
 from normalization import align_normalized_tokens, normalize_term, normalize_token
 
 FUZZY_THRESHOLD = 85.0
+MIN_FUZZY_LENGTH = 5
 
 
 @dataclass(frozen=True)
@@ -80,7 +81,7 @@ def fuzzy_match_leftover(
 
     for index in unmatched_indices:
         token = normalize_token(raw_tokens[index])
-        if not token:
+        if not token or len(token) < MIN_FUZZY_LENGTH:
             continue
 
         result = process.extractOne(
@@ -136,7 +137,7 @@ def link_label_to_concept(
         return None
 
     whole_label = normalize_term(label)
-    if not whole_label:
+    if not whole_label or len(whole_label) < MIN_FUZZY_LENGTH:
         return None
 
     result = process.extractOne(

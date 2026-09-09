@@ -7,6 +7,7 @@ from case_reader import ClinicalCase, read_case
 from concepts import link_entities_to_concepts
 from core.graph import GraphBuilder
 from core.models import Node
+from extractors.anatomical_site import extract_anatomical_sites
 from extractors.common import ExtractedEntity
 from extractors.diagnoses import extract_diagnoses
 from extractors.history import extract_history
@@ -18,7 +19,10 @@ from extractors.symptoms import extract_symptoms
 from mesh_parser import load_gazetteer_rows, rows_to_raw_gazetteer
 from normalization import build_normalized_gazetteer
 
-GAZETTEER_CSV = Path(__file__).parent / "gazetteer" / "mesh_gazetteer.csv"
+GAZETTEER_CSVS = [
+    Path(__file__).parent / "gazetteer" / "mesh_gazetteer.csv",
+    Path(__file__).parent / "gazetteer" / "anatomical_site_gazetteer.csv",
+]
 
 
 def _edge_attrs(entity: ExtractedEntity) -> dict[str, Any]:
@@ -31,9 +35,11 @@ def _edge_attrs(entity: ExtractedEntity) -> dict[str, Any]:
 
 
 def load_gazetteers_by_category(
-    csv_path: str | Path = GAZETTEER_CSV,
+    csv_paths: list[str | Path] = GAZETTEER_CSVS,
 ) -> dict[str, dict[str, list[tuple[str, str]]]]:
-    rows = load_gazetteer_rows(csv_path)
+    rows: list[dict[str, str]] = []
+    for csv_path in csv_paths:
+        rows.extend(load_gazetteer_rows(csv_path))
     categories = {row["category"] for row in rows}
     return {
         category: build_normalized_gazetteer(rows_to_raw_gazetteer(rows, category=category))
@@ -73,6 +79,14 @@ def process_case(
     for entity in outcomes:
         graph.add_edge(patient, entity.node, "HAS_OUTCOME", _edge_attrs(entity))
 
+    anatomical_sites = extract_anatomical_sites(
+        case.case_text,
+        graph,
+        gazetteers.get("anatomical_site", {}),
+        diagnosis_entities=diagnoses,
+        anchor_entities=symptoms + treatments,
+    )
+
     concept_nodes: dict[str, Node] = {}
     diseases = gazetteers.get("diseases", {})
     mental = gazetteers.get("mental_disorders", {})
@@ -82,6 +96,13 @@ def process_case(
     link_entities_to_concepts(exams, [gazetteers.get("exams", {})], graph, concept_nodes)
     link_entities_to_concepts(treatments, [gazetteers.get("treatments", {})], graph, concept_nodes)
     link_entities_to_concepts(medications, [gazetteers.get("drugs", {})], graph, concept_nodes)
+    link_entities_to_concepts(
+        anatomical_sites,
+        [gazetteers.get("anatomical_site", {})],
+        graph,
+        concept_nodes,
+        vocabulary="local",
+    )
 
     return graph
 
