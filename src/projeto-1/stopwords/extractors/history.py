@@ -10,7 +10,7 @@ _DURATION_HISTORY_OF = re.compile(
 )
 
 _HISTORY_TRIGGER = re.compile(
-    r"(past medical history(?: significant)?(?: for)?|family history of|history of)\s+",
+    r"(past medical history(?:\s+significant)?(?:\s+for|\s+of)?|family history of|history of)\s+",
     re.IGNORECASE,
 )
 
@@ -43,8 +43,8 @@ def extract_history(text: str) -> list[Mention]:
             )
             rest = sentence.text[rest_start:rest_end]
 
-            subject = "family" if any(term in sentence.text.lower() for term in _FAMILY_TERMS) else "patient"
             clause_text = sentence.text[match.start():rest_end]
+            subject = "family" if any(term in clause_text.lower() for term in _FAMILY_TERMS) else "patient"
             polarity = detect_polarity(clause_text)
             hedged = is_hedged(clause_text)
 

@@ -33,6 +33,22 @@ class ExtractHistoryTests(unittest.TestCase):
         mentions = extract_history(text)
         self.assertTrue(any(m.attributes["category"] == "condition" for m in mentions))
 
+    def test_handles_multiple_triggers_with_per_clause_subject(self):
+        """Regression test: subject should be scoped per clause, not sentence-wide.
+        Also verifies that 'of' is properly consumed by the trigger and not leaked into labels.
+        """
+        text = "Past medical history of hypertension and past medical history of diabetes in her mother."
+        mentions = extract_history(text)
+        self.assertEqual(len(mentions), 2)
+
+        # First mention: patient's hypertension (no "of" prefix, no family terms in clause)
+        self.assertEqual(mentions[0].label, "hypertension")
+        self.assertEqual(mentions[0].attributes["subject"], "patient")
+
+        # Second mention: family history of diabetes (no "of" prefix, "mother" is in clause)
+        self.assertEqual(mentions[1].label, "diabetes in her mother")
+        self.assertEqual(mentions[1].attributes["subject"], "family")
+
 
 if __name__ == "__main__":
     unittest.main()
