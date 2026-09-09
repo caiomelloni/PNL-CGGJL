@@ -70,8 +70,20 @@ class DiffGraphsRealPipelineTests(unittest.TestCase):
         baseline = process_case(case, Condition.BASELINE)
         for wordlist in ("nltk_stopwords", "spacy_stopwords", "custom_clinical"):
             guarded = process_case(case, Condition.GUARDED_LABEL, wordlist)
+
+            # Existing check: diff_graphs still reports no polarity_changed among matched nodes.
             result = diff_graphs(baseline.graph, guarded.graph)
             self.assertEqual(result.polarity_changed, 0, f"GUARDED_LABEL flipped polarity with {wordlist}")
+
+            # Stronger, direct check: confirm the negation actually survived in the guarded
+            # run's own graph, independent of whether the label matched baseline's (which
+            # diff_graphs' (type,label) matching can miss when label-cleaning changes the
+            # label text itself).
+            guarded_findings = [n for n in guarded.graph.nodes if n.type == "Finding"]
+            self.assertTrue(
+                any(n.attributes.get("polarity") == "absent" for n in guarded_findings),
+                f"GUARDED_LABEL with {wordlist} lost the negated Finding entirely: {guarded_findings}",
+            )
 
     def test_naive_unprotected_flips_polarity_with_a_list_lacking_the_cue(self):
         case = ClinicalCase(
