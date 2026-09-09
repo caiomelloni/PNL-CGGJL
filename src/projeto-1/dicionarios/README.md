@@ -41,7 +41,13 @@ A partir de um `case_id`, o texto do caso (`case_text`) passa pelos seguintes pr
 
   Validado com termos reais do caso de exemplo: `"Type 2 Diabetes Mellitus"` e `"NIDDM"` resolvem para o mesmo código (`D003924`) que `"Diabetes Mellitus, Type 2"`; `"Pancreatitis"` → `D010195`; `"Oseltamivir"` → `D053139`. Uma limitação real já observada: `"CT"` (sigla) **não** está cadastrada como sinônimo de `Tomography, X-Ray Computed` no MeSH — siglas curtas/ambíguas em geral não entram no thesaurus, então precisam ser resolvidas dentro do próprio caso (padrão `termo por extenso (SIGLA)`), não via o dicionário.
 
-- Os demais processos (4 a 8) ainda não têm código implementado.
+- **Normalização (processo 2):** implementada em `normalization.py`. Escopo mínimo por decisão deliberada: NFKC + lowercase + remoção de pontuação nas bordas do token, **sem stemming, lematização ou remoção de stop-words** — variação morfológica não coberta pelo MeSH fica a cargo do fuzzy match (processo 5), não da normalização; ver justificativa completa nas notas de progresso da Fase 2 abaixo. A normalização nunca sobrescreve o texto original: só gera a chave usada para consulta no gazetteer, o `label` do nó continua com o texto tal como apareceu no caso (evita ter que reconstruir manualmente a grafia de termos sensíveis a maiúscula, como `IgG`/`CA 19-9`).
+
+  Testado com os casos difíceis que o próprio doc 01 já sinalizava: `"(CEA)"` → `"cea"` (parênteses descartados), `"CA 19-9"` → `"ca 19-9"` (hífen interno preservado pelo tokenizador), `"IgG"` → `"igg"`, `"Diabetes Mellitus, Type 2"` e `"Type 2 Diabetes Mellitus"` → ambos sem a vírgula. Reaplicando aos ~58 mil termos do gazetteer da categoria `C`, o número de chaves caiu de 58.284 para 58.062 — a diferença são colisões de maiúscula/pontuação que agora compartilham uma única entrada.
+
+  **Bug real encontrado e corrigido durante o teste:** ao juntar tokens normalizados numa janela pra formar a chave de busca, um token que normaliza para string vazia (pontuação pura, ex. `"."`) podia ser silenciosamente absorvido dentro de uma janela — a chave ficava correta (o vazio some ao juntar), mas o span consumido incluía a pontuação (ex. `"constipation ."` em vez de `"constipation"`), o que arriscaria unir span através de fronteiras de frase em outros casos. Corrigido expondo `align_normalized_tokens()`, que descarta tokens vazios *antes* de qualquer janela ser formada, preservando o índice original de cada token restante para reconstruir o span correto depois.
+
+- Os processos 4 (NER), 5 (matching), 6 (ligação ao grafo) e 7 (validação cruzada) ainda não têm código implementado. O processo 8 (gazetteer próprio de `AnatomicalSite`) segue adiado por decisão do autor.
 
 ## Limitações e discussão futura (notas para `docs/projeto-1/06-dicionarios.md`)
 
