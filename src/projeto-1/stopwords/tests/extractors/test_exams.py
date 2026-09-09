@@ -19,6 +19,23 @@ class ExtractExamsTests(unittest.TestCase):
     def test_no_trigger_no_mentions(self):
         self.assertEqual(extract_exams("The patient rested."), [])
 
+    def test_offset_bug_regression_repeated_label_without_sentence_split(self):
+        # Regression test for offset bug when label appears multiple times
+        # in same sentence (no period/semicolon to split on).
+        # Before fix: would capture first "imaging" at position 6 (wrong)
+        # After fix: should capture second "imaging" at position 46 (correct)
+        text = "Prior imaging suggested a mass; she underwent imaging and blood tests."
+        mentions = extract_exams(text)
+        self.assertTrue(mentions)
+        self.assertEqual(mentions[0].label, "imaging")
+        # Verify we captured the correct text
+        self.assertEqual(text[mentions[0].char_start:mentions[0].char_end], "imaging")
+        # Verify we captured the SECOND occurrence (position 46), not the first (position 6)
+        first_imaging_pos = text.find("imaging")
+        second_imaging_pos = text.find("imaging", first_imaging_pos + 1)
+        self.assertEqual(mentions[0].char_start, second_imaging_pos,
+                         f"Should capture at position {second_imaging_pos} (second occurrence), not {first_imaging_pos} (first occurrence)")
+
 
 class ExtractExamResultsTests(unittest.TestCase):
     def test_extracts_value_and_unit(self):

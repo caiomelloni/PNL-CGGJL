@@ -49,14 +49,15 @@ def extract_exams(text: str) -> list[Mention]:
         if match is None:
             continue
         trigger = match.group(1)
-        rest = match.group("rest").strip()
-        label = re.split(r",| and ", rest)[0].strip()
+        raw_rest = match.group("rest")
+        first_segment = re.split(r",| and ", raw_rest)[0].strip()
+        label = first_segment
         if not label:
             continue
 
         abbreviation_match = _ABBREVIATION_PATTERN.search(sentence.text)
-        local_start = sentence.text.find(label)
-        start = sentence.start + max(local_start, 0)
+        local_offset = first_segment.find(label)
+        start = sentence.start + match.start("rest") + local_offset
         mentions.append(Mention(
             node_type="Exam",
             label=label,
