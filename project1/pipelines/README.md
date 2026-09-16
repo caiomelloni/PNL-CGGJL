@@ -3,8 +3,6 @@
 A pipeline é o notebook [grafo_combinado_lote.ipynb](notebooks/grafo_combinado_lote.ipynb).
 Ele configura a entrada e a seleção de casos, executa o processamento, gera os
 CSVs e apresenta o relatório e uma prévia dos resultados.
-O código Python de apoio fica em `../src/grafo_lote/`, incluindo seus testes e
-dependências. `notebooks/grafo_combinado.ipynb` permanece igual à versão original.
 
 ## Preparação
 
@@ -96,10 +94,3 @@ intermediários. A função de processamento não imprime nem grava arquivos.
 .venv/Scripts/python.exe -m unittest discover -s project1/src/grafo_lote/tests -v
 .venv/Scripts/python.exe -m unittest discover -s project1/src/normalizacao/tests -t project1/src -v
 ```
-
-As fixtures de regressão foram obtidas do notebook original antes da extração
-e coincidem com os CSVs originalmente versionados de `PMC5137649_01` (45 nós,
-54 arestas). Não as regenere a partir da implementação sob teste. A regressão
-completa requer a amostra e os recursos NLTK; sem o CSV local, esse teste é
-marcado como ignorado. Os testes de lote cobrem falhas de entrada, processamento
-e exportação, seleção de IDs, duplicatas, carga única e relatório de validação.
