@@ -1,0 +1,55 @@
+case_id,node_id,type,label,attributes
+PMC4835621_01,P1,Patient,case PMC4835621_01,article_id=PMC4835621; age=81; age_unit=years; gender=Female
+PMC4835621_01,S1,Symptom,recurrent headaches daily basis profound fatigue malaise past month,polarity=present
+PMC4835621_01,E1,Exam,biopsy,modality=pathology
+PMC4835621_01,E2,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC4835621_01,F1,Finding,underling malignancy,source=imaging; polarity=present; certainty=confirmed
+PMC4835621_01,D1,Diagnosis,ttp made,certainty=confirmed; polarity=present; role=principal
+PMC4835621_01,D2,Diagnosis,gastritis,certainty=confirmed; polarity=present; role=principal
+PMC4835621_01,M1,Medication,hemoglobin,dose_value=11.3; dose_unit=g; dose_change=initial
+PMC4835621_01,M2,Medication,elevated,dose_value=405; dose_unit=IU; dose_change=initial
+PMC4835621_01,M3,Medication,haptoglobin decreased,dose_value=15.30; dose_unit=mg; dose_change=initial
+PMC4835621_01,M4,Medication,and,dose_value=302; dose_unit=IU; dose_change=initial
+PMC4835621_01,M5,Medication,l versus,dose_value=182; dose_unit=IU; dose_change=initial
+PMC4835621_01,M6,Medication,eradication therapy,dose_value=31.2; dose_unit=mg; dose_change=initial
+PMC4835621_01,M7,Medication,dl,dose_value=99.3; dose_unit=mg; dose_change=initial
+PMC4835621_01,O1,Outcome,clinical improvement,type=improvement; polarity=absent
+PMC4835621_01,E3,Exam,white blood cell count,modality=laboratory
+PMC4835621_01,R1,ExamResult,6100 /µL,value=6100; unit=/µL; raw_text=6100 per microliter
+PMC4835621_01,E4,Exam,count 6100 per microliter,modality=laboratory
+PMC4835621_01,R2,ExamResult,73 %,value=73; unit=%; raw_text=73%
+PMC4835621_01,E5,Exam,hemoglobin,modality=laboratory
+PMC4835621_01,R3,ExamResult,11.3 g/dL,value=11.3; unit=g/dL; raw_text=11.3 g/dL
+PMC4835621_01,E6,Exam,reticulocyte count,modality=laboratory
+PMC4835621_01,R4,ExamResult,2.4 %,value=2.4; unit=%; raw_text=2.4%
+PMC4835621_01,E7,Exam,lactate dehydrogenase levels elevated,modality=laboratory
+PMC4835621_01,R5,ExamResult,405 IU/L,value=405; unit=IU/L; interpretation=elevated; interpretation_source=stated; raw_text=405 IU/L
+PMC4835621_01,E8,Exam,serum haptoglobin decreased,modality=laboratory
+PMC4835621_01,R6,ExamResult,15.30 mg/dL,value=15.30; unit=mg/dL; interpretation=decreased; interpretation_source=stated; raw_text=15.30 mg/dL
+PMC4835621_01,E9,Exam,adamts13 activity test less,modality=laboratory
+PMC4835621_01,R7,ExamResult,10 %,value=10; unit=%; interpretation=positive; interpretation_source=stated; raw_text=10%
+PMC4835621_01,E10,Exam,levels decreased triple-therapy completion,modality=laboratory
+PMC4835621_01,R8,ExamResult,2.5 %,value=2.5; unit=%; interpretation=decreased; interpretation_source=stated; raw_text=2.5%
+PMC4835621_01,E11,Exam,decreased triple-therapy completion 2.5% versus,modality=laboratory
+PMC4835621_01,R9,ExamResult,0.7 %,value=0.7; unit=%; interpretation=decreased; interpretation_source=stated; raw_text=0.7%
+PMC4835621_01,E12,Exam,triple-therapy completion 2.5% versus 0.7%,modality=laboratory
+PMC4835621_01,R10,ExamResult,302 IU/L,value=302; unit=IU/L; interpretation=decreased; interpretation_source=stated; raw_text=302 IU/L
+PMC4835621_01,E13,Exam,302 iu/l versus,modality=laboratory
+PMC4835621_01,R11,ExamResult,182 IU/L,value=182; unit=IU/L; interpretation=decreased; interpretation_source=stated; raw_text=182 IU/L
+PMC4835621_01,E14,Exam,levels rose eradication therapy,modality=laboratory
+PMC4835621_01,R12,ExamResult,31.2 mg/dL,value=31.2; unit=mg/dL; raw_text=31.2 mg/dL
+PMC4835621_01,E15,Exam,eradication therapy 31.2 mg/dl,modality=laboratory
+PMC4835621_01,R13,ExamResult,99.3 mg/dL,value=99.3; unit=mg/dL; raw_text=99.3 mg/dL
+PMC4835621_01,A1,AnatomicalSite,chest,
+PMC4835621_01,C1,Concept,chest,vocabulary=local; code=ANAT032; preferred_term=Chest
+PMC4835621_01,A2,AnatomicalSite,abdomen,
+PMC4835621_01,C2,Concept,abdomen,vocabulary=local; code=ANAT033; preferred_term=Abdomen
+PMC4835621_01,A3,AnatomicalSite,stomach,
+PMC4835621_01,C3,Concept,stomach,vocabulary=local; code=ANAT001; preferred_term=Stomach
+PMC4835621_01,C4,Concept,biopsy,vocabulary=MeSH; code=D001706; preferred_term=Biopsy
+PMC4835621_01,C5,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC4835621_01,C6,Concept,neoplasms,vocabulary=MeSH; code=D009369; preferred_term=Neoplasms
+PMC4835621_01,C7,Concept,gastritis,vocabulary=MeSH; code=D005756; preferred_term=Gastritis
+PMC4835621_01,C8,Concept,hemoglobins,vocabulary=MeSH; code=D006454; preferred_term=Hemoglobins
+PMC4835621_01,C9,Concept,leukocyte count,vocabulary=MeSH; code=D007958; preferred_term=Leukocyte Count
+PMC4835621_01,C10,Concept,reticulocyte count,vocabulary=MeSH; code=D017701; preferred_term=Reticulocyte Count

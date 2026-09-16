@@ -1,0 +1,20 @@
+case_id,node_id,type,label,attributes
+PMC11783470_01,P1,Patient,case PMC11783470_01,article_id=PMC11783470; age=22; age_unit=years; gender=Female
+PMC11783470_01,H1,History,gastrointestinal malignancy,subject=family; polarity=absent; relation_degree=unspecified; category=condition
+PMC11783470_01,E1,Exam,biopsy,modality=pathology
+PMC11783470_01,F1,Finding,gastric lesion demonstrated well-circumscribed proliferation,source=pathology; polarity=present; certainty=confirmed
+PMC11783470_01,D1,Diagnosis,oga,certainty=confirmed; polarity=present; role=principal
+PMC11783470_01,D2,Diagnosis,known diagnosis oga (image 2,certainty=confirmed; polarity=present; role=principal
+PMC11783470_01,D3,Diagnosis,oga (image 2,certainty=confirmed; polarity=present; role=principal
+PMC11783470_01,M1,Medication,hemoglobin,dose_value=11.5; dose_unit=g; dose_change=initial
+PMC11783470_01,M2,Medication,iron,dose_value=76; dose_unit=mcg; dose_change=initial
+PMC11783470_01,O1,Outcome,recurrence,type=recurrence; polarity=absent
+PMC11783470_01,E2,Exam,laboratory data: hemoglobin,modality=laboratory
+PMC11783470_01,R1,ExamResult,11.5 g/dL,value=11.5; unit=g/dL; raw_text=11.5 g/dL
+PMC11783470_01,E3,Exam,transferrin saturation,modality=laboratory
+PMC11783470_01,R2,ExamResult,12.8 %,value=12.8; unit=%; raw_text=12.8%
+PMC11783470_01,E4,Exam,ferritin,modality=laboratory
+PMC11783470_01,R3,ExamResult,200 ng/mL,value=200; unit=ng/mL; raw_text=200 ng/mL
+PMC11783470_01,C1,Concept,biopsy,vocabulary=MeSH; code=D001706; preferred_term=Biopsy
+PMC11783470_01,C2,Concept,hemoglobins,vocabulary=MeSH; code=D006454; preferred_term=Hemoglobins
+PMC11783470_01,C3,Concept,iron,vocabulary=MeSH; code=D007501; preferred_term=Iron

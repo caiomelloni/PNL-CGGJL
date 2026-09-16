@@ -1,0 +1,9 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC4310058_01,e1,P1,O1,HAS_OUTCOME,evidence_text=The patient tolerated the operation well and had no immediate operative or perioperative complications; trigger=complications; certainty=asserted; char_start=1784; char_end=1886
+PMC4310058_01,e2,P1,O2,HAS_OUTCOME,evidence_text=The right parietal indentation was corrected and the patient was discharged on postoperative day 2; trigger=discharged; certainty=asserted; char_start=1888; char_end=1986
+PMC4310058_01,e3,P1,E1,UNDERWENT_EXAM,evidence_text=The second and third computed tomography (CT) scans showed progressive erosion of the skull [Figure 1b and c]; trigger=CT; certainty=asserted; char_start=791; char_end=900
+PMC4310058_01,e4,P1,E2,UNDERWENT_EXAM,evidence_text=A magnetic resonance imaging (MRI) was obtained and confirmed the localization of the lesion to the skull [Figure 1e-f]; trigger=MRI; certainty=asserted; char_start=958; char_end=1077
+PMC4310058_01,e5,E2,F1,REVEALS,evidence_text=A magnetic resonance imaging (MRI) was obtained and confirmed the localization of the lesion to the skull [Figure 1e-f]; trigger=confirmed; certainty=asserted; char_start=958; char_end=1077
+PMC4310058_01,e6,P1,F2,HAS_FINDING,"evidence_text=On gross examination, the soft tissue lesion appeared rubbery, yellow, and avascular; trigger=examination; certainty=asserted; char_start=1988; char_end=2072"
+PMC4310058_01,e7,E1,C1,SAME_AS,strategy=exact
+PMC4310058_01,e8,E2,C2,SAME_AS,strategy=longest

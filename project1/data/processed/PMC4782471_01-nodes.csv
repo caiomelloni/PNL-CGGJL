@@ -1,0 +1,27 @@
+case_id,node_id,type,label,attributes
+PMC4782471_01,P1,Patient,case PMC4782471_01,article_id=PMC4782471; age=10; age_unit=years; gender=Female
+PMC4782471_01,S1,Symptom,"perimembranous vsd measuring 5 mm, no aortic regurgitation, mild left ventricular dilatation, no pulmonary hypertension",polarity=absent
+PMC4782471_01,S2,Symptom,breathlessness exertion advised defect unlikely close spontaneously age,polarity=present
+PMC4782471_01,D1,Diagnosis,infective endocarditis,certainty=confirmed; polarity=present; role=principal
+PMC4782471_01,D2,Diagnosis,sensitivity results showed resistance,certainty=confirmed; polarity=present; role=principal
+PMC4782471_01,D3,Diagnosis,ciprofloxacin,certainty=confirmed; polarity=present; role=principal
+PMC4782471_01,M1,Medication,given,dose_value=50; dose_unit=mg; dose_change=initial
+PMC4782471_01,M2,Medication,hemoglobin,dose_value=6; dose_unit=g; dose_change=initial
+PMC4782471_01,T1,Treatment,blood transfusion,type=transfusion; status=performed
+PMC4782471_01,O1,Outcome,complication,type=complication; polarity=present
+PMC4782471_01,O2,Outcome,clinical improvement,type=improvement; polarity=absent
+PMC4782471_01,O3,Outcome,death,type=death; polarity=present
+PMC4782471_01,E1,Exam,erythrocyte sedimentation rate,modality=laboratory
+PMC4782471_01,R1,ExamResult,120 mm/h,value=120; unit=mm/h; interpretation=elevated; interpretation_source=stated; raw_text=120 mm/h
+PMC4782471_01,E2,Exam,c-reactive protein,modality=laboratory
+PMC4782471_01,R2,ExamResult,91 mg/dL,value=91; unit=mg/dL; interpretation=normal; interpretation_source=stated; raw_text=91 mg/dl
+PMC4782471_01,E3,Exam,white blood cell count,modality=laboratory
+PMC4782471_01,R3,ExamResult,28000 /µL,"value=28000; unit=/µL; interpretation=normal; interpretation_source=stated; raw_text=28,000/mm3"
+PMC4782471_01,A1,AnatomicalSite,lung,
+PMC4782471_01,C1,Concept,lung,vocabulary=local; code=ANAT007; preferred_term=Lung
+PMC4782471_01,C2,Concept,"hypertension, pulmonary","vocabulary=MeSH; code=D006976; preferred_term=Hypertension, Pulmonary"
+PMC4782471_01,C3,Concept,endocarditis,vocabulary=MeSH; code=D004696; preferred_term=Endocarditis
+PMC4782471_01,C4,Concept,hemoglobins,vocabulary=MeSH; code=D006454; preferred_term=Hemoglobins
+PMC4782471_01,C5,Concept,blood transfusion,vocabulary=MeSH; code=D001803; preferred_term=Blood Transfusion
+PMC4782471_01,C6,Concept,blood sedimentation,vocabulary=MeSH; code=D001799; preferred_term=Blood Sedimentation
+PMC4782471_01,C7,Concept,leukocyte count,vocabulary=MeSH; code=D007958; preferred_term=Leukocyte Count

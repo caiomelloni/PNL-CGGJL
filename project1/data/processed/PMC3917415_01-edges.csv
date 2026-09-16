@@ -1,0 +1,19 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC3917415_01,e1,P1,D1,DIAGNOSED_WITH,evidence_text=consistent with a ruptured aneurysm; trigger=consistent with; certainty=asserted; char_start=1288; char_end=1323
+PMC3917415_01,e2,P1,O1,HAS_OUTCOME,evidence_text=The present patient was carefully managed avoiding cerebral vasospasm and general complications during the perioperative period and renal dialysis was initiated after the acute phase and had a favorable outcome; trigger=complications; certainty=asserted; char_start=1646; char_end=1856
+PMC3917415_01,e3,P1,O2,HAS_OUTCOME,evidence_text=She was ultimately discharged home in good condition; trigger=discharged home; certainty=asserted; char_start=1973; char_end=2025
+PMC3917415_01,e4,E2,R1,HAS_RESULT,"evidence_text=Laboratory examinations revealed hypocomplementemia (complement C3: 66mg/dL, C4: 14mg/dL).; trigger=result; certainty=asserted; char_start=414; char_end=504"
+PMC3917415_01,e5,E3,R2,HAS_RESULT,"evidence_text=Laboratory examinations revealed hypocomplementemia (complement C3: 66mg/dL, C4: 14mg/dL).; trigger=result; certainty=asserted; char_start=414; char_end=504"
+PMC3917415_01,e6,E4,R3,HAS_RESULT,evidence_text=Her anti-double-stranded deoxyribonucleic acid (DNA) antibody (IgG) was 6.5IU/mL (normal range <20).; trigger=result; certainty=asserted; char_start=505; char_end=605
+PMC3917415_01,e7,P1,E1,UNDERWENT_EXAM,evidence_text=Computed tomography (CT) demonstrated SAH in her right Sylvian fissure (Figure 1a); trigger=CT; certainty=asserted; char_start=606; char_end=688
+PMC3917415_01,e8,P1,E2,UNDERWENT_EXAM,"evidence_text=Laboratory examinations revealed hypocomplementemia (complement C3: 66mg/dL, C4: 14mg/dL).; trigger=laboratory result; certainty=asserted; char_start=414; char_end=504"
+PMC3917415_01,e9,P1,E3,UNDERWENT_EXAM,"evidence_text=Laboratory examinations revealed hypocomplementemia (complement C3: 66mg/dL, C4: 14mg/dL).; trigger=laboratory result; certainty=asserted; char_start=414; char_end=504"
+PMC3917415_01,e10,P1,E4,UNDERWENT_EXAM,evidence_text=Her anti-double-stranded deoxyribonucleic acid (DNA) antibody (IgG) was 6.5IU/mL (normal range <20).; trigger=laboratory result; certainty=asserted; char_start=505; char_end=605
+PMC3917415_01,e11,P1,M1,TREATED_WITH,evidence_text=She had been treated as an out-patient with a daily prednisolone dose of 7; trigger=prednisolone dose of 7.5mg; certainty=asserted; char_start=129; char_end=203
+PMC3917415_01,e12,P1,M2,TREATED_WITH,evidence_text=5mg and cyclophosphamide of 50mg/day before the onset; trigger=and cyclophosphamide of 50mg; certainty=asserted; char_start=204; char_end=257
+PMC3917415_01,e13,P1,M3,TREATED_WITH,evidence_text=Her glomerular filtration rate (GFR) was 5; trigger=was 5.6mL; certainty=asserted; char_start=259; char_end=301
+PMC3917415_01,e14,P1,M4,TREATED_WITH,evidence_text=Her anti-double-stranded deoxyribonucleic acid (DNA) antibody (IgG) was 6; trigger=was 6.5IU; certainty=asserted; char_start=505; char_end=578
+PMC3917415_01,e15,R3,D1,SUPPORTS,evidence_text=Her anti-double-stranded deoxyribonucleic acid (DNA) antibody (IgG) was 6.5IU/mL (normal range <20).; trigger=consistent with; certainty=asserted; char_start=505; char_end=605
+PMC3917415_01,e16,E1,C1,SAME_AS,strategy=exact
+PMC3917415_01,e17,D1,C2,SAME_AS,strategy=longest
+PMC3917415_01,e18,M2,C3,SAME_AS,strategy=exact

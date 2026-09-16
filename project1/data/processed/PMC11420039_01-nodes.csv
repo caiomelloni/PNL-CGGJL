@@ -1,0 +1,36 @@
+case_id,node_id,type,label,attributes
+PMC11420039_01,P1,Patient,case PMC11420039_01,article_id=PMC11420039; age=74; age_unit=years; gender=Female
+PMC11420039_01,S1,Symptom,"widespread erythematous patches vesicles limbs, appeared successively period 2 weeks, previously diagnosed ""eczema"" another hospital",polarity=present
+PMC11420039_01,S2,Symptom,patient,polarity=present
+PMC11420039_01,E1,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC11420039_01,E2,Exam,magnetic resonance imaging,modality=imaging; abbreviation=MRI
+PMC11420039_01,F1,Finding,significant abnormalities,source=imaging; polarity=absent; certainty=confirmed
+PMC11420039_01,D1,Diagnosis,staining,certainty=confirmed; polarity=present; role=principal
+PMC11420039_01,D2,Diagnosis,significant infiltration eosinophils ( figures 3a,certainty=confirmed; polarity=present; role=principal
+PMC11420039_01,D3,Diagnosis,b,certainty=confirmed; polarity=present; role=principal
+PMC11420039_01,D4,Diagnosis,bp,certainty=confirmed; polarity=present; role=principal
+PMC11420039_01,D5,Diagnosis,viral septicemia,certainty=confirmed; polarity=present; role=principal
+PMC11420039_01,D6,Diagnosis,acyclovir,certainty=confirmed; polarity=present; role=principal
+PMC11420039_01,D7,Diagnosis,secondary sjogren's syndrome,certainty=confirmed; polarity=present; role=secondary
+PMC11420039_01,M1,Medication,methylprednisolone,dose_value=40; dose_unit=mg; route=oral; dose_change=initial
+PMC11420039_01,M2,Medication,dose,dose_value=20; dose_unit=mg; route=oral; dose_change=initial
+PMC11420039_01,M3,Medication,morning,dose_value=16; dose_unit=mg; route=oral; dose_change=initial
+PMC11420039_01,M4,Medication,adjusted,dose_value=16; dose_unit=mg; dose_change=initial
+PMC11420039_01,M5,Medication,morning,dose_value=12; dose_unit=mg; dose_change=initial
+PMC11420039_01,M6,Medication,initial dose,dose_value=600; dose_unit=mg; dose_change=initial
+PMC11420039_01,M7,Medication,followed,dose_value=300; dose_unit=mg; dose_change=initial
+PMC11420039_01,M8,Medication,to,dose_value=4; dose_unit=mg; route=intravenous; dose_change=reduced
+PMC11420039_01,M9,Medication,dose,dose_value=20; dose_unit=g; frequency=once daily; dose_change=initial
+PMC11420039_01,M10,Medication,injection,dose_value=1.6; dose_unit=mg; route=subcutaneous; dose_change=initial
+PMC11420039_01,O1,Outcome,clinical improvement,type=improvement; polarity=present
+PMC11420039_01,O2,Outcome,discharged home,type=discharge; polarity=present
+PMC11420039_01,O3,Outcome,complication,type=complication; polarity=present
+PMC11420039_01,A1,AnatomicalSite,chest,
+PMC11420039_01,C1,Concept,chest,vocabulary=local; code=ANAT032; preferred_term=Chest
+PMC11420039_01,A2,AnatomicalSite,head,
+PMC11420039_01,C2,Concept,head,vocabulary=local; code=ANAT024; preferred_term=Head
+PMC11420039_01,C3,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC11420039_01,C4,Concept,magnetic resonance imaging,vocabulary=MeSH; code=D008279; preferred_term=Magnetic Resonance Imaging
+PMC11420039_01,C5,Concept,sepsis,vocabulary=MeSH; code=D018805; preferred_term=Sepsis
+PMC11420039_01,C6,Concept,sjogren's syndrome,vocabulary=MeSH; code=D012859; preferred_term=Sjogren's Syndrome
+PMC11420039_01,C7,Concept,methylprednisolone,vocabulary=MeSH; code=D008775; preferred_term=Methylprednisolone

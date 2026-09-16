@@ -1,0 +1,64 @@
+case_id,node_id,type,label,attributes
+PMC3897989_01,P1,Patient,case PMC3897989_01,article_id=PMC3897989; age=65; age_unit=years; gender=Male
+PMC3897989_01,E1,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC3897989_01,E2,Exam,magnetic resonance imaging,modality=imaging; abbreviation=MRI
+PMC3897989_01,E3,Exam,biopsy,modality=pathology
+PMC3897989_01,E4,Exam,x-ray,modality=imaging
+PMC3897989_01,F1,Finding,mild upper abdominal tenderness,source=physical_exam; polarity=present; certainty=confirmed
+PMC3897989_01,D1,Diagnosis,pbc,certainty=confirmed; polarity=present; role=principal
+PMC3897989_01,D2,Diagnosis,udca (250 mg,certainty=confirmed; polarity=present; role=principal
+PMC3897989_01,D3,Diagnosis,three times per day) initiated immediately nasobiliary drainage,certainty=confirmed; polarity=present; role=principal
+PMC3897989_01,D4,Diagnosis,type aip confirmed accordance diagnostic criteria,certainty=confirmed; polarity=present; role=principal
+PMC3897989_01,D5,Diagnosis,herpes zoster,certainty=confirmed; polarity=present; role=principal
+PMC3897989_01,D6,Diagnosis,acyclovir,certainty=confirmed; polarity=present; role=principal
+PMC3897989_01,D7,Diagnosis,pulmonary abscess,certainty=confirmed; polarity=present; role=principal
+PMC3897989_01,M1,Medication,meropenem,dose_value=0.5; dose_unit=g; dose_change=initial
+PMC3897989_01,M2,Medication,udca,dose_value=250; dose_unit=mg; dose_change=initial
+PMC3897989_01,M3,Medication,be,dose_value=44.36; dose_unit=g; dose_change=initial
+PMC3897989_01,M4,Medication,methylprednisolone,dose_value=32; dose_unit=mg; route=oral; dose_change=initial
+PMC3897989_01,M5,Medication,dose,dose_value=32; dose_unit=mg; dose_change=increased
+PMC3897989_01,M6,Medication,morning,dose_value=16; dose_unit=mg; dose_change=increased
+PMC3897989_01,M7,Medication,weekly,dose_value=5; dose_unit=mg; dose_change=initial
+PMC3897989_01,M8,Medication,acyclovir,dose_value=500; dose_unit=mg; dose_change=initial
+PMC3897989_01,O1,Outcome,clinical improvement,type=improvement; polarity=present
+PMC3897989_01,O2,Outcome,discharged home,type=discharge; polarity=present
+PMC3897989_01,E5,Exam,direct bilirubin elevated,modality=laboratory
+PMC3897989_01,R1,ExamResult,79 U/L,value=79; unit=U/L; reference_range_low=5; reference_range_high=45; reference_range_raw=5-45 U/L; interpretation=elevated; interpretation_source=stated; raw_text=79 U/L
+PMC3897989_01,E6,Exam,elevated 79 u/l,modality=laboratory
+PMC3897989_01,R2,ExamResult,51 U/L,value=51; unit=U/L; reference_range_low=5; reference_range_high=35; reference_range_raw=5-35 U/L; interpretation=elevated; interpretation_source=stated; raw_text=51 U/L
+PMC3897989_01,E7,Exam,"5-45 u/l), 51 u/l (5-35 u/l",modality=laboratory
+PMC3897989_01,R3,ExamResult,540 U/L,value=540; unit=U/L; reference_range_low=30; reference_range_high=110; reference_range_raw=30-110 U/L; interpretation=elevated; interpretation_source=stated; raw_text=540 U/L
+PMC3897989_01,E8,Exam,"5-35 u/l), 540 u/l (30-110 u/l",modality=laboratory
+PMC3897989_01,R4,ExamResult,197 U/L,value=197; unit=U/L; reference_range_low=7; reference_range_high=50; reference_range_raw=7-50 U/L; interpretation=elevated; interpretation_source=stated; raw_text=197 U/L
+PMC3897989_01,E9,Exam,IgM,modality=laboratory
+PMC3897989_01,R5,ExamResult,3180 mg/dL,"value=3180; unit=mg/dL; reference_range_low=694; reference_range_high=1620; reference_range_raw=694-1620 mg/dL; interpretation=elevated; interpretation_source=derived; raw_text=3,180 mg/dL"
+PMC3897989_01,E10,Exam,"3,180 mg/dl (694-1620 mg/dl",modality=laboratory
+PMC3897989_01,R6,ExamResult,344 mg/dL,value=344; unit=mg/dL; reference_range_low=60; reference_range_high=263; reference_range_raw=60-263 mg/dL; interpretation=elevated; interpretation_source=derived; raw_text=344 mg/dL
+PMC3897989_01,E11,Exam,cea,modality=laboratory
+PMC3897989_01,R7,ExamResult,66.89 ng/mL,value=66.89; unit=ng/mL; reference_range_low=0; reference_range_high=5; reference_range_raw=0-5 ng/mL; interpretation=negative; interpretation_source=stated; raw_text=66.89 ng/mL
+PMC3897989_01,E12,Exam,dbil steroid therapy,modality=laboratory
+PMC3897989_01,R8,ExamResult,376 U/L,value=376; unit=U/L; raw_text=376 U/L
+PMC3897989_01,E13,Exam,steroid therapy 376 u/l,modality=laboratory
+PMC3897989_01,R9,ExamResult,38 U/L,value=38; unit=U/L; raw_text=38 U/L
+PMC3897989_01,E14,Exam,one week later,modality=laboratory
+PMC3897989_01,R10,ExamResult,243 U/L,value=243; unit=U/L; raw_text=243 U/L
+PMC3897989_01,E15,Exam,one week later 243 u/l,modality=laboratory
+PMC3897989_01,R11,ExamResult,47 U/L,value=47; unit=U/L; raw_text=47 U/L
+PMC3897989_01,E16,Exam,later 243 u/l,modality=laboratory
+PMC3897989_01,R12,ExamResult,47 U/L,value=47; unit=U/L; raw_text=47 U/L
+PMC3897989_01,E17,Exam,dbil,modality=laboratory
+PMC3897989_01,R13,ExamResult,135 U/L,value=135; unit=U/L; raw_text=135 U/L
+PMC3897989_01,E18,Exam,dbil 135 u/l,modality=laboratory
+PMC3897989_01,R14,ExamResult,134 U/L,value=134; unit=U/L; raw_text=134 U/L
+PMC3897989_01,A1,AnatomicalSite,skin,region_qualifier=upper
+PMC3897989_01,C1,Concept,skin,vocabulary=local; code=ANAT018; preferred_term=Skin
+PMC3897989_01,A2,AnatomicalSite,heart,
+PMC3897989_01,C2,Concept,heart,vocabulary=local; code=ANAT006; preferred_term=Heart
+PMC3897989_01,C3,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC3897989_01,C4,Concept,magnetic resonance imaging,vocabulary=MeSH; code=D008279; preferred_term=Magnetic Resonance Imaging
+PMC3897989_01,C5,Concept,biopsy,vocabulary=MeSH; code=D001706; preferred_term=Biopsy
+PMC3897989_01,C6,Concept,herpes zoster,vocabulary=MeSH; code=D006562; preferred_term=Herpes Zoster
+PMC3897989_01,C7,Concept,lung abscess,vocabulary=MeSH; code=D008169; preferred_term=Lung Abscess
+PMC3897989_01,C8,Concept,meropenem,vocabulary=MeSH; code=D000077731; preferred_term=Meropenem
+PMC3897989_01,C9,Concept,methylprednisolone,vocabulary=MeSH; code=D008775; preferred_term=Methylprednisolone
+PMC3897989_01,C10,Concept,acyclovir,vocabulary=MeSH; code=D000212; preferred_term=Acyclovir

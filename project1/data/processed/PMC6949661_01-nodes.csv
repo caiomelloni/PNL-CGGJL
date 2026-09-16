@@ -1,0 +1,11 @@
+case_id,node_id,type,label,attributes
+PMC6949661_01,P1,Patient,case PMC6949661_01,article_id=PMC6949661; age=23; age_unit=years; gender=Male
+PMC6949661_01,E1,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC6949661_01,F1,Finding,active bleeding,source=lab; polarity=absent; certainty=confirmed
+PMC6949661_01,F2,Finding,fresh bleeding,source=lab; polarity=present; certainty=confirmed
+PMC6949661_01,M1,Medication,transfused,dose_value=2; dose_unit=units; route=intravenous; dose_change=initial
+PMC6949661_01,T1,Treatment,blood transfusion,type=transfusion; status=performed
+PMC6949661_01,T2,Treatment,intravenous fluids,type=supportive; status=performed
+PMC6949661_01,C1,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC6949661_01,C2,Concept,hemorrhage,vocabulary=MeSH; code=D006470; preferred_term=Hemorrhage
+PMC6949661_01,C3,Concept,blood transfusion,vocabulary=MeSH; code=D001803; preferred_term=Blood Transfusion

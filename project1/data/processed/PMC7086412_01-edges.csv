@@ -1,0 +1,5 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC7086412_01,e1,P1,D1,DIAGNOSED_WITH,evidence_text=diagnosed with intrauterine fetal demise; trigger=diagnosed with; certainty=asserted; char_start=991; char_end=1031
+PMC7086412_01,e2,E1,R1,HAS_RESULT,"evidence_text=The only abnormality from this set of laboratory results was a hemoglobin A1c value of 6.6%, diagnostic for diabetes based on criteria developed by the American Diabetes Association.; trigger=result; certainty=asserted; char_start=1458; char_end=1640"
+PMC7086412_01,e3,P1,E1,UNDERWENT_EXAM,"evidence_text=The only abnormality from this set of laboratory results was a hemoglobin A1c value of 6.6%, diagnostic for diabetes based on criteria developed by the American Diabetes Association.; trigger=laboratory result; certainty=asserted; char_start=1458; char_end=1640"
+PMC7086412_01,e4,D1,C1,SAME_AS,strategy=longest

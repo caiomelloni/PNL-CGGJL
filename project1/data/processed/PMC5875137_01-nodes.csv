@@ -1,0 +1,5 @@
+case_id,node_id,type,label,attributes
+PMC5875137_01,P1,Patient,case PMC5875137_01,article_id=PMC5875137; age=83; age_unit=years; gender=Female
+PMC5875137_01,E1,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC5875137_01,O1,Outcome,complication,type=complication; polarity=absent
+PMC5875137_01,C1,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography

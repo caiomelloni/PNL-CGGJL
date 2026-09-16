@@ -1,0 +1,44 @@
+case_id,node_id,type,label,attributes
+PMC10106591_01,P1,Patient,case PMC10106591_01,article_id=PMC10106591; age=44; age_unit=years; gender=Female
+PMC10106591_01,S1,Symptom,chest pain,polarity=present
+PMC10106591_01,S2,Symptom,tightness throat without shortness breath,polarity=absent
+PMC10106591_01,S3,Symptom,palpitations,polarity=present
+PMC10106591_01,S4,Symptom,diaphoresis,polarity=present
+PMC10106591_01,S5,Symptom,abnormal glucose tolerance past year,polarity=present
+PMC10106591_01,S6,Symptom,symptoms,polarity=absent
+PMC10106591_01,D1,Diagnosis,cas highly suspected,certainty=confirmed; polarity=present; role=principal
+PMC10106591_01,D2,Diagnosis,cas,certainty=confirmed; polarity=present; role=principal
+PMC10106591_01,D3,Diagnosis,diltiazem,certainty=confirmed; polarity=present; role=principal
+PMC10106591_01,D4,Diagnosis,complete av-b converted back sinus rhythm (heart rate 59 beats/min,certainty=confirmed; polarity=present; role=principal
+PMC10106591_01,D5,Diagnosis,cas made,certainty=confirmed; polarity=present; role=principal
+PMC10106591_01,M1,Medication,aspirin,dose_value=300; dose_unit=mg; dose_change=initial
+PMC10106591_01,M2,Medication,clopidogrel,dose_value=300; dose_unit=mg; dose_change=initial
+PMC10106591_01,M3,Medication,patient,dose_value=50; dose_unit=mg; dose_change=initial
+PMC10106591_01,M4,Medication,at,dose_value=5; dose_unit=mL; dose_change=initial
+PMC10106591_01,M5,Medication,diltiazem sustained-release capsules,dose_value=90; dose_unit=mg; dose_change=initial
+PMC10106591_01,O1,Outcome,recurrence,type=recurrence; polarity=absent
+PMC10106591_01,E1,Exam,oxygen saturation level,modality=laboratory
+PMC10106591_01,R1,ExamResult,99 %,value=99; unit=%; interpretation=normal; interpretation_source=stated; raw_text=99%
+PMC10106591_01,E2,Exam,reduced left ventricular ejection fraction,modality=laboratory
+PMC10106591_01,R2,ExamResult,50 %,value=50; unit=%; reference_range_low=55; reference_range_high=75; reference_range_raw=normal range: 55%-75%; interpretation=decreased; interpretation_source=stated; raw_text=50%
+PMC10106591_01,E3,Exam,laboratory tests indicated normal troponin,modality=laboratory
+PMC10106591_01,R3,ExamResult,0.016 ng/mL,"value=0.016; unit=ng/mL; reference_range_low=0; reference_range_high=0.04; reference_range_raw=normal range, 0-0.04 ng/mL; interpretation=normal; interpretation_source=stated; raw_text=0.016 ng/mL"
+PMC10106591_01,E4,Exam,creatine kinase mb isoenzyme,modality=laboratory
+PMC10106591_01,R4,ExamResult,0.7 ng/mL,"value=0.7; unit=ng/mL; reference_range_low=0; reference_range_high=5.0; reference_range_raw=normal range, 0-5.0 ng/mL; interpretation=normal; interpretation_source=stated; raw_text=0.7 ng/mL"
+PMC10106591_01,E5,Exam,myoglobin,modality=laboratory
+PMC10106591_01,R5,ExamResult,14.1 ng/mL,"value=14.1; unit=ng/mL; reference_range_low=0; reference_range_high=70.0; reference_range_raw=normal range, 0-70.0 ng/mL; interpretation=normal; interpretation_source=stated; raw_text=14.1 ng/mL"
+PMC10106591_01,E6,Exam,left anterior descending artery,modality=laboratory
+PMC10106591_01,R6,ExamResult,30 %,value=30; unit=%; reference_range_low=20; reference_range_high=30; reference_range_raw=20%-30%; interpretation=normal; interpretation_source=stated; raw_text=30%
+PMC10106591_01,E7,Exam,first diagonal branch,modality=laboratory
+PMC10106591_01,R7,ExamResult,30 %,value=30; unit=%; reference_range_low=20; reference_range_high=30; reference_range_raw=20%-30%; interpretation=normal; interpretation_source=stated; raw_text=30%
+PMC10106591_01,E8,Exam,circumflex branch,modality=laboratory
+PMC10106591_01,R8,ExamResult,20 %,value=20; unit=%; reference_range_low=20; reference_range_high=30; reference_range_raw=20%-30%; interpretation=normal; interpretation_source=stated; raw_text=20%
+PMC10106591_01,E9,Exam,repeated troponin,modality=laboratory
+PMC10106591_01,R9,ExamResult,0.031 ng/mL,value=0.031; unit=ng/mL; interpretation=normal; interpretation_source=stated; raw_text=0.031 ng/mL
+PMC10106591_01,A1,AnatomicalSite,chest,
+PMC10106591_01,C1,Concept,chest,vocabulary=local; code=ANAT032; preferred_term=Chest
+PMC10106591_01,C2,Concept,chest pain,vocabulary=MeSH; code=D002637; preferred_term=Chest Pain
+PMC10106591_01,C3,Concept,aspirin,vocabulary=MeSH; code=D001241; preferred_term=Aspirin
+PMC10106591_01,C4,Concept,clopidogrel,vocabulary=MeSH; code=D000077144; preferred_term=Clopidogrel
+PMC10106591_01,C5,Concept,capsules,vocabulary=MeSH; code=D002214; preferred_term=Capsules
+PMC10106591_01,C6,Concept,stroke volume,vocabulary=MeSH; code=D013318; preferred_term=Stroke Volume

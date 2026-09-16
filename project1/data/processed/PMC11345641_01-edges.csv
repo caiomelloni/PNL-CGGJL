@@ -1,0 +1,23 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC11345641_01,e1,P1,D1,DIAGNOSED_WITH,evidence_text=consistent with a uterine fibroid; trigger=consistent with; certainty=asserted; char_start=910; char_end=943
+PMC11345641_01,e2,P1,O1,HAS_OUTCOME,"evidence_text=After symptomatic treatment, her condition improved; trigger=improved; certainty=asserted; char_start=4454; char_end=4505"
+PMC11345641_01,e3,P1,O2,HAS_OUTCOME,"evidence_text=However, the patient chose to discontinue treatment for personal reasons and was discharged, resulting in unsuccessful follow-up; trigger=discharged; certainty=asserted; char_start=4578; char_end=4706"
+PMC11345641_01,e4,E4,R1,HAS_RESULT,"evidence_text=However, her serum lactate dehydrogenase (LDH) level was elevated to 289U/L.; trigger=result; certainty=asserted; char_start=667; char_end=743"
+PMC11345641_01,e5,E5,R2,HAS_RESULT,"evidence_text=MRI imaging displayed two quasi-circular masses within the uterine muscle wall; the larger was located in the anterior wall, measuring approximately 9.9x12.0x12.6cm, with 80% protruding into the subserosal area.; trigger=result; certainty=asserted; char_start=994; char_end=1205"
+PMC11345641_01,e6,E6,R3,HAS_RESULT,"evidence_text=Serum CA12-5 and LDH levels were elevated to 46.4 U/mL and 340 U/L, respectively, while other markers remained normal.; trigger=result; certainty=asserted; char_start=2716; char_end=2834"
+PMC11345641_01,e7,P1,E1,UNDERWENT_EXAM,"evidence_text=Further MRI revealed multiple abnormal signal shadows involving the vaginal stump, right lower quadrant, omentum, mesentery, intestinal space, pelvic cavity, and areas near the common iliac vessel bifurcation and rectum; trigger=MRI; certainty=asserted; char_start=2359; char_end=2578"
+PMC11345641_01,e8,P1,E2,UNDERWENT_EXAM,"evidence_text=An endometrial biopsy was performed, which indicated a secretory-responsive endometrium; trigger=biopsy; certainty=asserted; char_start=1311; char_end=1398"
+PMC11345641_01,e9,P1,E3,UNDERWENT_EXAM,"evidence_text=A month post-operation, transabdominal ultrasonography showed no abnormalities; trigger=ultrasonography; certainty=asserted; char_start=2052; char_end=2130"
+PMC11345641_01,e10,P1,E4,UNDERWENT_EXAM,"evidence_text=However, her serum lactate dehydrogenase (LDH) level was elevated to 289U/L.; trigger=laboratory result; certainty=asserted; char_start=667; char_end=743"
+PMC11345641_01,e11,P1,E5,UNDERWENT_EXAM,"evidence_text=MRI imaging displayed two quasi-circular masses within the uterine muscle wall; the larger was located in the anterior wall, measuring approximately 9.9x12.0x12.6cm, with 80% protruding into the subserosal area.; trigger=laboratory result; certainty=asserted; char_start=994; char_end=1205"
+PMC11345641_01,e12,P1,E6,UNDERWENT_EXAM,"evidence_text=Serum CA12-5 and LDH levels were elevated to 46.4 U/mL and 340 U/L, respectively, while other markers remained normal.; trigger=laboratory result; certainty=asserted; char_start=2716; char_end=2834"
+PMC11345641_01,e13,P1,F1,HAS_FINDING,"evidence_text=Microscopic examination post-surgery revealed the mass to be a leiomyoma, with most areas infarcted and some showing bizarre nuclei and rare mitotic figures (0-1/10 HPF) ( Figure 3 ); trigger=examination; certainty=asserted; char_start=1811; char_end=1993"
+PMC11345641_01,e14,E3,F2,REVEALS,"evidence_text=A month post-operation, transabdominal ultrasonography showed no abnormalities; trigger=showed; certainty=asserted; char_start=2052; char_end=2130"
+PMC11345641_01,e15,P1,F3,HAS_FINDING,"evidence_text=Physical examination revealed significant abdominal distention with a large, palpable mass extending three fingers above the umbilicus and showing limited mobility; trigger=examination; certainty=asserted; char_start=2835; char_end=2998"
+PMC11345641_01,e16,R1,D1,SUPPORTS,"evidence_text=However, her serum lactate dehydrogenase (LDH) level was elevated to 289U/L.; trigger=consistent with; certainty=asserted; char_start=667; char_end=743"
+PMC11345641_01,e17,F3,A1,LOCATED_IN,"evidence_text=Physical examination revealed significant abdominal distention with a large, palpable mass extending three fingers above the umbilicus and showing limited mobility; trigger=abdominal; certainty=asserted; char_start=2835; char_end=2998"
+PMC11345641_01,e18,A1,C1,SAME_AS,strategy=exact
+PMC11345641_01,e19,E1,C2,SAME_AS,strategy=longest
+PMC11345641_01,e20,E2,C3,SAME_AS,strategy=exact
+PMC11345641_01,e21,F2,C4,SAME_AS,strategy=fuzzy; score=86.66666666666667
+PMC11345641_01,e22,D1,C5,SAME_AS,strategy=longest

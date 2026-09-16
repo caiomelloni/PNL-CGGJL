@@ -1,0 +1,12 @@
+case_id,node_id,type,label,attributes
+PMC11259348_02,P1,Patient,case PMC11259348_02,article_id=PMC11259348; gender=Unknown
+PMC11259348_02,D1,Diagnosis,presence erythrocyte alloantibodies,certainty=excluded; polarity=absent; role=principal
+PMC11259348_02,D2,Diagnosis,abo incompatibility patient transfused units,certainty=excluded; polarity=absent; role=principal
+PMC11259348_02,T1,Treatment,blood transfusion,type=transfusion; status=performed
+PMC11259348_02,E1,Exam,ten blood packs selected,modality=laboratory
+PMC11259348_02,R1,ExamResult,50 %,value=50; unit=%; interpretation=positive; interpretation_source=stated; raw_text=50%
+PMC11259348_02,E2,Exam,serum added one volume,modality=laboratory
+PMC11259348_02,R2,ExamResult,50 %,value=50; unit=%; interpretation=positive; interpretation_source=stated; raw_text=50%
+PMC11259348_02,E3,Exam,person added one volume,modality=laboratory
+PMC11259348_02,R3,ExamResult,50 %,value=50; unit=%; interpretation=negative; interpretation_source=stated; raw_text=50%
+PMC11259348_02,C1,Concept,blood transfusion,vocabulary=MeSH; code=D001803; preferred_term=Blood Transfusion

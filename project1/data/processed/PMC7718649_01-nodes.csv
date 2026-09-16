@@ -1,0 +1,39 @@
+case_id,node_id,type,label,attributes
+PMC7718649_01,P1,Patient,case PMC7718649_01,article_id=PMC7718649; age=65; age_unit=years; gender=Female
+PMC7718649_01,S1,Symptom,mild coughing,polarity=present
+PMC7718649_01,E1,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC7718649_01,M1,Medication,sle prednisone,dose_value=10; dose_unit=mg; dose_change=initial
+PMC7718649_01,M2,Medication,hydroxychloroquine,dose_value=0.2; dose_unit=g; dose_change=initial
+PMC7718649_01,M3,Medication,oseltamivir,dose_value=75; dose_unit=mg; frequency=twice daily; route=oral; dose_change=initial
+PMC7718649_01,M4,Medication,arbidol,dose_value=0.3; dose_unit=g; route=oral; dose_change=initial
+PMC7718649_01,M5,Medication,moxifloxacin,dose_value=0.4; dose_unit=g; dose_change=initial
+PMC7718649_01,M6,Medication,lianhuaqingwen capsules,dose_value=1.4; dose_unit=g; dose_change=initial
+PMC7718649_01,M7,Medication,prednisone,dose_value=25; dose_unit=mg; frequency=once daily; route=oral; dose_change=increased
+PMC7718649_01,M8,Medication,prednisone,dose_value=25; dose_unit=mg; dose_change=initial
+PMC7718649_01,M9,Medication,pantoprazole,dose_value=40; dose_unit=mg; dose_change=initial
+PMC7718649_01,M10,Medication,levofloxacin,dose_value=0.5; dose_unit=g; dose_change=initial
+PMC7718649_01,M11,Medication,acarbose,dose_value=50; dose_unit=mg; dose_change=initial
+PMC7718649_01,M12,Medication,to,dose_value=15; dose_unit=mg; frequency=once daily; dose_change=reduced
+PMC7718649_01,M13,Medication,to,dose_value=10; dose_unit=mg; frequency=once daily; dose_change=reduced
+PMC7718649_01,M14,Medication,loxoprofen,dose_value=60; dose_unit=mg; dose_change=initial
+PMC7718649_01,O1,Outcome,clinical improvement,type=improvement; polarity=present
+PMC7718649_01,O2,Outcome,discharged home,type=discharge; polarity=present
+PMC7718649_01,E2,Exam,inhalation nasal catheter,modality=laboratory
+PMC7718649_01,R1,ExamResult,98 %,value=98; unit=%; raw_text=98%
+PMC7718649_01,E3,Exam,glycosylated hemoglobin,modality=laboratory
+PMC7718649_01,R2,ExamResult,7.1 %,value=7.1; unit=%; raw_text=7.1%
+PMC7718649_01,E4,Exam,postprandial blood sugar higher,modality=laboratory
+PMC7718649_01,R3,ExamResult,11.1 mmol/L,value=11.1; unit=mmol/L; raw_text=11.1 mmol/L
+PMC7718649_01,E5,Exam,immunoglobulin g sars-cov-2,modality=laboratory
+PMC7718649_01,R4,ExamResult,33.73 AU/mL,value=33.73; unit=AU/mL; reference_range_high=10; reference_range_raw=normal range: <=10 AU/mL; interpretation=elevated; interpretation_source=derived; raw_text=33.73 AU/mL
+PMC7718649_01,E6,Exam,au/ml (normal range: <=10 au/ml,modality=laboratory
+PMC7718649_01,R5,ExamResult,198.77 AU/mL,value=198.77; unit=AU/mL; reference_range_high=10; reference_range_raw=normal range: <=10 AU/mL; interpretation=elevated; interpretation_source=derived; raw_text=198.77 AU/mL
+PMC7718649_01,C1,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC7718649_01,C2,Concept,prednisone,vocabulary=MeSH; code=D011241; preferred_term=Prednisone
+PMC7718649_01,C3,Concept,hydroxychloroquine,vocabulary=MeSH; code=D006886; preferred_term=Hydroxychloroquine
+PMC7718649_01,C4,Concept,oseltamivir,vocabulary=MeSH; code=D053139; preferred_term=Oseltamivir
+PMC7718649_01,C5,Concept,moxifloxacin,vocabulary=MeSH; code=D000077266; preferred_term=Moxifloxacin
+PMC7718649_01,C6,Concept,capsules,vocabulary=MeSH; code=D002214; preferred_term=Capsules
+PMC7718649_01,C7,Concept,pantoprazole,vocabulary=MeSH; code=D000077402; preferred_term=Pantoprazole
+PMC7718649_01,C8,Concept,levofloxacin,vocabulary=MeSH; code=D064704; preferred_term=Levofloxacin
+PMC7718649_01,C9,Concept,acarbose,vocabulary=MeSH; code=D020909; preferred_term=Acarbose
