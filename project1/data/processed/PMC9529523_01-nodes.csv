@@ -1,0 +1,66 @@
+case_id,node_id,type,label,attributes
+PMC9529523_01,P1,Patient,case PMC9529523_01,article_id=PMC9529523; age=41.0; gender=Female
+PMC9529523_01,E1,Exam,biopsy,modality=pathology
+PMC9529523_01,E2,Exam,computed tomography,modality=imaging
+PMC9529523_01,E3,Exam,magnetic resonance imaging,modality=imaging; abbreviation=MRI
+PMC9529523_01,F1,Finding,abnormalities,source=imaging; polarity=absent; certainty=confirmed
+PMC9529523_01,F2,Finding,malignancy,source=lab; polarity=absent; certainty=confirmed
+PMC9529523_01,D1,Diagnosis,sle,certainty=confirmed; polarity=present; role=principal
+PMC9529523_01,D2,Diagnosis,malignant hypertension,certainty=confirmed; polarity=present; role=principal
+PMC9529523_01,D3,Diagnosis,chronic thrombotic microangiopathy,certainty=confirmed; polarity=present; role=principal
+PMC9529523_01,D4,Diagnosis,hydroxychloroquine-induced cardiomyopathy electron microscopy,certainty=confirmed; polarity=present; role=principal
+PMC9529523_01,M1,Medication,was,dose_value=6.2; dose_unit=mg; dose_change=initial
+PMC9529523_01,M2,Medication,started hydroxychloroquine,dose_value=300; dose_unit=mg; dose_change=initial
+PMC9529523_01,M3,Medication,daily,dose_value=3.9; dose_unit=mg; dose_change=initial
+PMC9529523_01,M4,Medication,serum creatinine,dose_value=2.14; dose_unit=mg; dose_change=initial
+PMC9529523_01,M5,Medication,baseline,dose_value=1.0; dose_unit=mg; dose_change=initial
+PMC9529523_01,M6,Medication,dropped,dose_value=200; dose_unit=mg; dose_change=initial
+PMC9529523_01,M7,Medication,daily,dose_value=3.1; dose_unit=mg; dose_change=initial
+PMC9529523_01,M8,Medication,pericardiocentesis yielded,dose_value=860; dose_unit=ml; dose_change=initial
+PMC9529523_01,T1,Treatment,drainage,type=procedure; status=performed
+PMC9529523_01,O1,Outcome,symptom resolution,type=resolution; polarity=present
+PMC9529523_01,O2,Outcome,clinical improvement,type=improvement; polarity=present
+PMC9529523_01,E4,Exam,IgG levels,modality=laboratory
+PMC9529523_01,R1,ExamResult,2317 mg/dL,value=2317; unit=mg/dL; interpretation=elevated; interpretation_source=stated; raw_text=2317 mg/dL
+PMC9529523_01,E5,Exam,c-reactive protein,modality=laboratory
+PMC9529523_01,R2,ExamResult,6.2 mg/dL,value=6.2; unit=mg/dL; interpretation=elevated; interpretation_source=stated; raw_text=6.2 mg/dL
+PMC9529523_01,E6,Exam,rise serum creatinine,modality=laboratory
+PMC9529523_01,R3,ExamResult,2.14 mg/dL,value=2.14; unit=mg/dL; raw_text=2.14 mg/dL
+PMC9529523_01,E7,Exam,2.14 mg/dl baseline,modality=laboratory
+PMC9529523_01,R4,ExamResult,1.0 mg/dL,value=1.0; unit=mg/dL; raw_text=1.0 mg/dL
+PMC9529523_01,E8,Exam,c3,modality=laboratory
+PMC9529523_01,R5,ExamResult,61 mg/dL,value=61; unit=mg/dL; interpretation=decreased; interpretation_source=stated; raw_text=61 mg/dL
+PMC9529523_01,E9,Exam,serum hydroxychloroquine level,modality=laboratory
+PMC9529523_01,R6,ExamResult,1232.1 ng/mL,value=1232.1; unit=ng/mL; raw_text=1232.1 ng/ml
+PMC9529523_01,E10,Exam,target blood hydroxychloroquine level around,modality=laboratory
+PMC9529523_01,R7,ExamResult,1000 ng/mL,value=1000; unit=ng/mL; raw_text=1000 ng/mL
+PMC9529523_01,E11,Exam,forced vital capacity,modality=laboratory
+PMC9529523_01,R8,ExamResult,78 %,value=78; unit=%; raw_text=78%
+PMC9529523_01,E12,Exam,forced expiratory volume 1,modality=laboratory
+PMC9529523_01,R9,ExamResult,83 %,value=83; unit=%; raw_text=83%
+PMC9529523_01,E13,Exam,forced expiratory volume 1/forced vital capacity,modality=laboratory
+PMC9529523_01,R10,ExamResult,107 %,value=107; unit=%; raw_text=107%
+PMC9529523_01,E14,Exam,noted low,modality=laboratory
+PMC9529523_01,R11,ExamResult,37 %,value=37; unit=%; interpretation=decreased; interpretation_source=stated; raw_text=37%
+PMC9529523_01,E15,Exam,inhibitors,modality=laboratory
+PMC9529523_01,R12,ExamResult,125 %,value=125; unit=%; reference_range_high=5; reference_range_raw=<5%; interpretation=elevated; interpretation_source=derived; raw_text=125%
+PMC9529523_01,E16,Exam,left ventricular ejection fraction,modality=laboratory
+PMC9529523_01,R13,ExamResult,10 %,value=10; unit=%; interpretation=negative; interpretation_source=stated; raw_text=10%
+PMC9529523_01,E17,Exam,c4,modality=laboratory
+PMC9529523_01,R14,ExamResult,17 mg/dL,value=17; unit=mg/dL; raw_text=17 mg/dL
+PMC9529523_01,R15,ExamResult,274 ng/mL,value=274; unit=ng/mL; raw_text=274 ng/ml
+PMC9529523_01,A1,AnatomicalSite,heart,
+PMC9529523_01,C1,Concept,heart,vocabulary=local; code=ANAT006; preferred_term=Heart
+PMC9529523_01,C2,Concept,biopsy,vocabulary=MeSH; code=D001706; preferred_term=Biopsy
+PMC9529523_01,C3,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC9529523_01,C4,Concept,magnetic resonance imaging,vocabulary=MeSH; code=D008279; preferred_term=Magnetic Resonance Imaging
+PMC9529523_01,C5,Concept,eye abnormalities,vocabulary=MeSH; code=D005124; preferred_term=Eye Abnormalities
+PMC9529523_01,C6,Concept,neoplasms,vocabulary=MeSH; code=D009369; preferred_term=Neoplasms
+PMC9529523_01,C7,Concept,"hypertension, malignant","vocabulary=MeSH; code=D006974; preferred_term=Hypertension, Malignant"
+PMC9529523_01,C8,Concept,thrombotic microangiopathies,vocabulary=MeSH; code=D057049; preferred_term=Thrombotic Microangiopathies
+PMC9529523_01,C9,Concept,hydroxychloroquine,vocabulary=MeSH; code=D006886; preferred_term=Hydroxychloroquine
+PMC9529523_01,C10,Concept,creatinine,vocabulary=MeSH; code=D003404; preferred_term=Creatinine
+PMC9529523_01,C11,Concept,petrolatum,vocabulary=MeSH; code=D010577; preferred_term=Petrolatum
+PMC9529523_01,C12,Concept,drainage,vocabulary=MeSH; code=D004322; preferred_term=Drainage
+PMC9529523_01,C13,Concept,vital capacity,vocabulary=MeSH; code=D014797; preferred_term=Vital Capacity
+PMC9529523_01,C14,Concept,stroke volume,vocabulary=MeSH; code=D013318; preferred_term=Stroke Volume

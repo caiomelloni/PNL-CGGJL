@@ -1,0 +1,8 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC11723754_01,e1,P1,D1,DIAGNOSED_WITH,evidence_text=was diagnosed with septicaemia with septic shock; trigger=was diagnosed with; certainty=asserted; char_start=1002; char_end=1050
+PMC11723754_01,e2,P1,O1,HAS_OUTCOME,"evidence_text=There was no improvement in his BP despite fluid resuscitation, due to which inotropic drugs were started to maintain BP and to prevent multiple organ dysfunction syndrome (MODS); trigger=improvement; certainty=asserted; char_start=631; char_end=809"
+PMC11723754_01,e3,P1,O2,HAS_OUTCOME,"evidence_text=On day 3, inotrope support was weaned off, his condition improved and he was stable; trigger=improved; certainty=asserted; char_start=1228; char_end=1311"
+PMC11723754_01,e4,P1,O3,HAS_OUTCOME,"evidence_text=Patient was discharged with stable vitals, healthy pressure injuries having granulation tissue and a decreased surface area; trigger=discharged; certainty=asserted; char_start=1825; char_end=1948"
+PMC11723754_01,e5,E1,R1,HAS_RESULT,evidence_text=He underwent PRBC transfusion in view of low Hb 7g/dl.; trigger=result; certainty=asserted; char_start=1052; char_end=1106
+PMC11723754_01,e6,P1,E1,UNDERWENT_EXAM,evidence_text=He underwent PRBC transfusion in view of low Hb 7g/dl.; trigger=laboratory result; certainty=asserted; char_start=1052; char_end=1106
+PMC11723754_01,e7,D1,C1,SAME_AS,strategy=longest

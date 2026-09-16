@@ -1,0 +1,30 @@
+case_id,node_id,type,label,attributes
+PMC5833205_01,P1,Patient,case PMC5833205_01,article_id=PMC5833205; age=20; age_unit=months; gender=Male
+PMC5833205_01,S1,Symptom,swelling,polarity=present
+PMC5833205_01,E1,Exam,endoscopy,modality=endoscopy
+PMC5833205_01,F1,Finding,edema,source=lab; polarity=present; certainty=confirmed
+PMC5833205_01,D1,Diagnosis,microcytic anemia (hemoglobin 6,certainty=confirmed; polarity=present; role=principal
+PMC5833205_01,M1,Medication,albumin,dose_value=1.8; dose_unit=g; dose_change=initial
+PMC5833205_01,M2,Medication,hemoglobin,dose_value=6.4; dose_unit=mg; dose_change=initial
+PMC5833205_01,M3,Medication,albumin,dose_value=1.6; dose_unit=g; dose_change=initial
+PMC5833205_01,M4,Medication,total protein,dose_value=3.0; dose_unit=g; dose_change=initial
+PMC5833205_01,M5,Medication,transfusion,dose_value=20; dose_unit=mL; route=oral; dose_change=initial
+PMC5833205_01,M6,Medication,dose,dose_value=6; dose_unit=mg; route=oral; dose_change=initial
+PMC5833205_01,M7,Medication,risen,dose_value=11.8; dose_unit=g; route=oral; dose_change=initial
+PMC5833205_01,E2,Exam,albumin,modality=laboratory
+PMC5833205_01,R1,ExamResult,1.8 g/dL,value=1.8; unit=g/dL; interpretation=negative; interpretation_source=stated; raw_text=1.8 g/dL
+PMC5833205_01,E3,Exam,microcytic anemia,modality=laboratory
+PMC5833205_01,R2,ExamResult,6.4 mg/dL,value=6.4; unit=mg/dL; raw_text=6.4 mg/dL
+PMC5833205_01,E4,Exam,hypoproteinemia,modality=laboratory
+PMC5833205_01,R3,ExamResult,1.6 g/dL,value=1.6; unit=g/dL; raw_text=1.6 g/dL
+PMC5833205_01,E5,Exam,total protein,modality=laboratory
+PMC5833205_01,R4,ExamResult,3.0 g/dL,value=3.0; unit=g/dL; raw_text=3.0 g/dL
+PMC5833205_01,E6,Exam,hemoglobin risen,modality=laboratory
+PMC5833205_01,R5,ExamResult,11.8 g/dL,value=11.8; unit=g/dL; raw_text=11.8 g/dL
+PMC5833205_01,A1,AnatomicalSite,abdomen,laterality=bilateral
+PMC5833205_01,C1,Concept,abdomen,vocabulary=local; code=ANAT033; preferred_term=Abdomen
+PMC5833205_01,C2,Concept,endoscopy,vocabulary=MeSH; code=D004724; preferred_term=Endoscopy
+PMC5833205_01,C3,Concept,edema,vocabulary=MeSH; code=D004487; preferred_term=Edema
+PMC5833205_01,C4,Concept,albumins,vocabulary=MeSH; code=D000418; preferred_term=Albumins
+PMC5833205_01,C5,Concept,hemoglobins,vocabulary=MeSH; code=D006454; preferred_term=Hemoglobins
+PMC5833205_01,C6,Concept,proteins,vocabulary=MeSH; code=D011506; preferred_term=Proteins

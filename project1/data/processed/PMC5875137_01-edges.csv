@@ -1,0 +1,4 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC5875137_01,e1,P1,O1,HAS_OUTCOME,"evidence_text=She underwent cardiac rehabilitation in our department, and no complications occurred during the hospital stay; trigger=complications; certainty=asserted; char_start=478; char_end=588"
+PMC5875137_01,e2,P1,E1,UNDERWENT_EXAM,"evidence_text=Therefore, a new chest CT scan was performed focusing to the heart and aorta, which showed no intracardiac masses; trigger=CT; certainty=asserted; char_start=813; char_end=926"
+PMC5875137_01,e3,E1,C1,SAME_AS,strategy=exact

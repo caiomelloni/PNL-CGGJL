@@ -1,0 +1,5 @@
+case_id,node_id,type,label,attributes
+PMC9532611_01,P1,Patient,case PMC9532611_01,article_id=PMC9532611; age=12; age_unit=years; gender=Female
+PMC9532611_01,S1,Symptom,hypokalemic (1,polarity=present
+PMC9532611_01,E1,Exam,hypokalemic,modality=laboratory
+PMC9532611_01,R1,ExamResult,1.8 mmol/L,value=1.8; unit=mmol/L; raw_text=1.8 mmol/l

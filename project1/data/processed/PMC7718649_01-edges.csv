@@ -1,0 +1,40 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC7718649_01,e1,P1,S1,HAS_SYMPTOM,evidence_text=presented with mild coughing; trigger=presented with; certainty=asserted; char_start=2402; char_end=2430
+PMC7718649_01,e2,P1,O1,HAS_OUTCOME,"evidence_text=On the 8th day of hospitalization, some laboratory examinations were retested, and most of which were improved (Table 1); trigger=improved; certainty=asserted; char_start=4066; char_end=4186"
+PMC7718649_01,e3,P1,O2,HAS_OUTCOME,"evidence_text=Since the patient met the criteria of discharge (temperature came back to normal for over 3 days, respiratory symptoms significantly improved, thoracic radiology showed obvious improvement in acute exudative lesions and negative results of rRT-PCR of SARS-CoV-2 for two nasal pharyngeal swabs over 24 h), she was discharged on March 4, 2020; trigger=discharged; certainty=asserted; char_start=5574; char_end=5914"
+PMC7718649_01,e4,E2,R1,HAS_RESULT,"evidence_text=Physical examination revealed that the conscious of the patient was clear, temperature was 37.1 C, blood pressure was 136/74 mmHg, pulse rate was 77 beats per minute, respiratory rate was 18 breaths per minute and peripheral oxygen saturation under oxygen inhalation (3 L/min) through nasal catheter was 98%.; trigger=result; certainty=asserted; char_start=2432; char_end=2740"
+PMC7718649_01,e5,E3,R2,HAS_RESULT,"evidence_text=Glycosylated hemoglobin was 7.1%, and postprandial blood sugar was higher than 11.1 mmol/L.; trigger=result; certainty=asserted; char_start=3080; char_end=3171"
+PMC7718649_01,e6,E4,R3,HAS_RESULT,"evidence_text=Glycosylated hemoglobin was 7.1%, and postprandial blood sugar was higher than 11.1 mmol/L.; trigger=result; certainty=asserted; char_start=3080; char_end=3171"
+PMC7718649_01,e7,E5,R4,HAS_RESULT,"evidence_text=Serum immunoglobulin M (IgM) and immunoglobulin G (IgG) of SARS-CoV-2 were 33.73 AU/mL (normal range: <=10 AU/mL) and 198.77 AU/mL (normal range: <=10 AU/mL), respectively.; trigger=result; certainty=asserted; char_start=5401; char_end=5573"
+PMC7718649_01,e8,E6,R5,HAS_RESULT,"evidence_text=Serum immunoglobulin M (IgM) and immunoglobulin G (IgG) of SARS-CoV-2 were 33.73 AU/mL (normal range: <=10 AU/mL) and 198.77 AU/mL (normal range: <=10 AU/mL), respectively.; trigger=result; certainty=asserted; char_start=5401; char_end=5573"
+PMC7718649_01,e9,P1,E1,UNDERWENT_EXAM,"evidence_text=The thoracic CT (February 23, 2020) showed a modest upturn in the lesions (Figure 2b); trigger=CT; certainty=asserted; char_start=4740; char_end=4825"
+PMC7718649_01,e10,P1,E2,UNDERWENT_EXAM,"evidence_text=Physical examination revealed that the conscious of the patient was clear, temperature was 37.1 C, blood pressure was 136/74 mmHg, pulse rate was 77 beats per minute, respiratory rate was 18 breaths per minute and peripheral oxygen saturation under oxygen inhalation (3 L/min) through nasal catheter was 98%.; trigger=laboratory result; certainty=asserted; char_start=2432; char_end=2740"
+PMC7718649_01,e11,P1,E3,UNDERWENT_EXAM,"evidence_text=Glycosylated hemoglobin was 7.1%, and postprandial blood sugar was higher than 11.1 mmol/L.; trigger=laboratory result; certainty=asserted; char_start=3080; char_end=3171"
+PMC7718649_01,e12,P1,E4,UNDERWENT_EXAM,"evidence_text=Glycosylated hemoglobin was 7.1%, and postprandial blood sugar was higher than 11.1 mmol/L.; trigger=laboratory result; certainty=asserted; char_start=3080; char_end=3171"
+PMC7718649_01,e13,P1,E5,UNDERWENT_EXAM,"evidence_text=Serum immunoglobulin M (IgM) and immunoglobulin G (IgG) of SARS-CoV-2 were 33.73 AU/mL (normal range: <=10 AU/mL) and 198.77 AU/mL (normal range: <=10 AU/mL), respectively.; trigger=laboratory result; certainty=asserted; char_start=5401; char_end=5573"
+PMC7718649_01,e14,P1,E6,UNDERWENT_EXAM,"evidence_text=Serum immunoglobulin M (IgM) and immunoglobulin G (IgG) of SARS-CoV-2 were 33.73 AU/mL (normal range: <=10 AU/mL) and 198.77 AU/mL (normal range: <=10 AU/mL), respectively.; trigger=laboratory result; certainty=asserted; char_start=5401; char_end=5573"
+PMC7718649_01,e15,P1,M1,TREATED_WITH,evidence_text=Her long-term treatment for SLE is prednisone (10 mg p; trigger=SLE is prednisone (10 mg; certainty=asserted; char_start=61; char_end=115
+PMC7718649_01,e16,P1,M2,TREATED_WITH,evidence_text=once daily) and hydroxychloroquine (0; trigger=and hydroxychloroquine (0.2 g; certainty=asserted; char_start=120; char_end=157
+PMC7718649_01,e17,P1,M3,TREATED_WITH,"evidence_text=On January 25, she visited the clinic for the first time and was given oral medicines (oseltamivir 75 mg twice daily, arbidol 0; trigger=oseltamivir 75 mg; certainty=asserted; char_start=739; char_end=866"
+PMC7718649_01,e18,P1,M4,TREATED_WITH,"evidence_text=On January 25, she visited the clinic for the first time and was given oral medicines (oseltamivir 75 mg twice daily, arbidol 0; trigger=arbidol 0.3 g; certainty=asserted; char_start=739; char_end=866"
+PMC7718649_01,e19,P1,M5,TREATED_WITH,"evidence_text=3 g twice daily, moxifloxacin 0; trigger=moxifloxacin 0.4 g; certainty=asserted; char_start=867; char_end=898"
+PMC7718649_01,e20,P1,M6,TREATED_WITH,evidence_text=4 g once daily and Lianhuaqingwen capsules 1; trigger=and Lianhuaqingwen capsules 1.4 g; certainty=asserted; char_start=899; char_end=943
+PMC7718649_01,e21,P1,M7,TREATED_WITH,"evidence_text=Hence, human immunoglobulin was given intravenously (IVIg, 5 g once daily) with the aforementioned oral medicines and increased dose of prednisone (25 mg once daily) for 5 days since February 4; trigger=dose of prednisone (25 mg; certainty=asserted; char_start=1501; char_end=1694"
+PMC7718649_01,e22,P1,M8,TREATED_WITH,evidence_text=Prednisone (25 mg p; trigger=Prednisone (25 mg; certainty=asserted; char_start=3343; char_end=3362
+PMC7718649_01,e23,P1,M9,TREATED_WITH,evidence_text=Pantoprazole (40 mg p; trigger=Pantoprazole (40 mg; certainty=asserted; char_start=3485; char_end=3506
+PMC7718649_01,e24,P1,M10,TREATED_WITH,evidence_text=Levofloxacin (0; trigger=Levofloxacin (0.5 g; certainty=asserted; char_start=3588; char_end=3603
+PMC7718649_01,e25,P1,M11,TREATED_WITH,"evidence_text=Then, acarbose (50 mg before lunch and dinner daily) was applied to control the blood glucose; trigger=acarbose (50 mg; certainty=asserted; char_start=3688; char_end=3781"
+PMC7718649_01,e26,P1,M12,TREATED_WITH,evidence_text=Dosage of prednisone was reduced to 15 mg once daily as pneumonia improved; trigger=was reduced to 15 mg; certainty=asserted; char_start=4188; char_end=4262
+PMC7718649_01,e27,P1,M13,TREATED_WITH,evidence_text=The dosage of prednisone was then reduced to 10 mg once daily as pneumonia improved; trigger=then reduced to 10 mg; certainty=asserted; char_start=4827; char_end=4910
+PMC7718649_01,e28,P1,M14,TREATED_WITH,"evidence_text=Two days later (day 20), the patient developed wrist pain, and loxoprofen (60 mg p; trigger=and loxoprofen (60 mg; certainty=asserted; char_start=5021; char_end=5103"
+PMC7718649_01,e29,E1,C1,SAME_AS,strategy=exact
+PMC7718649_01,e30,M1,C2,SAME_AS,strategy=exact
+PMC7718649_01,e31,M2,C3,SAME_AS,strategy=exact
+PMC7718649_01,e32,M3,C4,SAME_AS,strategy=exact
+PMC7718649_01,e33,M5,C5,SAME_AS,strategy=exact
+PMC7718649_01,e34,M6,C6,SAME_AS,strategy=exact
+PMC7718649_01,e35,M7,C2,SAME_AS,strategy=exact
+PMC7718649_01,e36,M8,C2,SAME_AS,strategy=exact
+PMC7718649_01,e37,M9,C7,SAME_AS,strategy=exact
+PMC7718649_01,e38,M10,C8,SAME_AS,strategy=exact
+PMC7718649_01,e39,M11,C9,SAME_AS,strategy=exact

@@ -1,0 +1,25 @@
+case_id,node_id,type,label,attributes
+PMC7519975_01,P1,Patient,case PMC7519975_01,article_id=PMC7519975; age=33.0; gender=Female
+PMC7519975_01,E1,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC7519975_01,M1,Medication,bun,dose_value=17; dose_unit=mg; dose_change=initial
+PMC7519975_01,M2,Medication,creatinine,dose_value=0.4; dose_unit=mg; dose_change=initial
+PMC7519975_01,M3,Medication,serum glucose,dose_value=125; dose_unit=mg; dose_change=initial
+PMC7519975_01,M4,Medication,serum calcium,dose_value=8.2; dose_unit=mg; dose_change=initial
+PMC7519975_01,M5,Medication,aspartate transaminase,dose_value=32; dose_unit=units; dose_change=initial
+PMC7519975_01,M6,Medication,alanine transaminase,dose_value=43; dose_unit=units; dose_change=initial
+PMC7519975_01,O1,Outcome,death,type=death; timing=postoperative day 7; polarity=present
+PMC7519975_01,E2,Exam,follows: white blood cell count,modality=laboratory
+PMC7519975_01,R1,ExamResult,5300 /µL,value=5300; unit=/µL; raw_text=5300 per microliter
+PMC7519975_01,E3,Exam,platelet,modality=laboratory
+PMC7519975_01,R2,ExamResult,98000 /µL,value=98000; unit=/µL; raw_text=98000 per microliter
+PMC7519975_01,E4,Exam,aspartate transaminase,modality=laboratory
+PMC7519975_01,R3,ExamResult,32 U/L,value=32; unit=U/L; raw_text=32 units per liter
+PMC7519975_01,E5,Exam,alanine transaminase,modality=laboratory
+PMC7519975_01,R4,ExamResult,43 U/L,value=43; unit=U/L; raw_text=43 units per liter
+PMC7519975_01,C1,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC7519975_01,C2,Concept,creatinine,vocabulary=MeSH; code=D003404; preferred_term=Creatinine
+PMC7519975_01,C3,Concept,glucose,vocabulary=MeSH; code=D005947; preferred_term=Glucose
+PMC7519975_01,C4,Concept,calcium,vocabulary=MeSH; code=D002118; preferred_term=Calcium
+PMC7519975_01,C5,Concept,aspartate aminotransferases,vocabulary=MeSH; code=D001219; preferred_term=Aspartate Aminotransferases
+PMC7519975_01,C6,Concept,alanine transaminase,vocabulary=MeSH; code=D000410; preferred_term=Alanine Transaminase
+PMC7519975_01,C7,Concept,leukocyte count,vocabulary=MeSH; code=D007958; preferred_term=Leukocyte Count

@@ -1,0 +1,19 @@
+case_id,node_id,type,label,attributes
+PMC3917415_01,P1,Patient,case PMC3917415_01,article_id=PMC3917415; age=47.0; gender=Female
+PMC3917415_01,E1,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC3917415_01,D1,Diagnosis,ruptured aneurysm,certainty=confirmed; polarity=present; role=principal
+PMC3917415_01,M1,Medication,prednisolone dose,dose_value=7.5; dose_unit=mg; dose_change=initial
+PMC3917415_01,M2,Medication,cyclophosphamide,dose_value=50; dose_unit=mg; dose_change=initial
+PMC3917415_01,M3,Medication,was,dose_value=5.6; dose_unit=mL; dose_change=initial
+PMC3917415_01,M4,Medication,was,dose_value=6.5; dose_unit=IU; dose_change=initial
+PMC3917415_01,O1,Outcome,complication,type=complication; polarity=present
+PMC3917415_01,O2,Outcome,discharged home,type=discharge; polarity=present
+PMC3917415_01,E2,Exam,hypocomplementemia,modality=laboratory
+PMC3917415_01,R1,ExamResult,66 mg/dL,value=66; unit=mg/dL; raw_text=66mg/dL
+PMC3917415_01,E3,Exam,c4,modality=laboratory
+PMC3917415_01,R2,ExamResult,14 mg/dL,value=14; unit=mg/dL; raw_text=14mg/dL
+PMC3917415_01,E4,Exam,anti-double-stranded deoxyribonucleic acid antibody,modality=laboratory
+PMC3917415_01,R3,ExamResult,6.5 IU/mL,value=6.5; unit=IU/mL; reference_range_high=20; reference_range_raw=normal range <20; interpretation=normal; interpretation_source=derived; raw_text=6.5IU/mL
+PMC3917415_01,C1,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC3917415_01,C2,Concept,"aneurysm, ruptured","vocabulary=MeSH; code=D017542; preferred_term=Aneurysm, Ruptured"
+PMC3917415_01,C3,Concept,cyclophosphamide,vocabulary=MeSH; code=D003520; preferred_term=Cyclophosphamide

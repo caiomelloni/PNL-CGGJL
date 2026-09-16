@@ -1,0 +1,20 @@
+case_id,node_id,type,label,attributes
+PMC10521634_01,P1,Patient,case PMC10521634_01,article_id=PMC10521634; age=38; age_unit=years; gender=Male
+PMC10521634_01,E1,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC10521634_01,E2,Exam,endoscopy,modality=endoscopy
+PMC10521634_01,F1,Finding,malignancy,source=lab; polarity=absent; certainty=confirmed
+PMC10521634_01,M1,Medication,level,dose_value=11.5; dose_unit=g; dose_change=initial
+PMC10521634_01,M2,Medication,vdz,dose_value=300; dose_unit=mg; route=intravenous; dose_change=initial
+PMC10521634_01,T1,Treatment,drainage,type=procedure; status=performed
+PMC10521634_01,O1,Outcome,discharged home,type=discharge; polarity=present
+PMC10521634_01,O2,Outcome,complication,type=complication; polarity=present
+PMC10521634_01,E3,Exam,hemoglobin,modality=laboratory
+PMC10521634_01,R1,ExamResult,11.5 g/dL,value=11.5; unit=g/dL; interpretation=normal; interpretation_source=stated; raw_text=11.5g/dl
+PMC10521634_01,E4,Exam,crp,modality=laboratory
+PMC10521634_01,R2,ExamResult,5 mg/dL,value=5; unit=mg/dL; interpretation=normal; interpretation_source=stated; raw_text=5mg/dl
+PMC10521634_01,A1,AnatomicalSite,colon,
+PMC10521634_01,C1,Concept,colon,vocabulary=local; code=ANAT009; preferred_term=Colon
+PMC10521634_01,C2,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC10521634_01,C3,Concept,endoscopy,vocabulary=MeSH; code=D004724; preferred_term=Endoscopy
+PMC10521634_01,C4,Concept,neoplasms,vocabulary=MeSH; code=D009369; preferred_term=Neoplasms
+PMC10521634_01,C5,Concept,drainage,vocabulary=MeSH; code=D004322; preferred_term=Drainage

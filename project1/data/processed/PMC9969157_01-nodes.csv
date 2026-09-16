@@ -1,0 +1,20 @@
+case_id,node_id,type,label,attributes
+PMC9969157_01,P1,Patient,case PMC9969157_01,article_id=PMC9969157; age=33.28571428571428571428571429; age_unit=weeks_gestational; gender=Male
+PMC9969157_01,H1,History,sibling lchadd,subject=family; polarity=present; relation_degree=unspecified; category=condition
+PMC9969157_01,E1,Exam,x-ray,modality=imaging
+PMC9969157_01,D1,Diagnosis,lchadd given elevation c16-oh,certainty=confirmed; polarity=present; role=principal
+PMC9969157_01,D2,Diagnosis,c18-oh levels ultimate diagnosis,certainty=confirmed; polarity=present; role=principal
+PMC9969157_01,D3,Diagnosis,nec (modified bell stage iia,certainty=confirmed; polarity=present; role=principal
+PMC9969157_01,M1,Medication,dextrose fluids,dose_value=150; dose_unit=ml; route=intravenous; dose_change=initial
+PMC9969157_01,M2,Medication,dose,dose_value=0.5; dose_unit=g; dose_change=initial
+PMC9969157_01,M3,Medication,advanced,dose_value=0.5; dose_unit=g; dose_change=initial
+PMC9969157_01,M4,Medication,unit standard,dose_value=20; dose_unit=ml; dose_change=initial
+PMC9969157_01,M5,Medication,limited,dose_value=23; dose_unit=ml; dose_change=initial
+PMC9969157_01,M6,Medication,with,dose_value=4; dose_unit=g; dose_change=initial
+PMC9969157_01,M7,Medication,and,dose_value=2; dose_unit=g; dose_change=initial
+PMC9969157_01,O1,Outcome,discharged home,type=discharge; length_of_stay=33 days; polarity=present
+PMC9969157_01,E2,Exam,peripheral intravenous line placed,modality=laboratory
+PMC9969157_01,R1,ExamResult,10 %,value=10; unit=%; raw_text=10%
+PMC9969157_01,E3,Exam,2 g/kg/day,modality=laboratory
+PMC9969157_01,R2,ExamResult,20 %,value=20; unit=%; raw_text=20%
+PMC9969157_01,C1,Concept,permethrin,vocabulary=MeSH; code=D026023; preferred_term=Permethrin

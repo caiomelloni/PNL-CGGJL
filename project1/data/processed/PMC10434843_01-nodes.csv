@@ -1,0 +1,31 @@
+case_id,node_id,type,label,attributes
+PMC10434843_01,P1,Patient,case PMC10434843_01,article_id=PMC10434843; age=49; age_unit=years; gender=Male
+PMC10434843_01,S1,Symptom,increasing weakness right hand preceding months,polarity=present
+PMC10434843_01,S2,Symptom,clinical improvement daily activities able open drawers,polarity=present
+PMC10434843_01,E1,Exam,magnetic resonance imaging,modality=imaging; abbreviation=MRI
+PMC10434843_01,E2,Exam,ultrasound,modality=imaging
+PMC10434843_01,E3,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC10434843_01,F1,Finding,abnormalities,source=imaging; polarity=absent; certainty=confirmed
+PMC10434843_01,F2,Finding,malignancy,source=imaging; polarity=present; certainty=confirmed
+PMC10434843_01,D1,Diagnosis,lewis-sumner syndrome,certainty=probable; polarity=present; role=differential
+PMC10434843_01,D2,Diagnosis,amyotrophic lateral sclerosis well common causes caspr2 antibodies,certainty=probable; polarity=present; role=differential
+PMC10434843_01,M1,Medication,total protein levels,dose_value=603; dose_unit=mg; dose_change=increased
+PMC10434843_01,O1,Outcome,clinical improvement,type=improvement; polarity=absent
+PMC10434843_01,O2,Outcome,clinical improvement,type=improvement; polarity=present
+PMC10434843_01,E4,Exam,slightly increased total protein levels,modality=laboratory
+PMC10434843_01,R1,ExamResult,603 mg/L,value=603; unit=mg/L; interpretation=elevated; interpretation_source=stated; raw_text=603 mg/l
+PMC10434843_01,E5,Exam,activated hla-dr expressing cd4+ cells,modality=laboratory
+PMC10434843_01,R2,ExamResult,33.7 %,value=33.7; unit=%; raw_text=33.7%
+PMC10434843_01,A1,AnatomicalSite,head,
+PMC10434843_01,C1,Concept,head,vocabulary=local; code=ANAT024; preferred_term=Head
+PMC10434843_01,A2,AnatomicalSite,neck,
+PMC10434843_01,C2,Concept,neck,vocabulary=local; code=ANAT031; preferred_term=Neck
+PMC10434843_01,A3,AnatomicalSite,abdomen,
+PMC10434843_01,C3,Concept,abdomen,vocabulary=local; code=ANAT033; preferred_term=Abdomen
+PMC10434843_01,A4,AnatomicalSite,thyroid,
+PMC10434843_01,C4,Concept,thyroid,vocabulary=local; code=ANAT017; preferred_term=Thyroid
+PMC10434843_01,C5,Concept,magnetic resonance imaging,vocabulary=MeSH; code=D008279; preferred_term=Magnetic Resonance Imaging
+PMC10434843_01,C6,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC10434843_01,C7,Concept,eye abnormalities,vocabulary=MeSH; code=D005124; preferred_term=Eye Abnormalities
+PMC10434843_01,C8,Concept,neoplasms,vocabulary=MeSH; code=D009369; preferred_term=Neoplasms
+PMC10434843_01,C9,Concept,syndrome,vocabulary=MeSH; code=D013577; preferred_term=Syndrome

@@ -1,0 +1,10 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC4630775_01,e1,P1,S1,HAS_SYMPTOM,evidence_text=presented with desquamation of the palm and a leathery appearance of the skin to the right dorsal hand and circumferential forearm with frank ischemia to the thumb; trigger=presented with; certainty=asserted; char_start=138; char_end=301
+PMC4630775_01,e2,S1,A1,LOCATED_IN,evidence_text=The patient presented with desquamation of the palm and a leathery appearance of the skin to the right dorsal hand and circumferential forearm with frank ischemia to the thumb; trigger=palm; certainty=asserted; char_start=126; char_end=301
+PMC4630775_01,e3,A1,C1,SAME_AS,strategy=exact
+PMC4630775_01,e4,S1,A2,LOCATED_IN,evidence_text=The patient presented with desquamation of the palm and a leathery appearance of the skin to the right dorsal hand and circumferential forearm with frank ischemia to the thumb; trigger=skin; certainty=asserted; char_start=126; char_end=301
+PMC4630775_01,e5,A2,C2,SAME_AS,strategy=exact
+PMC4630775_01,e6,S1,A3,LOCATED_IN,evidence_text=The patient presented with desquamation of the palm and a leathery appearance of the skin to the right dorsal hand and circumferential forearm with frank ischemia to the thumb; trigger=dorsal; certainty=asserted; char_start=126; char_end=301
+PMC4630775_01,e7,A3,C3,SAME_AS,strategy=exact
+PMC4630775_01,e8,S1,A4,LOCATED_IN,evidence_text=The patient presented with desquamation of the palm and a leathery appearance of the skin to the right dorsal hand and circumferential forearm with frank ischemia to the thumb; trigger=forearm; certainty=asserted; char_start=126; char_end=301
+PMC4630775_01,e9,A4,C4,SAME_AS,strategy=exact

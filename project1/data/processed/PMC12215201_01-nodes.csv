@@ -1,0 +1,43 @@
+case_id,node_id,type,label,attributes
+PMC12215201_01,P1,Patient,case PMC12215201_01,article_id=PMC12215201; age=56.0; gender=Male
+PMC12215201_01,E1,Exam,ultrasound,modality=imaging
+PMC12215201_01,E2,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC12215201_01,E3,Exam,endoscopy,modality=endoscopy
+PMC12215201_01,E4,Exam,biopsy,modality=pathology
+PMC12215201_01,M1,Medication,results showed hemoglobin,dose_value=6.1; dose_unit=g; dose_change=initial
+PMC12215201_01,M2,Medication,total bilirubin,dose_value=3.2; dose_unit=mg; dose_change=initial
+PMC12215201_01,M3,Medication,alkaline phosphatase,dose_value=315; dose_unit=IU; dose_change=initial
+PMC12215201_01,M4,Medication,ast,dose_value=305; dose_unit=IU; dose_change=initial
+PMC12215201_01,M5,Medication,alt,dose_value=209; dose_unit=IU; dose_change=initial
+PMC12215201_01,M6,Medication,albumin,dose_value=2.6; dose_unit=g; dose_change=initial
+PMC12215201_01,M7,Medication,dl,dose_value=1.1; dose_unit=g; dose_change=initial
+PMC12215201_01,O1,Outcome,complication,type=complication; polarity=present
+PMC12215201_01,E5,Exam,hemoglobin,modality=laboratory
+PMC12215201_01,R1,ExamResult,6.1 g/dL,value=6.1; unit=g/dL; raw_text=6.1 g/dL
+PMC12215201_01,E6,Exam,platelet count 63 x,modality=laboratory
+PMC12215201_01,R2,ExamResult,103 /µL,value=103; unit=/µL; raw_text=103/mm3
+PMC12215201_01,E7,Exam,total bilirubin,modality=laboratory
+PMC12215201_01,R3,ExamResult,3.2 mg/dL,value=3.2; unit=mg/dL; raw_text=3.2 mg/dL
+PMC12215201_01,E8,Exam,alkaline phosphatase,modality=laboratory
+PMC12215201_01,R4,ExamResult,315 IU/L,value=315; unit=IU/L; raw_text=315 IU/L
+PMC12215201_01,E9,Exam,ast,modality=laboratory
+PMC12215201_01,R5,ExamResult,305 IU/L,value=305; unit=IU/L; raw_text=305 IU/L
+PMC12215201_01,E10,Exam,alt,modality=laboratory
+PMC12215201_01,R6,ExamResult,209 IU/L,value=209; unit=IU/L; raw_text=209 IU/L
+PMC12215201_01,E11,Exam,albumin,modality=laboratory
+PMC12215201_01,R7,ExamResult,2.6 g/dL,value=2.6; unit=g/dL; raw_text=2.6 g/dL
+PMC12215201_01,E12,Exam,ascitic fluid protein,modality=laboratory
+PMC12215201_01,R8,ExamResult,1 g/dL,value=1; unit=g/dL; raw_text=1 g/dL
+PMC12215201_01,E13,Exam,fluid protein 1 g/dl,modality=laboratory
+PMC12215201_01,R9,ExamResult,2 g/dL,value=2; unit=g/dL; raw_text=2 g/dL
+PMC12215201_01,E14,Exam,serum ascitic albumin gradient,modality=laboratory
+PMC12215201_01,R10,ExamResult,1 g/dL,value=1; unit=g/dL; raw_text=1 g/dL
+PMC12215201_01,E15,Exam,gradient 1 g/dl,modality=laboratory
+PMC12215201_01,R11,ExamResult,1.1 g/dL,value=1.1; unit=g/dL; raw_text=1.1 g/dL
+PMC12215201_01,C1,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC12215201_01,C2,Concept,endoscopy,vocabulary=MeSH; code=D004724; preferred_term=Endoscopy
+PMC12215201_01,C3,Concept,biopsy,vocabulary=MeSH; code=D001706; preferred_term=Biopsy
+PMC12215201_01,C4,Concept,hemoglobins,vocabulary=MeSH; code=D006454; preferred_term=Hemoglobins
+PMC12215201_01,C5,Concept,bilirubin,vocabulary=MeSH; code=D001663; preferred_term=Bilirubin
+PMC12215201_01,C6,Concept,alkaline phosphatase,vocabulary=MeSH; code=D000469; preferred_term=Alkaline Phosphatase
+PMC12215201_01,C7,Concept,albumins,vocabulary=MeSH; code=D000418; preferred_term=Albumins

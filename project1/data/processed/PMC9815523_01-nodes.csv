@@ -1,0 +1,35 @@
+case_id,node_id,type,label,attributes
+PMC9815523_01,P1,Patient,case PMC9815523_01,article_id=PMC9815523; age=40.0; gender=Unknown
+PMC9815523_01,D1,Diagnosis,vtos,certainty=confirmed; polarity=present; role=principal
+PMC9815523_01,D2,Diagnosis,four (8,certainty=confirmed; polarity=present; role=principal
+PMC9815523_01,O1,Outcome,clinical improvement,type=improvement; polarity=present
+PMC9815523_01,O2,Outcome,complication,type=complication; polarity=present
+PMC9815523_01,O3,Outcome,symptom resolution,type=resolution; polarity=present
+PMC9815523_01,E1,Exam,ten patients,modality=laboratory
+PMC9815523_01,R1,ExamResult,22.2 %,value=22.2; unit=%; raw_text=22.2%
+PMC9815523_01,E2,Exam,six patients,modality=laboratory
+PMC9815523_01,R2,ExamResult,13.3 %,value=13.3; unit=%; raw_text=13.3%
+PMC9815523_01,E3,Exam,four,modality=laboratory
+PMC9815523_01,R3,ExamResult,8.9 %,value=8.9; unit=%; raw_text=8.9%
+PMC9815523_01,E4,Exam,remaining 35 patients,modality=laboratory
+PMC9815523_01,R4,ExamResult,77.8 %,value=77.8; unit=%; raw_text=77.8%
+PMC9815523_01,E5,Exam,forty-four patients,modality=laboratory
+PMC9815523_01,R5,ExamResult,97.8 %,value=97.8; unit=%; raw_text=97.8%
+PMC9815523_01,E6,Exam,sixteen patients,modality=laboratory
+PMC9815523_01,R6,ExamResult,35.6 %,value=35.6; unit=%; raw_text=35.6%
+PMC9815523_01,E7,Exam,surgery; 31 patients,modality=laboratory
+PMC9815523_01,R7,ExamResult,58 %,value=58; unit=%; raw_text=58%
+PMC9815523_01,E8,Exam,14 patients,modality=laboratory
+PMC9815523_01,R8,ExamResult,26 %,value=26; unit=%; raw_text=26%
+PMC9815523_01,E9,Exam,five patients,modality=laboratory
+PMC9815523_01,R9,ExamResult,9 %,value=9; unit=%; raw_text=9%
+PMC9815523_01,E10,Exam,intravenous stent placement,modality=laboratory
+PMC9815523_01,R10,ExamResult,4 %,value=4; unit=%; raw_text=4%
+PMC9815523_01,E11,Exam,cdt,modality=laboratory
+PMC9815523_01,R11,ExamResult,2 %,value=2; unit=%; raw_text=2%
+PMC9815523_01,E12,Exam,44 patients,modality=laboratory
+PMC9815523_01,R12,ExamResult,83 %,value=83; unit=%; interpretation=decreased; interpretation_source=stated; raw_text=83%
+PMC9815523_01,E13,Exam,two patients,modality=laboratory
+PMC9815523_01,R13,ExamResult,4 %,value=4; unit=%; raw_text=4%
+PMC9815523_01,E14,Exam,13 symptom free patients total,modality=laboratory
+PMC9815523_01,R14,ExamResult,48.1 %,value=48.1; unit=%; raw_text=48.1%

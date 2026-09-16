@@ -1,0 +1,25 @@
+case_id,node_id,type,label,attributes
+PMC3437073_01,P1,Patient,case PMC3437073_01,article_id=PMC3437073; age=55; age_unit=years; gender=Male
+PMC3437073_01,S1,Symptom,increasing mass,polarity=present
+PMC3437073_01,E1,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC3437073_01,F1,Finding,lobulated subcutaneous mass,source=physical_exam; polarity=present; certainty=confirmed
+PMC3437073_01,F2,Finding,calcified lesion,source=lab; polarity=present; certainty=confirmed
+PMC3437073_01,F3,Finding,splenic abscess,source=imaging; polarity=present; certainty=confirmed
+PMC3437073_01,F4,Finding,subcutaneous abscess,source=imaging; polarity=present; certainty=confirmed
+PMC3437073_01,M1,Medication,rifampin,dose_value=600; dose_unit=mg; dose_change=initial
+PMC3437073_01,M2,Medication,ethambutol,dose_value=600; dose_unit=mg; dose_change=initial
+PMC3437073_01,M3,Medication,pyrazinamide,dose_value=500; dose_unit=mg; dose_change=initial
+PMC3437073_01,O1,Outcome,clinical improvement,type=improvement; polarity=present
+PMC3437073_01,A1,AnatomicalSite,chest,laterality=left; region_qualifier=lower
+PMC3437073_01,C1,Concept,chest,vocabulary=local; code=ANAT032; preferred_term=Chest
+PMC3437073_01,A2,AnatomicalSite,abdomen,laterality=left; region_qualifier=lower
+PMC3437073_01,C2,Concept,abdomen,vocabulary=local; code=ANAT033; preferred_term=Abdomen
+PMC3437073_01,A3,AnatomicalSite,skin,
+PMC3437073_01,C3,Concept,skin,vocabulary=local; code=ANAT018; preferred_term=Skin
+PMC3437073_01,A4,AnatomicalSite,lung,laterality=right
+PMC3437073_01,C4,Concept,lung,vocabulary=local; code=ANAT007; preferred_term=Lung
+PMC3437073_01,C5,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC3437073_01,C6,Concept,abscess,vocabulary=MeSH; code=D000038; preferred_term=Abscess
+PMC3437073_01,C7,Concept,rifampin,vocabulary=MeSH; code=D012293; preferred_term=Rifampin
+PMC3437073_01,C8,Concept,ethambutol,vocabulary=MeSH; code=D004977; preferred_term=Ethambutol
+PMC3437073_01,C9,Concept,pyrazinamide,vocabulary=MeSH; code=D011718; preferred_term=Pyrazinamide

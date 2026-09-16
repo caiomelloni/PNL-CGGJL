@@ -1,0 +1,19 @@
+case_id,node_id,type,label,attributes
+PMC6343374_01,P1,Patient,case PMC6343374_01,article_id=PMC6343374; age=0.0; gender=Male
+PMC6343374_01,S1,Symptom,lower incidence,polarity=present
+PMC6343374_01,S2,Symptom,journal,polarity=present
+PMC6343374_01,E1,Exam,ultrasound,modality=imaging
+PMC6343374_01,D1,Diagnosis,tac 4a,certainty=confirmed; polarity=present; role=principal
+PMC6343374_01,D2,Diagnosis,interrupted aortic arch,certainty=confirmed; polarity=present; role=principal
+PMC6343374_01,D3,Diagnosis,trivial truncal valve regurgitation,certainty=confirmed; polarity=present; role=principal
+PMC6343374_01,M1,Medication,male infant weighing,dose_value=2760; dose_unit=g; dose_change=initial
+PMC6343374_01,O1,Outcome,discharged home,type=discharge; polarity=present
+PMC6343374_01,O2,Outcome,complication,type=complication; polarity=present
+PMC6343374_01,E2,Exam,valve appeared,modality=laboratory
+PMC6343374_01,R1,ExamResult,75 %,value=75; unit=%; raw_text=75%
+PMC6343374_01,E3,Exam,tac-interrupted aortic arch showed,modality=laboratory
+PMC6343374_01,R2,ExamResult,12.5 %,value=12.5; unit=%; raw_text=12.5%
+PMC6343374_01,E4,Exam,congenital heart surgery study,modality=laboratory
+PMC6343374_01,R3,ExamResult,13.2 %,value=13.2; unit=%; raw_text=13.2%
+PMC6343374_01,E5,Exam,self-expandable stent increased,modality=laboratory
+PMC6343374_01,R4,ExamResult,33 %,value=33; unit=%; interpretation=elevated; interpretation_source=stated; raw_text=33%

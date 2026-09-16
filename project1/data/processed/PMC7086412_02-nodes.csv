@@ -1,0 +1,17 @@
+case_id,node_id,type,label,attributes
+PMC7086412_02,P1,Patient,case PMC7086412_02,article_id=PMC7086412; age=31.0; gender=Female
+PMC7086412_02,F1,Finding,elevated prepregnancy body mass index,source=lab; polarity=present; certainty=confirmed
+PMC7086412_02,D1,Diagnosis,glucose intolerance made due single elevated value per carpenter coustan criteria,certainty=confirmed; polarity=present; role=principal
+PMC7086412_02,D2,Diagnosis,glucose intolerance made due single elevated value,certainty=confirmed; polarity=present; role=principal
+PMC7086412_02,D3,Diagnosis,intrauterine fetal demise previously described,certainty=confirmed; polarity=present; role=principal
+PMC7086412_02,M1,Medication,infant weighing,dose_value=3590; dose_unit=g; dose_change=initial
+PMC7086412_02,E1,Exam,hemoglobin a1c nondiagnostic,modality=laboratory
+PMC7086412_02,R1,ExamResult,5.0 %,value=5.0; unit=%; interpretation=elevated; interpretation_source=stated; raw_text=5.0%
+PMC7086412_02,E2,Exam,early gtt returned elevated,modality=laboratory
+PMC7086412_02,R2,ExamResult,160 mg/dL,value=160; unit=mg/dL; interpretation=elevated; interpretation_source=stated; raw_text=160 mg/dL
+PMC7086412_02,E3,Exam,values 86,modality=laboratory
+PMC7086412_02,R3,ExamResult,135 mg/dL,value=135; unit=mg/dL; raw_text=135 mg/dL
+PMC7086412_02,E4,Exam,values 89,modality=laboratory
+PMC7086412_02,R4,ExamResult,101 mg/dL,value=101; unit=mg/dL; raw_text=101 mg/dL
+PMC7086412_02,E5,Exam,results hemoglobin a1c value,modality=laboratory
+PMC7086412_02,R5,ExamResult,6.6 %,value=6.6; unit=%; raw_text=6.6%

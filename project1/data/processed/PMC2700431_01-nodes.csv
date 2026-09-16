@@ -1,0 +1,5 @@
+case_id,node_id,type,label,attributes
+PMC2700431_01,P1,Patient,case PMC2700431_01,article_id=PMC2700431; age=35; age_unit=years; gender=Male
+PMC2700431_01,E1,Exam,x-ray,modality=imaging
+PMC2700431_01,O1,Outcome,clinical improvement,type=improvement; polarity=present
+PMC2700431_01,O2,Outcome,death,type=death; polarity=present

@@ -1,0 +1,24 @@
+case_id,node_id,type,label,attributes
+PMC10488652_01,P1,Patient,case PMC10488652_01,article_id=PMC10488652; age=22; age_unit=years; gender=Female
+PMC10488652_01,F1,Finding,grade ii edema,source=physical_exam; polarity=present; certainty=confirmed
+PMC10488652_01,D1,Diagnosis,class ii mesangial lupus nephritis,certainty=confirmed; polarity=present; role=principal
+PMC10488652_01,D2,Diagnosis,cold agglutinin syndrome,certainty=confirmed; polarity=present; role=principal
+PMC10488652_01,M1,Medication,hemoglobin,dose_value=6.2; dose_unit=g; dose_change=initial
+PMC10488652_01,M2,Medication,dose,dose_value=40; dose_unit=mg; route=oral; dose_change=initial
+PMC10488652_01,M3,Medication,dose,dose_value=200; dose_unit=mg; route=oral; dose_change=initial
+PMC10488652_01,M4,Medication,dose,dose_value=5; dose_unit=mg; route=oral; dose_change=initial
+PMC10488652_01,M5,Medication,dose,dose_value=500; dose_unit=mg; route=oral; dose_change=initial
+PMC10488652_01,O1,Outcome,clinical improvement,type=improvement; polarity=present
+PMC10488652_01,O2,Outcome,complication,type=complication; polarity=absent
+PMC10488652_01,O3,Outcome,discharged home,type=discharge; polarity=present
+PMC10488652_01,E1,Exam,hemoglobin,modality=laboratory
+PMC10488652_01,R1,ExamResult,6.2 g/dL,value=6.2; unit=g/dL; interpretation=positive; interpretation_source=stated; raw_text=6.2 g/dl
+PMC10488652_01,E2,Exam,hematocrit,modality=laboratory
+PMC10488652_01,R2,ExamResult,18.1 %,value=18.1; unit=%; interpretation=positive; interpretation_source=stated; raw_text=18.1%
+PMC10488652_01,A1,AnatomicalSite,neck,
+PMC10488652_01,C1,Concept,neck,vocabulary=local; code=ANAT031; preferred_term=Neck
+PMC10488652_01,C2,Concept,edema,vocabulary=MeSH; code=D004487; preferred_term=Edema
+PMC10488652_01,C3,Concept,lupus nephritis,vocabulary=MeSH; code=D008181; preferred_term=Lupus Nephritis
+PMC10488652_01,C4,Concept,syndrome,vocabulary=MeSH; code=D013577; preferred_term=Syndrome
+PMC10488652_01,C5,Concept,hemoglobins,vocabulary=MeSH; code=D006454; preferred_term=Hemoglobins
+PMC10488652_01,C6,Concept,hematocrit,vocabulary=MeSH; code=D006400; preferred_term=Hematocrit

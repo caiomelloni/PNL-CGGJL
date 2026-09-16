@@ -1,0 +1,25 @@
+case_id,node_id,type,label,attributes
+PMC12832199_01,P1,Patient,case PMC12832199_01,article_id=PMC12832199; age=57; age_unit=years; gender=Female
+PMC12832199_01,H1,History,buerger's disease,subject=patient; polarity=present; category=condition
+PMC12832199_01,H2,History,bilateral below-knee amputations,subject=patient; polarity=present; category=condition
+PMC12832199_01,H3,History,central adrenal insufficiency managed corticosteroids,subject=patient; polarity=present; category=condition
+PMC12832199_01,H4,History,multiple abdominal surgeries,subject=patient; polarity=present; category=condition
+PMC12832199_01,E1,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC12832199_01,E2,Exam,endoscopy,modality=endoscopy
+PMC12832199_01,D1,Diagnosis,aspiration pneumonia observed,certainty=confirmed; polarity=present; role=principal
+PMC12832199_01,M1,Medication,hypoalbuminemia,dose_value=2.8; dose_unit=g; dose_change=initial
+PMC12832199_01,T1,Treatment,intravenous fluids,type=supportive; status=performed
+PMC12832199_01,O1,Outcome,clinical improvement,type=improvement; polarity=present
+PMC12832199_01,O2,Outcome,clinical improvement,type=improvement; polarity=absent
+PMC12832199_01,O3,Outcome,discharged home,type=discharge; polarity=present
+PMC12832199_01,O4,Outcome,recurrence,type=recurrence; follow_up_duration=10 months; polarity=absent
+PMC12832199_01,E3,Exam,anemia,modality=laboratory
+PMC12832199_01,R1,ExamResult,9.6 g/dL,value=9.6; unit=g/dL; raw_text=9.6 g/dL
+PMC12832199_01,E4,Exam,hypoalbuminemia,modality=laboratory
+PMC12832199_01,R2,ExamResult,2.8 g/dL,value=2.8; unit=g/dL; raw_text=2.8 g/dL
+PMC12832199_01,E5,Exam,acute kidney injury,modality=laboratory
+PMC12832199_01,R3,ExamResult,2.2 mg/dL,value=2.2; unit=mg/dL; raw_text=2.2 mg/dL
+PMC12832199_01,A1,AnatomicalSite,stomach,
+PMC12832199_01,C1,Concept,stomach,vocabulary=local; code=ANAT001; preferred_term=Stomach
+PMC12832199_01,C2,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC12832199_01,C3,Concept,endoscopy,vocabulary=MeSH; code=D004724; preferred_term=Endoscopy

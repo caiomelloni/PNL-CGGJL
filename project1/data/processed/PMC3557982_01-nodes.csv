@@ -1,0 +1,7 @@
+case_id,node_id,type,label,attributes
+PMC3557982_01,P1,Patient,case PMC3557982_01,article_id=PMC3557982; age=1; age_unit=years; gender=Male
+PMC3557982_01,S1,Symptom,clinical data hadv-14 infection apparently enhanced virulence strain,polarity=present
+PMC3557982_01,D1,Diagnosis,reported clinical data,certainty=confirmed; polarity=present; role=principal
+PMC3557982_01,D2,Diagnosis,enhanced virulence,certainty=confirmed; polarity=present; role=principal
+PMC3557982_01,O1,Outcome,death,type=death; polarity=present
+PMC3557982_01,C1,Concept,sprains and strains,vocabulary=MeSH; code=D013180; preferred_term=Sprains and Strains

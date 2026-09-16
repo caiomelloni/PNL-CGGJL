@@ -1,0 +1,7 @@
+case_id,node_id,type,label,attributes
+PMC6354154_01,P1,Patient,case PMC6354154_01,article_id=PMC6354154; age=30.0; gender=Female
+PMC6354154_01,E1,Exam,ultrasound,modality=imaging
+PMC6354154_01,F1,Finding,body mass index,source=lab; polarity=present; certainty=confirmed
+PMC6354154_01,F2,Finding,removed mass,source=lab; polarity=present; certainty=confirmed
+PMC6354154_01,D1,Diagnosis,ovarian steroid cell tumor nos,certainty=confirmed; polarity=present; role=principal
+PMC6354154_01,O1,Outcome,recurrence,type=recurrence; polarity=absent

@@ -1,0 +1,8 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC11259348_01,e1,P1,S1,HAS_SYMPTOM,"evidence_text=admitted with fever, loose stools, and dark color urine was diagnosed with PCH after having positive Donath-Landsteiner test; trigger=admitted with; certainty=asserted; char_start=8; char_end=132"
+PMC11259348_01,e2,P1,D1,DIAGNOSED_WITH,evidence_text=was diagnosed with PCH after having positive Donath-Landsteiner test; trigger=was diagnosed with; certainty=asserted; char_start=64; char_end=132
+PMC11259348_01,e3,E1,R1,HAS_RESULT,"evidence_text=Since hemoglobin level was 4 g/dL, three blood units was ordered.; trigger=result; certainty=asserted; char_start=134; char_end=199"
+PMC11259348_01,e4,P1,E1,UNDERWENT_EXAM,"evidence_text=Since hemoglobin level was 4 g/dL, three blood units was ordered.; trigger=laboratory result; certainty=asserted; char_start=134; char_end=199"
+PMC11259348_01,e5,P1,T1,TREATED_WITH,evidence_text=The patient was transfused with group-specific cross-match-compatible blood in three occasions using a blood warmer; trigger=transfused; certainty=asserted; char_start=273; char_end=388
+PMC11259348_01,e6,S1,D1,SUPPORTS,"evidence_text=admitted with fever, loose stools, and dark color urine was diagnosed with PCH after having positive Donath-Landsteiner test; trigger=after having; certainty=asserted; char_start=8; char_end=132"
+PMC11259348_01,e7,T1,C1,SAME_AS,strategy=longest

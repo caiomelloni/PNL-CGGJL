@@ -41,6 +41,17 @@ def _parse_age(raw_age: str) -> Decimal | None:
         ) from error
 
 
+def case_from_row(row: dict[str, str]) -> ClinicalCase:
+    """Converte uma linha isolada; permite tratar erros por caso em um lote."""
+    return ClinicalCase(
+        article_id=row["article_id"].strip(),
+        age=_parse_age(row["age"]),
+        case_id=row["case_id"].strip(),
+        case_text=row["case_text"],
+        gender=row["gender"].strip(),
+    )
+
+
 def read_case(
     csv_path: str | Path,
     case_id: str,
@@ -72,15 +83,7 @@ def read_case(
             if row["case_id"].strip() != case_id:
                 continue
 
-            matches.append(
-                ClinicalCase(
-                    article_id=row["article_id"].strip(),
-                    age=_parse_age(row["age"]),
-                    case_id=row["case_id"].strip(),
-                    case_text=row["case_text"],
-                    gender=row["gender"].strip(),
-                )
-            )
+            matches.append(case_from_row(row))
 
     if not matches:
         raise LookupError(

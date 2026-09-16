@@ -1,0 +1,24 @@
+case_id,node_id,type,label,attributes
+PMC5804616_01,P1,Patient,case PMC5804616_01,article_id=PMC5804616; age=77; age_unit=years; gender=Male
+PMC5804616_01,E1,Exam,computed tomography,modality=imaging
+PMC5804616_01,E2,Exam,x-ray,modality=imaging
+PMC5804616_01,M1,Medication,intravenously administering,dose_value=35; dose_unit=mg; dose_change=initial
+PMC5804616_01,M2,Medication,except,dose_value=650; dose_unit=ml; dose_change=initial
+PMC5804616_01,O1,Outcome,clinical improvement,type=improvement; polarity=present
+PMC5804616_01,O2,Outcome,discharged home,type=discharge; polarity=present
+PMC5804616_01,E3,Exam,anesthesia induced,modality=laboratory
+PMC5804616_01,R1,ExamResult,4 %,value=4; unit=%; reference_range_low=1.5; reference_range_high=2; reference_range_raw=1.5-2%; interpretation=elevated; interpretation_source=derived; raw_text=4%
+PMC5804616_01,E4,Exam,abdominal incision made,modality=laboratory
+PMC5804616_01,R2,ExamResult,1 %,value=1; unit=%; raw_text=1%
+PMC5804616_01,E5,Exam,followed continuous infusion,modality=laboratory
+PMC5804616_01,R3,ExamResult,0.3 %,value=0.3; unit=%; raw_text=0.3%
+PMC5804616_01,E6,Exam,oxygen saturation maintained,modality=laboratory
+PMC5804616_01,R4,ExamResult,98 %,value=98; unit=%; raw_text=98%
+PMC5804616_01,E7,Exam,spo2 suddenly dropped 98,modality=laboratory
+PMC5804616_01,R5,ExamResult,89 %,value=89; unit=%; reference_range_low=98; reference_range_high=89; reference_range_raw=98 to 89%; interpretation=decreased; interpretation_source=derived; raw_text=89%
+PMC5804616_01,E8,Exam,spo2 returned baseline,modality=laboratory
+PMC5804616_01,R6,ExamResult,99 %,value=99; unit=%; raw_text=99%
+PMC5804616_01,R7,ExamResult,89 %,value=89; unit=%; reference_range_low=98; reference_range_high=89; reference_range_raw=98 to 89%; interpretation=decreased; interpretation_source=derived; raw_text=89%
+PMC5804616_01,E9,Exam,encountered one case,modality=laboratory
+PMC5804616_01,R8,ExamResult,2.1 %,value=2.1; unit=%; raw_text=2.1%
+PMC5804616_01,C1,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography

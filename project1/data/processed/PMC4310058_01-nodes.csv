@@ -1,0 +1,10 @@
+case_id,node_id,type,label,attributes
+PMC4310058_01,P1,Patient,case PMC4310058_01,article_id=PMC4310058; age=16; age_unit=years; gender=Male
+PMC4310058_01,E1,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC4310058_01,E2,Exam,magnetic resonance imaging,modality=imaging; abbreviation=MRI
+PMC4310058_01,F1,Finding,lesion,source=imaging; polarity=present; certainty=confirmed
+PMC4310058_01,F2,Finding,soft tissue lesion appeared rubbery,source=lab; polarity=present; certainty=confirmed
+PMC4310058_01,O1,Outcome,complication,type=complication; polarity=absent
+PMC4310058_01,O2,Outcome,discharged home,type=discharge; timing=postoperative day 2; length_of_stay=2 days; polarity=present
+PMC4310058_01,C1,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC4310058_01,C2,Concept,magnetic resonance imaging,vocabulary=MeSH; code=D008279; preferred_term=Magnetic Resonance Imaging

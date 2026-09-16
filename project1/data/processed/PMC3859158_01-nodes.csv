@@ -1,0 +1,13 @@
+case_id,node_id,type,label,attributes
+PMC3859158_01,P1,Patient,case PMC3859158_01,article_id=PMC3859158; age=44; age_unit=years; gender=Male
+PMC3859158_01,S1,Symptom,vague epigastric pain,polarity=present; duration=4 months
+PMC3859158_01,E1,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC3859158_01,F1,Finding,well-defined left suprarenal mass,source=imaging; polarity=present; certainty=confirmed
+PMC3859158_01,F2,Finding,mass demonstrated mild heterogeneous enhancement,source=lab; polarity=present; certainty=confirmed
+PMC3859158_01,F3,Finding,yellow mass,source=lab; polarity=present; certainty=confirmed
+PMC3859158_01,D1,Diagnosis,primary ancient schwannoma pancreatic tail established,certainty=confirmed; polarity=present; role=principal
+PMC3859158_01,O1,Outcome,recurrence,type=recurrence; polarity=absent
+PMC3859158_01,A1,AnatomicalSite,pancreas,
+PMC3859158_01,C1,Concept,pancreas,vocabulary=local; code=ANAT002; preferred_term=Pancreas
+PMC3859158_01,C2,Concept,pain,vocabulary=MeSH; code=D010146; preferred_term=Pain
+PMC3859158_01,C3,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography

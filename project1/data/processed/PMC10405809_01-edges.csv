@@ -1,0 +1,12 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC10405809_01,e1,P1,S1,HAS_SYMPTOM,evidence_text=presented with progressive dysphagia to solids and lost 10 kg weight over two years; trigger=presented with; certainty=asserted; char_start=21; char_end=104
+PMC10405809_01,e2,P1,D1,DIAGNOSED_WITH,evidence_text=diagnosis of KJD and peptic stricture was made; trigger=diagnosis of; certainty=asserted; char_start=2374; char_end=2420
+PMC10405809_01,e3,P1,D2,DIAGNOSED_WITH,evidence_text=diagnosis of KJD and peptic stricture was made; trigger=diagnosis of; certainty=asserted; char_start=2374; char_end=2420
+PMC10405809_01,e4,P1,E1,UNDERWENT_EXAM,"evidence_text=However, the CT scan confirmed the origin of the diverticulum from the anterolateral wall of the esophagus below the cricopharyngeus muscle; trigger=CT; certainty=asserted; char_start=2218; char_end=2357"
+PMC10405809_01,e5,P1,E2,UNDERWENT_EXAM,"evidence_text=Though profound weight loss and anemia raised suspicion of malignancy, the long duration of symptoms, benign CT scan characteristics, and biopsy from the stricture site confirmed peptic stricture in this case; trigger=biopsy; certainty=asserted; char_start=1901; char_end=2109"
+PMC10405809_01,e6,E2,F1,REVEALS,"evidence_text=Though profound weight loss and anemia raised suspicion of malignancy, the long duration of symptoms, benign CT scan characteristics, and biopsy from the stricture site confirmed peptic stricture in this case; trigger=confirmed; certainty=asserted; char_start=1901; char_end=2109"
+PMC10405809_01,e7,P1,M1,TREATED_WITH,"evidence_text=Post dilatation, she was started on capsule omeprazole 20 mg twice daily along with hematinics; trigger=on capsule omeprazole 20 mg; certainty=asserted; char_start=2521; char_end=2615"
+PMC10405809_01,e8,E1,C1,SAME_AS,strategy=exact
+PMC10405809_01,e9,E2,C2,SAME_AS,strategy=exact
+PMC10405809_01,e10,F1,C3,SAME_AS,strategy=exact
+PMC10405809_01,e11,M1,C4,SAME_AS,strategy=exact

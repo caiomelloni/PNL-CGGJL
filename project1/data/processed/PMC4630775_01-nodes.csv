@@ -1,0 +1,11 @@
+case_id,node_id,type,label,attributes
+PMC4630775_01,P1,Patient,case PMC4630775_01,article_id=PMC4630775; age=39.0; gender=Female
+PMC4630775_01,S1,Symptom,desquamation palm leathery appearance skin right dorsal hand circumferential forearm frank ischemia thumb,polarity=present
+PMC4630775_01,A1,AnatomicalSite,palm,
+PMC4630775_01,C1,Concept,palm,vocabulary=local; code=ANAT040; preferred_term=Palm
+PMC4630775_01,A2,AnatomicalSite,skin,laterality=right
+PMC4630775_01,C2,Concept,skin,vocabulary=local; code=ANAT018; preferred_term=Skin
+PMC4630775_01,A3,AnatomicalSite,back,laterality=right
+PMC4630775_01,C3,Concept,back,vocabulary=local; code=ANAT048; preferred_term=Back
+PMC4630775_01,A4,AnatomicalSite,forearm,
+PMC4630775_01,C4,Concept,forearm,vocabulary=local; code=ANAT038; preferred_term=Forearm
