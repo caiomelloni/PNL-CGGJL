@@ -7,8 +7,9 @@
 ## Metodologia
 
 Para executar o grafo combinado nos 56 casos, consulte a
-[pipeline em lote](pipelines/README.md). Ela compartilha o processamento com o
-notebook de inspeção e exporta os CSVs e o relatório para `data/processed/`.
+[notebook da pipeline em lote](pipelines/notebooks/grafo_combinado_lote.ipynb),
+com [instruções de execução](pipelines/README.md). Ele exporta os CSVs e o relatório
+para `data/processed/`, preservando o notebook original de inspeção.
 
 O projeto converte o `case_text` de cada caso clínico da amostra do MultiCaRe (56 casos de 50 artigos) em um grafo representado por duas tabelas: nós (`case_id`, `node_id`, `type`, `label`, `attributes`) e arestas (`case_id`, `edge_id`, `source_id`, `target_id`, `relation`, `attributes`). Nenhum modelo de linguagem participa da extração: só regras, expressões regulares, léxicos e dicionários.
 

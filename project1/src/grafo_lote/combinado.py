@@ -11,7 +11,7 @@ from pathlib import Path
 import nltk
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "src"
 # normalizacao e stopwords são pacotes (importados a partir de src/); tokenizacao,
 # sintagmas e dicionarios são pastas planas, das quais só importamos módulos com

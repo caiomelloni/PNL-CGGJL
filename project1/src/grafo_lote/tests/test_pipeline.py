@@ -12,26 +12,29 @@ from unittest.mock import patch
 
 import pandas as pd
 
-PIPELINES = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PIPELINES))
+MODULO = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(MODULO))
 import combinado
 import lote
 from normalizacao.case_reader import ClinicalCase, read_case
 
 
 class NotebookTests(unittest.TestCase):
-    def test_inspecao_de_caso_sem_mencoes(self):
-        notebook = json.loads((PIPELINES / "notebooks/grafo_combinado.ipynb").read_text(encoding="utf-8"))
-        source = next("".join(cell["source"]) for cell in notebook["cells"]
-                      if cell["cell_type"] == "code" and "df_brutas =" in "".join(cell["source"]))
-        fields = ("symptoms", "histories", "exams", "findings", "diagnoses",
-                  "medications", "treatments", "outcomes", "exam_results")
-        scope = {"pd": pd, "dados": {"brutas": SimpleNamespace(**dict.fromkeys(fields, ()))},
-                 "mostrar": lambda *args, **kwargs: None}
-        with contextlib.redirect_stdout(io.StringIO()):
-            exec(compile(source, "notebook-inspecao", "exec"), scope)
-        self.assertTrue(scope["df_brutas"].empty)
-        self.assertIn("type", scope["df_brutas"].columns)
+    def test_notebook_executa_lote_e_exibe_relatorio_vazio(self):
+        path = combinado.ROOT / "pipelines/notebooks/grafo_combinado_lote.ipynb"
+        notebook = json.loads(path.read_text(encoding="utf-8"))
+        scope = {"ROOT": combinado.ROOT, "pd": pd, "COLUNAS_RESUMO": lote.COLUNAS_RESUMO,
+                 "display": lambda *args: None}
+        with patch.object(lote, "executar_lote", return_value=[]) as run:
+            scope["executar_lote"] = run
+            with contextlib.redirect_stdout(io.StringIO()):
+                for cell in notebook["cells"]:
+                    source = "".join(cell["source"])
+                    if cell["cell_type"] == "code" and "import logging" not in source:
+                        exec(compile(source, "notebook-lote", "exec"), scope)
+            run.assert_called_once_with(cases_csv=combinado.ROOT / "sample/cases.csv",
+                                        output=combinado.ROOT / "data/processed", case_ids=None)
+        self.assertTrue(scope["resumo"].empty)
 
 
 class ValidacaoTests(unittest.TestCase):
@@ -172,7 +175,7 @@ class RegressaoTests(unittest.TestCase):
         self.assertIsNone(after.inspecao)
         self.assertEqual(list(empty.arestas.columns), combinado.EDGE_COLUMNS)
         for suffix, frame in (("nodes", before.nos), ("edges", before.arestas)):
-            reference = PIPELINES / "tests" / "fixtures" / f"PMC5137649_01-{suffix}.csv"
+            reference = MODULO / "tests" / "fixtures" / f"PMC5137649_01-{suffix}.csv"
             self.assertEqual(frame.to_csv(index=False, lineterminator="\n"),
                              reference.read_text(encoding="utf-8"))
         pd.testing.assert_frame_equal(before.nos, after.nos)
