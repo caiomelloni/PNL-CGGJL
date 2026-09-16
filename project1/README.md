@@ -4,6 +4,12 @@
 
 [Apresentação do Projeto 1 (PDF)](assets/slides/CGGJL.pdf)
 
+## Visualizador
+
+[Grafos interativos por caso](https://caiomelloni.github.io/PNL-CGGJL/) — combinado e
+por estratégia, com auditoria de evidência contra o `case_text` original
+([`project1/visualizer/`](visualizer/)).
+
 ## Metodologia
 
 O projeto converte o `case_text` de cada caso clínico da amostra do MultiCaRe (56 casos de 50 artigos) em um grafo representado por duas tabelas: nós (`case_id`, `node_id`, `type`, `label`, `attributes`) e arestas (`case_id`, `edge_id`, `source_id`, `target_id`, `relation`, `attributes`). Nenhum modelo de linguagem participa da extração: só regras, expressões regulares, léxicos e dicionários.
@@ -21,10 +27,10 @@ O trabalho foi feito em duas fases:
 | Dicionários e ontologias | Lucas Guarnieri | [#6](https://github.com/caiomelloni/PNL-CGGJL/issues/6) | Como ligar menções a conceitos com código estável (MeSH)? | [`src/dicionarios`](src/dicionarios/) | [`docs/dicionarios.md`](docs/dicionarios.md) |
 | POS tagging e sintagmas | Caio Melloni | [#9](https://github.com/caiomelloni/PNL-CGGJL/issues/9) | Como a sintaxe separa candidatos a nó (sintagmas nominais) de candidatos a aresta (verbos)? | [`src/sintagmas`](src/sintagmas/) | [`src/sintagmas/README.md`](src/sintagmas/README.md) |
 
-Em todos os parsers, toda aresta guarda o trecho do texto que a sustenta, o gatilho léxico e os offsets. Isso permite auditar cada relação no texto original:
+Em todos os parsers, toda aresta guarda o trecho do texto que a sustenta, o gatilho léxico e os offsets. Isso permite auditar cada relação no texto original — trecho de evidência localizado no `case_text` original (span exato para `combinado`/`tokenizacao`; para as demais estratégias, `evidence_text` pode ser um trecho mais amplo, por exemplo a sentença inteira em `stopwords` — a gaveta de detalhes do visualizador mostra os dois quando divergem):
 
 ~~~python
-case_text[char_start:char_end] == evidence_text
+case_text[char_start:char_end] == evidence_text  # vale para combinado/tokenizacao
 ~~~
 
 **Tokenização.** Um tokenizador de regex clínico com grupos nomeados, em ordem do mais específico para o mais geral, foi comparado com a separação por espaços e com o Treebank do NLTK. O extrator é o mesmo nos três casos, de modo que qualquer diferença no grafo se deve só à fronteira dos tokens:
@@ -80,9 +86,10 @@ Grafo de propriedades com 11 tipos de entidade clínica mais o nó `Concept` de 
 | rapidfuzz | `fuzz.ratio` no casamento aproximado contra o gazetteer |
 | MeSH 2026 (NLM) | Vocabulário controlado; gazetteer derivado com 174.006 termos em 5 categorias |
 | Mermaid | Esquema do grafo e visualização do grafo de cada caso nos slides |
-| `unittest` | Suítes automatizadas (151 testes na normalização, 14 na tokenização) |
+| Cytoscape.js + GitHub Pages | Visualizador interativo do grafo de conhecimento por caso, publicado via GitHub Actions ([`project1/visualizer/`](visualizer/)) |
+| `unittest` | Suítes automatizadas (151 testes na normalização, 14 na tokenização, 15 em `project1/tools/` para o visualizador) |
 
-As instruções de instalação e execução de cada parser estão no `README.md` da respectiva pasta em [`src/`](src/). A amostra (`sample/`) não é versionada.
+As instruções de instalação e execução de cada parser estão no `README.md` da respectiva pasta em [`src/`](src/). A amostra (`sample/`) não é versionada — exceção sancionada: o `case_text` completo dos 56 casos é commitado em `project1/data/case_texts.csv` especificamente para o visualizador (ver [`project1/visualizer/README.md`](visualizer/README.md)).
 
 ## Resultados
 
