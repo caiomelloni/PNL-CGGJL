@@ -1,0 +1,12 @@
+case_id,node_id,type,label,attributes
+PMC11131390_01,P1,Patient,case PMC11131390_01,article_id=PMC11131390; gender=Male
+PMC11131390_01,S1,Symptom,"4 kg weight gain (67-71 kg) severe biochemical hypothyroidism, tsh = 73",polarity=present
+PMC11131390_01,D1,Diagnosis,diagnosis gd: trabs = 16,certainty=confirmed; polarity=present; role=principal
+PMC11131390_01,D2,Diagnosis,gd: trabs = 16,certainty=confirmed; polarity=present; role=principal
+PMC11131390_01,M1,Medication,dose,dose_value=5; dose_unit=mg; dose_change=initial
+PMC11131390_01,M2,Medication,dose,dose_value=2.5; dose_unit=mg; dose_change=initial
+PMC11131390_01,M3,Medication,trabs,dose_value=3.3; dose_unit=IU; dose_change=initial
+PMC11131390_01,E1,Exam,diagnosis gd: trabs =,modality=laboratory
+PMC11131390_01,R1,ExamResult,16.3 IU/L,value=16.3; unit=IU/L; reference_range_high=1.75; reference_range_raw=<1.75 IU/L; interpretation=normal; interpretation_source=stated; raw_text=16.3 IU/L
+PMC11131390_01,E2,Exam,trabs,modality=laboratory
+PMC11131390_01,R2,ExamResult,3.3 IU/L,value=3.3; unit=IU/L; raw_text=3.3 IU/L

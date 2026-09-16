@@ -1,0 +1,13 @@
+case_id,node_id,type,label,attributes
+PMC10405809_01,P1,Patient,case PMC10405809_01,article_id=PMC10405809; age=55; age_unit=years; gender=Female
+PMC10405809_01,S1,Symptom,progressive dysphagia solids lost 10 kg weight two years,polarity=present
+PMC10405809_01,E1,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC10405809_01,E2,Exam,biopsy,modality=pathology
+PMC10405809_01,F1,Finding,malignancy,source=imaging; polarity=present; certainty=confirmed
+PMC10405809_01,D1,Diagnosis,kjd,certainty=confirmed; polarity=present; role=principal
+PMC10405809_01,D2,Diagnosis,peptic stricture made,certainty=confirmed; polarity=present; role=principal
+PMC10405809_01,M1,Medication,capsule omeprazole,dose_value=20; dose_unit=mg; frequency=twice daily; dose_change=initial
+PMC10405809_01,C1,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC10405809_01,C2,Concept,biopsy,vocabulary=MeSH; code=D001706; preferred_term=Biopsy
+PMC10405809_01,C3,Concept,neoplasms,vocabulary=MeSH; code=D009369; preferred_term=Neoplasms
+PMC10405809_01,C4,Concept,omeprazole,vocabulary=MeSH; code=D009853; preferred_term=Omeprazole

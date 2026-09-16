@@ -1,0 +1,21 @@
+case_id,node_id,type,label,attributes
+PMC11722600_01,P1,Patient,case PMC11722600_01,article_id=PMC11722600; age=41; age_unit=years; gender=Female
+PMC11722600_01,E1,Exam,ultrasound,modality=imaging
+PMC11722600_01,E2,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC11722600_01,F1,Finding,localized tenderness,source=physical_exam; polarity=present; certainty=confirmed
+PMC11722600_01,F2,Finding,rebound tenderness,source=physical_exam; polarity=absent; certainty=confirmed
+PMC11722600_01,F3,Finding,malignancy,source=lab; polarity=absent; certainty=confirmed
+PMC11722600_01,D1,Diagnosis,characteristic features,certainty=confirmed; polarity=present; role=principal
+PMC11722600_01,M1,Medication,at,dose_value=55; dose_unit=mg; dose_change=initial
+PMC11722600_01,O1,Outcome,discharged home,type=discharge; polarity=present
+PMC11722600_01,E3,Exam,white blood cells,modality=laboratory
+PMC11722600_01,R1,ExamResult,8800 /µL,"value=8800; unit=/µL; reference_range_low=3800; reference_range_high=10000; reference_range_raw=3800-10,000/mm3; interpretation=negative; interpretation_source=stated; raw_text=8800/mm3"
+PMC11722600_01,E4,Exam,c-reactive protein,modality=laboratory
+PMC11722600_01,R2,ExamResult,55 mg/L,value=55; unit=mg/L; reference_range_high=5; reference_range_raw=<5 mg/L; interpretation=negative; interpretation_source=stated; raw_text=55 mg/L
+PMC11722600_01,E5,Exam,erythrocyte sedimentation rate,modality=laboratory
+PMC11722600_01,R3,ExamResult,29 mm/h,value=29; unit=mm/h; reference_range_low=3; reference_range_high=20; reference_range_raw=3-20 mm/h; interpretation=negative; interpretation_source=stated; raw_text=29 mm/h
+PMC11722600_01,A1,AnatomicalSite,abdomen,
+PMC11722600_01,C1,Concept,abdomen,vocabulary=local; code=ANAT033; preferred_term=Abdomen
+PMC11722600_01,C2,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC11722600_01,C3,Concept,neoplasms,vocabulary=MeSH; code=D009369; preferred_term=Neoplasms
+PMC11722600_01,C4,Concept,blood sedimentation,vocabulary=MeSH; code=D001799; preferred_term=Blood Sedimentation

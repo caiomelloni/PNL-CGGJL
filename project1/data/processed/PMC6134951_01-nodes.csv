@@ -1,0 +1,16 @@
+case_id,node_id,type,label,attributes
+PMC6134951_01,P1,Patient,case PMC6134951_01,article_id=PMC6134951; age=49.0; gender=Female
+PMC6134951_01,D1,Diagnosis,ttf1-positive pulmonary adenocarcinoma,certainty=confirmed; polarity=present; role=principal
+PMC6134951_01,D2,Diagnosis,drug eruption (delayed type iv hypersensitivity,certainty=confirmed; polarity=present; role=principal
+PMC6134951_01,D3,Diagnosis,figure 1b,certainty=confirmed; polarity=present; role=principal
+PMC6134951_01,M1,Medication,started alectinib,dose_value=600; dose_unit=mg; dose_change=initial
+PMC6134951_01,M2,Medication,started,dose_value=30; dose_unit=mg; route=oral; dose_change=initial
+PMC6134951_01,M3,Medication,tapered,dose_value=20; dose_unit=mg; route=oral; dose_change=initial
+PMC6134951_01,M4,Medication,continued,dose_value=10; dose_unit=mg; dose_change=initial
+PMC6134951_01,M5,Medication,diphenhydramine,dose_value=50; dose_unit=mg; route=oral; dose_change=initial
+PMC6134951_01,O1,Outcome,clinical improvement,type=improvement; polarity=present
+PMC6134951_01,E1,Exam,pd-l1 tps score,modality=laboratory
+PMC6134951_01,R1,ExamResult,40 %,value=40; unit=%; raw_text=40%
+PMC6134951_01,C1,Concept,adenocarcinoma,vocabulary=MeSH; code=D000230; preferred_term=Adenocarcinoma
+PMC6134951_01,C2,Concept,"hypersensitivity, delayed","vocabulary=MeSH; code=D006968; preferred_term=Hypersensitivity, Delayed"
+PMC6134951_01,C3,Concept,diphenhydramine,vocabulary=MeSH; code=D004155; preferred_term=Diphenhydramine

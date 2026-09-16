@@ -1,0 +1,28 @@
+case_id,node_id,type,label,attributes
+PMC9387390_01,P1,Patient,case PMC9387390_01,article_id=PMC9387390; age=57; age_unit=years; gender=Male
+PMC9387390_01,S1,Symptom,postprandial abdominal fullness diarrhea,polarity=absent
+PMC9387390_01,E1,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC9387390_01,E2,Exam,biopsy,modality=pathology
+PMC9387390_01,F1,Finding,imaging showed nonspecific mesenteric edema,source=imaging; polarity=present; certainty=confirmed
+PMC9387390_01,F2,Finding,central mesenteric mass,source=imaging; polarity=present; certainty=confirmed
+PMC9387390_01,F3,Finding,leak,source=lab; polarity=absent; certainty=confirmed
+PMC9387390_01,D1,Diagnosis,differentiated adenocarcinoma,certainty=confirmed; polarity=present; role=principal
+PMC9387390_01,D2,Diagnosis,upper gastrointestinal tract and/or pancreaticobiliary tract,certainty=confirmed; polarity=present; role=principal
+PMC9387390_01,D3,Diagnosis,/,certainty=confirmed; polarity=present; role=principal
+PMC9387390_01,D4,Diagnosis,pancreaticobiliary tract,certainty=confirmed; polarity=present; role=principal
+PMC9387390_01,D5,Diagnosis,gastroduodenal outlet obstruction secondary pancreatic mass,certainty=confirmed; polarity=present; role=secondary
+PMC9387390_01,T1,Treatment,chemotherapy,type=procedure; status=performed
+PMC9387390_01,T2,Treatment,gastrojejunostomy,type=surgery; status=performed
+PMC9387390_01,O1,Outcome,clinical improvement,type=improvement; polarity=present
+PMC9387390_01,O2,Outcome,discharged home,type=discharge; polarity=present
+PMC9387390_01,A1,AnatomicalSite,abdomen,
+PMC9387390_01,C1,Concept,abdomen,vocabulary=local; code=ANAT033; preferred_term=Abdomen
+PMC9387390_01,A2,AnatomicalSite,pancreas,
+PMC9387390_01,C2,Concept,pancreas,vocabulary=local; code=ANAT002; preferred_term=Pancreas
+PMC9387390_01,C3,Concept,diarrhea,vocabulary=MeSH; code=D003967; preferred_term=Diarrhea
+PMC9387390_01,C4,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC9387390_01,C5,Concept,biopsy,vocabulary=MeSH; code=D001706; preferred_term=Biopsy
+PMC9387390_01,C6,Concept,edema,vocabulary=MeSH; code=D004487; preferred_term=Edema
+PMC9387390_01,C7,Concept,adenocarcinoma,vocabulary=MeSH; code=D000230; preferred_term=Adenocarcinoma
+PMC9387390_01,C8,Concept,drug therapy,vocabulary=MeSH; code=D004358; preferred_term=Drug Therapy
+PMC9387390_01,C9,Concept,gastric bypass,vocabulary=MeSH; code=D015390; preferred_term=Gastric Bypass

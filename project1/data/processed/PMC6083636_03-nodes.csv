@@ -1,0 +1,4 @@
+case_id,node_id,type,label,attributes
+PMC6083636_03,P1,Patient,case PMC6083636_03,article_id=PMC6083636; gender=Unknown
+PMC6083636_03,E1,Exam,scores expected less,modality=laboratory
+PMC6083636_03,R1,ExamResult,20 %,value=20; unit=%; interpretation=normal; interpretation_source=stated; raw_text=20%

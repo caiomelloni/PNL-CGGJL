@@ -1,0 +1,17 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC6134951_01,e1,P1,D1,DIAGNOSED_WITH,evidence_text=consistent with TTF1-positive pulmonary adenocarcinoma; trigger=consistent with; certainty=asserted; char_start=258; char_end=312
+PMC6134951_01,e2,P1,D2,DIAGNOSED_WITH,"evidence_text=consistent with drug eruption (delayed type IV hypersensitivity, Figure 1B); trigger=consistent with; certainty=asserted; char_start=1535; char_end=1610"
+PMC6134951_01,e3,P1,D3,DIAGNOSED_WITH,"evidence_text=consistent with drug eruption (delayed type IV hypersensitivity, Figure 1B); trigger=consistent with; certainty=asserted; char_start=1535; char_end=1610"
+PMC6134951_01,e4,P1,O1,HAS_OUTCOME,evidence_text=The patient started on alectinib 600 mg twice a day and had a rapid improvement of her left-sided chest pain; trigger=improvement; certainty=asserted; char_start=1044; char_end=1152
+PMC6134951_01,e5,E1,R1,HAS_RESULT,evidence_text=The PD-L1 TPS score was 40%.; trigger=result; certainty=asserted; char_start=437; char_end=465
+PMC6134951_01,e6,P1,E1,UNDERWENT_EXAM,evidence_text=The PD-L1 TPS score was 40%.; trigger=laboratory result; certainty=asserted; char_start=437; char_end=465
+PMC6134951_01,e7,P1,M1,TREATED_WITH,evidence_text=The patient started on alectinib 600 mg twice a day and had a rapid improvement of her left-sided chest pain; trigger=started on alectinib 600 mg; certainty=asserted; char_start=1044; char_end=1152
+PMC6134951_01,e8,P1,M2,TREATED_WITH,evidence_text=Oral prednisone was started at 30 mg on day 1 and was tapered to 20 mg on the next day; trigger=was started at 30 mg; certainty=asserted; char_start=1974; char_end=2060
+PMC6134951_01,e9,P1,M3,TREATED_WITH,evidence_text=Oral prednisone was started at 30 mg on day 1 and was tapered to 20 mg on the next day; trigger=was tapered to 20 mg; certainty=asserted; char_start=1974; char_end=2060
+PMC6134951_01,e10,P1,M4,TREATED_WITH,evidence_text=She then continued at 10 mg daily for the next 5 days with a total course of 7 days; trigger=then continued at 10 mg; certainty=asserted; char_start=2062; char_end=2145
+PMC6134951_01,e11,P1,M5,TREATED_WITH,evidence_text=She also received one dose of diphenhydramine 50 mg intravenously prior to oral prednisone and topical triamcinolone cream; trigger=dose of diphenhydramine 50 mg; certainty=asserted; char_start=2147; char_end=2269
+PMC6134951_01,e12,R1,D2,SUPPORTS,evidence_text=The PD-L1 TPS score was 40%.; trigger=consistent with; certainty=asserted; char_start=437; char_end=465
+PMC6134951_01,e13,R1,D3,SUPPORTS,evidence_text=The PD-L1 TPS score was 40%.; trigger=consistent with; certainty=asserted; char_start=437; char_end=465
+PMC6134951_01,e14,D1,C1,SAME_AS,strategy=exact
+PMC6134951_01,e15,D2,C2,SAME_AS,strategy=longest
+PMC6134951_01,e16,M5,C3,SAME_AS,strategy=exact

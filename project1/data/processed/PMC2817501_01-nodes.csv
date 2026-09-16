@@ -1,0 +1,7 @@
+case_id,node_id,type,label,attributes
+PMC2817501_01,P1,Patient,case PMC2817501_01,article_id=PMC2817501; age=53; age_unit=years; gender=Male
+PMC2817501_01,E1,Exam,left ventricular ejection fraction,modality=laboratory
+PMC2817501_01,R1,ExamResult,30 %,value=30; unit=%; raw_text=30%
+PMC2817501_01,E2,Exam,a,modality=laboratory
+PMC2817501_01,R2,ExamResult,90 %,value=90; unit=%; raw_text=90%
+PMC2817501_01,C1,Concept,stroke volume,vocabulary=MeSH; code=D013318; preferred_term=Stroke Volume

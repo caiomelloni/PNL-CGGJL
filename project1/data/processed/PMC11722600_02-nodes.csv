@@ -1,0 +1,36 @@
+case_id,node_id,type,label,attributes
+PMC11722600_02,P1,Patient,case PMC11722600_02,article_id=PMC11722600; age=44; age_unit=years; gender=Female
+PMC11722600_02,S1,Symptom,"abdominal pain 72 h, initially epigastrium later localized rif",polarity=present
+PMC11722600_02,S2,Symptom,oral intolerance,polarity=present
+PMC11722600_02,E1,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC11722600_02,F1,Finding,localized tenderness,source=physical_exam; polarity=present; certainty=confirmed
+PMC11722600_02,F2,Finding,recent bleeding,source=lab; polarity=present; certainty=confirmed
+PMC11722600_02,D1,Diagnosis,acute appendicitis made,certainty=confirmed; polarity=present; role=principal
+PMC11722600_02,D2,Diagnosis,abdominal,certainty=confirmed; polarity=present; role=principal
+PMC11722600_02,D3,Diagnosis,pelvic ct revealed enlarged cecal appendix measuring 17 mm diameter marked inflammatory process around cecum,certainty=confirmed; polarity=present; role=principal
+PMC11722600_02,D4,Diagnosis,terminal ileum,certainty=confirmed; polarity=present; role=principal
+PMC11722600_02,D5,Diagnosis,appendiceal phlegmon,certainty=confirmed; polarity=present; role=principal
+PMC11722600_02,D6,Diagnosis,advanced appendicitis,certainty=confirmed; polarity=present; role=principal
+PMC11722600_02,D7,Diagnosis,non-operative treatment intravenous antibiotics initially indicated,certainty=confirmed; polarity=present; role=principal
+PMC11722600_02,M1,Medication,crp,dose_value=85; dose_unit=mg; dose_change=initial
+PMC11722600_02,T1,Treatment,drainage,type=procedure; status=performed
+PMC11722600_02,O1,Outcome,clinical improvement,type=improvement; polarity=present
+PMC11722600_02,O2,Outcome,discharged home,type=discharge; polarity=present
+PMC11722600_02,O3,Outcome,complication,type=complication; polarity=absent
+PMC11722600_02,E2,Exam,laboratory tests indicated leukocytosis,modality=laboratory
+PMC11722600_02,R1,ExamResult,17200 /µL,"value=17200; unit=/µL; reference_range_low=3800; reference_range_high=10000; reference_range_raw=3800-10,000/mm3; interpretation=elevated; interpretation_source=derived; raw_text=17,200/mm3"
+PMC11722600_02,E3,Exam,crp,modality=laboratory
+PMC11722600_02,R2,ExamResult,85 mg/L,value=85; unit=mg/L; raw_text=85 mg/L
+PMC11722600_02,A1,AnatomicalSite,pelvis,
+PMC11722600_02,C1,Concept,pelvis,vocabulary=local; code=ANAT051; preferred_term=Pelvis
+PMC11722600_02,A2,AnatomicalSite,abdomen,
+PMC11722600_02,C2,Concept,abdomen,vocabulary=local; code=ANAT033; preferred_term=Abdomen
+PMC11722600_02,A3,AnatomicalSite,appendix,
+PMC11722600_02,C3,Concept,appendix,vocabulary=local; code=ANAT020; preferred_term=Appendix
+PMC11722600_02,A4,AnatomicalSite,uterus,
+PMC11722600_02,C4,Concept,uterus,vocabulary=local; code=ANAT015; preferred_term=Uterus
+PMC11722600_02,C5,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC11722600_02,C6,Concept,hemorrhage,vocabulary=MeSH; code=D006470; preferred_term=Hemorrhage
+PMC11722600_02,C7,Concept,cellulitis,vocabulary=MeSH; code=D002481; preferred_term=Cellulitis
+PMC11722600_02,C8,Concept,appendicitis,vocabulary=MeSH; code=D001064; preferred_term=Appendicitis
+PMC11722600_02,C9,Concept,drainage,vocabulary=MeSH; code=D004322; preferred_term=Drainage

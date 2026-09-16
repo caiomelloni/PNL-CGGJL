@@ -1,0 +1,21 @@
+case_id,node_id,type,label,attributes
+PMC7102447_01,P1,Patient,case PMC7102447_01,article_id=PMC7102447; age=65; age_unit=years; gender=Male
+PMC7102447_01,S1,Symptom,severe respiratory distress requiring emergent intubation,polarity=present
+PMC7102447_01,H1,History,hypertension,subject=patient; polarity=present; category=condition
+PMC7102447_01,H2,History,asthma,subject=patient; polarity=present; category=condition
+PMC7102447_01,H3,History,invasive bioprosthetic mitral,subject=patient; polarity=present; category=surgery
+PMC7102447_01,E1,Exam,computed tomography,modality=imaging
+PMC7102447_01,F1,Finding,interstitial edema,source=imaging; polarity=present; certainty=confirmed
+PMC7102447_01,D1,Diagnosis,thrombosis,certainty=confirmed; polarity=present; role=principal
+PMC7102447_01,O1,Outcome,clinical improvement,type=improvement; polarity=present
+PMC7102447_01,E2,Exam,initial troponin normal,modality=laboratory
+PMC7102447_01,R1,ExamResult,0.04 ng/mL,value=0.04; unit=ng/mL; interpretation=normal; interpretation_source=stated; raw_text=0.04 ng/mL
+PMC7102447_01,E3,Exam,total ck elevated,modality=laboratory
+PMC7102447_01,R2,ExamResult,21.2 ng/mL,value=21.2; unit=ng/mL; interpretation=elevated; interpretation_source=stated; raw_text=21.2 ng/mL
+PMC7102447_01,E4,Exam,elevated 21.2 ng/ml,modality=laboratory
+PMC7102447_01,R3,ExamResult,308 U/L,value=308; unit=U/L; interpretation=elevated; interpretation_source=stated; raw_text=308 U/L
+PMC7102447_01,A1,AnatomicalSite,chest,
+PMC7102447_01,C1,Concept,chest,vocabulary=local; code=ANAT032; preferred_term=Chest
+PMC7102447_01,C2,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC7102447_01,C3,Concept,edema,vocabulary=MeSH; code=D004487; preferred_term=Edema
+PMC7102447_01,C4,Concept,thrombosis,vocabulary=MeSH; code=D013927; preferred_term=Thrombosis

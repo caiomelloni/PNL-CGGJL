@@ -1,0 +1,14 @@
+case_id,node_id,type,label,attributes
+PMC4073451_01,P1,Patient,case PMC4073451_01,article_id=PMC4073451; age=14; age_unit=years; gender=Female
+PMC4073451_01,E1,Exam,computed tomography,modality=imaging; abbreviation=CT
+PMC4073451_01,E2,Exam,biopsy,modality=pathology
+PMC4073451_01,F1,Finding,lesion,source=imaging; polarity=present; certainty=confirmed
+PMC4073451_01,F2,Finding,views showed hypodense expansive lesion,source=imaging; polarity=present; certainty=confirmed
+PMC4073451_01,F3,Finding,hypodense lesion,source=imaging; polarity=present; certainty=confirmed
+PMC4073451_01,O1,Outcome,recurrence,type=recurrence; polarity=present
+PMC4073451_01,A1,AnatomicalSite,cheek,
+PMC4073451_01,C1,Concept,cheek,vocabulary=local; code=ANAT027; preferred_term=Cheek
+PMC4073451_01,A2,AnatomicalSite,bone,
+PMC4073451_01,C2,Concept,bone,vocabulary=local; code=ANAT019; preferred_term=Bone
+PMC4073451_01,C3,Concept,tomography,vocabulary=MeSH; code=D014054; preferred_term=Tomography
+PMC4073451_01,C4,Concept,biopsy,vocabulary=MeSH; code=D001706; preferred_term=Biopsy

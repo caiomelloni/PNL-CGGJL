@@ -1,0 +1,4 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC9532611_01,e1,P1,S1,HAS_SYMPTOM,evidence_text=presented with hypokalemic (1; trigger=presented with; certainty=asserted; char_start=98; char_end=127
+PMC9532611_01,e2,E1,R1,HAS_RESULT,"evidence_text=In the first family, the index patient (patient 1) was a 12-year-old female-phenotype patient who presented with hypokalemic (1.8 mmol/l) weakness that was accompanied by hypertension (138/94 mmHg).; trigger=result; certainty=asserted; char_start=0; char_end=198"
+PMC9532611_01,e3,P1,E1,UNDERWENT_EXAM,"evidence_text=In the first family, the index patient (patient 1) was a 12-year-old female-phenotype patient who presented with hypokalemic (1.8 mmol/l) weakness that was accompanied by hypertension (138/94 mmHg).; trigger=laboratory result; certainty=asserted; char_start=0; char_end=198"

@@ -1,0 +1,29 @@
+case_id,node_id,type,label,attributes
+PMC11368112_01,P1,Patient,case PMC11368112_01,article_id=PMC11368112; age=35; age_unit=years; gender=Male
+PMC11368112_01,S1,Symptom,similar high fever,polarity=present
+PMC11368112_01,E1,Exam,ultrasound,modality=imaging
+PMC11368112_01,E2,Exam,biopsy,modality=pathology
+PMC11368112_01,F1,Finding,obvious abnormalities,source=physical_exam; polarity=absent; certainty=confirmed
+PMC11368112_01,F2,Finding,cystic mass containing yellow cloudy fluid,source=surgical; polarity=present; certainty=confirmed; size=3 cm
+PMC11368112_01,D1,Diagnosis,pulmonary embolism,certainty=confirmed; polarity=present; role=principal
+PMC11368112_01,M1,Medication,including methylprednisolone,dose_value=80; dose_unit=mg; dose_change=initial
+PMC11368112_01,M2,Medication,with,dose_value=60; dose_unit=mg; dose_change=initial
+PMC11368112_01,M3,Medication,by,dose_value=5; dose_unit=mg; dose_change=reduced
+PMC11368112_01,M4,Medication,reach,dose_value=5; dose_unit=mg; dose_change=reduced
+PMC11368112_01,M5,Medication,cyclosporine,dose_value=200; dose_unit=mg; dose_change=reduced
+PMC11368112_01,O1,Outcome,discharged home,type=discharge; polarity=present
+PMC11368112_01,E3,Exam,12.65 x 109/l; neutrophils,modality=laboratory
+PMC11368112_01,R1,ExamResult,85 %,value=85; unit=%; raw_text=85%
+PMC11368112_01,E4,Exam,85%; crp,modality=laboratory
+PMC11368112_01,R2,ExamResult,65 mg/L,value=65; unit=mg/L; raw_text=65 mg/L
+PMC11368112_01,E5,Exam,65 mg/l; esr,modality=laboratory
+PMC11368112_01,R3,ExamResult,55 mm/h,value=55; unit=mm/h; raw_text=55 mm/h
+PMC11368112_01,E6,Exam,d-dimer,modality=laboratory
+PMC11368112_01,R4,ExamResult,26.12 mg/L,value=26.12; unit=mg/L; raw_text=26.12 mg/L
+PMC11368112_01,A1,AnatomicalSite,heart,
+PMC11368112_01,C1,Concept,heart,vocabulary=local; code=ANAT006; preferred_term=Heart
+PMC11368112_01,C2,Concept,fever,vocabulary=MeSH; code=D005334; preferred_term=Fever
+PMC11368112_01,C3,Concept,biopsy,vocabulary=MeSH; code=D001706; preferred_term=Biopsy
+PMC11368112_01,C4,Concept,pulmonary embolism,vocabulary=MeSH; code=D011655; preferred_term=Pulmonary Embolism
+PMC11368112_01,C5,Concept,methylprednisolone,vocabulary=MeSH; code=D008775; preferred_term=Methylprednisolone
+PMC11368112_01,C6,Concept,cyclosporine,vocabulary=MeSH; code=D016572; preferred_term=Cyclosporine

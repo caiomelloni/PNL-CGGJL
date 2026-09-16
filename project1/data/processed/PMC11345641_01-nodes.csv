@@ -1,0 +1,23 @@
+case_id,node_id,type,label,attributes
+PMC11345641_01,P1,Patient,case PMC11345641_01,article_id=PMC11345641; age=48; age_unit=years; gender=Female
+PMC11345641_01,E1,Exam,magnetic resonance imaging,modality=imaging; abbreviation=MRI
+PMC11345641_01,E2,Exam,biopsy,modality=pathology
+PMC11345641_01,E3,Exam,ultrasound,modality=imaging
+PMC11345641_01,F1,Finding,mass,source=surgical; polarity=present; certainty=confirmed
+PMC11345641_01,F2,Finding,abnormalities,source=lab; polarity=absent; certainty=confirmed
+PMC11345641_01,F3,Finding,palpable mass,source=physical_exam; polarity=present; certainty=confirmed
+PMC11345641_01,D1,Diagnosis,uterine fibroid,certainty=confirmed; polarity=present; role=principal
+PMC11345641_01,O1,Outcome,clinical improvement,type=improvement; polarity=present
+PMC11345641_01,O2,Outcome,discharged home,type=discharge; polarity=present
+PMC11345641_01,E4,Exam,dehydrogenase level elevated,modality=laboratory
+PMC11345641_01,R1,ExamResult,289 U/L,value=289; unit=U/L; interpretation=elevated; interpretation_source=stated; raw_text=289U/L
+PMC11345641_01,E5,Exam,measuring approximately 9.9x12.0x12.6cm,modality=laboratory
+PMC11345641_01,R2,ExamResult,80 %,value=80; unit=%; raw_text=80%
+PMC11345641_01,E6,Exam,elevated 46.4 u/ml,modality=laboratory
+PMC11345641_01,R3,ExamResult,340 U/L,value=340; unit=U/L; interpretation=elevated; interpretation_source=stated; raw_text=340 U/L
+PMC11345641_01,A1,AnatomicalSite,abdomen,
+PMC11345641_01,C1,Concept,abdomen,vocabulary=local; code=ANAT033; preferred_term=Abdomen
+PMC11345641_01,C2,Concept,magnetic resonance imaging,vocabulary=MeSH; code=D008279; preferred_term=Magnetic Resonance Imaging
+PMC11345641_01,C3,Concept,biopsy,vocabulary=MeSH; code=D001706; preferred_term=Biopsy
+PMC11345641_01,C4,Concept,eye abnormalities,vocabulary=MeSH; code=D005124; preferred_term=Eye Abnormalities
+PMC11345641_01,C5,Concept,leiomyoma,vocabulary=MeSH; code=D007889; preferred_term=Leiomyoma

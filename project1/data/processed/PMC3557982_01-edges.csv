@@ -1,0 +1,8 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC3557982_01,e1,P1,S1,HAS_SYMPTOM,evidence_text=reported clinical data on HAdV-14 infection and the apparently enhanced virulence of this strain; trigger=reported; certainty=asserted; char_start=2701; char_end=2797
+PMC3557982_01,e2,P1,D1,DIAGNOSED_WITH,evidence_text=consistent with previously reported clinical data on HAdV-14 infection and the apparently enhanced virulence of this strain; trigger=consistent with; certainty=asserted; char_start=2674; char_end=2797
+PMC3557982_01,e3,P1,D2,DIAGNOSED_WITH,evidence_text=consistent with previously reported clinical data on HAdV-14 infection and the apparently enhanced virulence of this strain; trigger=consistent with; certainty=asserted; char_start=2674; char_end=2797
+PMC3557982_01,e4,P1,O1,HAS_OUTCOME,"evidence_text=Pneumonia developed in 2 of the patients, 1 of whom died; trigger=died; certainty=asserted; char_start=2441; char_end=2497"
+PMC3557982_01,e5,S1,D1,SUPPORTS,evidence_text=reported clinical data on HAdV-14 infection and the apparently enhanced virulence of this strain; trigger=consistent with; certainty=asserted; char_start=2701; char_end=2797
+PMC3557982_01,e6,S1,D2,SUPPORTS,evidence_text=reported clinical data on HAdV-14 infection and the apparently enhanced virulence of this strain; trigger=consistent with; certainty=asserted; char_start=2701; char_end=2797
+PMC3557982_01,e7,S1,C1,SAME_AS,strategy=exact

@@ -1,0 +1,8 @@
+case_id,node_id,type,label,attributes
+PMC11259348_01,P1,Patient,case PMC11259348_01,article_id=PMC11259348; gender=Female
+PMC11259348_01,S1,Symptom,"fever, loose stools, dark color urine diagnosed pch positive donath-landsteiner test",polarity=present
+PMC11259348_01,D1,Diagnosis,pch,certainty=confirmed; polarity=present; role=principal
+PMC11259348_01,T1,Treatment,blood transfusion,type=transfusion; status=performed
+PMC11259348_01,E1,Exam,since hemoglobin level,modality=laboratory
+PMC11259348_01,R1,ExamResult,4 g/dL,value=4; unit=g/dL; raw_text=4 g/dL
+PMC11259348_01,C1,Concept,blood transfusion,vocabulary=MeSH; code=D001803; preferred_term=Blood Transfusion

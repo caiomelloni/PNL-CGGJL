@@ -1,0 +1,17 @@
+case_id,node_id,type,label,attributes
+PMC3950436_01,P1,Patient,case PMC3950436_01,article_id=PMC3950436; age=19; age_unit=years; gender=Female
+PMC3950436_01,S1,Symptom,daughter,polarity=present
+PMC3950436_01,M1,Medication,dose,dose_value=120; dose_unit=mg; dose_change=initial
+PMC3950436_01,M2,Medication,diluted,dose_value=10; dose_unit=ml; dose_change=initial
+PMC3950436_01,M3,Medication,administration,dose_value=80; dose_unit=mcg; dose_change=initial
+PMC3950436_01,M4,Medication,emla,dose_value=5; dose_unit=g; dose_change=initial
+PMC3950436_01,M5,Medication,a,dose_value=24; dose_unit=G; route=intravenous; dose_change=initial
+PMC3950436_01,O1,Outcome,recurrence,type=recurrence; polarity=present
+PMC3950436_01,E1,Exam,oxygen hemoglobin saturation,modality=laboratory
+PMC3950436_01,R1,ExamResult,98 %,value=98; unit=%; interpretation=elevated; interpretation_source=stated; raw_text=98%
+PMC3950436_01,E2,Exam,emla 5 g cream,modality=laboratory
+PMC3950436_01,R2,ExamResult,5 %,value=5; unit=%; raw_text=5%
+PMC3950436_01,E3,Exam,o2 sat,modality=laboratory
+PMC3950436_01,R3,ExamResult,98 %,value=98; unit=%; raw_text=98%
+PMC3950436_01,E4,Exam,5 ml lidocaine,modality=laboratory
+PMC3950436_01,R4,ExamResult,1 %,value=1; unit=%; raw_text=1%
