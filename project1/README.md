@@ -36,7 +36,12 @@ FIGURE_REF → NUM_HYPHEN_WORD → NUMBER_RANGE → NUMBER → UNIT → OPERATOR
 
 **Normalização.** Os rótulos passam por NFKC, compactação de espaços, remoção da pontuação das bordas e *case folding*, com restauração da grafia canônica de termos sensíveis (`CA 19-9`, `HER2`, `IgG`). Siglas definidas no padrão `termo por extenso (SIGLA)` valem apenas dentro do caso. Unidades são canonizadas por dicionário (`ng/ml` → `ng/mL`, `per microliter` → `/µL`).
 
-**Stop-words.** O mesmo extrator roda em 4 condições (`BASELINE`, `NAIVE_UNPROTECTED`, `GUARDED_GLOBAL`, `GUARDED_LABEL`) com 3 listas (NLTK, spaCy e uma customizada), nos 56 casos. Comparamos as tabelas geradas, não os tokens removidos. A remoção substitui a palavra por espaços do mesmo tamanho, o que preserva os offsets.
+**Stop-words.** O mesmo extrator roda em 4 condições, todas comparadas contra o mesmo baseline, com 3 listas (NLTK, spaCy e uma customizada), nos 56 casos. Comparamos as tabelas geradas, não os tokens removidos. A remoção nunca apaga texto — substitui a palavra por espaços do mesmo tamanho, o que preserva os offsets:
+
+- `BASELINE`: nenhuma remoção. `case_text` e `label` vão para os extratores sem alteração; é a referência contra a qual as outras 3 condições são comparadas.
+- `NAIVE_UNPROTECTED`: a lista de stop-words é aplicada direto no `case_text`, antes da extração, sem nenhuma proteção — palavras de negação/certeza (`no`, `without`, `never`, ...) são mascaradas como qualquer outra, se estiverem na lista escolhida.
+- `GUARDED_GLOBAL`: mesma aplicação no `case_text` antes da extração, mas com uma lista de proteção de 17 palavras de negação/certeza que nunca é mascarada, qualquer que seja a lista escolhida.
+- `GUARDED_LABEL`: a extração roda sobre o texto original, como no baseline; a remoção age só depois, limpando o `label` já extraído — sem nunca esvaziá-lo por completo.
 
 **Dicionários.** Um NER por gatilho léxico (`presented with`, `diagnosed with`, `underwent`) delimita as menções. Cada menção é casada contra o gazetteer em três níveis, e o casamento gera um nó `Concept` e uma aresta `SAME_AS`:
 
@@ -148,7 +153,24 @@ As instruções de instalação e execução de cada parser estão no `README.md
 
 Esses números medem rendimento estrutural, não precisão: sem anotação humana não é possível dizer quantos desses nós estão corretos.
 
-**Stop-words: remover antes da extração destrói o grafo.** Aplicada ao texto sem proteção, a lista do spaCy inverteu a polaridade de 21 nós, e a do NLTK, de 14. Em `PMC12832199_01`, *"no recurrence of the parastomal hernia"* virou recorrência afirmada. Protegendo a negação (`GUARDED_GLOBAL`), a inversão some, mas o mascaramento de `of`/`with` derruba cerca de 640 nós, porque quebra gatilhos como `history of`. A decisão foi remover stop-words só do `label` já extraído, com a lista do NLTK. Nessa configuração as arestas saem idênticas ao baseline em 56 de 56 casos.
+**Stop-words: remover antes da extração destrói o grafo.** A tabela a seguir mostra os resultados agregados para a estratégia de stop-words.
+
+| Condição | Lista | Nós perdidos | Nós ganhos | `polarity_changed` | Arestas perdidas | Arestas ganhas | Pior caso | Flips no pior caso |
+|---|---|---:|---:|---:|---:|---:|---|---:|
+| `GUARDED_GLOBAL` | `custom_clinical` | 641 | 389 | 0 | 664 | 463 | `PMC5137649_01` | 0 |
+| `GUARDED_GLOBAL` | `nltk_stopwords` | 638 | 387 | 0 | 662 | 462 | `PMC5137649_01` | 0 |
+| `GUARDED_GLOBAL` | `spacy_stopwords` | 640 | 388 | 0 | 663 | 462 | `PMC5137649_01` | 0 |
+| `GUARDED_LABEL` | `custom_clinical` | 494 | 492 | 0 | 539 | 537 | `PMC5137649_01` | 0 |
+| `GUARDED_LABEL` | `nltk_stopwords` | 486 | 485 | 0 | 536 | 536 | `PMC5137649_01` | 0 |
+| `GUARDED_LABEL` | `spacy_stopwords` | 492 | 490 | 0 | 538 | 536 | `PMC5137649_01` | 0 |
+| `NAIVE_UNPROTECTED` | `custom_clinical` | 641 | 389 | 0 | 664 | 463 | `PMC5137649_01` | 0 |
+| `NAIVE_UNPROTECTED` | `nltk_stopwords` | 649 | 398 | **14** | 672 | 472 | `PMC12832199_01` | 3 |
+| `NAIVE_UNPROTECTED` | `spacy_stopwords` | 651 | 399 | **21** | 675 | 474 | `PMC12832199_01` | 3 |
+
+(gerado por `python3 project1/src/stopwords/run_experiment.py`; arquivo completo em
+[`experiment_output/summary.csv`](../src/stopwords/experiment_output/summary.csv).)
+
+Desses resultados, nota-se que NAIVE_UNPROTECTED sem aplicar proteção gera inversão de polaridade, 14 nós com nltk e 21 nós com spacy, devido a diferenças no conjunto de palavras. Já o NAIVE_UNPROTECTED com lista custom_clinical apresenta os mesmos resultados que GUARDED_GLOBAL com lista custom_clinical, pois com lista customizada a proteção se torna redundante. No geral apesar dos casos de GUARDED_GLOBAL e até mesmo NAIVE_UNPROTECTED com lista customizada não apresentarem inversão de polaridade, destaca-se aqui a diferença entre nós/arestas perdidos e nós/arestas ganhos, que ocorre pois termos como `with`, `of` e `to` ficam fora da proteção e eles são importantes como gatilhos de entidades em frases, definindo uma relação no grafo. Enfim, ao analisar GUARDED_LABEL vemos que esses valores são muito mais próximos entre eles, isso porque a aplicação do stop-words aqui ocorre direto na label, portanto um nó removido deveria ter um equivalente sem o stop-word adicionado novamente. E entre os três casos de testes, o de melhor resultado foi usando nltk em que as arestas são equivalentes e teve um nó perdido, que na verdade foi uma deduplicação.
 
 **Dicionários: quase metade das entidades ligáveis ganhou código.** 139 de 288 (48,3%) geraram `SAME_AS`, com 135 nós `Concept`. Na validação cruzada com os `mesh_terms` do artigo, `Diagnosis`, `Treatment` e `Exam` têm sobreposição de 8–17%, e `Symptom` e `History` ficam em 0%, o que confirma que o MeSH do artigo indexa o tema, não cada sintoma. Ao construir o gazetteer anatômico, encontramos um falso positivo sistemático do fuzzy match em chaves curtas (`"had"` ≈ `"head"`, 85,7), corrigido com um comprimento mínimo de 5 caracteres.
 
