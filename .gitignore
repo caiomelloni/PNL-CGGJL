@@ -43,7 +43,6 @@ project2/data/corpus/
 project2/data/termos.json
 project2/data/grafo/*
 !project2/data/grafo/PMC5137649_01-*.csv
-project2/data/visualizador/
 project2/data/interim/
 project2/data/demo/
 project2/data/mock/relacoes/
