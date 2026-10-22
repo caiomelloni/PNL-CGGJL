@@ -1,0 +1,34 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC11420039_01,e1,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[35,217]]; char_start=35; char_end=217; evidence_text=widespread erythematous patches and vesicles on the limbs, which had appeared successively over a period of 2 weeks, and had previously been diagnosed as ""eczema"" at another hospital; confianca=1.0"
+PMC11420039_01,e2,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[1103,1114]]; char_start=1103; char_end=1114; evidence_text=HE staining; confianca=1.0"
+PMC11420039_01,e3,P1,D2,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[1120,1172]]; char_start=1120; char_end=1172; evidence_text=significant infiltration of eosinophils ( Figures 3A; confianca=1.0"
+PMC11420039_01,e4,P1,D3,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m4""]]; evidence_spans=[[1253,1255]]; char_start=1253; char_end=1255; evidence_text=BP; confianca=1.0"
+PMC11420039_01,e5,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m5""]]; evidence_spans=[[1273,1310]]; char_start=1273; char_end=1310; evidence_text=treated with methylprednisolone 40 mg; confianca=1.0"
+PMC11420039_01,e6,P1,D4,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m6""]]; evidence_spans=[[1404,1419]]; char_start=1404; char_end=1419; evidence_text=a dose of 20 mg; confianca=1.0"
+PMC11420039_01,e7,P1,S1,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m7""]]; evidence_spans=[[1423,1444]]; char_start=1423; char_end=1444; evidence_text=the morning and 16 mg; confianca=1.0"
+PMC11420039_01,e8,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m8""],[""P1"",""m26""],[""P1"",""m27""]]; evidence_spans=[[1512,1520],[4775,4783],[4864,4872]]; char_start=1512; char_end=1520; evidence_text=improved; confianca=1.0"
+PMC11420039_01,e9,P1,O2,HAS_OUTCOME,"mention_pairs=[[""P1"",""m9""],[""P1"",""m14""]]; evidence_spans=[[1534,1544],[2132,2142]]; char_start=1534; char_end=1544; evidence_text=discharged; confianca=1.0"
+PMC11420039_01,e10,P1,D5,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m10""]]; evidence_spans=[[1821,1842]]; char_start=1821; char_end=1842; evidence_text=was adjusted to 16 mg; confianca=1.0"
+PMC11420039_01,e11,P1,S2,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m11""]]; evidence_spans=[[1846,1867]]; char_start=1846; char_end=1867; evidence_text=the morning and 12 mg; confianca=1.0"
+PMC11420039_01,e12,P1,M2,TREATED_WITH,"mention_pairs=[[""P1"",""m12""]]; evidence_spans=[[1970,1992]]; char_start=1970; char_end=1992; evidence_text=initial dose of 600 mg; confianca=1.0"
+PMC11420039_01,e13,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m16""]]; evidence_spans=[[2591,2593]]; char_start=2591; char_end=2593; evidence_text=CT; confianca=1.0"
+PMC11420039_01,e14,P1,E3,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m18""],[""P1"",""m24""]]; evidence_spans=[[2650,2653],[4048,4051]]; char_start=2650; char_end=2653; evidence_text=MRI; confianca=1.0"
+PMC11420039_01,e15,P1,D6,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m20""]]; evidence_spans=[[3050,3066]]; char_start=3050; char_end=3066; evidence_text=viral septicemia; confianca=1.0"
+PMC11420039_01,e16,P1,M3,TREATED_WITH,"mention_pairs=[[""P1"",""m21""]]; evidence_spans=[[3084,3093]]; char_start=3084; char_end=3093; evidence_text=acyclovir; confianca=1.0"
+PMC11420039_01,e17,P1,D7,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m22""]]; evidence_spans=[[3280,3299]]; char_start=3280; char_end=3299; evidence_text=was reduced to 4 mg; confianca=1.0"
+PMC11420039_01,e18,P1,D8,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m23""]]; evidence_spans=[[3892,3920]]; char_start=3892; char_end=3920; evidence_text=Secondary Sjogren's Syndrome; confianca=1.0"
+PMC11420039_01,e19,P1,O3,HAS_OUTCOME,"mention_pairs=[[""P1"",""m28""]]; evidence_spans=[[5111,5124]]; char_start=5111; char_end=5124; evidence_text=complications; confianca=1.0"
+PMC11420039_01,e20,S1,D3,SUPPORTS,"mention_pairs=[[""m7"",""m4""]]; evidence_spans=[[1253,1444]]; char_start=1253; char_end=1444; evidence_text=BP. The patient was treated with methylprednisolone 40 mg orally per day, which was adjusted to methylprednisolone tablets orally after one week, with a dose of 20 mg in the morning and 16 mg; confianca=0.9555"
+PMC11420039_01,e21,S1,D4,SUPPORTS,"mention_pairs=[[""m7"",""m6""]]; evidence_spans=[[1404,1444]]; char_start=1404; char_end=1444; evidence_text=a dose of 20 mg in the morning and 16 mg; confianca=0.968"
+PMC11420039_01,e22,S2,D5,SUPPORTS,"mention_pairs=[[""m11"",""m10""]]; evidence_spans=[[1821,1867]]; char_start=1821; char_end=1867; evidence_text=was adjusted to 16 mg in the morning and 12 mg; confianca=0.9681"
+PMC11420039_01,e23,E3,F1,REVEALS,"mention_pairs=[[""m18"",""m19""]]; evidence_spans=[[2650,2689]]; char_start=2650; char_end=2689; evidence_text=MRI showed no significant abnormalities; confianca=0.9759"
+PMC11420039_01,e24,F1,A1,LOCATED_IN,"mention_pairs=[[""m19"",""m15""]]; evidence_spans=[[2585,2689]]; char_start=2585; char_end=2689; evidence_text=Chest CT revealed patchy changes ( Figure 4 ), while head CT and MRI showed no significant abnormalities; confianca=0.9947"
+PMC11420039_01,e25,F1,A2,LOCATED_IN,"mention_pairs=[[""m19"",""m17""]]; evidence_spans=[[2638,2689]]; char_start=2638; char_end=2689; evidence_text=head CT and MRI showed no significant abnormalities; confianca=0.9955"
+PMC11420039_01,e26,D1,C1,SAME_AS,
+PMC11420039_01,e27,E1,C2,SAME_AS,
+PMC11420039_01,e28,M1,C3,SAME_AS,
+PMC11420039_01,e29,A1,C4,SAME_AS,
+PMC11420039_01,e30,A2,C5,SAME_AS,
+PMC11420039_01,e31,D6,C6,SAME_AS,
+PMC11420039_01,e32,M3,C7,SAME_AS,
+PMC11420039_01,e33,D8,C8,SAME_AS,

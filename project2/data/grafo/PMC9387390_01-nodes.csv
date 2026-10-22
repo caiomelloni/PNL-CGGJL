@@ -1,0 +1,26 @@
+case_id,node_id,type,label,attributes
+PMC9387390_01,P1,Patient,case PMC9387390_01,
+PMC9387390_01,A1,AnatomicalSite,postprandial abdominal fullness and diarrhea,"polarity=absent; mentions=m1; mention_texts=[""postprandial abdominal fullness and diarrhea""]; spans=[[96,140]]; char_start=96; char_end=140; evidence_text=postprandial abdominal fullness and diarrhea; mesh=ANAT033; confianca=1.0"
+PMC9387390_01,E1,Exam,computed tomography,"polarity=present; mentions=m2|m4|m8|m16|m21; mention_texts=[""Computed tomography"",""CT"",""CT"",""CT"",""CT""]; spans=[[142,161],[338,340],[549,551],[1674,1676],[4022,4024]]; char_start=142; char_end=161; evidence_text=Computed tomography; mesh=D014054; confianca=1.0"
+PMC9387390_01,S1,Symptom,imaging showed nonspecific mesenteric edema,"polarity=present; mentions=m3; mention_texts=[""imaging showed nonspecific mesenteric edema""]; spans=[[167,210]]; char_start=167; char_end=210; evidence_text=imaging showed nonspecific mesenteric edema; mesh=D004487; confianca=1.0"
+PMC9387390_01,A2,AnatomicalSite,abdomen,"polarity=present; mentions=m5; mention_texts=[""abdomen""]; spans=[[348,355]]; char_start=348; char_end=355; evidence_text=abdomen; mesh=ANAT033; confianca=1.0"
+PMC9387390_01,F1,Finding,central mesenteric mass,"polarity=present; mentions=m6; mention_texts=[""central mesenteric mass""]; spans=[[371,394]]; char_start=371; char_end=394; evidence_text=central mesenteric mass; confianca=1.0"
+PMC9387390_01,A3,AnatomicalSite,pancreas,"polarity=present; mentions=m7|m13; mention_texts=[""pancreas"",""gastroduodenal outlet obstruction secondary to the pancreatic mass""]; spans=[[408,416],[1013,1079]]; char_start=408; char_end=416; evidence_text=pancreas; mesh=ANAT002; confianca=1.0"
+PMC9387390_01,E2,Exam,biopsy,"polarity=present; mentions=m9; mention_texts=[""biopsy""]; spans=[[559,565]]; char_start=559; char_end=565; evidence_text=biopsy; mesh=D001706; confianca=1.0"
+PMC9387390_01,D1,Diagnosis,differentiated adenocarcinoma,"polarity=present; mentions=m10; mention_texts=[""differentiated adenocarcinoma""]; spans=[[634,663]]; char_start=634; char_end=663; evidence_text=differentiated adenocarcinoma; mesh=D000230; confianca=1.0"
+PMC9387390_01,D2,Diagnosis,upper gastrointestinal tract and/or pancreaticobiliary tract,"polarity=present; mentions=m11; mention_texts=[""upper gastrointestinal tract and/or pancreaticobiliary tract""]; spans=[[697,757]]; char_start=697; char_end=757; evidence_text=upper gastrointestinal tract and/or pancreaticobiliary tract; confianca=0.2885"
+PMC9387390_01,T1,Treatment,chemotherapy,"polarity=present; mentions=m12; mention_texts=[""chemotherapy""]; spans=[[829,841]]; char_start=829; char_end=841; evidence_text=chemotherapy; mesh=D004358; confianca=1.0"
+PMC9387390_01,T2,Treatment,gastrojejunostomy,"polarity=present; mentions=m14; mention_texts=[""gastrojejunostomy""]; spans=[[1127,1144]]; char_start=1127; char_end=1144; evidence_text=gastrojejunostomy; mesh=D015390; confianca=1.0"
+PMC9387390_01,F2,Finding,leak,"polarity=absent; mentions=m15; mention_texts=[""leak""]; spans=[[1527,1531]]; char_start=1527; char_end=1531; evidence_text=leak; confianca=0.4102"
+PMC9387390_01,O1,Outcome,improved,"polarity=present; mentions=m17|m22; mention_texts=[""improved"",""improved""]; spans=[[1803,1811],[4135,4143]]; char_start=1803; char_end=1811; evidence_text=improved; confianca=0.7444"
+PMC9387390_01,O2,Outcome,discharged,"polarity=present; mentions=m18|m19; mention_texts=[""discharged"",""discharged""]; spans=[[2577,2587],[3394,3404]]; char_start=2577; char_end=2587; evidence_text=discharged; confianca=0.7361"
+PMC9387390_01,O3,Outcome,improvement,"polarity=present; mentions=m20; mention_texts=[""improvement""]; spans=[[3750,3761]]; char_start=3750; char_end=3761; evidence_text=improvement; confianca=1.0"
+PMC9387390_01,O4,Outcome,discharged home,"polarity=present; mentions=m23; mention_texts=[""discharged home""]; spans=[[4219,4234]]; char_start=4219; char_end=4234; evidence_text=discharged home; confianca=0.5474"
+PMC9387390_01,C1,Concept,ANAT033,code=ANAT033; vocabulary=AnatomicalSite
+PMC9387390_01,C2,Concept,D014054,code=D014054; vocabulary=MeSH
+PMC9387390_01,C3,Concept,D004487,code=D004487; vocabulary=MeSH
+PMC9387390_01,C4,Concept,ANAT002,code=ANAT002; vocabulary=AnatomicalSite
+PMC9387390_01,C5,Concept,D001706,code=D001706; vocabulary=MeSH
+PMC9387390_01,C6,Concept,D000230,code=D000230; vocabulary=MeSH
+PMC9387390_01,C7,Concept,D004358,code=D004358; vocabulary=MeSH
+PMC9387390_01,C8,Concept,D015390,code=D015390; vocabulary=MeSH

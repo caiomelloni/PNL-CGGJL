@@ -1,0 +1,20 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC5833205_01,e1,P1,S1,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[197,205]]; char_start=197; char_end=205; evidence_text=swelling; confianca=1.0"
+PMC5833205_01,e2,P1,S2,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[405,410]]; char_start=405; char_end=410; evidence_text=edema; confianca=1.0"
+PMC5833205_01,e3,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m4""]]; evidence_spans=[[676,686]]; char_start=676; char_end=686; evidence_text=an albumin; confianca=1.0"
+PMC5833205_01,e4,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m6""],[""P1"",""m14""]]; evidence_spans=[[876,912],[2282,2309]]; char_start=876; char_end=912; evidence_text=microcytic anemia (hemoglobin of 6.4; confianca=1.0"
+PMC5833205_01,e5,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m7""]]; evidence_spans=[[1003,1018]]; char_start=1003; char_end=1018; evidence_text=hypoproteinemia; confianca=1.0"
+PMC5833205_01,e6,P1,M2,TREATED_WITH,"mention_pairs=[[""P1"",""m9""]]; evidence_spans=[[1041,1054]]; char_start=1041; char_end=1054; evidence_text=total protein; confianca=1.0"
+PMC5833205_01,e7,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m11""]]; evidence_spans=[[1277,1286]]; char_start=1277; char_end=1286; evidence_text=endoscopy; confianca=1.0"
+PMC5833205_01,e8,P1,T1,TREATED_WITH,"mention_pairs=[[""P1"",""m12""]]; evidence_spans=[[1691,1709]]; char_start=1691; char_end=1709; evidence_text=transfusion (20 mL; confianca=1.0"
+PMC5833205_01,e9,S1,A1,LOCATED_IN,"mention_pairs=[[""m1"",""m2""]]; evidence_spans=[[197,284]]; char_start=197; char_end=284; evidence_text=swelling had progressed steadily over time, eventually resulting in worsening abdominal; confianca=0.9659"
+PMC5833205_01,e10,E1,R1,HAS_RESULT,"mention_pairs=[[""m6"",""m5""]]; evidence_spans=[[690,912]]; char_start=690; char_end=912; evidence_text=1.8 g/dL, and a urinalysis that was negative for protein. The patient was referred for further evaluation.
+Laboratory studies obtained in the emergency department were consistent with a microcytic anemia (hemoglobin of 6.4; confianca=0.8484"
+PMC5833205_01,e11,E1,R5,HAS_RESULT,"mention_pairs=[[""m14"",""m15""]]; evidence_spans=[[2282,2319]]; char_start=2282; char_end=2319; evidence_text=his hemoglobin had risen to 11.8 g/dL; confianca=0.8636"
+PMC5833205_01,e12,A1,C1,SAME_AS,
+PMC5833205_01,e13,S2,C2,SAME_AS,
+PMC5833205_01,e14,M1,C3,SAME_AS,
+PMC5833205_01,e15,E1,C4,SAME_AS,
+PMC5833205_01,e16,D1,C5,SAME_AS,
+PMC5833205_01,e17,M2,C6,SAME_AS,
+PMC5833205_01,e18,E2,C7,SAME_AS,

@@ -1,0 +1,9 @@
+{
+  "casos": 53,
+  "nos": 999,
+  "arestas": 927,
+  "saida": "C:\\Users\\georg\\Estudos\\unicamp\\PNL-CGGJL\\project2\\data\\grafo",
+  "mencoes_sem_tipo_omitidas": 0,
+  "relacoes_com_ponta_sem_tipo_omitidas": 0,
+  "polaridades_completadas_por_regra_p1": 0
+}

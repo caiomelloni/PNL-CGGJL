@@ -1,0 +1,17 @@
+case_id,node_id,type,label,attributes
+PMC6134951_01,P1,Patient,case PMC6134951_01,
+PMC6134951_01,D1,Diagnosis,ttf1-positive pulmonary adenocarcinoma,"polarity=present; mentions=m1; mention_texts=[""TTF1-positive pulmonary adenocarcinoma""]; spans=[[274,312]]; char_start=274; char_end=312; evidence_text=TTF1-positive pulmonary adenocarcinoma; mesh=D000230; confianca=1.0"
+PMC6134951_01,E1,Exam,the pd-l1 tps score,"polarity=present; mentions=m2; mention_texts=[""The PD-L1 TPS score""]; spans=[[437,456]]; char_start=437; char_end=456; evidence_text=The PD-L1 TPS score; confianca=0.2314"
+PMC6134951_01,R1,ExamResult,40%,"polarity=present; mentions=m3; mention_texts=[""40%""]; spans=[[461,464]]; char_start=461; char_end=464; evidence_text=40%; confianca=0.2844"
+PMC6134951_01,R2,ExamResult,started on alectinib 600 mg,"polarity=present; mentions=m4; mention_texts=[""started on alectinib 600 mg""]; spans=[[1056,1083]]; char_start=1056; char_end=1083; evidence_text=started on alectinib 600 mg; confianca=0.1514"
+PMC6134951_01,O1,Outcome,improvement,"polarity=present; mentions=m5; mention_texts=[""improvement""]; spans=[[1112,1123]]; char_start=1112; char_end=1123; evidence_text=improvement; confianca=1.0"
+PMC6134951_01,D2,Diagnosis,drug eruption (delayed type iv hypersensitivity,"polarity=present; mentions=m6; mention_texts=[""drug eruption (delayed type IV hypersensitivity""]; spans=[[1551,1598]]; char_start=1551; char_end=1598; evidence_text=drug eruption (delayed type IV hypersensitivity; mesh=D006968; confianca=1.0"
+PMC6134951_01,D3,Diagnosis,figure 1b,"polarity=present; mentions=m7; mention_texts=[""Figure 1B)""]; spans=[[1600,1610]]; char_start=1600; char_end=1610; evidence_text=Figure 1B); confianca=0.2246"
+PMC6134951_01,E2,Exam,was started at 30 mg,"polarity=present; mentions=m8; mention_texts=[""was started at 30 mg""]; spans=[[1990,2010]]; char_start=1990; char_end=2010; evidence_text=was started at 30 mg; confianca=0.169"
+PMC6134951_01,E3,Exam,was tapered to 20 mg,"polarity=present; mentions=m9; mention_texts=[""was tapered to 20 mg""]; spans=[[2024,2044]]; char_start=2024; char_end=2044; evidence_text=was tapered to 20 mg; confianca=0.1825"
+PMC6134951_01,R3,ExamResult,then continued at 10 mg,"polarity=present; mentions=m10; mention_texts=[""then continued at 10 mg""]; spans=[[2066,2089]]; char_start=2066; char_end=2089; evidence_text=then continued at 10 mg; confianca=0.1793"
+PMC6134951_01,M1,Medication,dose of diphenhydramine 50 mg,"polarity=present; mentions=m11; mention_texts=[""dose of diphenhydramine 50 mg""]; spans=[[2169,2198]]; char_start=2169; char_end=2198; evidence_text=dose of diphenhydramine 50 mg; mesh=D004155; confianca=1.0"
+PMC6134951_01,O2,Outcome,improved,"polarity=present; mentions=m12|m13; mention_texts=[""improved"",""improved""]; spans=[[2314,2322],[2814,2822]]; char_start=2314; char_end=2322; evidence_text=improved; confianca=0.7464"
+PMC6134951_01,C1,Concept,D000230,code=D000230; vocabulary=MeSH
+PMC6134951_01,C2,Concept,D006968,code=D006968; vocabulary=MeSH
+PMC6134951_01,C3,Concept,D004155,code=D004155; vocabulary=MeSH

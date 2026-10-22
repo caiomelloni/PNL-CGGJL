@@ -1,0 +1,4 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC5875137_01,e1,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m1""],[""P1"",""m3""]]; evidence_spans=[[100,119],[836,838]]; char_start=100; char_end=119; evidence_text=computed tomography; confianca=1.0"
+PMC5875137_01,e2,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[541,554]]; char_start=541; char_end=554; evidence_text=complications; confianca=1.0"
+PMC5875137_01,e3,E1,C1,SAME_AS,

@@ -1,0 +1,42 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC4835621_01,e1,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[181,272]]; char_start=181; char_end=272; evidence_text=recurrent headaches on a daily basis and profound fatigue and malaise during the past month; confianca=1.0"
+PMC4835621_01,e2,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[1633,1666]]; char_start=1633; char_end=1666; evidence_text=count of 6100 per microliter with; confianca=1.0"
+PMC4835621_01,e3,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m4""]]; evidence_spans=[[1684,1694]]; char_start=1684; char_end=1694; evidence_text=hemoglobin; confianca=1.0"
+PMC4835621_01,e4,P1,E3,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m6""]]; evidence_spans=[[1765,1785]]; char_start=1765; char_end=1785; evidence_text=a reticulocyte count; confianca=1.0"
+PMC4835621_01,e5,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m8""]]; evidence_spans=[[2053,2101]]; char_start=2053; char_end=2101; evidence_text=Lactate dehydrogenase (LDH) levels were elevated; confianca=1.0"
+PMC4835621_01,e6,P1,M2,TREATED_WITH,"mention_pairs=[[""P1"",""m10""]]; evidence_spans=[[2115,2146]]; char_start=2115; char_end=2146; evidence_text=Serum haptoglobin was decreased; confianca=1.0"
+PMC4835621_01,e7,P1,E4,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m12""]]; evidence_spans=[[2223,2259]]; char_start=2223; char_end=2259; evidence_text=ADAMTS13 activity test was less than; confianca=1.0"
+PMC4835621_01,e8,P1,E5,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m14""]]; evidence_spans=[[2311,2317]]; char_start=2311; char_end=2317; evidence_text=biopsy; confianca=1.0"
+PMC4835621_01,e9,P1,D2,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m15""]]; evidence_spans=[[2452,2464]]; char_start=2452; char_end=2464; evidence_text=TTP was made; confianca=1.0"
+PMC4835621_01,e10,P1,E6,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m17""]]; evidence_spans=[[2612,2631]]; char_start=2612; char_end=2631; evidence_text=computed tomography; confianca=1.0"
+PMC4835621_01,e11,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m21""]]; evidence_spans=[[3103,3114]]; char_start=3103; char_end=3114; evidence_text=improvement; confianca=1.0"
+PMC4835621_01,e12,P1,D3,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m22""]]; evidence_spans=[[3403,3412]]; char_start=3403; char_end=3412; evidence_text=gastritis; confianca=1.0"
+PMC4835621_01,e13,P1,E7,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m23""]]; evidence_spans=[[3850,3903]]; char_start=3850; char_end=3903; evidence_text=levels were decreased after triple-therapy completion; confianca=1.0"
+PMC4835621_01,e14,P1,T1,TREATED_WITH,"mention_pairs=[[""P1"",""m28""]]; evidence_spans=[[4035,4077]]; char_start=4035; char_end=4077; evidence_text=levels rose after eradication therapy from; confianca=1.0"
+PMC4835621_01,e15,F1,D2,SUPPORTS,"mention_pairs=[[""m16"",""m15""]]; evidence_spans=[[2452,2609]]; char_start=2452; char_end=2609; evidence_text=TTP was made and the patient was started on plasmapheresis via a femoral catheter. Steroid treatment was initiated. In order to rule out underling malignancy; confianca=0.9272"
+PMC4835621_01,e16,E2,R1,HAS_RESULT,"mention_pairs=[[""m4"",""m3""]]; evidence_spans=[[1667,1694]]; char_start=1667; char_end=1694; evidence_text=73% neutrophils, hemoglobin; confianca=0.9708"
+PMC4835621_01,e17,E2,R2,HAS_RESULT,"mention_pairs=[[""m4"",""m5""]]; evidence_spans=[[1684,1707]]; char_start=1684; char_end=1707; evidence_text=hemoglobin of 11.3 g/dL; confianca=0.914"
+PMC4835621_01,e18,E3,R3,HAS_RESULT,"mention_pairs=[[""m6"",""m7""]]; evidence_spans=[[1765,1793]]; char_start=1765; char_end=1793; evidence_text=a reticulocyte count of 2.4%; confianca=0.9056"
+PMC4835621_01,e19,E4,R4,HAS_RESULT,"mention_pairs=[[""m12"",""m9""]]; evidence_spans=[[2105,2259]]; char_start=2105; char_end=2259; evidence_text=405 IU/L. Serum haptoglobin was decreased (15.30 mg/dL). Workup for autoantibodies and the Coombs test were negative. ADAMTS13 activity test was less than; confianca=0.824"
+PMC4835621_01,e20,E4,R5,HAS_RESULT,"mention_pairs=[[""m12"",""m11""]]; evidence_spans=[[2148,2259]]; char_start=2148; char_end=2259; evidence_text=15.30 mg/dL). Workup for autoantibodies and the Coombs test were negative. ADAMTS13 activity test was less than; confianca=0.9278"
+PMC4835621_01,e21,E4,R6,HAS_RESULT,"mention_pairs=[[""m12"",""m13""]]; evidence_spans=[[2223,2263]]; char_start=2223; char_end=2263; evidence_text=ADAMTS13 activity test was less than 10%; confianca=0.8522"
+PMC4835621_01,e22,F1,A1,LOCATED_IN,"mention_pairs=[[""m16"",""m18""]]; evidence_spans=[[2589,2654]]; char_start=2589; char_end=2654; evidence_text=underling malignancy a computed tomography (CT) scan of the chest; confianca=0.9783"
+PMC4835621_01,e23,F1,A2,LOCATED_IN,"mention_pairs=[[""m16"",""m19""]]; evidence_spans=[[2589,2666]]; char_start=2589; char_end=2666; evidence_text=underling malignancy a computed tomography (CT) scan of the chest and abdomen; confianca=0.9762"
+PMC4835621_01,e24,F1,A3,LOCATED_IN,"mention_pairs=[[""m16"",""m20""]]; evidence_spans=[[2589,2748]]; char_start=2589; char_end=2748; evidence_text=underling malignancy a computed tomography (CT) scan of the chest and abdomen was performed and showed an intraluminal thickening of 3.5 cm size in the stomach; confianca=0.9637"
+PMC4835621_01,e25,E6,F1,REVEALS,"mention_pairs=[[""m17"",""m16""]]; evidence_spans=[[2589,2631]]; char_start=2589; char_end=2631; evidence_text=underling malignancy a computed tomography; confianca=0.9853"
+PMC4835621_01,e26,E7,R7,HAS_RESULT,"mention_pairs=[[""m23"",""m24""]]; evidence_spans=[[3850,3908]]; char_start=3850; char_end=3908; evidence_text=levels were decreased after triple-therapy completion 2.5%; confianca=0.8284"
+PMC4835621_01,e27,E7,R8,HAS_RESULT,"mention_pairs=[[""m23"",""m25""]]; evidence_spans=[[3850,3920]]; char_start=3850; char_end=3920; evidence_text=levels were decreased after triple-therapy completion 2.5% versus 0.7%; confianca=0.6014"
+PMC4835621_01,e28,E7,R9,HAS_RESULT,"mention_pairs=[[""m23"",""m26""]]; evidence_spans=[[3850,3940]]; char_start=3850; char_end=3940; evidence_text=levels were decreased after triple-therapy completion 2.5% versus 0.7% and 302 IU/L versus; confianca=0.5526"
+PMC4835621_01,e29,D1,C1,SAME_AS,
+PMC4835621_01,e30,E2,C2,SAME_AS,
+PMC4835621_01,e31,E3,C3,SAME_AS,
+PMC4835621_01,e32,M1,C4,SAME_AS,
+PMC4835621_01,e33,M2,C5,SAME_AS,
+PMC4835621_01,e34,E5,C6,SAME_AS,
+PMC4835621_01,e35,F1,C7,SAME_AS,
+PMC4835621_01,e36,E6,C8,SAME_AS,
+PMC4835621_01,e37,A1,C9,SAME_AS,
+PMC4835621_01,e38,A2,C10,SAME_AS,
+PMC4835621_01,e39,A3,C11,SAME_AS,
+PMC4835621_01,e40,D3,C12,SAME_AS,
+PMC4835621_01,e41,T1,C13,SAME_AS,

@@ -1,0 +1,23 @@
+case_id,node_id,type,label,attributes
+PMC5833205_01,P1,Patient,case PMC5833205_01,
+PMC5833205_01,S1,Symptom,swelling,"polarity=present; mentions=m1; mention_texts=[""swelling""]; spans=[[197,205]]; char_start=197; char_end=205; evidence_text=swelling; confianca=1.0"
+PMC5833205_01,A1,AnatomicalSite,abdominal,"polarity=present; mentions=m2; mention_texts=[""abdominal""]; spans=[[275,284]]; char_start=275; char_end=284; evidence_text=abdominal; mesh=ANAT033; confianca=1.0"
+PMC5833205_01,S2,Symptom,edema,"polarity=present; mentions=m3; mention_texts=[""edema""]; spans=[[405,410]]; char_start=405; char_end=410; evidence_text=edema; mesh=D004487; confianca=1.0"
+PMC5833205_01,M1,Medication,an albumin,"polarity=present; mentions=m4; mention_texts=[""an albumin""]; spans=[[676,686]]; char_start=676; char_end=686; evidence_text=an albumin; mesh=D000418; confianca=1.0"
+PMC5833205_01,R1,ExamResult,1.8 g/dl,"polarity=present; mentions=m5; mention_texts=[""1.8 g/dL""]; spans=[[690,698]]; char_start=690; char_end=698; evidence_text=1.8 g/dL; confianca=0.6304"
+PMC5833205_01,E1,Exam,microcytic anemia (hemoglobin of 6.4,"polarity=present; mentions=m6|m14; mention_texts=[""microcytic anemia (hemoglobin of 6.4"",""his hemoglobin had risen to""]; spans=[[876,912],[2282,2309]]; char_start=876; char_end=912; evidence_text=microcytic anemia (hemoglobin of 6.4; mesh=D006454; confianca=1.0"
+PMC5833205_01,D1,Diagnosis,hypoproteinemia,"polarity=present; mentions=m7; mention_texts=[""hypoproteinemia""]; spans=[[1003,1018]]; char_start=1003; char_end=1018; evidence_text=hypoproteinemia; mesh=D007019; confianca=1.0"
+PMC5833205_01,R2,ExamResult,1.6 g/dl,"polarity=present; mentions=m8; mention_texts=[""1.6 g/dL""]; spans=[[1031,1039]]; char_start=1031; char_end=1039; evidence_text=1.6 g/dL; confianca=0.6395"
+PMC5833205_01,M2,Medication,total protein,"polarity=present; mentions=m9; mention_texts=[""total protein""]; spans=[[1041,1054]]; char_start=1041; char_end=1054; evidence_text=total protein; mesh=D011506; confianca=1.0"
+PMC5833205_01,R3,ExamResult,3.0 g/dl,"polarity=present; mentions=m10; mention_texts=[""3.0 g/dL""]; spans=[[1058,1066]]; char_start=1058; char_end=1066; evidence_text=3.0 g/dL; confianca=0.6426"
+PMC5833205_01,E2,Exam,endoscopy,"polarity=present; mentions=m11; mention_texts=[""endoscopy""]; spans=[[1277,1286]]; char_start=1277; char_end=1286; evidence_text=endoscopy; mesh=D004724; confianca=1.0"
+PMC5833205_01,T1,Treatment,transfusion (20 ml,"polarity=present; mentions=m12; mention_texts=[""transfusion (20 mL""]; spans=[[1691,1709]]; char_start=1691; char_end=1709; evidence_text=transfusion (20 mL; confianca=1.0"
+PMC5833205_01,R4,ExamResult,a dose of 6 mg,"polarity=present; mentions=m13; mention_texts=[""a dose of 6 mg""]; spans=[[1786,1800]]; char_start=1786; char_end=1800; evidence_text=a dose of 6 mg; confianca=0.2088"
+PMC5833205_01,R5,ExamResult,11.8 g/dl,"polarity=present; mentions=m15; mention_texts=[""11.8 g/dL""]; spans=[[2310,2319]]; char_start=2310; char_end=2319; evidence_text=11.8 g/dL; confianca=0.5267"
+PMC5833205_01,C1,Concept,ANAT033,code=ANAT033; vocabulary=AnatomicalSite
+PMC5833205_01,C2,Concept,D004487,code=D004487; vocabulary=MeSH
+PMC5833205_01,C3,Concept,D000418,code=D000418; vocabulary=MeSH
+PMC5833205_01,C4,Concept,D006454,code=D006454; vocabulary=MeSH
+PMC5833205_01,C5,Concept,D007019,code=D007019; vocabulary=MeSH
+PMC5833205_01,C6,Concept,D011506,code=D011506; vocabulary=MeSH
+PMC5833205_01,C7,Concept,D004724,code=D004724; vocabulary=MeSH

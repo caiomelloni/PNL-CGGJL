@@ -1,0 +1,23 @@
+case_id,node_id,type,label,attributes
+PMC11345641_01,P1,Patient,case PMC11345641_01,
+PMC11345641_01,M1,Medication,dehydrogenase (ldh) level was elevated to,"polarity=present; mentions=m1; mention_texts=[""dehydrogenase (LDH) level was elevated to""]; spans=[[694,735]]; char_start=694; char_end=735; evidence_text=dehydrogenase (LDH) level was elevated to; mesh=D010088; confianca=1.0"
+PMC11345641_01,R1,ExamResult,289u/l,"polarity=present; mentions=m2; mention_texts=[""289U/L""]; spans=[[736,742]]; char_start=736; char_end=742; evidence_text=289U/L; confianca=0.3147"
+PMC11345641_01,D1,Diagnosis,uterine fibroid,"polarity=present; mentions=m3; mention_texts=[""uterine fibroid""]; spans=[[928,943]]; char_start=928; char_end=943; evidence_text=uterine fibroid; mesh=D007889; confianca=1.0"
+PMC11345641_01,E1,Exam,mri,"polarity=present; mentions=m4|m11; mention_texts=[""MRI"",""MRI""]; spans=[[994,997],[2367,2370]]; char_start=994; char_end=997; evidence_text=MRI; confianca=0.3342"
+PMC11345641_01,E2,Exam,measuring approximately,"polarity=present; mentions=m5; mention_texts=[""measuring approximately 9.9x12.0x12.6cm""]; spans=[[1119,1158]]; char_start=1119; char_end=1158; evidence_text=measuring approximately 9.9x12.0x12.6cm; size=9.9x12.0x12.6cm; confianca=0.2086"
+PMC11345641_01,R2,ExamResult,80%,"polarity=present; mentions=m6; mention_texts=[""80%""]; spans=[[1165,1168]]; char_start=1165; char_end=1168; evidence_text=80%; confianca=0.2688"
+PMC11345641_01,E3,Exam,biopsy,"polarity=present; mentions=m7; mention_texts=[""biopsy""]; spans=[[1326,1332]]; char_start=1326; char_end=1332; evidence_text=biopsy; mesh=D001706; confianca=1.0"
+PMC11345641_01,F1,Finding,mass,"polarity=present; mentions=m8; mention_texts=[""mass""]; spans=[[1861,1865]]; char_start=1861; char_end=1865; evidence_text=mass; confianca=1.0"
+PMC11345641_01,E4,Exam,ultrasonography,"polarity=present; mentions=m9; mention_texts=[""ultrasonography""]; spans=[[2091,2106]]; char_start=2091; char_end=2106; evidence_text=ultrasonography; mesh=D014463; confianca=1.0"
+PMC11345641_01,F2,Finding,abnormalities,"polarity=absent; mentions=m10; mention_texts=[""abnormalities""]; spans=[[2117,2130]]; char_start=2117; char_end=2130; evidence_text=abnormalities; confianca=0.665"
+PMC11345641_01,E5,Exam,were elevated to 46.4 u/ml and,"polarity=present; mentions=m12; mention_texts=[""were elevated to 46.4 U/mL and""]; spans=[[2744,2774]]; char_start=2744; char_end=2774; evidence_text=were elevated to 46.4 U/mL and; confianca=0.3188"
+PMC11345641_01,R3,ExamResult,340 u/l,"polarity=present; mentions=m13; mention_texts=[""340 U/L""]; spans=[[2775,2782]]; char_start=2775; char_end=2782; evidence_text=340 U/L; confianca=0.3304"
+PMC11345641_01,A1,AnatomicalSite,abdominal,"polarity=present; mentions=m14; mention_texts=[""abdominal""]; spans=[[2877,2886]]; char_start=2877; char_end=2886; evidence_text=abdominal; mesh=ANAT033; confianca=1.0"
+PMC11345641_01,F3,Finding,palpable mass,"polarity=present; mentions=m15; mention_texts=[""palpable mass""]; spans=[[2912,2925]]; char_start=2912; char_end=2925; evidence_text=palpable mass; confianca=1.0"
+PMC11345641_01,O1,Outcome,improved,"polarity=present; mentions=m16; mention_texts=[""improved""]; spans=[[4497,4505]]; char_start=4497; char_end=4505; evidence_text=improved; confianca=0.7452"
+PMC11345641_01,O2,Outcome,discharged,"polarity=present; mentions=m17; mention_texts=[""discharged""]; spans=[[4659,4669]]; char_start=4659; char_end=4669; evidence_text=discharged; confianca=0.6922"
+PMC11345641_01,C1,Concept,D010088,code=D010088; vocabulary=MeSH
+PMC11345641_01,C2,Concept,D007889,code=D007889; vocabulary=MeSH
+PMC11345641_01,C3,Concept,D001706,code=D001706; vocabulary=MeSH
+PMC11345641_01,C4,Concept,D014463,code=D014463; vocabulary=MeSH
+PMC11345641_01,C5,Concept,ANAT033,code=ANAT033; vocabulary=AnatomicalSite

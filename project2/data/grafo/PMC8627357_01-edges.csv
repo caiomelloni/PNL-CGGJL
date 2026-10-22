@@ -1,0 +1,13 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC8627357_01,e1,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m1""],[""P1"",""m3""],[""P1"",""m7""]]; evidence_spans=[[241,260],[810,812],[1187,1189]]; char_start=241; char_end=260; evidence_text=computed tomography; confianca=1.0"
+PMC8627357_01,e2,P1,S1,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[526,541]]; char_start=526; char_end=541; evidence_text=extensive edema; confianca=1.0"
+PMC8627357_01,e3,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m4""]]; evidence_spans=[[905,910]]; char_start=905; char_end=910; evidence_text=X-ray; confianca=1.0"
+PMC8627357_01,e4,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m5""]]; evidence_spans=[[1084,1100]]; char_start=1084; char_end=1100; evidence_text=acute hypoxia to; confianca=1.0"
+PMC8627357_01,e5,P1,F1,HAS_FINDING,"mention_pairs=[[""P1"",""m8""]]; evidence_spans=[[1662,1684]]; char_start=1662; char_end=1684; evidence_text=valvular abnormalities; confianca=1.0"
+PMC8627357_01,e6,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m9""]]; evidence_spans=[[2289,2299]]; char_start=2289; char_end=2299; evidence_text=resolution; confianca=1.0"
+PMC8627357_01,e7,P1,O2,HAS_OUTCOME,"mention_pairs=[[""P1"",""m10""]]; evidence_spans=[[2488,2496]]; char_start=2488; char_end=2496; evidence_text=improved; confianca=1.0"
+PMC8627357_01,e8,P1,O3,HAS_OUTCOME,"mention_pairs=[[""P1"",""m11""]]; evidence_spans=[[2897,2907]]; char_start=2897; char_end=2907; evidence_text=discharged; confianca=1.0"
+PMC8627357_01,e9,E1,R1,HAS_RESULT,"mention_pairs=[[""m7"",""m6""]]; evidence_spans=[[1101,1189]]; char_start=1101; char_end=1189; evidence_text=88% via pulse oximetry, the patient was intubated and placed on ventilator support. A CT; confianca=0.9551"
+PMC8627357_01,e10,E1,C1,SAME_AS,
+PMC8627357_01,e11,S1,C2,SAME_AS,
+PMC8627357_01,e12,D1,C3,SAME_AS,

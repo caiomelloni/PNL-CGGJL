@@ -1,0 +1,23 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC11368112_01,e1,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[504,530]]; char_start=504; char_end=530; evidence_text=12.65 x 109/L; neutrophils; confianca=1.0"
+PMC11368112_01,e2,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[532,540]]; char_start=532; char_end=540; evidence_text=85%; CRP; confianca=1.0"
+PMC11368112_01,e3,P1,E3,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m6""]]; evidence_spans=[[569,576]]; char_start=569; char_end=576; evidence_text=D-dimer; confianca=1.0"
+PMC11368112_01,e4,P1,E4,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m8""]]; evidence_spans=[[597,607]]; char_start=597; char_end=607; evidence_text=ultrasound; confianca=1.0"
+PMC11368112_01,e5,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m9""]]; evidence_spans=[[1060,1083]]; char_start=1060; char_end=1083; evidence_text=pulmonary embolism (PE); confianca=1.0"
+PMC11368112_01,e6,P1,S1,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m10""]]; evidence_spans=[[1409,1427]]; char_start=1409; char_end=1427; evidence_text=similar high fever; confianca=1.0"
+PMC11368112_01,e7,P1,F2,HAS_FINDING,"mention_pairs=[[""P1"",""m12""]]; evidence_spans=[[1787,1829]]; char_start=1787; char_end=1829; evidence_text=cystic mass containing yellow cloudy fluid; confianca=1.0"
+PMC11368112_01,e8,P1,E5,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m13""]]; evidence_spans=[[2548,2554]]; char_start=2548; char_end=2554; evidence_text=biopsy; confianca=1.0"
+PMC11368112_01,e9,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m14""]]; evidence_spans=[[2932,2969]]; char_start=2932; char_end=2969; evidence_text=including methylprednisolone at 80 mg; confianca=1.0"
+PMC11368112_01,e10,P1,M2,TREATED_WITH,"mention_pairs=[[""P1"",""m18""]]; evidence_spans=[[3075,3097]]; char_start=3075; char_end=3097; evidence_text=cyclosporine at 200 mg; confianca=1.0"
+PMC11368112_01,e11,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m19""]]; evidence_spans=[[3317,3327]]; char_start=3317; char_end=3327; evidence_text=discharged; confianca=1.0"
+PMC11368112_01,e12,E1,F1,REVEALS,"mention_pairs=[[""m2"",""m1""]]; evidence_spans=[[430,530]]; char_start=430; char_end=530; evidence_text=other obvious abnormalities. The laboratory results were as follows: WBC, 12.65 x 109/L; neutrophils; confianca=0.9843"
+PMC11368112_01,e13,E2,R1,HAS_RESULT,"mention_pairs=[[""m3"",""m4""]]; evidence_spans=[[532,554]]; char_start=532; char_end=554; evidence_text=85%; CRP, 65 mg/L; ESR; confianca=0.8842"
+PMC11368112_01,e14,E3,R2,HAS_RESULT,"mention_pairs=[[""m6"",""m5""]]; evidence_spans=[[556,576]]; char_start=556; char_end=576; evidence_text=55 mm/h; and D-dimer; confianca=0.9666"
+PMC11368112_01,e15,E3,R3,HAS_RESULT,"mention_pairs=[[""m6"",""m7""]]; evidence_spans=[[569,588]]; char_start=569; char_end=588; evidence_text=D-dimer, 26.12 mg/L; confianca=0.8853"
+PMC11368112_01,e16,S1,A1,LOCATED_IN,"mention_pairs=[[""m10"",""m11""]]; evidence_spans=[[1409,1464]]; char_start=1409; char_end=1464; evidence_text=similar high fever two months earlier following cardiac; confianca=0.9681"
+PMC11368112_01,e17,D1,C1,SAME_AS,
+PMC11368112_01,e18,S1,C2,SAME_AS,
+PMC11368112_01,e19,A1,C3,SAME_AS,
+PMC11368112_01,e20,E5,C4,SAME_AS,
+PMC11368112_01,e21,M1,C5,SAME_AS,
+PMC11368112_01,e22,M2,C6,SAME_AS,

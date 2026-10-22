@@ -1,0 +1,31 @@
+case_id,node_id,type,label,attributes
+PMC7718649_01,P1,Patient,case PMC7718649_01,
+PMC7718649_01,M1,Medication,sle is prednisone (10 mg,"polarity=present; mentions=m1|m4|m13; mention_texts=[""SLE is prednisone (10 mg"",""dose of prednisone (25 mg"",""Prednisone (25 mg""]; spans=[[89,113],[1629,1654],[3343,3360]]; char_start=89; char_end=113; evidence_text=SLE is prednisone (10 mg; mesh=D011241; confianca=1.0"
+PMC7718649_01,M2,Medication,oseltamivir 75 mg,"polarity=present; mentions=m2; mention_texts=[""oseltamivir 75 mg""]; spans=[[826,843]]; char_start=826; char_end=843; evidence_text=oseltamivir 75 mg; mesh=D053139; confianca=1.0"
+PMC7718649_01,E1,Exam,ct,"polarity=present; mentions=m3|m5|m16|m20; mention_texts=[""CT"",""CT"",""CT"",""CT""]; spans=[[1393,1395],[1964,1966],[3862,3864],[4753,4755]]; char_start=1393; char_end=1395; evidence_text=CT; confianca=0.6624"
+PMC7718649_01,S1,Symptom,mild coughing,"polarity=present; mentions=m6; mention_texts=[""mild coughing""]; spans=[[2417,2430]]; char_start=2417; char_end=2430; evidence_text=mild coughing; confianca=0.4705"
+PMC7718649_01,A1,AnatomicalSite,inhalation (3 l/min) through nasal catheter,"polarity=present; mentions=m7; mention_texts=[""inhalation (3 L/min) through nasal catheter""]; spans=[[2688,2731]]; char_start=2688; char_end=2731; evidence_text=inhalation (3 L/min) through nasal catheter; mesh=ANAT029; confianca=1.0"
+PMC7718649_01,R1,ExamResult,98%,"polarity=present; mentions=m8; mention_texts=[""98%""]; spans=[[2736,2739]]; char_start=2736; char_end=2739; evidence_text=98%; confianca=0.3967"
+PMC7718649_01,M3,Medication,glycosylated hemoglobin,"polarity=present; mentions=m9; mention_texts=[""Glycosylated hemoglobin""]; spans=[[3080,3103]]; char_start=3080; char_end=3103; evidence_text=Glycosylated hemoglobin; mesh=D006442; confianca=1.0"
+PMC7718649_01,R2,ExamResult,7.1%,"polarity=present; mentions=m10; mention_texts=[""7.1%""]; spans=[[3108,3112]]; char_start=3108; char_end=3112; evidence_text=7.1%; confianca=0.2952"
+PMC7718649_01,M4,Medication,postprandial blood sugar was higher than,"polarity=present; mentions=m11; mention_texts=[""postprandial blood sugar was higher than""]; spans=[[3118,3158]]; char_start=3118; char_end=3158; evidence_text=postprandial blood sugar was higher than; mesh=D001786; confianca=1.0"
+PMC7718649_01,R3,ExamResult,11.1 mmol/l,"polarity=present; mentions=m12; mention_texts=[""11.1 mmol/L""]; spans=[[3159,3170]]; char_start=3159; char_end=3170; evidence_text=11.1 mmol/L; confianca=0.2999"
+PMC7718649_01,M5,Medication,pantoprazole (40 mg,"polarity=present; mentions=m14; mention_texts=[""Pantoprazole (40 mg""]; spans=[[3485,3504]]; char_start=3485; char_end=3504; evidence_text=Pantoprazole (40 mg; mesh=D000077402; confianca=1.0"
+PMC7718649_01,M6,Medication,acarbose (50 mg,"polarity=present; mentions=m15; mention_texts=[""acarbose (50 mg""]; spans=[[3694,3709]]; char_start=3694; char_end=3709; evidence_text=acarbose (50 mg; mesh=D020909; confianca=1.0"
+PMC7718649_01,O1,Outcome,improved,"polarity=present; mentions=m17|m19|m22|m28; mention_texts=[""improved"",""improved"",""improved"",""improved""]; spans=[[4168,4176],[4254,4262],[4902,4910],[5707,5715]]; char_start=4168; char_end=4176; evidence_text=improved; confianca=0.7787"
+PMC7718649_01,D1,Diagnosis,was reduced to 15 mg,"polarity=present; mentions=m18; mention_texts=[""was reduced to 15 mg""]; spans=[[4209,4229]]; char_start=4209; char_end=4229; evidence_text=was reduced to 15 mg; confianca=0.1724"
+PMC7718649_01,R4,ExamResult,then reduced to 10 mg,"polarity=present; mentions=m21; mention_texts=[""then reduced to 10 mg""]; spans=[[4856,4877]]; char_start=4856; char_end=4877; evidence_text=then reduced to 10 mg; confianca=0.1878"
+PMC7718649_01,S2,Symptom,and loxoprofen (60 mg,"polarity=present; mentions=m23; mention_texts=[""and loxoprofen (60 mg""]; spans=[[5080,5101]]; char_start=5080; char_end=5101; evidence_text=and loxoprofen (60 mg; confianca=0.1743"
+PMC7718649_01,O2,Outcome,improvement,"polarity=present; mentions=m24|m29; mention_texts=[""improvement"",""improvement""]; spans=[[5287,5298],[5751,5762]]; char_start=5287; char_end=5298; evidence_text=improvement; confianca=1.0"
+PMC7718649_01,M7,Medication,immunoglobulin g (igg) of sars-cov-2 were,"polarity=present; mentions=m25; mention_texts=[""immunoglobulin G (IgG) of SARS-CoV-2 were""]; spans=[[5434,5475]]; char_start=5434; char_end=5475; evidence_text=immunoglobulin G (IgG) of SARS-CoV-2 were; mesh=D007074; confianca=1.0"
+PMC7718649_01,R5,ExamResult,au/ml (normal range: <=10 au/ml) and,"polarity=present; mentions=m26; mention_texts=[""AU/mL (normal range: <=10 AU/mL) and""]; spans=[[5482,5518]]; char_start=5482; char_end=5518; evidence_text=AU/mL (normal range: <=10 AU/mL) and; confianca=0.2239"
+PMC7718649_01,R6,ExamResult,198.77 au/ml,"polarity=present; mentions=m27; mention_texts=[""198.77 AU/mL""]; spans=[[5519,5531]]; char_start=5519; char_end=5531; evidence_text=198.77 AU/mL; confianca=0.3471"
+PMC7718649_01,O3,Outcome,discharged,"polarity=present; mentions=m30; mention_texts=[""discharged""]; spans=[[5887,5897]]; char_start=5887; char_end=5897; evidence_text=discharged; confianca=0.7122"
+PMC7718649_01,C1,Concept,D011241,code=D011241; vocabulary=MeSH
+PMC7718649_01,C2,Concept,D053139,code=D053139; vocabulary=MeSH
+PMC7718649_01,C3,Concept,ANAT029,code=ANAT029; vocabulary=AnatomicalSite
+PMC7718649_01,C4,Concept,D006442,code=D006442; vocabulary=MeSH
+PMC7718649_01,C5,Concept,D001786,code=D001786; vocabulary=MeSH
+PMC7718649_01,C6,Concept,D000077402,code=D000077402; vocabulary=MeSH
+PMC7718649_01,C7,Concept,D020909,code=D020909; vocabulary=MeSH
+PMC7718649_01,C8,Concept,D007074,code=D007074; vocabulary=MeSH

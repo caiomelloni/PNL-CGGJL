@@ -1,0 +1,31 @@
+case_id,node_id,type,label,attributes
+PMC11722600_02,P1,Patient,case PMC11722600_02,
+PMC11722600_02,A1,AnatomicalSite,pelvic,"polarity=present; mentions=m1; mention_texts=[""pelvic""]; spans=[[176,182]]; char_start=176; char_end=182; evidence_text=pelvic; mesh=ANAT051; confianca=1.0"
+PMC11722600_02,S1,Symptom,"abdominal pain for 72 h, initially in the epigastrium and later localized in rif","polarity=present; mentions=m2; mention_texts=[""abdominal pain for 72 h, initially in the epigastrium and later localized in RIF""]; spans=[[234,314]]; char_start=234; char_end=314; evidence_text=abdominal pain for 72 h, initially in the epigastrium and later localized in RIF; mesh=D015746; confianca=1.0"
+PMC11722600_02,S2,Symptom,oral intolerance,"polarity=present; mentions=m3; mention_texts=[""oral intolerance""]; spans=[[332,348]]; char_start=332; char_end=348; evidence_text=oral intolerance; confianca=0.4066"
+PMC11722600_02,A2,AnatomicalSite,abdominal,"polarity=present; mentions=m4; mention_texts=[""abdominal""]; spans=[[460,469]]; char_start=460; char_end=469; evidence_text=abdominal; mesh=ANAT033; confianca=1.0"
+PMC11722600_02,F1,Finding,localized tenderness,"polarity=present; mentions=m5; mention_texts=[""localized tenderness""]; spans=[[488,508]]; char_start=488; char_end=508; evidence_text=localized tenderness; confianca=1.0"
+PMC11722600_02,D1,Diagnosis,laboratory tests indicated leukocytosis with,"polarity=present; mentions=m6; mention_texts=[""Laboratory tests indicated leukocytosis with""]; spans=[[645,689]]; char_start=645; char_end=689; evidence_text=Laboratory tests indicated leukocytosis with; mesh=D007964; confianca=1.0"
+PMC11722600_02,R1,ExamResult,"17,200/mm3","polarity=present; mentions=m7; mention_texts=[""17,200/mm3""]; spans=[[690,700]]; char_start=690; char_end=700; evidence_text=17,200/mm3; confianca=0.2677"
+PMC11722600_02,R2,ExamResult,crp at 85 mg,"polarity=present; mentions=m8; mention_texts=[""CRP at 85 mg""]; spans=[[741,753]]; char_start=741; char_end=753; evidence_text=CRP at 85 mg; confianca=0.2383"
+PMC11722600_02,D2,Diagnosis,acute appendicitis was made,"polarity=present; mentions=m9|m13; mention_texts=[""acute appendicitis was made"",""advanced appendicitis""]; spans=[[798,825],[1051,1072]]; char_start=798; char_end=825; evidence_text=acute appendicitis was made; mesh=D001064; confianca=1.0"
+PMC11722600_02,A3,AnatomicalSite,pelvic ct revealed an enlarged cecal appendix measuring in diameter with marked inflammatory process around the cecum,"polarity=present; mentions=m10|m12; mention_texts=[""pelvic CT revealed an enlarged cecal appendix measuring 17 mm in diameter with marked inflammatory process around the cecum"",""appendiceal phlegmon""]; spans=[[848,971],[1009,1029]]; char_start=848; char_end=971; evidence_text=pelvic CT revealed an enlarged cecal appendix measuring 17 mm in diameter with marked inflammatory process around the cecum; size=17 mm; mesh=ANAT020; confianca=1.0"
+PMC11722600_02,D3,Diagnosis,terminal ileum,"polarity=present; mentions=m11; mention_texts=[""terminal ileum""]; spans=[[976,990]]; char_start=976; char_end=990; evidence_text=terminal ileum; confianca=0.2231"
+PMC11722600_02,M1,Medication,non-operative treatment with intravenous antibiotics was initially indicated,"polarity=present; mentions=m14; mention_texts=[""non-operative treatment with intravenous antibiotics was initially indicated""]; spans=[[1074,1150]]; char_start=1074; char_end=1150; evidence_text=non-operative treatment with intravenous antibiotics was initially indicated; mesh=D000900; confianca=1.0"
+PMC11722600_02,O1,Outcome,improved,"polarity=present; mentions=m15; mention_texts=[""improved""]; spans=[[1745,1753]]; char_start=1745; char_end=1753; evidence_text=improved; confianca=0.7581"
+PMC11722600_02,O2,Outcome,discharged,"polarity=present; mentions=m16|m20; mention_texts=[""discharged"",""discharged""]; spans=[[1762,1772],[2592,2602]]; char_start=1762; char_end=1772; evidence_text=discharged; confianca=0.7201"
+PMC11722600_02,E1,Exam,ct,"polarity=present; mentions=m17|m19; mention_texts=[""CT"",""CT""]; spans=[[1822,1824],[1985,1987]]; char_start=1822; char_end=1824; evidence_text=CT; confianca=0.6273"
+PMC11722600_02,T1,Treatment,drainage,"polarity=present; mentions=m18; mention_texts=[""drainage""]; spans=[[1858,1866]]; char_start=1858; char_end=1866; evidence_text=drainage; mesh=D004322; confianca=1.0"
+PMC11722600_02,O3,Outcome,complications,"polarity=absent; mentions=m21; mention_texts=[""complications""]; spans=[[2642,2655]]; char_start=2642; char_end=2655; evidence_text=complications; confianca=0.2198"
+PMC11722600_02,A4,AnatomicalSite,uterine,"polarity=present; mentions=m22; mention_texts=[""uterine""]; spans=[[3097,3104]]; char_start=3097; char_end=3104; evidence_text=uterine; mesh=ANAT015; confianca=1.0"
+PMC11722600_02,D4,Diagnosis,recent bleeding,"polarity=present; mentions=m23; mention_texts=[""recent bleeding""]; spans=[[3125,3140]]; char_start=3125; char_end=3140; evidence_text=recent bleeding; mesh=D006470; confianca=1.0"
+PMC11722600_02,C1,Concept,ANAT051,code=ANAT051; vocabulary=AnatomicalSite
+PMC11722600_02,C2,Concept,D015746,code=D015746; vocabulary=MeSH
+PMC11722600_02,C3,Concept,ANAT033,code=ANAT033; vocabulary=AnatomicalSite
+PMC11722600_02,C4,Concept,D007964,code=D007964; vocabulary=MeSH
+PMC11722600_02,C5,Concept,D001064,code=D001064; vocabulary=MeSH
+PMC11722600_02,C6,Concept,ANAT020,code=ANAT020; vocabulary=AnatomicalSite
+PMC11722600_02,C7,Concept,D000900,code=D000900; vocabulary=MeSH
+PMC11722600_02,C8,Concept,D004322,code=D004322; vocabulary=MeSH
+PMC11722600_02,C9,Concept,ANAT015,code=ANAT015; vocabulary=AnatomicalSite
+PMC11722600_02,C10,Concept,D006470,code=D006470; vocabulary=MeSH

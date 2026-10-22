@@ -1,0 +1,9 @@
+case_id,node_id,type,label,attributes
+PMC11131390_01,P1,Patient,case PMC11131390_01,
+PMC11131390_01,E1,Exam,diagnosis of gd: trabs = 16.3,"polarity=present; mentions=m1; mention_texts=[""diagnosis of GD: TRAbs = 16.3""]; spans=[[460,489]]; char_start=460; char_end=489; evidence_text=diagnosis of GD: TRAbs = 16.3; mesh=D003933; confianca=1.0"
+PMC11131390_01,R1,ExamResult,a dose of 5 mg,"polarity=present; mentions=m2; mention_texts=[""a dose of 5 mg""]; spans=[[980,994]]; char_start=980; char_end=994; evidence_text=a dose of 5 mg; confianca=0.1987"
+PMC11131390_01,E2,Exam,trabs,"polarity=present; mentions=m3; mention_texts=[""TRAbs""]; spans=[[1540,1545]]; char_start=1540; char_end=1545; evidence_text=TRAbs; confianca=0.2005"
+PMC11131390_01,R2,ExamResult,3.3 iu/l,"polarity=present; mentions=m4; mention_texts=[""3.3 IU/L""]; spans=[[1550,1558]]; char_start=1550; char_end=1558; evidence_text=3.3 IU/L; confianca=0.4111"
+PMC11131390_01,D1,Diagnosis,"4 kg weight gain (67-71 kg) and severe biochemical hypothyroidism, tsh = 73.5","polarity=present; mentions=m5; mention_texts=[""4 kg weight gain (67-71 kg) and severe biochemical hypothyroidism, TSH = 73.5""]; spans=[[1634,1711]]; char_start=1634; char_end=1711; evidence_text=4 kg weight gain (67-71 kg) and severe biochemical hypothyroidism, TSH = 73.5; mesh=D007037; confianca=1.0"
+PMC11131390_01,C1,Concept,D003933,code=D003933; vocabulary=MeSH
+PMC11131390_01,C2,Concept,D007037,code=D007037; vocabulary=MeSH

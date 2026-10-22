@@ -1,0 +1,58 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC9529523_01,e1,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[208,211]]; char_start=208; char_end=211; evidence_text=SLE; confianca=1.0"
+PMC9529523_01,e2,P1,T1,TREATED_WITH,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[658,666]]; char_start=658; char_end=666; evidence_text=drainage; confianca=1.0"
+PMC9529523_01,e3,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[912,922]]; char_start=912; char_end=922; evidence_text=IgG levels; confianca=1.0"
+PMC9529523_01,e4,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m5""]]; evidence_spans=[[1422,1440]]; char_start=1422; char_end=1440; evidence_text=C-reactive protein; confianca=1.0"
+PMC9529523_01,e5,P1,M2,TREATED_WITH,"mention_pairs=[[""P1"",""m7""],[""P1"",""m13""],[""P1"",""m15""],[""P1"",""m44""]]; evidence_spans=[[1665,1701],[2368,2402],[2433,2480],[5054,5088]]; char_start=1665; char_end=1701; evidence_text=started on hydroxychloroquine 300 mg; confianca=1.0"
+PMC9529523_01,e6,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m8""]]; evidence_spans=[[2203,2234]]; char_start=2203; char_end=2234; evidence_text=rise in her serum creatinine to; confianca=1.0"
+PMC9529523_01,e7,P1,E3,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m11""]]; evidence_spans=[[2307,2309]]; char_start=2307; char_end=2309; evidence_text=C3; confianca=1.0"
+PMC9529523_01,e8,P1,E4,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m17""]]; evidence_spans=[[2616,2637]]; char_start=2616; char_end=2637; evidence_text=was dropped to 200 mg; confianca=1.0"
+PMC9529523_01,e9,P1,E5,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m18""],[""P1"",""m42""]]; evidence_spans=[[2755,2761],[4814,4820]]; char_start=2755; char_end=2761; evidence_text=biopsy; confianca=1.0"
+PMC9529523_01,e10,P1,D2,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m19""]]; evidence_spans=[[2820,2842]]; char_start=2820; char_end=2842; evidence_text=malignant hypertension; confianca=1.0"
+PMC9529523_01,e11,P1,D3,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m20""]]; evidence_spans=[[2847,2887]]; char_start=2847; char_end=2887; evidence_text=chronic thrombotic microangiopathy (TMA); confianca=1.0"
+PMC9529523_01,e12,P1,E6,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m21""]]; evidence_spans=[[2953,2976]]; char_start=2953; char_end=2976; evidence_text=a forced vital capacity; confianca=1.0"
+PMC9529523_01,e13,P1,E7,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m23""]]; evidence_spans=[[2991,3017]]; char_start=2991; char_end=3017; evidence_text=forced expiratory volume 1; confianca=1.0"
+PMC9529523_01,e14,P1,E8,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m25""]]; evidence_spans=[[3037,3045]]; char_start=3037; char_end=3045; evidence_text=FEV1/FVC; confianca=1.0"
+PMC9529523_01,e15,P1,E9,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m27""]]; evidence_spans=[[3118,3137]]; char_start=3118; char_end=3137; evidence_text=was noted to be low; confianca=1.0"
+PMC9529523_01,e16,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m29""]]; evidence_spans=[[3164,3179]]; char_start=3164; char_end=3179; evidence_text=High-resolution; confianca=1.0"
+PMC9529523_01,e17,P1,E10,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m30""]]; evidence_spans=[[3180,3199]]; char_start=3180; char_end=3199; evidence_text=computed tomography; confianca=1.0"
+PMC9529523_01,e18,P1,E11,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m31""]]; evidence_spans=[[3464,3474]]; char_start=3464; char_end=3474; evidence_text=inhibitors; confianca=1.0"
+PMC9529523_01,e19,P1,E12,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m35""]]; evidence_spans=[[3856,3882]]; char_start=3856; char_end=3882; evidence_text=magnetic resonance imaging; confianca=1.0"
+PMC9529523_01,e20,P1,E13,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m36""]]; evidence_spans=[[4464,4508]]; char_start=4464; char_end=4508; evidence_text=Left ventricular ejection fraction (LVEF) to; confianca=1.0"
+PMC9529523_01,e21,P1,E14,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m38""]]; evidence_spans=[[4514,4547]]; char_start=4514; char_end=4547; evidence_text=pericardiocentesis yielded 860 ml; confianca=1.0"
+PMC9529523_01,e22,P1,E15,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m40""]]; evidence_spans=[[4668,4670]]; char_start=4668; char_end=4670; evidence_text=C4; confianca=1.0"
+PMC9529523_01,e23,P1,E16,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m43""]]; evidence_spans=[[4988,5052]]; char_start=4988; char_end=5052; evidence_text=hydroxychloroquine-induced cardiomyopathy on electron microscopy; confianca=1.0"
+PMC9529523_01,e24,P1,O2,HAS_OUTCOME,"mention_pairs=[[""P1"",""m46""]]; evidence_spans=[[5239,5250]]; char_start=5239; char_end=5250; evidence_text=improvement; confianca=1.0"
+PMC9529523_01,e25,E1,R2,HAS_RESULT,"mention_pairs=[[""m5"",""m6""]]; evidence_spans=[[1422,1460]]; char_start=1422; char_end=1460; evidence_text=C-reactive protein (CRP) was 6.2 mg/dL; confianca=0.8796"
+PMC9529523_01,e26,E2,R3,HAS_RESULT,"mention_pairs=[[""m8"",""m9""]]; evidence_spans=[[2203,2245]]; char_start=2203; char_end=2245; evidence_text=rise in her serum creatinine to 2.14 mg/dL; confianca=0.8586"
+PMC9529523_01,e27,E3,R4,HAS_RESULT,"mention_pairs=[[""m11"",""m10""]]; evidence_spans=[[2265,2309]]; char_start=2265; char_end=2309; evidence_text=1.0 mg/dL. Repeated serologies showed low C3; confianca=0.9591"
+PMC9529523_01,e28,E3,R5,HAS_RESULT,"mention_pairs=[[""m11"",""m12""]]; evidence_spans=[[2307,2319]]; char_start=2307; char_end=2319; evidence_text=C3 (61 mg/dL; confianca=0.8905"
+PMC9529523_01,e29,E4,R7,HAS_RESULT,"mention_pairs=[[""m17"",""m16""]]; evidence_spans=[[2481,2637]]; char_start=2481; char_end=2637; evidence_text=1000 ng/mL). The ophthalmological exam at that time was normal. The patient was referred to nephrology and the hydroxychloroquine dose was dropped to 200 mg; confianca=0.9046"
+PMC9529523_01,e30,E7,R8,HAS_RESULT,"mention_pairs=[[""m23"",""m22""]]; evidence_spans=[[2986,3017]]; char_start=2986; char_end=3017; evidence_text=78%, forced expiratory volume 1; confianca=0.9795"
+PMC9529523_01,e31,E8,R9,HAS_RESULT,"mention_pairs=[[""m25"",""m24""]]; evidence_spans=[[3028,3045]]; char_start=3028; char_end=3045; evidence_text=83%, and FEV1/FVC; confianca=0.9677"
+PMC9529523_01,e32,E8,R10,HAS_RESULT,"mention_pairs=[[""m25"",""m26""]]; evidence_spans=[[3037,3053]]; char_start=3037; char_end=3053; evidence_text=FEV1/FVC of 107%; confianca=0.9156"
+PMC9529523_01,e33,E9,R11,HAS_RESULT,"mention_pairs=[[""m27"",""m28""]]; evidence_spans=[[3118,3145]]; char_start=3118; char_end=3145; evidence_text=was noted to be low, at 37%; confianca=0.9032"
+PMC9529523_01,e34,E11,R12,HAS_RESULT,"mention_pairs=[[""m31"",""m32""]]; evidence_spans=[[3464,3479]]; char_start=3464; char_end=3479; evidence_text=inhibitors 125%; confianca=0.8832"
+PMC9529523_01,e35,F1,A1,LOCATED_IN,"mention_pairs=[[""m33"",""m34""]]; evidence_spans=[[3757,3855]]; char_start=3757; char_end=3855; evidence_text=abnormalities, transthoracic echocardiography showed severe biventricular hypertrophy, and cardiac; confianca=0.9722"
+PMC9529523_01,e36,E12,F1,REVEALS,"mention_pairs=[[""m35"",""m33""]]; evidence_spans=[[3757,3882]]; char_start=3757; char_end=3882; evidence_text=abnormalities, transthoracic echocardiography showed severe biventricular hypertrophy, and cardiac magnetic resonance imaging; confianca=0.9897"
+PMC9529523_01,e37,E14,R13,HAS_RESULT,"mention_pairs=[[""m38"",""m37""]]; evidence_spans=[[4509,4547]]; char_start=4509; char_end=4547; evidence_text=10%, pericardiocentesis yielded 860 ml; confianca=0.9795"
+PMC9529523_01,e38,E15,F2,REVEALS,"mention_pairs=[[""m40"",""m39""]]; evidence_spans=[[4642,4670]]; char_start=4642; char_end=4670; evidence_text=malignancy. C3 was 67 and C4; confianca=0.9853"
+PMC9529523_01,e39,E15,R14,HAS_RESULT,"mention_pairs=[[""m40"",""m41""]]; evidence_spans=[[4668,4683]]; char_start=4668; char_end=4683; evidence_text=C4 was 17 mg/dL; confianca=0.9518"
+PMC9529523_01,e40,E16,R15,HAS_RESULT,"mention_pairs=[[""m43"",""m45""]]; evidence_spans=[[4988,5102]]; char_start=4988; char_end=5102; evidence_text=hydroxychloroquine-induced cardiomyopathy on electron microscopy. The serum hydroxychloroquine level was 274 ng/ml; confianca=0.6163"
+PMC9529523_01,e41,T1,C1,SAME_AS,
+PMC9529523_01,e42,M1,C2,SAME_AS,
+PMC9529523_01,e43,E1,C3,SAME_AS,
+PMC9529523_01,e44,M2,C4,SAME_AS,
+PMC9529523_01,e45,E2,C5,SAME_AS,
+PMC9529523_01,e46,E5,C6,SAME_AS,
+PMC9529523_01,e47,D2,C7,SAME_AS,
+PMC9529523_01,e48,D3,C8,SAME_AS,
+PMC9529523_01,e49,E6,C9,SAME_AS,
+PMC9529523_01,e50,E7,C10,SAME_AS,
+PMC9529523_01,e51,E10,C11,SAME_AS,
+PMC9529523_01,e52,A1,C12,SAME_AS,
+PMC9529523_01,e53,E12,C13,SAME_AS,
+PMC9529523_01,e54,E13,C14,SAME_AS,
+PMC9529523_01,e55,E14,C15,SAME_AS,
+PMC9529523_01,e56,F2,C16,SAME_AS,
+PMC9529523_01,e57,E16,C17,SAME_AS,

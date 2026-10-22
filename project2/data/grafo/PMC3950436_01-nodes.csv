@@ -1,0 +1,18 @@
+case_id,node_id,type,label,attributes
+PMC3950436_01,P1,Patient,case PMC3950436_01,
+PMC3950436_01,O1,Outcome,recurrence,"polarity=present; mentions=m1; mention_texts=[""recurrence""]; spans=[[467,477]]; char_start=467; char_end=477; evidence_text=recurrence; mesh=D012008; confianca=1.0"
+PMC3950436_01,S1,Symptom,daughter,"polarity=present; mentions=m2; mention_texts=[""daughter""]; spans=[[1080,1088]]; char_start=1080; char_end=1088; evidence_text=daughter; confianca=0.4721"
+PMC3950436_01,E1,Exam,oxygen hemoglobin saturation,"polarity=present; mentions=m3; mention_texts=[""oxygen hemoglobin saturation""]; spans=[[1446,1474]]; char_start=1446; char_end=1474; evidence_text=oxygen hemoglobin saturation; mesh=D006454; confianca=1.0"
+PMC3950436_01,R1,ExamResult,98%,"polarity=present; mentions=m4|m12; mention_texts=[""98%"",""98%""]; spans=[[1475,1478],[2242,2245]]; char_start=1475; char_end=1478; evidence_text=98%; confianca=0.4174"
+PMC3950436_01,D1,Diagnosis,a dose of 120 mg,"polarity=present; mentions=m5; mention_texts=[""a dose of 120 mg""]; spans=[[1550,1566]]; char_start=1550; char_end=1566; evidence_text=a dose of 120 mg; confianca=0.199"
+PMC3950436_01,R2,ExamResult,diluted in 10 ml,"polarity=present; mentions=m6|m8; mention_texts=[""diluted in 10 ml"",""diluted in 10 ml""]; spans=[[1577,1593],[1776,1792]]; char_start=1577; char_end=1593; evidence_text=diluted in 10 ml; confianca=0.2535"
+PMC3950436_01,S2,Symptom,by administration of 80 mcg,"polarity=present; mentions=m7; mention_texts=[""by administration of 80 mcg""]; spans=[[1673,1700]]; char_start=1673; char_end=1700; evidence_text=by administration of 80 mcg; confianca=0.1516"
+PMC3950436_01,E2,Exam,emla 5 g cream,"polarity=present; mentions=m9; mention_texts=[""EMLA 5 g cream""]; spans=[[1808,1822]]; char_start=1808; char_end=1822; evidence_text=EMLA 5 g cream; confianca=0.2286"
+PMC3950436_01,R3,ExamResult,5%,"polarity=present; mentions=m10; mention_texts=[""5%""]; spans=[[1823,1825]]; char_start=1823; char_end=1825; evidence_text=5%; confianca=0.2826"
+PMC3950436_01,E3,Exam,o2 sat,"polarity=present; mentions=m11; mention_texts=[""O2 Sat""]; spans=[[2234,2240]]; char_start=2234; char_end=2240; evidence_text=O2 Sat; confianca=0.2513"
+PMC3950436_01,E4,Exam,a 24g,"polarity=present; mentions=m13; mention_texts=[""A 24G""]; spans=[[2247,2252]]; char_start=2247; char_end=2252; evidence_text=A 24G; confianca=0.1798"
+PMC3950436_01,M1,Medication,5 ml lidocaine,"polarity=present; mentions=m14; mention_texts=[""5 ml lidocaine""]; spans=[[2346,2360]]; char_start=2346; char_end=2360; evidence_text=5 ml lidocaine; mesh=D008012; confianca=1.0"
+PMC3950436_01,R4,ExamResult,1%,"polarity=present; mentions=m15; mention_texts=[""1%""]; spans=[[2361,2363]]; char_start=2361; char_end=2363; evidence_text=1%; confianca=0.3103"
+PMC3950436_01,C1,Concept,D012008,code=D012008; vocabulary=MeSH
+PMC3950436_01,C2,Concept,D006454,code=D006454; vocabulary=MeSH
+PMC3950436_01,C3,Concept,D008012,code=D008012; vocabulary=MeSH

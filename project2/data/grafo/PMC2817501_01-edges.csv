@@ -1,0 +1,6 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC2817501_01,e1,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[749,785]]; char_start=749; char_end=785; evidence_text=a left ventricular ejection fraction; confianca=1.0"
+PMC2817501_01,e2,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[914,922]]; char_start=914; char_end=922; evidence_text=Coronary; confianca=1.0"
+PMC2817501_01,e3,E1,R1,HAS_RESULT,"mention_pairs=[[""m1"",""m2""]]; evidence_spans=[[749,792]]; char_start=749; char_end=792; evidence_text=a left ventricular ejection fraction of 30%; confianca=0.8906"
+PMC2817501_01,e4,E2,R2,HAS_RESULT,"mention_pairs=[[""m3"",""m4""]]; evidence_spans=[[914,949]]; char_start=914; char_end=949; evidence_text=Coronary arteriography showed a 90%; confianca=0.8881"
+PMC2817501_01,e5,E1,C1,SAME_AS,

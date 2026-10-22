@@ -1,0 +1,10 @@
+case_id,node_id,type,label,attributes
+PMC11723754_01,P1,Patient,case PMC11723754_01,
+PMC11723754_01,O1,Outcome,improvement,"polarity=absent; mentions=m1; mention_texts=[""improvement""]; spans=[[644,655]]; char_start=644; char_end=655; evidence_text=improvement; confianca=1.0"
+PMC11723754_01,D1,Diagnosis,septicaemia,"polarity=present; mentions=m2; mention_texts=[""septicaemia""]; spans=[[1021,1032]]; char_start=1021; char_end=1032; evidence_text=septicaemia; confianca=0.3825"
+PMC11723754_01,T1,Treatment,prbc transfusion in view of low hb 7g/dl,"polarity=present; mentions=m3; mention_texts=[""PRBC transfusion in view of low Hb 7g/dl""]; spans=[[1065,1105]]; char_start=1065; char_end=1105; evidence_text=PRBC transfusion in view of low Hb 7g/dl; confianca=1.0"
+PMC11723754_01,O2,Outcome,improved,"polarity=present; mentions=m4; mention_texts=[""improved""]; spans=[[1285,1293]]; char_start=1285; char_end=1293; evidence_text=improved; confianca=0.7319"
+PMC11723754_01,E1,Exam,sensitivity reports after calculating creatinine clearance,"polarity=present; mentions=m5; mention_texts=[""sensitivity reports after calculating creatinine clearance""]; spans=[[1371,1429]]; char_start=1371; char_end=1429; evidence_text=sensitivity reports after calculating creatinine clearance; mesh=D003404; confianca=1.0"
+PMC11723754_01,O3,Outcome,improvement,"polarity=present; mentions=m6; mention_texts=[""improvement""]; spans=[[1677,1688]]; char_start=1677; char_end=1688; evidence_text=improvement; confianca=1.0"
+PMC11723754_01,O4,Outcome,discharged,"polarity=present; mentions=m7; mention_texts=[""discharged""]; spans=[[1837,1847]]; char_start=1837; char_end=1847; evidence_text=discharged; confianca=0.7317"
+PMC11723754_01,C1,Concept,D003404,code=D003404; vocabulary=MeSH

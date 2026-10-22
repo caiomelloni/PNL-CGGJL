@@ -1,0 +1,5 @@
+case_id,node_id,type,label,attributes
+PMC2700431_01,P1,Patient,case PMC2700431_01,
+PMC2700431_01,E1,Exam,radiograph,"polarity=present; mentions=m1; mention_texts=[""radiograph""]; spans=[[1198,1208]]; char_start=1198; char_end=1208; evidence_text=radiograph; confianca=1.0"
+PMC2700431_01,O1,Outcome,improved,"polarity=present; mentions=m2; mention_texts=[""improved""]; spans=[[1653,1661]]; char_start=1653; char_end=1661; evidence_text=improved; confianca=0.7605"
+PMC2700431_01,E2,Exam,expired,"polarity=present; mentions=m3; mention_texts=[""expired""]; spans=[[1701,1708]]; char_start=1701; char_end=1708; evidence_text=expired; confianca=0.1437"

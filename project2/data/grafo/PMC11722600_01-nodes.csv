@@ -1,0 +1,20 @@
+case_id,node_id,type,label,attributes
+PMC11722600_01,P1,Patient,case PMC11722600_01,
+PMC11722600_01,A1,AnatomicalSite,abdominal,"polarity=present; mentions=m1; mention_texts=[""abdominal""]; spans=[[363,372]]; char_start=363; char_end=372; evidence_text=abdominal; mesh=ANAT033; confianca=1.0"
+PMC11722600_01,F1,Finding,localized tenderness,"polarity=present; mentions=m2; mention_texts=[""localized tenderness""]; spans=[[391,411]]; char_start=391; char_end=411; evidence_text=localized tenderness; confianca=1.0"
+PMC11722600_01,F2,Finding,rebound tenderness,"polarity=absent; mentions=m3; mention_texts=[""rebound tenderness""]; spans=[[430,448]]; char_start=430; char_end=448; evidence_text=rebound tenderness; confianca=1.0"
+PMC11722600_01,E1,Exam,white blood cells,"polarity=present; mentions=m4; mention_texts=[""white blood cells""]; spans=[[553,570]]; char_start=553; char_end=570; evidence_text=white blood cells; confianca=0.2587"
+PMC11722600_01,R1,ExamResult,8800/mm3,"polarity=present; mentions=m5; mention_texts=[""8800/mm3""]; spans=[[574,582]]; char_start=574; char_end=582; evidence_text=8800/mm3; confianca=0.3487"
+PMC11722600_01,E2,Exam,c-reactive protein,"polarity=present; mentions=m6; mention_texts=[""C-reactive protein""]; spans=[[620,638]]; char_start=620; char_end=638; evidence_text=C-reactive protein; mesh=D002097; confianca=1.0"
+PMC11722600_01,R2,ExamResult,at 55 mg,"polarity=present; mentions=m7; mention_texts=[""at 55 mg""]; spans=[[645,653]]; char_start=645; char_end=653; evidence_text=at 55 mg; confianca=0.2902"
+PMC11722600_01,E3,Exam,erythrocyte sedimentation rate,"polarity=present; mentions=m8; mention_texts=[""erythrocyte sedimentation rate""]; spans=[[670,700]]; char_start=670; char_end=700; evidence_text=erythrocyte sedimentation rate; mesh=D001799; confianca=1.0"
+PMC11722600_01,R3,ExamResult,/h,"polarity=present; mentions=m9; mention_texts=[""29 mm/h""]; spans=[[704,711]]; char_start=704; char_end=711; evidence_text=29 mm/h; size=29 mm; confianca=0.2974"
+PMC11722600_01,E4,Exam,ultrasound,"polarity=present; mentions=m10; mention_texts=[""ultrasound""]; spans=[[817,827]]; char_start=817; char_end=827; evidence_text=ultrasound; confianca=1.0"
+PMC11722600_01,E5,Exam,ct,"polarity=present; mentions=m11; mention_texts=[""CT""]; spans=[[892,894]]; char_start=892; char_end=894; evidence_text=CT; confianca=0.6232"
+PMC11722600_01,O1,Outcome,discharged,"polarity=present; mentions=m12; mention_texts=[""discharged""]; spans=[[1665,1675]]; char_start=1665; char_end=1675; evidence_text=discharged; confianca=0.6734"
+PMC11722600_01,D1,Diagnosis,characteristic features,"polarity=present; mentions=m13; mention_texts=[""characteristic features""]; spans=[[1943,1966]]; char_start=1943; char_end=1966; evidence_text=characteristic features; confianca=0.249"
+PMC11722600_01,F3,Finding,malignancy,"polarity=absent; mentions=m14; mention_texts=[""malignancy""]; spans=[[2234,2244]]; char_start=2234; char_end=2244; evidence_text=malignancy; mesh=D009369; confianca=1.0"
+PMC11722600_01,C1,Concept,ANAT033,code=ANAT033; vocabulary=AnatomicalSite
+PMC11722600_01,C2,Concept,D002097,code=D002097; vocabulary=MeSH
+PMC11722600_01,C3,Concept,D001799,code=D001799; vocabulary=MeSH
+PMC11722600_01,C4,Concept,D009369,code=D009369; vocabulary=MeSH

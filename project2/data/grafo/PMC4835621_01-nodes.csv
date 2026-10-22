@@ -1,0 +1,45 @@
+case_id,node_id,type,label,attributes
+PMC4835621_01,P1,Patient,case PMC4835621_01,
+PMC4835621_01,D1,Diagnosis,recurrent headaches on a daily basis and profound fatigue and malaise during the past month,"polarity=present; mentions=m1; mention_texts=[""recurrent headaches on a daily basis and profound fatigue and malaise during the past month""]; spans=[[181,272]]; char_start=181; char_end=272; evidence_text=recurrent headaches on a daily basis and profound fatigue and malaise during the past month; mesh=D006261; confianca=1.0"
+PMC4835621_01,E1,Exam,count of 6100 per microliter with,"polarity=present; mentions=m2; mention_texts=[""count of 6100 per microliter with""]; spans=[[1633,1666]]; char_start=1633; char_end=1666; evidence_text=count of 6100 per microliter with; confianca=0.2212"
+PMC4835621_01,R1,ExamResult,73%,"polarity=present; mentions=m3; mention_texts=[""73%""]; spans=[[1667,1670]]; char_start=1667; char_end=1670; evidence_text=73%; confianca=0.2566"
+PMC4835621_01,E2,Exam,hemoglobin,"polarity=present; mentions=m4; mention_texts=[""hemoglobin""]; spans=[[1684,1694]]; char_start=1684; char_end=1694; evidence_text=hemoglobin; mesh=D006454; confianca=1.0"
+PMC4835621_01,R2,ExamResult,11.3 g/dl,"polarity=present; mentions=m5; mention_texts=[""11.3 g/dL""]; spans=[[1698,1707]]; char_start=1698; char_end=1707; evidence_text=11.3 g/dL; confianca=0.55"
+PMC4835621_01,E3,Exam,a reticulocyte count,"polarity=present; mentions=m6; mention_texts=[""a reticulocyte count""]; spans=[[1765,1785]]; char_start=1765; char_end=1785; evidence_text=a reticulocyte count; mesh=D017701; confianca=1.0"
+PMC4835621_01,R3,ExamResult,2.4%,"polarity=present; mentions=m7; mention_texts=[""2.4%""]; spans=[[1789,1793]]; char_start=1789; char_end=1793; evidence_text=2.4%; confianca=0.2754"
+PMC4835621_01,M1,Medication,lactate dehydrogenase (ldh) levels were elevated,"polarity=present; mentions=m8; mention_texts=[""Lactate dehydrogenase (LDH) levels were elevated""]; spans=[[2053,2101]]; char_start=2053; char_end=2101; evidence_text=Lactate dehydrogenase (LDH) levels were elevated; mesh=D007770; confianca=1.0"
+PMC4835621_01,R4,ExamResult,405 iu/l,"polarity=present; mentions=m9; mention_texts=[""405 IU/L""]; spans=[[2105,2113]]; char_start=2105; char_end=2113; evidence_text=405 IU/L; confianca=0.3969"
+PMC4835621_01,M2,Medication,serum haptoglobin was decreased,"polarity=present; mentions=m10; mention_texts=[""Serum haptoglobin was decreased""]; spans=[[2115,2146]]; char_start=2115; char_end=2146; evidence_text=Serum haptoglobin was decreased; mesh=D006242; confianca=1.0"
+PMC4835621_01,R5,ExamResult,15.30 mg/dl,"polarity=present; mentions=m11; mention_texts=[""15.30 mg/dL""]; spans=[[2148,2159]]; char_start=2148; char_end=2159; evidence_text=15.30 mg/dL; confianca=0.5234"
+PMC4835621_01,E4,Exam,adamts13 activity test was less than,"polarity=present; mentions=m12; mention_texts=[""ADAMTS13 activity test was less than""]; spans=[[2223,2259]]; char_start=2223; char_end=2259; evidence_text=ADAMTS13 activity test was less than; confianca=0.249"
+PMC4835621_01,R6,ExamResult,10%,"polarity=present; mentions=m13; mention_texts=[""10%""]; spans=[[2260,2263]]; char_start=2260; char_end=2263; evidence_text=10%; confianca=0.3772"
+PMC4835621_01,E5,Exam,biopsy,"polarity=present; mentions=m14; mention_texts=[""biopsy""]; spans=[[2311,2317]]; char_start=2311; char_end=2317; evidence_text=biopsy; mesh=D001706; confianca=1.0"
+PMC4835621_01,D2,Diagnosis,ttp was made,"polarity=present; mentions=m15; mention_texts=[""TTP was made""]; spans=[[2452,2464]]; char_start=2452; char_end=2464; evidence_text=TTP was made; confianca=0.6224"
+PMC4835621_01,F1,Finding,underling malignancy,"polarity=present; mentions=m16; mention_texts=[""underling malignancy""]; spans=[[2589,2609]]; char_start=2589; char_end=2609; evidence_text=underling malignancy; mesh=D009369; confianca=1.0"
+PMC4835621_01,E6,Exam,computed tomography,"polarity=present; mentions=m17; mention_texts=[""computed tomography""]; spans=[[2612,2631]]; char_start=2612; char_end=2631; evidence_text=computed tomography; mesh=D014054; confianca=1.0"
+PMC4835621_01,A1,AnatomicalSite,chest,"polarity=present; mentions=m18; mention_texts=[""chest""]; spans=[[2649,2654]]; char_start=2649; char_end=2654; evidence_text=chest; mesh=ANAT032; confianca=1.0"
+PMC4835621_01,A2,AnatomicalSite,abdomen,"polarity=present; mentions=m19; mention_texts=[""abdomen""]; spans=[[2659,2666]]; char_start=2659; char_end=2666; evidence_text=abdomen; mesh=ANAT033; confianca=1.0"
+PMC4835621_01,A3,AnatomicalSite,stomach,"polarity=present; mentions=m20; mention_texts=[""stomach""]; spans=[[2741,2748]]; char_start=2741; char_end=2748; evidence_text=stomach; mesh=ANAT001; confianca=1.0"
+PMC4835621_01,O1,Outcome,improvement,"polarity=absent; mentions=m21; mention_texts=[""improvement""]; spans=[[3103,3114]]; char_start=3103; char_end=3114; evidence_text=improvement; confianca=1.0"
+PMC4835621_01,D3,Diagnosis,gastritis,"polarity=present; mentions=m22; mention_texts=[""gastritis""]; spans=[[3403,3412]]; char_start=3403; char_end=3412; evidence_text=gastritis; mesh=D005756; confianca=1.0"
+PMC4835621_01,E7,Exam,levels were decreased after triple-therapy completion,"polarity=present; mentions=m23; mention_texts=[""levels were decreased after triple-therapy completion""]; spans=[[3850,3903]]; char_start=3850; char_end=3903; evidence_text=levels were decreased after triple-therapy completion; confianca=0.3564"
+PMC4835621_01,R7,ExamResult,2.5%,"polarity=present; mentions=m24; mention_texts=[""2.5%""]; spans=[[3904,3908]]; char_start=3904; char_end=3908; evidence_text=2.5%; confianca=0.267"
+PMC4835621_01,R8,ExamResult,0.7%,"polarity=present; mentions=m25; mention_texts=[""0.7%""]; spans=[[3916,3920]]; char_start=3916; char_end=3920; evidence_text=0.7%; confianca=0.2626"
+PMC4835621_01,R9,ExamResult,302 iu/l versus,"polarity=present; mentions=m26; mention_texts=[""302 IU/L versus""]; spans=[[3925,3940]]; char_start=3925; char_end=3940; evidence_text=302 IU/L versus; confianca=0.2757"
+PMC4835621_01,R10,ExamResult,182 iu/l,"polarity=present; mentions=m27; mention_texts=[""182 IU/L""]; spans=[[3941,3949]]; char_start=3941; char_end=3949; evidence_text=182 IU/L; confianca=0.386"
+PMC4835621_01,T1,Treatment,levels rose after eradication therapy from,"polarity=present; mentions=m28; mention_texts=[""levels rose after eradication therapy from""]; spans=[[4035,4077]]; char_start=4035; char_end=4077; evidence_text=levels rose after eradication therapy from; mesh=D013812; confianca=1.0"
+PMC4835621_01,R11,ExamResult,31.2 mg/dl,"polarity=present; mentions=m29; mention_texts=[""31.2 mg/dL""]; spans=[[4078,4088]]; char_start=4078; char_end=4088; evidence_text=31.2 mg/dL; confianca=0.5571"
+PMC4835621_01,R12,ExamResult,99.3 mg/dl,"polarity=present; mentions=m30; mention_texts=[""99.3 mg/dL""]; spans=[[4092,4102]]; char_start=4092; char_end=4102; evidence_text=99.3 mg/dL; confianca=0.5737"
+PMC4835621_01,C1,Concept,D006261,code=D006261; vocabulary=MeSH
+PMC4835621_01,C2,Concept,D006454,code=D006454; vocabulary=MeSH
+PMC4835621_01,C3,Concept,D017701,code=D017701; vocabulary=MeSH
+PMC4835621_01,C4,Concept,D007770,code=D007770; vocabulary=MeSH
+PMC4835621_01,C5,Concept,D006242,code=D006242; vocabulary=MeSH
+PMC4835621_01,C6,Concept,D001706,code=D001706; vocabulary=MeSH
+PMC4835621_01,C7,Concept,D009369,code=D009369; vocabulary=MeSH
+PMC4835621_01,C8,Concept,D014054,code=D014054; vocabulary=MeSH
+PMC4835621_01,C9,Concept,ANAT032,code=ANAT032; vocabulary=AnatomicalSite
+PMC4835621_01,C10,Concept,ANAT033,code=ANAT033; vocabulary=AnatomicalSite
+PMC4835621_01,C11,Concept,ANAT001,code=ANAT001; vocabulary=AnatomicalSite
+PMC4835621_01,C12,Concept,D005756,code=D005756; vocabulary=MeSH
+PMC4835621_01,C13,Concept,D013812,code=D013812; vocabulary=MeSH

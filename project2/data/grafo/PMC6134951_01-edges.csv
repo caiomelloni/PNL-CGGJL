@@ -1,0 +1,15 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC6134951_01,e1,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[274,312]]; char_start=274; char_end=312; evidence_text=TTF1-positive pulmonary adenocarcinoma; confianca=1.0"
+PMC6134951_01,e2,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[437,456]]; char_start=437; char_end=456; evidence_text=The PD-L1 TPS score; confianca=1.0"
+PMC6134951_01,e3,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m5""]]; evidence_spans=[[1112,1123]]; char_start=1112; char_end=1123; evidence_text=improvement; confianca=1.0"
+PMC6134951_01,e4,P1,D2,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m6""]]; evidence_spans=[[1551,1598]]; char_start=1551; char_end=1598; evidence_text=drug eruption (delayed type IV hypersensitivity; confianca=1.0"
+PMC6134951_01,e5,P1,D3,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m7""]]; evidence_spans=[[1600,1610]]; char_start=1600; char_end=1610; evidence_text=Figure 1B); confianca=1.0"
+PMC6134951_01,e6,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m8""]]; evidence_spans=[[1990,2010]]; char_start=1990; char_end=2010; evidence_text=was started at 30 mg; confianca=1.0"
+PMC6134951_01,e7,P1,E3,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m9""]]; evidence_spans=[[2024,2044]]; char_start=2024; char_end=2044; evidence_text=was tapered to 20 mg; confianca=1.0"
+PMC6134951_01,e8,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m11""]]; evidence_spans=[[2169,2198]]; char_start=2169; char_end=2198; evidence_text=dose of diphenhydramine 50 mg; confianca=1.0"
+PMC6134951_01,e9,P1,O2,HAS_OUTCOME,"mention_pairs=[[""P1"",""m12""],[""P1"",""m13""]]; evidence_spans=[[2314,2322],[2814,2822]]; char_start=2314; char_end=2322; evidence_text=improved; confianca=1.0"
+PMC6134951_01,e10,E1,R1,HAS_RESULT,"mention_pairs=[[""m2"",""m3""]]; evidence_spans=[[437,464]]; char_start=437; char_end=464; evidence_text=The PD-L1 TPS score was 40%; confianca=0.9431"
+PMC6134951_01,e11,E3,R3,HAS_RESULT,"mention_pairs=[[""m9"",""m10""]]; evidence_spans=[[2024,2089]]; char_start=2024; char_end=2089; evidence_text=was tapered to 20 mg on the next day. She then continued at 10 mg; confianca=0.7913"
+PMC6134951_01,e12,D1,C1,SAME_AS,
+PMC6134951_01,e13,D2,C2,SAME_AS,
+PMC6134951_01,e14,M1,C3,SAME_AS,

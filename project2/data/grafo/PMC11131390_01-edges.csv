@@ -1,0 +1,7 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC11131390_01,e1,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[460,489]]; char_start=460; char_end=489; evidence_text=diagnosis of GD: TRAbs = 16.3; confianca=1.0"
+PMC11131390_01,e2,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[1540,1545]]; char_start=1540; char_end=1545; evidence_text=TRAbs; confianca=1.0"
+PMC11131390_01,e3,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m5""]]; evidence_spans=[[1634,1711]]; char_start=1634; char_end=1711; evidence_text=4 kg weight gain (67-71 kg) and severe biochemical hypothyroidism, TSH = 73.5; confianca=1.0"
+PMC11131390_01,e4,E2,R2,HAS_RESULT,"mention_pairs=[[""m3"",""m4""]]; evidence_spans=[[1540,1558]]; char_start=1540; char_end=1558; evidence_text=TRAbs was 3.3 IU/L; confianca=0.9503"
+PMC11131390_01,e5,E1,C1,SAME_AS,
+PMC11131390_01,e6,D1,C2,SAME_AS,

@@ -1,0 +1,9 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC11723754_01,e1,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[644,655]]; char_start=644; char_end=655; evidence_text=improvement; confianca=1.0"
+PMC11723754_01,e2,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[1021,1032]]; char_start=1021; char_end=1032; evidence_text=septicaemia; confianca=1.0"
+PMC11723754_01,e3,P1,T1,TREATED_WITH,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[1065,1105]]; char_start=1065; char_end=1105; evidence_text=PRBC transfusion in view of low Hb 7g/dl; confianca=1.0"
+PMC11723754_01,e4,P1,O2,HAS_OUTCOME,"mention_pairs=[[""P1"",""m4""]]; evidence_spans=[[1285,1293]]; char_start=1285; char_end=1293; evidence_text=improved; confianca=1.0"
+PMC11723754_01,e5,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m5""]]; evidence_spans=[[1371,1429]]; char_start=1371; char_end=1429; evidence_text=sensitivity reports after calculating creatinine clearance; confianca=1.0"
+PMC11723754_01,e6,P1,O3,HAS_OUTCOME,"mention_pairs=[[""P1"",""m6""]]; evidence_spans=[[1677,1688]]; char_start=1677; char_end=1688; evidence_text=improvement; confianca=1.0"
+PMC11723754_01,e7,P1,O4,HAS_OUTCOME,"mention_pairs=[[""P1"",""m7""]]; evidence_spans=[[1837,1847]]; char_start=1837; char_end=1847; evidence_text=discharged; confianca=1.0"
+PMC11723754_01,e8,E1,C1,SAME_AS,

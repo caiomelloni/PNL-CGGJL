@@ -1,0 +1,51 @@
+case_id,node_id,type,label,attributes
+PMC10106591_01,P1,Patient,case PMC10106591_01,
+PMC10106591_01,S1,Symptom,chest pain,"polarity=present; mentions=m1; mention_texts=[""chest pain""]; spans=[[212,222]]; char_start=212; char_end=222; evidence_text=chest pain; mesh=D002637; confianca=1.0"
+PMC10106591_01,D1,Diagnosis,tightness in her throat without shortness of breath,"polarity=present; mentions=m2; mention_texts=[""tightness in her throat without shortness of breath""]; spans=[[357,408]]; char_start=357; char_end=408; evidence_text=tightness in her throat without shortness of breath; mesh=D004417; confianca=1.0"
+PMC10106591_01,S2,Symptom,palpitations,"polarity=absent; mentions=m3; mention_texts=[""palpitations""]; spans=[[410,422]]; char_start=410; char_end=422; evidence_text=palpitations; confianca=0.3909"
+PMC10106591_01,S3,Symptom,diaphoresis,"polarity=absent; mentions=m4; mention_texts=[""diaphoresis""]; spans=[[427,438]]; char_start=427; char_end=438; evidence_text=diaphoresis; confianca=0.3682"
+PMC10106591_01,M1,Medication,abnormal glucose tolerance for the past year,"polarity=present; mentions=m5; mention_texts=[""abnormal glucose tolerance for the past year""]; spans=[[717,761]]; char_start=717; char_end=761; evidence_text=abnormal glucose tolerance for the past year; mesh=D005947; confianca=1.0"
+PMC10106591_01,M2,Medication,oxygen saturation level,"polarity=present; mentions=m6; mention_texts=[""oxygen saturation level""]; spans=[[1000,1023]]; char_start=1000; char_end=1023; evidence_text=oxygen saturation level; mesh=D010100; confianca=1.0"
+PMC10106591_01,R1,ExamResult,99%,"polarity=present; mentions=m7; mention_texts=[""99%""]; spans=[[1027,1030]]; char_start=1027; char_end=1030; evidence_text=99%; confianca=0.3734"
+PMC10106591_01,E1,Exam,reduced left ventricular ejection fraction,"polarity=present; mentions=m8; mention_texts=[""reduced left ventricular ejection fraction""]; spans=[[1570,1612]]; char_start=1570; char_end=1612; evidence_text=reduced left ventricular ejection fraction; mesh=D013318; confianca=1.0"
+PMC10106591_01,R2,ExamResult,50%,"polarity=present; mentions=m9; mention_texts=[""50%""]; spans=[[1619,1622]]; char_start=1619; char_end=1622; evidence_text=50%; confianca=0.4634"
+PMC10106591_01,M3,Medication,laboratory tests indicated normal troponin i,"polarity=present; mentions=m10; mention_texts=[""laboratory tests indicated normal troponin I""]; spans=[[1666,1710]]; char_start=1666; char_end=1710; evidence_text=laboratory tests indicated normal troponin I; mesh=D019210; confianca=1.0"
+PMC10106591_01,R3,ExamResult,0.016 ng/ml,"polarity=present; mentions=m11; mention_texts=[""0.016 ng/mL""]; spans=[[1714,1725]]; char_start=1714; char_end=1725; evidence_text=0.016 ng/mL; confianca=0.4493"
+PMC10106591_01,M4,Medication,creatine kinase mb isoenzyme,"polarity=present; mentions=m12; mention_texts=[""creatine kinase MB isoenzyme""]; spans=[[1756,1784]]; char_start=1756; char_end=1784; evidence_text=creatine kinase MB isoenzyme; mesh=D052279; confianca=1.0"
+PMC10106591_01,R4,ExamResult,0.7 ng/ml,"polarity=present; mentions=m13; mention_texts=[""0.7 ng/mL""]; spans=[[1788,1797]]; char_start=1788; char_end=1797; evidence_text=0.7 ng/mL; confianca=0.5179"
+PMC10106591_01,M5,Medication,myoglobin,"polarity=present; mentions=m14; mention_texts=[""myoglobin""]; spans=[[1831,1840]]; char_start=1831; char_end=1840; evidence_text=myoglobin; mesh=D009211; confianca=1.0"
+PMC10106591_01,R5,ExamResult,14.1 ng/ml,"polarity=present; mentions=m15; mention_texts=[""14.1 ng/mL""]; spans=[[1844,1854]]; char_start=1844; char_end=1854; evidence_text=14.1 ng/mL; confianca=0.4597"
+PMC10106591_01,M6,Medication,dose of aspirin (300 mg,"polarity=present; mentions=m16; mention_texts=[""dose of aspirin (300 mg""]; spans=[[1958,1981]]; char_start=1958; char_end=1981; evidence_text=dose of aspirin (300 mg; mesh=D001241; confianca=1.0"
+PMC10106591_01,M7,Medication,clopidogrel (300 mg,"polarity=present; mentions=m17; mention_texts=[""clopidogrel (300 mg""]; spans=[[1985,2004]]; char_start=1985; char_end=2004; evidence_text=clopidogrel (300 mg; mesh=D000077144; confianca=1.0"
+PMC10106591_01,D2,Diagnosis,cas was highly suspected,"polarity=present; mentions=m18; mention_texts=[""CAS was highly suspected""]; spans=[[2608,2632]]; char_start=2608; char_end=2632; evidence_text=CAS was highly suspected; confianca=0.4239"
+PMC10106591_01,D3,Diagnosis,cas,"polarity=present; mentions=m19; mention_texts=[""CAS""]; spans=[[2663,2666]]; char_start=2663; char_end=2666; evidence_text=CAS; confianca=0.3677"
+PMC10106591_01,M8,Medication,diltiazem,"polarity=present; mentions=m20|m32; mention_texts=[""diltiazem"",""diltiazem sustained-release capsules (90 mg""]; spans=[[2676,2685],[3846,3889]]; char_start=2676; char_end=2685; evidence_text=diltiazem; mesh=D004110; confianca=1.0"
+PMC10106591_01,A1,AnatomicalSite,complete av-b was converted back to sinus rhythm (hr at 59 beats/min,"polarity=present; mentions=m21; mention_texts=[""complete AV-B was converted back to sinus rhythm (HR at 59 beats/min)""]; spans=[[2755,2824]]; char_start=2755; char_end=2824; evidence_text=complete AV-B was converted back to sinus rhythm (HR at 59 beats/min); mesh=ANAT048; confianca=1.0"
+PMC10106591_01,E2,Exam,patient was on 50 mg,"polarity=present; mentions=m22; mention_texts=[""patient was on 50 mg""]; spans=[[2842,2862]]; char_start=2842; char_end=2862; evidence_text=patient was on 50 mg; confianca=0.1793"
+PMC10106591_01,R6,ExamResult,at 5 ml,"polarity=present; mentions=m23; mention_texts=[""at 5 mL""]; spans=[[2905,2912]]; char_start=2905; char_end=2912; evidence_text=at 5 mL; confianca=0.2245"
+PMC10106591_01,R7,ExamResult,20%,"polarity=present; mentions=m24; mention_texts=[""20%""]; spans=[[3051,3054]]; char_start=3051; char_end=3054; evidence_text=20%; confianca=0.3112"
+PMC10106591_01,R8,ExamResult,-30%,"polarity=present; mentions=m25; mention_texts=[""-30%""]; spans=[[3054,3058]]; char_start=3054; char_end=3058; evidence_text=-30%; confianca=0.3498"
+PMC10106591_01,A2,AnatomicalSite,the left anterior descending artery,"polarity=present; mentions=m26; mention_texts=[""the left anterior descending artery""]; spans=[[3105,3140]]; char_start=3105; char_end=3140; evidence_text=the left anterior descending artery; confianca=1.0"
+PMC10106591_01,E3,Exam,at the first diagonal branch,"polarity=present; mentions=m27; mention_texts=[""at the first diagonal branch""]; spans=[[3161,3189]]; char_start=3161; char_end=3189; evidence_text=at the first diagonal branch; confianca=0.2395"
+PMC10106591_01,E4,Exam,of the circumflex branch,"polarity=present; mentions=m28; mention_texts=[""of the circumflex branch""]; spans=[[3226,3250]]; char_start=3226; char_end=3250; evidence_text=of the circumflex branch; confianca=0.182"
+PMC10106591_01,D4,Diagnosis,cas was made,"polarity=present; mentions=m29; mention_texts=[""CAS was made""]; spans=[[3736,3748]]; char_start=3736; char_end=3748; evidence_text=CAS was made; confianca=0.5353"
+PMC10106591_01,E5,Exam,repeated troponin,"polarity=present; mentions=m30; mention_texts=[""Repeated troponin""]; spans=[[3750,3767]]; char_start=3750; char_end=3767; evidence_text=Repeated troponin; mesh=D014336; confianca=1.0"
+PMC10106591_01,R9,ExamResult,0.031 ng/ml,"polarity=present; mentions=m31; mention_texts=[""0.031 ng/mL""]; spans=[[3769,3780]]; char_start=3769; char_end=3780; evidence_text=0.031 ng/mL; confianca=0.4166"
+PMC10106591_01,O1,Outcome,recurrence,"polarity=absent; mentions=m33; mention_texts=[""recurrence""]; spans=[[4226,4236]]; char_start=4226; char_end=4236; evidence_text=recurrence; mesh=D012008; confianca=1.0"
+PMC10106591_01,A3,AnatomicalSite,chest,"polarity=absent; mentions=m34; mention_texts=[""chest""]; spans=[[4240,4245]]; char_start=4240; char_end=4245; evidence_text=chest; mesh=ANAT032; confianca=1.0"
+PMC10106591_01,S4,Symptom,symptoms,"polarity=absent; mentions=m35; mention_texts=[""symptoms""]; spans=[[4269,4277]]; char_start=4269; char_end=4277; evidence_text=symptoms; confianca=0.4393"
+PMC10106591_01,C1,Concept,D002637,code=D002637; vocabulary=MeSH
+PMC10106591_01,C2,Concept,D004417,code=D004417; vocabulary=MeSH
+PMC10106591_01,C3,Concept,D005947,code=D005947; vocabulary=MeSH
+PMC10106591_01,C4,Concept,D010100,code=D010100; vocabulary=MeSH
+PMC10106591_01,C5,Concept,D013318,code=D013318; vocabulary=MeSH
+PMC10106591_01,C6,Concept,D019210,code=D019210; vocabulary=MeSH
+PMC10106591_01,C7,Concept,D052279,code=D052279; vocabulary=MeSH
+PMC10106591_01,C8,Concept,D009211,code=D009211; vocabulary=MeSH
+PMC10106591_01,C9,Concept,D001241,code=D001241; vocabulary=MeSH
+PMC10106591_01,C10,Concept,D000077144,code=D000077144; vocabulary=MeSH
+PMC10106591_01,C11,Concept,D004110,code=D004110; vocabulary=MeSH
+PMC10106591_01,C12,Concept,ANAT048,code=ANAT048; vocabulary=AnatomicalSite
+PMC10106591_01,C13,Concept,D014336,code=D014336; vocabulary=MeSH
+PMC10106591_01,C14,Concept,D012008,code=D012008; vocabulary=MeSH
+PMC10106591_01,C15,Concept,ANAT032,code=ANAT032; vocabulary=AnatomicalSite

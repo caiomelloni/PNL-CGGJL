@@ -1,0 +1,7 @@
+case_id,node_id,type,label,attributes
+PMC9969157_01,P1,Patient,case PMC9969157_01,
+PMC9969157_01,M1,Medication,10% dextrose fluids at 150 ml,"polarity=present; mentions=m1|m4; mention_texts=[""10% dextrose fluids at 150 ml"",""glucose infusion rate ~15 mg""]; spans=[[902,931],[2737,2765]]; char_start=902; char_end=931; evidence_text=10% dextrose fluids at 150 ml; mesh=D005947; confianca=1.0"
+PMC9969157_01,E1,Exam,x-ray,"polarity=present; mentions=m2; mention_texts=[""x-ray""]; spans=[[2401,2406]]; char_start=2401; char_end=2406; evidence_text=x-ray; confianca=0.234"
+PMC9969157_01,D1,Diagnosis,nec,"polarity=present; mentions=m3; mention_texts=[""NEC""]; spans=[[2495,2498]]; char_start=2495; char_end=2498; evidence_text=NEC; confianca=0.2683"
+PMC9969157_01,O1,Outcome,discharged home,"polarity=present; mentions=m5; mention_texts=[""discharged home""]; spans=[[3095,3110]]; char_start=3095; char_end=3110; evidence_text=discharged home; confianca=0.5258"
+PMC9969157_01,C1,Concept,D005947,code=D005947; vocabulary=MeSH

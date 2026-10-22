@@ -1,0 +1,11 @@
+case_id,node_id,type,label,attributes
+PMC6354154_01,P1,Patient,case PMC6354154_01,
+PMC6354154_01,E1,Exam,body mass index,"polarity=present; mentions=m1; mention_texts=[""body mass index""]; spans=[[433,448]]; char_start=433; char_end=448; evidence_text=body mass index; mesh=D015992; confianca=1.0"
+PMC6354154_01,E2,Exam,ultrasonography,"polarity=present; mentions=m2; mention_texts=[""ultrasonography""]; spans=[[610,625]]; char_start=610; char_end=625; evidence_text=ultrasonography; mesh=D014463; confianca=1.0"
+PMC6354154_01,F1,Finding,removed mass,"polarity=present; mentions=m3; mention_texts=[""removed mass""]; spans=[[1302,1314]]; char_start=1302; char_end=1314; evidence_text=removed mass; confianca=1.0"
+PMC6354154_01,A1,AnatomicalSite,ovarian steroid cell tumor nos,"polarity=present; mentions=m4; mention_texts=[""ovarian steroid cell tumor NOS""]; spans=[[1898,1928]]; char_start=1898; char_end=1928; evidence_text=ovarian steroid cell tumor NOS; mesh=ANAT014; confianca=1.0"
+PMC6354154_01,O1,Outcome,recurrence,"polarity=absent; mentions=m5|m6; mention_texts=[""recurrence"",""recurrence""]; spans=[[2104,2114],[2404,2414]]; char_start=2104; char_end=2114; evidence_text=recurrence; mesh=D012008; confianca=1.0"
+PMC6354154_01,C1,Concept,D015992,code=D015992; vocabulary=MeSH
+PMC6354154_01,C2,Concept,D014463,code=D014463; vocabulary=MeSH
+PMC6354154_01,C3,Concept,ANAT014,code=ANAT014; vocabulary=AnatomicalSite
+PMC6354154_01,C4,Concept,D012008,code=D012008; vocabulary=MeSH

@@ -1,0 +1,7 @@
+case_id,node_id,type,label,attributes
+PMC9650410_01,P1,Patient,case PMC9650410_01,
+PMC9650410_01,O1,Outcome,death,"polarity=present; mentions=m1; mention_texts=[""death""]; spans=[[766,771]]; char_start=766; char_end=771; evidence_text=death; mesh=D003643; confianca=1.0"
+PMC9650410_01,D1,Diagnosis,cancer,"polarity=present; mentions=m2; mention_texts=[""cancer""]; spans=[[8179,8185]]; char_start=8179; char_end=8185; evidence_text=cancer; mesh=D009369; confianca=1.0"
+PMC9650410_01,D2,Diagnosis,undiagnosed depression,"polarity=present; mentions=m3; mention_texts=[""undiagnosed depression""]; spans=[[8207,8229]]; char_start=8207; char_end=8229; evidence_text=undiagnosed depression; confianca=0.2313"
+PMC9650410_01,C1,Concept,D003643,code=D003643; vocabulary=MeSH
+PMC9650410_01,C2,Concept,D009369,code=D009369; vocabulary=MeSH

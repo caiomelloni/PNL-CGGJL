@@ -1,0 +1,26 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC12215201_01,e1,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[838,848]]; char_start=838; char_end=848; evidence_text=hemoglobin; confianca=1.0"
+PMC12215201_01,e2,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[859,878]]; char_start=859; char_end=878; evidence_text=platelet count 63 x; confianca=1.0"
+PMC12215201_01,e3,P1,E3,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m5""]]; evidence_spans=[[888,903]]; char_start=888; char_end=903; evidence_text=total bilirubin; confianca=1.0"
+PMC12215201_01,e4,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m7""]]; evidence_spans=[[915,942]]; char_start=915; char_end=942; evidence_text=alkaline phosphatase 315 IU; confianca=1.0"
+PMC12215201_01,e5,P1,M2,TREATED_WITH,"mention_pairs=[[""P1"",""m10""],[""P1"",""m16""]]; evidence_spans=[[978,985],[1986,2016]]; char_start=978; char_end=985; evidence_text=albumin; confianca=1.0"
+PMC12215201_01,e6,P1,E4,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m12""]]; evidence_spans=[[1009,1019]]; char_start=1009; char_end=1019; evidence_text=ultrasound; confianca=1.0"
+PMC12215201_01,e7,P1,E5,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m13""]]; evidence_spans=[[1298,1300]]; char_start=1298; char_end=1300; evidence_text=CT; confianca=1.0"
+PMC12215201_01,e8,P1,M3,TREATED_WITH,"mention_pairs=[[""P1"",""m14""]]; evidence_spans=[[1945,1973]]; char_start=1945; char_end=1973; evidence_text=fluid protein was 1 g/dL and; confianca=1.0"
+PMC12215201_01,e9,P1,E6,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m18""]]; evidence_spans=[[2454,2463]]; char_start=2454; char_end=2463; evidence_text=endoscopy; confianca=1.0"
+PMC12215201_01,e10,P1,E7,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m19""]]; evidence_spans=[[2652,2658]]; char_start=2652; char_end=2658; evidence_text=biopsy; confianca=1.0"
+PMC12215201_01,e11,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m20""]]; evidence_spans=[[3104,3116]]; char_start=3104; char_end=3116; evidence_text=complication; confianca=1.0"
+PMC12215201_01,e12,E2,R1,HAS_RESULT,"mention_pairs=[[""m3"",""m2""]]; evidence_spans=[[849,878]]; char_start=849; char_end=878; evidence_text=6.1 g/dL, platelet count 63 x; confianca=0.9786"
+PMC12215201_01,e13,E3,R2,HAS_RESULT,"mention_pairs=[[""m5"",""m4""]]; evidence_spans=[[879,903]]; char_start=879; char_end=903; evidence_text=103/mm3, total bilirubin; confianca=0.9788"
+PMC12215201_01,e14,E3,R3,HAS_RESULT,"mention_pairs=[[""m5"",""m6""]]; evidence_spans=[[888,913]]; char_start=888; char_end=913; evidence_text=total bilirubin 3.2 mg/dL; confianca=0.8777"
+PMC12215201_01,e15,E4,R4,HAS_RESULT,"mention_pairs=[[""m12"",""m8""]]; evidence_spans=[[946,1019]]; char_start=946; char_end=1019; evidence_text=AST 305 IU/L, ALT 209 IU/L, and albumin 2.6 g/dL. An abdominal ultrasound; confianca=0.807"
+PMC12215201_01,e16,E4,R5,HAS_RESULT,"mention_pairs=[[""m12"",""m9""]]; evidence_spans=[[960,1019]]; char_start=960; char_end=1019; evidence_text=ALT 209 IU/L, and albumin 2.6 g/dL. An abdominal ultrasound; confianca=0.881"
+PMC12215201_01,e17,E4,R6,HAS_RESULT,"mention_pairs=[[""m12"",""m11""]]; evidence_spans=[[986,1019]]; char_start=986; char_end=1019; evidence_text=2.6 g/dL. An abdominal ultrasound; confianca=0.9733"
+PMC12215201_01,e18,E1,C1,SAME_AS,
+PMC12215201_01,e19,E2,C2,SAME_AS,
+PMC12215201_01,e20,E3,C3,SAME_AS,
+PMC12215201_01,e21,M1,C4,SAME_AS,
+PMC12215201_01,e22,M2,C5,SAME_AS,
+PMC12215201_01,e23,M3,C6,SAME_AS,
+PMC12215201_01,e24,E6,C7,SAME_AS,
+PMC12215201_01,e25,E7,C8,SAME_AS,

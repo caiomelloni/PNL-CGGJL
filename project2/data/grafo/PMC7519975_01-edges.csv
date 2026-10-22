@@ -1,0 +1,19 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC7519975_01,e1,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m1""],[""P1"",""m2""]]; evidence_spans=[[262,281],[479,481]]; char_start=262; char_end=281; evidence_text=Computed tomography; confianca=1.0"
+PMC7519975_01,e2,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[1420,1454]]; char_start=1420; char_end=1454; evidence_text=as follows: white blood cell count; confianca=1.0"
+PMC7519975_01,e3,P1,E3,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m5""]]; evidence_spans=[[1517,1525]]; char_start=1517; char_end=1525; evidence_text=platelet; confianca=1.0"
+PMC7519975_01,e4,P1,E4,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m7""]]; evidence_spans=[[1707,1716]]; char_start=1707; char_end=1716; evidence_text=BUN 17 mg; confianca=1.0"
+PMC7519975_01,e5,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m8""]]; evidence_spans=[[1757,1777]]; char_start=1757; char_end=1777; evidence_text=serum glucose 125 mg; confianca=1.0"
+PMC7519975_01,e6,P1,M2,TREATED_WITH,"mention_pairs=[[""P1"",""m9""]]; evidence_spans=[[1849,1880]]; char_start=1849; char_end=1880; evidence_text=aspartate transaminase 32 units; confianca=1.0"
+PMC7519975_01,e7,P1,M3,TREATED_WITH,"mention_pairs=[[""P1"",""m10""]]; evidence_spans=[[1892,1925]]; char_start=1892; char_end=1925; evidence_text=and alanine transaminase 43 units; confianca=1.0"
+PMC7519975_01,e8,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m11""]]; evidence_spans=[[2036,2041]]; char_start=2036; char_end=2041; evidence_text=death; confianca=1.0"
+PMC7519975_01,e9,P1,O2,HAS_OUTCOME,"mention_pairs=[[""P1"",""m12""]]; evidence_spans=[[4719,4723]]; char_start=4719; char_end=4723; evidence_text=died; confianca=1.0"
+PMC7519975_01,e10,E2,R1,HAS_RESULT,"mention_pairs=[[""m3"",""m4""]]; evidence_spans=[[1420,1474]]; char_start=1420; char_end=1474; evidence_text=as follows: white blood cell count 5300 per microliter; confianca=0.8548"
+PMC7519975_01,e11,E3,R2,HAS_RESULT,"mention_pairs=[[""m5"",""m6""]]; evidence_spans=[[1517,1546]]; char_start=1517; char_end=1546; evidence_text=platelet 98000 per microliter; confianca=0.8853"
+PMC7519975_01,e12,E1,C1,SAME_AS,
+PMC7519975_01,e13,E2,C2,SAME_AS,
+PMC7519975_01,e14,E4,C3,SAME_AS,
+PMC7519975_01,e15,M1,C4,SAME_AS,
+PMC7519975_01,e16,M2,C5,SAME_AS,
+PMC7519975_01,e17,M3,C6,SAME_AS,
+PMC7519975_01,e18,O1,C7,SAME_AS,

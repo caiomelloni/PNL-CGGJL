@@ -1,0 +1,26 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC4782471_01,e1,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[44,167]]; char_start=44; char_end=167; evidence_text=perimembranous VSD measuring 5 mm, no aortic regurgitation, mild left ventricular dilatation, and no pulmonary hypertension; confianca=1.0"
+PMC4782471_01,e2,P1,D2,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[233,339]]; char_start=233; char_end=339; evidence_text=breathlessness on exertion and were advised that the defect was unlikely to close spontaneously at her age; confianca=1.0"
+PMC4782471_01,e3,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m4""]]; evidence_spans=[[831,844]]; char_start=831; char_end=844; evidence_text=complications; confianca=1.0"
+PMC4782471_01,e4,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m5""]]; evidence_spans=[[1372,1402]]; char_start=1372; char_end=1402; evidence_text=erythrocyte sedimentation rate; confianca=1.0"
+PMC4782471_01,e5,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m7""]]; evidence_spans=[[1416,1434]]; char_start=1416; char_end=1434; evidence_text=C-reactive protein; confianca=1.0"
+PMC4782471_01,e6,P1,E3,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m9""]]; evidence_spans=[[1448,1472]]; char_start=1448; char_end=1472; evidence_text=a white blood cell count; confianca=1.0"
+PMC4782471_01,e7,P1,E4,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m11""]]; evidence_spans=[[1521,1541]]; char_start=1521; char_end=1541; evidence_text=as hemoglobin of 6 g; confianca=1.0"
+PMC4782471_01,e8,P1,T1,TREATED_WITH,"mention_pairs=[[""P1"",""m12""]]; evidence_spans=[[1566,1583]]; char_start=1566; char_end=1583; evidence_text=blood transfusion; confianca=1.0"
+PMC4782471_01,e9,P1,D3,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m13""]]; evidence_spans=[[2007,2029]]; char_start=2007; char_end=2029; evidence_text=infective endocarditis; confianca=1.0"
+PMC4782471_01,e10,P1,D4,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m14""]]; evidence_spans=[[2061,2098]]; char_start=2061; char_end=2098; evidence_text=sensitivity results showed resistance; confianca=1.0"
+PMC4782471_01,e11,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m15""]]; evidence_spans=[[2131,2144]]; char_start=2131; char_end=2144; evidence_text=ciprofloxacin; confianca=1.0"
+PMC4782471_01,e12,P1,O2,HAS_OUTCOME,"mention_pairs=[[""P1"",""m16""]]; evidence_spans=[[2271,2282]]; char_start=2271; char_end=2282; evidence_text=improvement; confianca=1.0"
+PMC4782471_01,e13,P1,O3,HAS_OUTCOME,"mention_pairs=[[""P1"",""m17""]]; evidence_spans=[[3244,3248]]; char_start=3244; char_end=3248; evidence_text=died; confianca=1.0"
+PMC4782471_01,e14,E2,R2,HAS_RESULT,"mention_pairs=[[""m7"",""m6""]]; evidence_spans=[[1406,1434]]; char_start=1406; char_end=1434; evidence_text=120 mm/h, C-reactive protein; confianca=0.9786"
+PMC4782471_01,e15,E3,R3,HAS_RESULT,"mention_pairs=[[""m9"",""m8""]]; evidence_spans=[[1438,1472]]; char_start=1438; char_end=1472; evidence_text=91 mg/dl, a white blood cell count; confianca=0.9786"
+PMC4782471_01,e16,E3,R4,HAS_RESULT,"mention_pairs=[[""m9"",""m10""]]; evidence_spans=[[1448,1486]]; char_start=1448; char_end=1486; evidence_text=a white blood cell count of 28,000/mm3; confianca=0.902"
+PMC4782471_01,e17,D1,C1,SAME_AS,
+PMC4782471_01,e18,D2,C2,SAME_AS,
+PMC4782471_01,e19,E1,C3,SAME_AS,
+PMC4782471_01,e20,E2,C4,SAME_AS,
+PMC4782471_01,e21,E3,C5,SAME_AS,
+PMC4782471_01,e22,E4,C6,SAME_AS,
+PMC4782471_01,e23,T1,C7,SAME_AS,
+PMC4782471_01,e24,D3,C8,SAME_AS,
+PMC4782471_01,e25,M1,C9,SAME_AS,

@@ -1,0 +1,5 @@
+case_id,node_id,type,label,attributes
+PMC5875137_01,P1,Patient,case PMC5875137_01,
+PMC5875137_01,E1,Exam,computed tomography,"polarity=present; mentions=m1|m3; mention_texts=[""computed tomography"",""CT""]; spans=[[100,119],[836,838]]; char_start=100; char_end=119; evidence_text=computed tomography; mesh=D014054; confianca=1.0"
+PMC5875137_01,O1,Outcome,complications,"polarity=absent; mentions=m2; mention_texts=[""complications""]; spans=[[541,554]]; char_start=541; char_end=554; evidence_text=complications; confianca=0.239"
+PMC5875137_01,C1,Concept,D014054,code=D014054; vocabulary=MeSH

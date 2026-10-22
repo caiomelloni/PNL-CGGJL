@@ -1,0 +1,9 @@
+case_id,node_id,type,label,attributes
+PMC4310058_01,P1,Patient,case PMC4310058_01,
+PMC4310058_01,E1,Exam,computed tomography,"polarity=present; mentions=m1; mention_texts=[""computed tomography""]; spans=[[812,831]]; char_start=812; char_end=831; evidence_text=computed tomography; mesh=D014054; confianca=1.0"
+PMC4310058_01,E2,Exam,magnetic resonance imaging,"polarity=present; mentions=m2; mention_texts=[""magnetic resonance imaging""]; spans=[[960,986]]; char_start=960; char_end=986; evidence_text=magnetic resonance imaging; mesh=D008279; confianca=1.0"
+PMC4310058_01,O1,Outcome,complications,"polarity=absent; mentions=m3; mention_texts=[""complications""]; spans=[[1873,1886]]; char_start=1873; char_end=1886; evidence_text=complications; confianca=0.2144"
+PMC4310058_01,O2,Outcome,discharged,"polarity=present; mentions=m4; mention_texts=[""discharged""]; spans=[[1953,1963]]; char_start=1953; char_end=1963; evidence_text=discharged; confianca=0.7578"
+PMC4310058_01,F1,Finding,soft tissue lesion appeared rubbery,"polarity=present; mentions=m5; mention_texts=[""soft tissue lesion appeared rubbery""]; spans=[[2014,2049]]; char_start=2014; char_end=2049; evidence_text=soft tissue lesion appeared rubbery; confianca=1.0"
+PMC4310058_01,C1,Concept,D014054,code=D014054; vocabulary=MeSH
+PMC4310058_01,C2,Concept,D008279,code=D008279; vocabulary=MeSH

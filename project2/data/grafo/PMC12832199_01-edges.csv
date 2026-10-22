@@ -1,0 +1,31 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC12832199_01,e1,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[278,295]]; char_start=278; char_end=295; evidence_text=Buerger's disease; confianca=1.0"
+PMC12832199_01,e2,P1,T1,TREATED_WITH,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[315,347]]; char_start=315; char_end=347; evidence_text=bilateral below-knee amputations; confianca=1.0"
+PMC12832199_01,e3,P1,D2,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[349,407]]; char_start=349; char_end=407; evidence_text=central adrenal insufficiency managed with corticosteroids; confianca=1.0"
+PMC12832199_01,e4,P1,D3,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m5""]]; evidence_spans=[[938,944]]; char_start=938; char_end=944; evidence_text=anemia; confianca=1.0"
+PMC12832199_01,e5,P1,D4,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m7""]]; evidence_spans=[[969,984]]; char_start=969; char_end=984; evidence_text=hypoalbuminemia; confianca=1.0"
+PMC12832199_01,e6,P1,D5,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m9""]]; evidence_spans=[[1001,1020]]; char_start=1001; char_end=1020; evidence_text=acute kidney injury; confianca=1.0"
+PMC12832199_01,e7,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m11""]]; evidence_spans=[[1046,1048]]; char_start=1046; char_end=1048; evidence_text=CT; confianca=1.0"
+PMC12832199_01,e8,P1,D6,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m12""]]; evidence_spans=[[1344,1377]]; char_start=1344; char_end=1377; evidence_text=aspiration pneumonia was observed; confianca=1.0"
+PMC12832199_01,e9,P1,T2,TREATED_WITH,"mention_pairs=[[""P1"",""m13""]]; evidence_spans=[[1439,1457]]; char_start=1439; char_end=1457; evidence_text=intravenous fluids; confianca=1.0"
+PMC12832199_01,e10,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m15""]]; evidence_spans=[[1775,1783]]; char_start=1775; char_end=1783; evidence_text=improved; confianca=1.0"
+PMC12832199_01,e11,P1,O2,HAS_OUTCOME,"mention_pairs=[[""P1"",""m16""]]; evidence_spans=[[1876,1887]]; char_start=1876; char_end=1887; evidence_text=improvement; confianca=1.0"
+PMC12832199_01,e12,P1,O3,HAS_OUTCOME,"mention_pairs=[[""P1"",""m17""]]; evidence_spans=[[4121,4131]]; char_start=4121; char_end=4131; evidence_text=discharged; confianca=1.0"
+PMC12832199_01,e13,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m18""]]; evidence_spans=[[4143,4152]]; char_start=4143; char_end=4152; evidence_text=Endoscopy; confianca=1.0"
+PMC12832199_01,e14,P1,O4,HAS_OUTCOME,"mention_pairs=[[""P1"",""m19""],[""P1"",""m20""]]; evidence_spans=[[4628,4638],[4897,4907]]; char_start=4628; char_end=4638; evidence_text=recurrence; confianca=1.0"
+PMC12832199_01,e15,T1,A1,LOCATED_IN,"mention_pairs=[[""m2"",""m4""]]; evidence_spans=[[315,441]]; char_start=315; char_end=441; evidence_text=bilateral below-knee amputations, central adrenal insufficiency managed with corticosteroids, and multiple abdominal surgeries; confianca=0.6638"
+PMC12832199_01,e16,E1,R1,HAS_RESULT,"mention_pairs=[[""m11"",""m6""]]; evidence_spans=[[958,1048]]; char_start=958; char_end=1048; evidence_text=9.6 g/dL), hypoalbuminemia (2.8 g/dL), and acute kidney injury (creatinine, 2.2 mg/dL). CT; confianca=0.7743"
+PMC12832199_01,e17,E1,R2,HAS_RESULT,"mention_pairs=[[""m11"",""m8""]]; evidence_spans=[[986,1048]]; char_start=986; char_end=1048; evidence_text=2.8 g/dL), and acute kidney injury (creatinine, 2.2 mg/dL). CT; confianca=0.8674"
+PMC12832199_01,e18,E1,R3,HAS_RESULT,"mention_pairs=[[""m11"",""m10""]]; evidence_spans=[[1034,1048]]; char_start=1034; char_end=1048; evidence_text=2.2 mg/dL). CT; confianca=0.9782"
+PMC12832199_01,e19,T2,A2,LOCATED_IN,"mention_pairs=[[""m13"",""m14""]]; evidence_spans=[[1439,1509]]; char_start=1439; char_end=1509; evidence_text=intravenous fluids, nasogastric decompression was achieved via gastric; confianca=0.9073"
+PMC12832199_01,e20,D1,C1,SAME_AS,
+PMC12832199_01,e21,T1,C2,SAME_AS,
+PMC12832199_01,e22,D2,C3,SAME_AS,
+PMC12832199_01,e23,A1,C4,SAME_AS,
+PMC12832199_01,e24,D3,C5,SAME_AS,
+PMC12832199_01,e25,D4,C6,SAME_AS,
+PMC12832199_01,e26,D5,C7,SAME_AS,
+PMC12832199_01,e27,D6,C8,SAME_AS,
+PMC12832199_01,e28,A2,C9,SAME_AS,
+PMC12832199_01,e29,E2,C10,SAME_AS,
+PMC12832199_01,e30,O4,C11,SAME_AS,

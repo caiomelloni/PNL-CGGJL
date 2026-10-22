@@ -1,0 +1,6 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC9650410_01,e1,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[766,771]]; char_start=766; char_end=771; evidence_text=death; confianca=1.0"
+PMC9650410_01,e2,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[8179,8185]]; char_start=8179; char_end=8185; evidence_text=cancer; confianca=1.0"
+PMC9650410_01,e3,P1,D2,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[8207,8229]]; char_start=8207; char_end=8229; evidence_text=undiagnosed depression; confianca=1.0"
+PMC9650410_01,e4,O1,C1,SAME_AS,
+PMC9650410_01,e5,D1,C2,SAME_AS,

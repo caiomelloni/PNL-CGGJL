@@ -1,0 +1,23 @@
+case_id,node_id,type,label,attributes
+PMC7102447_01,P1,Patient,case PMC7102447_01,
+PMC7102447_01,D1,Diagnosis,hypertension,"polarity=present; mentions=m1; mention_texts=[""hypertension""]; spans=[[63,75]]; char_start=63; char_end=75; evidence_text=hypertension; mesh=D006973; confianca=1.0"
+PMC7102447_01,D2,Diagnosis,asthma,"polarity=present; mentions=m2; mention_texts=[""asthma""]; spans=[[77,83]]; char_start=77; char_end=83; evidence_text=asthma; mesh=D001249; confianca=1.0"
+PMC7102447_01,H1,History,invasive bioprosthetic mitral,"polarity=present; mentions=m3; mention_texts=[""invasive bioprosthetic mitral""]; spans=[[99,128]]; char_start=99; char_end=128; evidence_text=invasive bioprosthetic mitral; confianca=0.641"
+PMC7102447_01,T1,Treatment,severe respiratory distress requiring emergent intubation,"polarity=present; mentions=m4; mention_texts=[""severe respiratory distress requiring emergent intubation""]; spans=[[218,275]]; char_start=218; char_end=275; evidence_text=severe respiratory distress requiring emergent intubation; mesh=D007440; confianca=1.0"
+PMC7102447_01,E1,Exam,initial troponin was normal,"polarity=present; mentions=m5; mention_texts=[""Initial troponin was normal""]; spans=[[436,463]]; char_start=436; char_end=463; evidence_text=Initial troponin was normal; mesh=D014336; confianca=1.0"
+PMC7102447_01,R1,ExamResult,0.04 ng/ml,"polarity=present; mentions=m6; mention_texts=[""0.04 ng/mL""]; spans=[[467,477]]; char_start=467; char_end=477; evidence_text=0.04 ng/mL; confianca=0.4442"
+PMC7102447_01,E2,Exam,were elevated to 21.2 ng/ml and,"polarity=present; mentions=m7; mention_texts=[""were elevated to 21.2 ng/mL and""]; spans=[[502,533]]; char_start=502; char_end=533; evidence_text=were elevated to 21.2 ng/mL and; confianca=0.2692"
+PMC7102447_01,R2,ExamResult,308 u/l,"polarity=present; mentions=m8; mention_texts=[""308 U/L""]; spans=[[534,541]]; char_start=534; char_end=541; evidence_text=308 U/L; confianca=0.3278"
+PMC7102447_01,E3,Exam,computed tomography,"polarity=present; mentions=m9; mention_texts=[""computed tomography""]; spans=[[787,806]]; char_start=787; char_end=806; evidence_text=computed tomography; mesh=D014054; confianca=1.0"
+PMC7102447_01,A1,AnatomicalSite,chest,"polarity=present; mentions=m10; mention_texts=[""chest""]; spans=[[830,835]]; char_start=830; char_end=835; evidence_text=chest; mesh=ANAT032; confianca=1.0"
+PMC7102447_01,S1,Symptom,interstitial edema,"polarity=present; mentions=m11; mention_texts=[""interstitial edema""]; spans=[[910,928]]; char_start=910; char_end=928; evidence_text=interstitial edema; mesh=D004487; confianca=1.0"
+PMC7102447_01,D3,Diagnosis,thrombosis,"polarity=present; mentions=m12; mention_texts=[""thrombosis""]; spans=[[1670,1680]]; char_start=1670; char_end=1680; evidence_text=thrombosis; mesh=D013927; confianca=1.0"
+PMC7102447_01,O1,Outcome,improved,"polarity=present; mentions=m13; mention_texts=[""improved""]; spans=[[1777,1785]]; char_start=1777; char_end=1785; evidence_text=improved; confianca=0.757"
+PMC7102447_01,C1,Concept,D006973,code=D006973; vocabulary=MeSH
+PMC7102447_01,C2,Concept,D001249,code=D001249; vocabulary=MeSH
+PMC7102447_01,C3,Concept,D007440,code=D007440; vocabulary=MeSH
+PMC7102447_01,C4,Concept,D014336,code=D014336; vocabulary=MeSH
+PMC7102447_01,C5,Concept,D014054,code=D014054; vocabulary=MeSH
+PMC7102447_01,C6,Concept,ANAT032,code=ANAT032; vocabulary=AnatomicalSite
+PMC7102447_01,C7,Concept,D004487,code=D004487; vocabulary=MeSH
+PMC7102447_01,C8,Concept,D013927,code=D013927; vocabulary=MeSH

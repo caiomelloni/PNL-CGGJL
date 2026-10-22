@@ -1,0 +1,4 @@
+case_id,node_id,type,label,attributes
+PMC11259348_01,P1,Patient,case PMC11259348_01,
+PMC11259348_01,E1,Exam,since hemoglobin level was 4 g/dl,"polarity=present; mentions=m1; mention_texts=[""Since hemoglobin level was 4 g/dL""]; spans=[[134,167]]; char_start=134; char_end=167; evidence_text=Since hemoglobin level was 4 g/dL; mesh=D006454; confianca=1.0"
+PMC11259348_01,C1,Concept,D006454,code=D006454; vocabulary=MeSH

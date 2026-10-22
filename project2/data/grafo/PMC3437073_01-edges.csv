@@ -1,0 +1,10 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC3437073_01,e1,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[609,615]]; char_start=609; char_end=615; evidence_text=X-rays; confianca=1.0"
+PMC3437073_01,e2,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[806,816]]; char_start=806; char_end=816; evidence_text=Ultrasound; confianca=1.0"
+PMC3437073_01,e3,P1,E3,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m4""]]; evidence_spans=[[890,892]]; char_start=890; char_end=892; evidence_text=CT; confianca=1.0"
+PMC3437073_01,e4,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m5""]]; evidence_spans=[[1605,1664]]; char_start=1605; char_end=1664; evidence_text=characteristic tuberculoid granuloma with epithelioid cells; confianca=1.0"
+PMC3437073_01,e5,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m6""]]; evidence_spans=[[1848,1870]]; char_start=1848; char_end=1870; evidence_text=Isoniazid (INH) 300 mg; confianca=1.0"
+PMC3437073_01,e6,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m7""]]; evidence_spans=[[2021,2029]]; char_start=2021; char_end=2029; evidence_text=improved; confianca=1.0"
+PMC3437073_01,e7,A1,C1,SAME_AS,
+PMC3437073_01,e8,D1,C2,SAME_AS,
+PMC3437073_01,e9,M1,C3,SAME_AS,

@@ -1,0 +1,25 @@
+case_id,node_id,type,label,attributes
+PMC5804616_01,P1,Patient,case PMC5804616_01,
+PMC5804616_01,E1,Exam,computed tomography,"polarity=present; mentions=m1; mention_texts=[""computed tomography""]; spans=[[717,736]]; char_start=717; char_end=736; evidence_text=computed tomography; mesh=D014054; confianca=1.0"
+PMC5804616_01,E2,Exam,after intravenously administering 35 mg,"polarity=absent; mentions=m2; mention_texts=[""after intravenously administering 35 mg""]; spans=[[1279,1318]]; char_start=1279; char_end=1318; evidence_text=after intravenously administering 35 mg; confianca=0.2147"
+PMC5804616_01,E3,Exam,anesthesia was induced with,"polarity=present; mentions=m3; mention_texts=[""anesthesia was induced with""]; spans=[[2651,2678]]; char_start=2651; char_end=2678; evidence_text=anesthesia was induced with; confianca=0.2297"
+PMC5804616_01,R1,ExamResult,4%,"polarity=present; mentions=m4; mention_texts=[""4%""]; spans=[[2679,2681]]; char_start=2679; char_end=2681; evidence_text=4%; confianca=0.2799"
+PMC5804616_01,A1,AnatomicalSite,abdominal incision was made,"polarity=present; mentions=m5; mention_texts=[""abdominal incision was made""]; spans=[[2955,2982]]; char_start=2955; char_end=2982; evidence_text=abdominal incision was made; mesh=ANAT033; confianca=1.0"
+PMC5804616_01,R2,ExamResult,1%,"polarity=present; mentions=m6; mention_texts=[""1%""]; spans=[[2992,2994]]; char_start=2992; char_end=2994; evidence_text=1%; confianca=0.2994"
+PMC5804616_01,E4,Exam,followed by continuous infusion,"polarity=present; mentions=m7; mention_texts=[""followed by continuous infusion""]; spans=[[3030,3061]]; char_start=3030; char_end=3061; evidence_text=followed by continuous infusion; confianca=0.2363"
+PMC5804616_01,R3,ExamResult,0.3%,"polarity=present; mentions=m8; mention_texts=[""0.3%""]; spans=[[3065,3069]]; char_start=3065; char_end=3069; evidence_text=0.3%; confianca=0.2646"
+PMC5804616_01,M1,Medication,oxygen saturation (spo2) was maintained above,"polarity=present; mentions=m9; mention_texts=[""oxygen saturation (SpO2) was maintained above""]; spans=[[3337,3382]]; char_start=3337; char_end=3382; evidence_text=oxygen saturation (SpO2) was maintained above; mesh=D010100; confianca=1.0"
+PMC5804616_01,R4,ExamResult,98%,"polarity=present; mentions=m10; mention_texts=[""98%""]; spans=[[3383,3386]]; char_start=3383; char_end=3386; evidence_text=98%; confianca=0.3972"
+PMC5804616_01,E5,Exam,spo2 suddenly dropped from 98 to,"polarity=present; mentions=m11|m19; mention_texts=[""SpO2 suddenly dropped from 98 to"",""SpO2 suddenly dropped from 98 to""]; spans=[[3476,3508],[6937,6969]]; char_start=3476; char_end=3508; evidence_text=SpO2 suddenly dropped from 98 to; confianca=0.2722"
+PMC5804616_01,R5,ExamResult,89%,"polarity=present; mentions=m12|m20; mention_texts=[""89%"",""89%""]; spans=[[3509,3512],[6970,6973]]; char_start=3509; char_end=3512; evidence_text=89%; confianca=0.3544"
+PMC5804616_01,O1,Outcome,improved,"polarity=present; mentions=m13; mention_texts=[""improved""]; spans=[[3946,3954]]; char_start=3946; char_end=3954; evidence_text=improved; confianca=0.7371"
+PMC5804616_01,E6,Exam,x-ray,"polarity=present; mentions=m14; mention_texts=[""X-ray""]; spans=[[4085,4090]]; char_start=4085; char_end=4090; evidence_text=X-ray; confianca=0.2399"
+PMC5804616_01,E7,Exam,spo2 returned to the baseline,"polarity=present; mentions=m15; mention_texts=[""SpO2 returned to the baseline""]; spans=[[4216,4245]]; char_start=4216; char_end=4245; evidence_text=SpO2 returned to the baseline; confianca=0.2785"
+PMC5804616_01,R6,ExamResult,99%,"polarity=present; mentions=m16; mention_texts=[""99%""]; spans=[[4247,4250]]; char_start=4247; char_end=4250; evidence_text=99%; confianca=0.3211"
+PMC5804616_01,R7,ExamResult,except that 650 ml,"polarity=present; mentions=m17; mention_texts=[""except that 650 ml""]; spans=[[4383,4401]]; char_start=4383; char_end=4401; evidence_text=except that 650 ml; confianca=0.2107"
+PMC5804616_01,O2,Outcome,discharged,"polarity=present; mentions=m18; mention_texts=[""discharged""]; spans=[[4582,4592]]; char_start=4582; char_end=4592; evidence_text=discharged; confianca=0.7518"
+PMC5804616_01,E8,Exam,was encountered in only one case,"polarity=present; mentions=m21; mention_texts=[""was encountered in only one case""]; spans=[[7849,7881]]; char_start=7849; char_end=7881; evidence_text=was encountered in only one case; confianca=0.2716"
+PMC5804616_01,R8,ExamResult,2.1%,"polarity=present; mentions=m22; mention_texts=[""2.1%""]; spans=[[7883,7887]]; char_start=7883; char_end=7887; evidence_text=2.1%; confianca=0.2882"
+PMC5804616_01,C1,Concept,D014054,code=D014054; vocabulary=MeSH
+PMC5804616_01,C2,Concept,ANAT033,code=ANAT033; vocabulary=AnatomicalSite
+PMC5804616_01,C3,Concept,D010100,code=D010100; vocabulary=MeSH

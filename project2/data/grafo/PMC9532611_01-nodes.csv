@@ -1,0 +1,5 @@
+case_id,node_id,type,label,attributes
+PMC9532611_01,P1,Patient,case PMC9532611_01,
+PMC9532611_01,S1,Symptom,hypokalemic,"polarity=present; mentions=m1; mention_texts=[""hypokalemic""]; spans=[[113,124]]; char_start=113; char_end=124; evidence_text=hypokalemic; confianca=0.1773"
+PMC9532611_01,D1,Diagnosis,1.8 mmol/l) weakness that was accompanied by hypertension,"polarity=present; mentions=m2; mention_texts=[""1.8 mmol/l) weakness that was accompanied by hypertension""]; spans=[[126,183]]; char_start=126; char_end=183; evidence_text=1.8 mmol/l) weakness that was accompanied by hypertension; mesh=D006973; confianca=1.0"
+PMC9532611_01,C1,Concept,D006973,code=D006973; vocabulary=MeSH

@@ -1,0 +1,20 @@
+case_id,node_id,type,label,attributes
+PMC7519975_01,P1,Patient,case PMC7519975_01,
+PMC7519975_01,E1,Exam,computed tomography,"polarity=present; mentions=m1|m2; mention_texts=[""Computed tomography"",""CT""]; spans=[[262,281],[479,481]]; char_start=262; char_end=281; evidence_text=Computed tomography; mesh=D014054; confianca=1.0"
+PMC7519975_01,E2,Exam,as follows: white blood cell count,"polarity=present; mentions=m3; mention_texts=[""as follows: white blood cell count""]; spans=[[1420,1454]]; char_start=1420; char_end=1454; evidence_text=as follows: white blood cell count; mesh=D007958; confianca=1.0"
+PMC7519975_01,R1,ExamResult,5300 per microliter,"polarity=present; mentions=m4; mention_texts=[""5300 per microliter""]; spans=[[1455,1474]]; char_start=1455; char_end=1474; evidence_text=5300 per microliter; confianca=0.2952"
+PMC7519975_01,E3,Exam,platelet,"polarity=present; mentions=m5; mention_texts=[""platelet""]; spans=[[1517,1525]]; char_start=1517; char_end=1525; evidence_text=platelet; confianca=0.2288"
+PMC7519975_01,R2,ExamResult,98000 per microliter,"polarity=present; mentions=m6; mention_texts=[""98000 per microliter""]; spans=[[1526,1546]]; char_start=1526; char_end=1546; evidence_text=98000 per microliter; confianca=0.277"
+PMC7519975_01,E4,Exam,bun 17 mg,"polarity=present; mentions=m7; mention_texts=[""BUN 17 mg""]; spans=[[1707,1716]]; char_start=1707; char_end=1716; evidence_text=BUN 17 mg; mesh=D001806; confianca=1.0"
+PMC7519975_01,M1,Medication,serum glucose 125 mg,"polarity=present; mentions=m8; mention_texts=[""serum glucose 125 mg""]; spans=[[1757,1777]]; char_start=1757; char_end=1777; evidence_text=serum glucose 125 mg; mesh=D005947; confianca=1.0"
+PMC7519975_01,M2,Medication,aspartate transaminase 32 units,"polarity=present; mentions=m9; mention_texts=[""aspartate transaminase 32 units""]; spans=[[1849,1880]]; char_start=1849; char_end=1880; evidence_text=aspartate transaminase 32 units; mesh=D001219; confianca=1.0"
+PMC7519975_01,M3,Medication,and alanine transaminase 43 units,"polarity=present; mentions=m10; mention_texts=[""and alanine transaminase 43 units""]; spans=[[1892,1925]]; char_start=1892; char_end=1925; evidence_text=and alanine transaminase 43 units; mesh=D000410; confianca=1.0"
+PMC7519975_01,O1,Outcome,death,"polarity=present; mentions=m11; mention_texts=[""death""]; spans=[[2036,2041]]; char_start=2036; char_end=2041; evidence_text=death; mesh=D003643; confianca=1.0"
+PMC7519975_01,O2,Outcome,died,"polarity=present; mentions=m12; mention_texts=[""died""]; spans=[[4719,4723]]; char_start=4719; char_end=4723; evidence_text=died; confianca=0.3351"
+PMC7519975_01,C1,Concept,D014054,code=D014054; vocabulary=MeSH
+PMC7519975_01,C2,Concept,D007958,code=D007958; vocabulary=MeSH
+PMC7519975_01,C3,Concept,D001806,code=D001806; vocabulary=MeSH
+PMC7519975_01,C4,Concept,D005947,code=D005947; vocabulary=MeSH
+PMC7519975_01,C5,Concept,D001219,code=D001219; vocabulary=MeSH
+PMC7519975_01,C6,Concept,D000410,code=D000410; vocabulary=MeSH
+PMC7519975_01,C7,Concept,D003643,code=D003643; vocabulary=MeSH

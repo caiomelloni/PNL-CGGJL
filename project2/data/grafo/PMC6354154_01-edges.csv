@@ -1,0 +1,9 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC6354154_01,e1,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[433,448]]; char_start=433; char_end=448; evidence_text=body mass index; confianca=1.0"
+PMC6354154_01,e2,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[610,625]]; char_start=610; char_end=625; evidence_text=ultrasonography; confianca=1.0"
+PMC6354154_01,e3,P1,F1,HAS_FINDING,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[1302,1314]]; char_start=1302; char_end=1314; evidence_text=removed mass; confianca=1.0"
+PMC6354154_01,e4,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m5""],[""P1"",""m6""]]; evidence_spans=[[2104,2114],[2404,2414]]; char_start=2104; char_end=2114; evidence_text=recurrence; confianca=1.0"
+PMC6354154_01,e5,E1,C1,SAME_AS,
+PMC6354154_01,e6,E2,C2,SAME_AS,
+PMC6354154_01,e7,A1,C3,SAME_AS,
+PMC6354154_01,e8,O1,C4,SAME_AS,

@@ -1,0 +1,2 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC6083636_01,e1,P1,S1,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[492,556]]; char_start=492; char_end=556; evidence_text=that glasses were first prescribed at age 4 due to ""poor vision""; confianca=1.0"

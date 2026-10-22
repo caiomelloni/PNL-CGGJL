@@ -1,0 +1,32 @@
+case_id,node_id,type,label,attributes
+PMC12832199_01,P1,Patient,case PMC12832199_01,
+PMC12832199_01,D1,Diagnosis,buerger's disease,"polarity=present; mentions=m1; mention_texts=[""Buerger's disease""]; spans=[[278,295]]; char_start=278; char_end=295; evidence_text=Buerger's disease; mesh=D013919; confianca=1.0"
+PMC12832199_01,T1,Treatment,bilateral below-knee amputations,"polarity=present; mentions=m2; mention_texts=[""bilateral below-knee amputations""]; spans=[[315,347]]; char_start=315; char_end=347; evidence_text=bilateral below-knee amputations; mesh=D000671; confianca=1.0"
+PMC12832199_01,D2,Diagnosis,central adrenal insufficiency managed with corticosteroids,"polarity=present; mentions=m3; mention_texts=[""central adrenal insufficiency managed with corticosteroids""]; spans=[[349,407]]; char_start=349; char_end=407; evidence_text=central adrenal insufficiency managed with corticosteroids; mesh=D000309; confianca=1.0"
+PMC12832199_01,A1,AnatomicalSite,multiple abdominal surgeries,"polarity=present; mentions=m4; mention_texts=[""multiple abdominal surgeries""]; spans=[[413,441]]; char_start=413; char_end=441; evidence_text=multiple abdominal surgeries; mesh=ANAT033; confianca=1.0"
+PMC12832199_01,D3,Diagnosis,anemia,"polarity=present; mentions=m5; mention_texts=[""anemia""]; spans=[[938,944]]; char_start=938; char_end=944; evidence_text=anemia; mesh=D000740; confianca=1.0"
+PMC12832199_01,R1,ExamResult,9.6 g/dl,"polarity=present; mentions=m6; mention_texts=[""9.6 g/dL""]; spans=[[958,966]]; char_start=958; char_end=966; evidence_text=9.6 g/dL; confianca=0.615"
+PMC12832199_01,D4,Diagnosis,hypoalbuminemia,"polarity=present; mentions=m7; mention_texts=[""hypoalbuminemia""]; spans=[[969,984]]; char_start=969; char_end=984; evidence_text=hypoalbuminemia; mesh=D034141; confianca=1.0"
+PMC12832199_01,R2,ExamResult,2.8 g/dl,"polarity=present; mentions=m8; mention_texts=[""2.8 g/dL""]; spans=[[986,994]]; char_start=986; char_end=994; evidence_text=2.8 g/dL; confianca=0.6355"
+PMC12832199_01,D5,Diagnosis,acute kidney injury,"polarity=present; mentions=m9; mention_texts=[""acute kidney injury""]; spans=[[1001,1020]]; char_start=1001; char_end=1020; evidence_text=acute kidney injury; mesh=D058186; confianca=1.0"
+PMC12832199_01,R3,ExamResult,2.2 mg/dl,"polarity=present; mentions=m10; mention_texts=[""2.2 mg/dL""]; spans=[[1034,1043]]; char_start=1034; char_end=1043; evidence_text=2.2 mg/dL; confianca=0.6716"
+PMC12832199_01,E1,Exam,ct,"polarity=present; mentions=m11; mention_texts=[""CT""]; spans=[[1046,1048]]; char_start=1046; char_end=1048; evidence_text=CT; confianca=0.6393"
+PMC12832199_01,D6,Diagnosis,aspiration pneumonia was observed,"polarity=present; mentions=m12; mention_texts=[""aspiration pneumonia was observed""]; spans=[[1344,1377]]; char_start=1344; char_end=1377; evidence_text=aspiration pneumonia was observed; mesh=D011015; confianca=1.0"
+PMC12832199_01,T2,Treatment,intravenous fluids,"polarity=present; mentions=m13; mention_texts=[""intravenous fluids""]; spans=[[1439,1457]]; char_start=1439; char_end=1457; evidence_text=intravenous fluids; confianca=0.587"
+PMC12832199_01,A2,AnatomicalSite,gastric,"polarity=present; mentions=m14; mention_texts=[""gastric""]; spans=[[1502,1509]]; char_start=1502; char_end=1509; evidence_text=gastric; mesh=ANAT001; confianca=1.0"
+PMC12832199_01,O1,Outcome,improved,"polarity=present; mentions=m15; mention_texts=[""improved""]; spans=[[1775,1783]]; char_start=1775; char_end=1783; evidence_text=improved; confianca=0.724"
+PMC12832199_01,O2,Outcome,improvement,"polarity=absent; mentions=m16; mention_texts=[""improvement""]; spans=[[1876,1887]]; char_start=1876; char_end=1887; evidence_text=improvement; confianca=1.0"
+PMC12832199_01,O3,Outcome,discharged,"polarity=present; mentions=m17; mention_texts=[""discharged""]; spans=[[4121,4131]]; char_start=4121; char_end=4131; evidence_text=discharged; confianca=0.7282"
+PMC12832199_01,E2,Exam,endoscopy,"polarity=present; mentions=m18; mention_texts=[""Endoscopy""]; spans=[[4143,4152]]; char_start=4143; char_end=4152; evidence_text=Endoscopy; mesh=D004724; confianca=1.0"
+PMC12832199_01,O4,Outcome,recurrence,"polarity=absent; mentions=m19|m20; mention_texts=[""recurrence"",""recurrence""]; spans=[[4628,4638],[4897,4907]]; char_start=4628; char_end=4638; evidence_text=recurrence; mesh=D012008; confianca=1.0"
+PMC12832199_01,C1,Concept,D013919,code=D013919; vocabulary=MeSH
+PMC12832199_01,C2,Concept,D000671,code=D000671; vocabulary=MeSH
+PMC12832199_01,C3,Concept,D000309,code=D000309; vocabulary=MeSH
+PMC12832199_01,C4,Concept,ANAT033,code=ANAT033; vocabulary=AnatomicalSite
+PMC12832199_01,C5,Concept,D000740,code=D000740; vocabulary=MeSH
+PMC12832199_01,C6,Concept,D034141,code=D034141; vocabulary=MeSH
+PMC12832199_01,C7,Concept,D058186,code=D058186; vocabulary=MeSH
+PMC12832199_01,C8,Concept,D011015,code=D011015; vocabulary=MeSH
+PMC12832199_01,C9,Concept,ANAT001,code=ANAT001; vocabulary=AnatomicalSite
+PMC12832199_01,C10,Concept,D004724,code=D004724; vocabulary=MeSH
+PMC12832199_01,C11,Concept,D012008,code=D012008; vocabulary=MeSH

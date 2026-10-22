@@ -1,0 +1,29 @@
+case_id,node_id,type,label,attributes
+PMC12215201_01,P1,Patient,case PMC12215201_01,
+PMC12215201_01,E1,Exam,hemoglobin,"polarity=present; mentions=m1; mention_texts=[""hemoglobin""]; spans=[[838,848]]; char_start=838; char_end=848; evidence_text=hemoglobin; mesh=D006454; confianca=1.0"
+PMC12215201_01,R1,ExamResult,6.1 g/dl,"polarity=present; mentions=m2; mention_texts=[""6.1 g/dL""]; spans=[[849,857]]; char_start=849; char_end=857; evidence_text=6.1 g/dL; confianca=0.6538"
+PMC12215201_01,E2,Exam,platelet count 63 x,"polarity=present; mentions=m3; mention_texts=[""platelet count 63 x""]; spans=[[859,878]]; char_start=859; char_end=878; evidence_text=platelet count 63 x; mesh=D010976; confianca=1.0"
+PMC12215201_01,R2,ExamResult,103/mm3,"polarity=present; mentions=m4; mention_texts=[""103/mm3""]; spans=[[879,886]]; char_start=879; char_end=886; evidence_text=103/mm3; confianca=0.2821"
+PMC12215201_01,E3,Exam,total bilirubin,"polarity=present; mentions=m5; mention_texts=[""total bilirubin""]; spans=[[888,903]]; char_start=888; char_end=903; evidence_text=total bilirubin; mesh=D001663; confianca=1.0"
+PMC12215201_01,R3,ExamResult,3.2 mg/dl,"polarity=present; mentions=m6; mention_texts=[""3.2 mg/dL""]; spans=[[904,913]]; char_start=904; char_end=913; evidence_text=3.2 mg/dL; confianca=0.6767"
+PMC12215201_01,M1,Medication,alkaline phosphatase 315 iu,"polarity=present; mentions=m7; mention_texts=[""alkaline phosphatase 315 IU""]; spans=[[915,942]]; char_start=915; char_end=942; evidence_text=alkaline phosphatase 315 IU; mesh=D000469; confianca=1.0"
+PMC12215201_01,R4,ExamResult,ast 305 iu,"polarity=present; mentions=m8; mention_texts=[""AST 305 IU""]; spans=[[946,956]]; char_start=946; char_end=956; evidence_text=AST 305 IU; confianca=0.2279"
+PMC12215201_01,R5,ExamResult,alt 209 iu,"polarity=present; mentions=m9; mention_texts=[""ALT 209 IU""]; spans=[[960,970]]; char_start=960; char_end=970; evidence_text=ALT 209 IU; confianca=0.2278"
+PMC12215201_01,M2,Medication,albumin,"polarity=present; mentions=m10|m16; mention_texts=[""albumin"",""serum ascitic albumin gradient""]; spans=[[978,985],[1986,2016]]; char_start=978; char_end=985; evidence_text=albumin; mesh=D000418; confianca=1.0"
+PMC12215201_01,R6,ExamResult,2.6 g/dl,"polarity=present; mentions=m11; mention_texts=[""2.6 g/dL""]; spans=[[986,994]]; char_start=986; char_end=994; evidence_text=2.6 g/dL; confianca=0.6272"
+PMC12215201_01,E4,Exam,ultrasound,"polarity=present; mentions=m12; mention_texts=[""ultrasound""]; spans=[[1009,1019]]; char_start=1009; char_end=1019; evidence_text=ultrasound; confianca=1.0"
+PMC12215201_01,E5,Exam,ct,"polarity=present; mentions=m13; mention_texts=[""CT""]; spans=[[1298,1300]]; char_start=1298; char_end=1300; evidence_text=CT; confianca=0.6263"
+PMC12215201_01,M3,Medication,fluid protein was 1 g/dl and,"polarity=present; mentions=m14; mention_texts=[""fluid protein was 1 g/dL and""]; spans=[[1945,1973]]; char_start=1945; char_end=1973; evidence_text=fluid protein was 1 g/dL and; mesh=D011506; confianca=1.0"
+PMC12215201_01,R7,ExamResult,2 g/dl,"polarity=present; mentions=m15; mention_texts=[""2 g/dL""]; spans=[[1974,1980]]; char_start=1974; char_end=1980; evidence_text=2 g/dL; confianca=0.6769"
+PMC12215201_01,R8,ExamResult,1.1 g/dl,"polarity=present; mentions=m17; mention_texts=[""1.1 g/dL""]; spans=[[2038,2046]]; char_start=2038; char_end=2046; evidence_text=1.1 g/dL; confianca=0.6547"
+PMC12215201_01,E6,Exam,endoscopy,"polarity=present; mentions=m18; mention_texts=[""endoscopy""]; spans=[[2454,2463]]; char_start=2454; char_end=2463; evidence_text=endoscopy; mesh=D004724; confianca=1.0"
+PMC12215201_01,E7,Exam,biopsy,"polarity=present; mentions=m19; mention_texts=[""biopsy""]; spans=[[2652,2658]]; char_start=2652; char_end=2658; evidence_text=biopsy; mesh=D001706; confianca=1.0"
+PMC12215201_01,O1,Outcome,complication,"polarity=present; mentions=m20; mention_texts=[""complication""]; spans=[[3104,3116]]; char_start=3104; char_end=3116; evidence_text=complication; confianca=1.0"
+PMC12215201_01,C1,Concept,D006454,code=D006454; vocabulary=MeSH
+PMC12215201_01,C2,Concept,D010976,code=D010976; vocabulary=MeSH
+PMC12215201_01,C3,Concept,D001663,code=D001663; vocabulary=MeSH
+PMC12215201_01,C4,Concept,D000469,code=D000469; vocabulary=MeSH
+PMC12215201_01,C5,Concept,D000418,code=D000418; vocabulary=MeSH
+PMC12215201_01,C6,Concept,D011506,code=D011506; vocabulary=MeSH
+PMC12215201_01,C7,Concept,D004724,code=D004724; vocabulary=MeSH
+PMC12215201_01,C8,Concept,D001706,code=D001706; vocabulary=MeSH

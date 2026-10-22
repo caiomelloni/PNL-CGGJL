@@ -1,0 +1,61 @@
+case_id,node_id,type,label,attributes
+PMC9529523_01,P1,Patient,case PMC9529523_01,
+PMC9529523_01,D1,Diagnosis,sle,"polarity=present; mentions=m1; mention_texts=[""SLE""]; spans=[[208,211]]; char_start=208; char_end=211; evidence_text=SLE; confianca=0.3059"
+PMC9529523_01,T1,Treatment,drainage,"polarity=present; mentions=m2; mention_texts=[""drainage""]; spans=[[658,666]]; char_start=658; char_end=666; evidence_text=drainage; mesh=D004322; confianca=1.0"
+PMC9529523_01,M1,Medication,igg levels,"polarity=present; mentions=m3; mention_texts=[""IgG levels""]; spans=[[912,922]]; char_start=912; char_end=922; evidence_text=IgG levels; mesh=D007074; confianca=1.0"
+PMC9529523_01,R1,ExamResult,2317 mg/dl,"polarity=present; mentions=m4; mention_texts=[""2317 mg/dL""]; spans=[[926,936]]; char_start=926; char_end=936; evidence_text=2317 mg/dL; confianca=0.5347"
+PMC9529523_01,E1,Exam,c-reactive protein,"polarity=present; mentions=m5; mention_texts=[""C-reactive protein""]; spans=[[1422,1440]]; char_start=1422; char_end=1440; evidence_text=C-reactive protein; mesh=D002097; confianca=1.0"
+PMC9529523_01,R2,ExamResult,6.2 mg/dl,"polarity=present; mentions=m6; mention_texts=[""6.2 mg/dL""]; spans=[[1451,1460]]; char_start=1451; char_end=1460; evidence_text=6.2 mg/dL; confianca=0.7068"
+PMC9529523_01,M2,Medication,started on hydroxychloroquine 300 mg,"polarity=present; mentions=m7|m13|m15|m44; mention_texts=[""started on hydroxychloroquine 300 mg"",""The serum hydroxychloroquine level"",""target blood hydroxychloroquine level is around"",""The serum hydroxychloroquine level""]; spans=[[1665,1701],[2368,2402],[2433,2480],[5054,5088]]; char_start=1665; char_end=1701; evidence_text=started on hydroxychloroquine 300 mg; mesh=D006886; confianca=1.0"
+PMC9529523_01,E2,Exam,rise in her serum creatinine to,"polarity=present; mentions=m8; mention_texts=[""rise in her serum creatinine to""]; spans=[[2203,2234]]; char_start=2203; char_end=2234; evidence_text=rise in her serum creatinine to; mesh=D003404; confianca=1.0"
+PMC9529523_01,R3,ExamResult,2.14 mg/dl,"polarity=present; mentions=m9; mention_texts=[""2.14 mg/dL""]; spans=[[2235,2245]]; char_start=2235; char_end=2245; evidence_text=2.14 mg/dL; confianca=0.5742"
+PMC9529523_01,R4,ExamResult,1.0 mg/dl,"polarity=present; mentions=m10; mention_texts=[""1.0 mg/dL""]; spans=[[2265,2274]]; char_start=2265; char_end=2274; evidence_text=1.0 mg/dL; confianca=0.657"
+PMC9529523_01,E3,Exam,c3,"polarity=present; mentions=m11; mention_texts=[""C3""]; spans=[[2307,2309]]; char_start=2307; char_end=2309; evidence_text=C3; confianca=0.2123"
+PMC9529523_01,R5,ExamResult,61 mg/dl,"polarity=present; mentions=m12; mention_texts=[""61 mg/dL""]; spans=[[2311,2319]]; char_start=2311; char_end=2319; evidence_text=61 mg/dL; confianca=0.5817"
+PMC9529523_01,R6,ExamResult,1232.1 ng/ml,"polarity=present; mentions=m14; mention_texts=[""1232.1 ng/ml""]; spans=[[2407,2419]]; char_start=2407; char_end=2419; evidence_text=1232.1 ng/ml; confianca=0.441"
+PMC9529523_01,R7,ExamResult,1000 ng/ml,"polarity=present; mentions=m16; mention_texts=[""1000 ng/mL""]; spans=[[2481,2491]]; char_start=2481; char_end=2491; evidence_text=1000 ng/mL; confianca=0.4468"
+PMC9529523_01,E4,Exam,was dropped to 200 mg,"polarity=present; mentions=m17; mention_texts=[""was dropped to 200 mg""]; spans=[[2616,2637]]; char_start=2616; char_end=2637; evidence_text=was dropped to 200 mg; confianca=0.1713"
+PMC9529523_01,E5,Exam,biopsy,"polarity=present; mentions=m18|m42; mention_texts=[""biopsy"",""biopsy""]; spans=[[2755,2761],[4814,4820]]; char_start=2755; char_end=2761; evidence_text=biopsy; mesh=D001706; confianca=1.0"
+PMC9529523_01,D2,Diagnosis,malignant hypertension,"polarity=present; mentions=m19; mention_texts=[""malignant hypertension""]; spans=[[2820,2842]]; char_start=2820; char_end=2842; evidence_text=malignant hypertension; mesh=D006974; confianca=1.0"
+PMC9529523_01,D3,Diagnosis,chronic thrombotic microangiopathy (tma,"polarity=present; mentions=m20; mention_texts=[""chronic thrombotic microangiopathy (TMA)""]; spans=[[2847,2887]]; char_start=2847; char_end=2887; evidence_text=chronic thrombotic microangiopathy (TMA); mesh=D057049; confianca=1.0"
+PMC9529523_01,E6,Exam,a forced vital capacity,"polarity=present; mentions=m21; mention_texts=[""a forced vital capacity""]; spans=[[2953,2976]]; char_start=2953; char_end=2976; evidence_text=a forced vital capacity; mesh=D014797; confianca=1.0"
+PMC9529523_01,R8,ExamResult,78%,"polarity=present; mentions=m22; mention_texts=[""78%""]; spans=[[2986,2989]]; char_start=2986; char_end=2989; evidence_text=78%; confianca=0.283"
+PMC9529523_01,E7,Exam,forced expiratory volume 1,"polarity=present; mentions=m23; mention_texts=[""forced expiratory volume 1""]; spans=[[2991,3017]]; char_start=2991; char_end=3017; evidence_text=forced expiratory volume 1; mesh=D005541; confianca=1.0"
+PMC9529523_01,R9,ExamResult,83%,"polarity=present; mentions=m24; mention_texts=[""83%""]; spans=[[3028,3031]]; char_start=3028; char_end=3031; evidence_text=83%; confianca=0.322"
+PMC9529523_01,E8,Exam,fev1/fvc,"polarity=present; mentions=m25; mention_texts=[""FEV1/FVC""]; spans=[[3037,3045]]; char_start=3037; char_end=3045; evidence_text=FEV1/FVC; confianca=0.2733"
+PMC9529523_01,R10,ExamResult,107%,"polarity=present; mentions=m26; mention_texts=[""107%""]; spans=[[3049,3053]]; char_start=3049; char_end=3053; evidence_text=107%; confianca=0.2614"
+PMC9529523_01,E9,Exam,was noted to be low,"polarity=present; mentions=m27; mention_texts=[""was noted to be low""]; spans=[[3118,3137]]; char_start=3118; char_end=3137; evidence_text=was noted to be low; confianca=0.2814"
+PMC9529523_01,R11,ExamResult,37%,"polarity=present; mentions=m28; mention_texts=[""37%""]; spans=[[3142,3145]]; char_start=3142; char_end=3145; evidence_text=37%; confianca=0.2972"
+PMC9529523_01,O1,Outcome,high-resolution,"polarity=present; mentions=m29; mention_texts=[""High-resolution""]; spans=[[3164,3179]]; char_start=3164; char_end=3179; evidence_text=High-resolution; confianca=0.2287"
+PMC9529523_01,E10,Exam,computed tomography,"polarity=present; mentions=m30; mention_texts=[""computed tomography""]; spans=[[3180,3199]]; char_start=3180; char_end=3199; evidence_text=computed tomography; mesh=D014054; confianca=1.0"
+PMC9529523_01,E11,Exam,inhibitors,"polarity=present; mentions=m31; mention_texts=[""inhibitors""]; spans=[[3464,3474]]; char_start=3464; char_end=3474; evidence_text=inhibitors; confianca=0.2427"
+PMC9529523_01,R12,ExamResult,125%,"polarity=present; mentions=m32; mention_texts=[""125%""]; spans=[[3475,3479]]; char_start=3475; char_end=3479; evidence_text=125%; confianca=0.2898"
+PMC9529523_01,F1,Finding,abnormalities,"polarity=absent; mentions=m33; mention_texts=[""abnormalities""]; spans=[[3757,3770]]; char_start=3757; char_end=3770; evidence_text=abnormalities; confianca=0.6648"
+PMC9529523_01,A1,AnatomicalSite,cardiac,"polarity=absent; mentions=m34; mention_texts=[""cardiac""]; spans=[[3848,3855]]; char_start=3848; char_end=3855; evidence_text=cardiac; mesh=ANAT006; confianca=1.0"
+PMC9529523_01,E12,Exam,magnetic resonance imaging,"polarity=absent; mentions=m35; mention_texts=[""magnetic resonance imaging""]; spans=[[3856,3882]]; char_start=3856; char_end=3882; evidence_text=magnetic resonance imaging; mesh=D008279; confianca=1.0"
+PMC9529523_01,E13,Exam,left ventricular ejection fraction (lvef) to,"polarity=present; mentions=m36; mention_texts=[""Left ventricular ejection fraction (LVEF) to""]; spans=[[4464,4508]]; char_start=4464; char_end=4508; evidence_text=Left ventricular ejection fraction (LVEF) to; mesh=D013318; confianca=1.0"
+PMC9529523_01,R13,ExamResult,10%,"polarity=present; mentions=m37; mention_texts=[""10%""]; spans=[[4509,4512]]; char_start=4509; char_end=4512; evidence_text=10%; confianca=0.3707"
+PMC9529523_01,E14,Exam,pericardiocentesis yielded 860 ml,"polarity=present; mentions=m38; mention_texts=[""pericardiocentesis yielded 860 ml""]; spans=[[4514,4547]]; char_start=4514; char_end=4547; evidence_text=pericardiocentesis yielded 860 ml; mesh=D020519; confianca=1.0"
+PMC9529523_01,F2,Finding,malignancy,"polarity=absent; mentions=m39; mention_texts=[""malignancy""]; spans=[[4642,4652]]; char_start=4642; char_end=4652; evidence_text=malignancy; mesh=D009369; confianca=1.0"
+PMC9529523_01,E15,Exam,c4,"polarity=present; mentions=m40; mention_texts=[""C4""]; spans=[[4668,4670]]; char_start=4668; char_end=4670; evidence_text=C4; confianca=0.2338"
+PMC9529523_01,R14,ExamResult,17 mg/dl,"polarity=present; mentions=m41; mention_texts=[""17 mg/dL""]; spans=[[4675,4683]]; char_start=4675; char_end=4683; evidence_text=17 mg/dL; confianca=0.6027"
+PMC9529523_01,E16,Exam,hydroxychloroquine-induced cardiomyopathy on electron microscopy,"polarity=present; mentions=m43; mention_texts=[""hydroxychloroquine-induced cardiomyopathy on electron microscopy""]; spans=[[4988,5052]]; char_start=4988; char_end=5052; evidence_text=hydroxychloroquine-induced cardiomyopathy on electron microscopy; mesh=D008854; confianca=1.0"
+PMC9529523_01,R15,ExamResult,274 ng/ml,"polarity=present; mentions=m45; mention_texts=[""274 ng/ml""]; spans=[[5093,5102]]; char_start=5093; char_end=5102; evidence_text=274 ng/ml; confianca=0.4451"
+PMC9529523_01,O2,Outcome,improvement,"polarity=present; mentions=m46; mention_texts=[""improvement""]; spans=[[5239,5250]]; char_start=5239; char_end=5250; evidence_text=improvement; confianca=1.0"
+PMC9529523_01,C1,Concept,D004322,code=D004322; vocabulary=MeSH
+PMC9529523_01,C2,Concept,D007074,code=D007074; vocabulary=MeSH
+PMC9529523_01,C3,Concept,D002097,code=D002097; vocabulary=MeSH
+PMC9529523_01,C4,Concept,D006886,code=D006886; vocabulary=MeSH
+PMC9529523_01,C5,Concept,D003404,code=D003404; vocabulary=MeSH
+PMC9529523_01,C6,Concept,D001706,code=D001706; vocabulary=MeSH
+PMC9529523_01,C7,Concept,D006974,code=D006974; vocabulary=MeSH
+PMC9529523_01,C8,Concept,D057049,code=D057049; vocabulary=MeSH
+PMC9529523_01,C9,Concept,D014797,code=D014797; vocabulary=MeSH
+PMC9529523_01,C10,Concept,D005541,code=D005541; vocabulary=MeSH
+PMC9529523_01,C11,Concept,D014054,code=D014054; vocabulary=MeSH
+PMC9529523_01,C12,Concept,ANAT006,code=ANAT006; vocabulary=AnatomicalSite
+PMC9529523_01,C13,Concept,D008279,code=D008279; vocabulary=MeSH
+PMC9529523_01,C14,Concept,D013318,code=D013318; vocabulary=MeSH
+PMC9529523_01,C15,Concept,D020519,code=D020519; vocabulary=MeSH
+PMC9529523_01,C16,Concept,D009369,code=D009369; vocabulary=MeSH
+PMC9529523_01,C17,Concept,D008854,code=D008854; vocabulary=MeSH

@@ -1,0 +1,24 @@
+case_id,node_id,type,label,attributes
+PMC11783470_01,P1,Patient,case PMC11783470_01,
+PMC11783470_01,F1,Finding,gastrointestinal malignancy,"polarity=absent; mentions=m1; mention_texts=[""gastrointestinal malignancy""]; spans=[[96,123]]; char_start=96; char_end=123; evidence_text=gastrointestinal malignancy; mesh=D009369; confianca=1.0"
+PMC11783470_01,E1,Exam,laboratory data: hemoglobin,"polarity=present; mentions=m2; mention_texts=[""Laboratory data: hemoglobin""]; spans=[[391,418]]; char_start=391; char_end=418; evidence_text=Laboratory data: hemoglobin; mesh=D006454; confianca=1.0"
+PMC11783470_01,R1,ExamResult,11.5 g/dl,"polarity=present; mentions=m3; mention_texts=[""11.5 g/dL""]; spans=[[419,428]]; char_start=419; char_end=428; evidence_text=11.5 g/dL; confianca=0.5193"
+PMC11783470_01,M1,Medication,transferrin saturation,"polarity=present; mentions=m4; mention_texts=[""transferrin saturation""]; spans=[[430,452]]; char_start=430; char_end=452; evidence_text=transferrin saturation; mesh=D014168; confianca=1.0"
+PMC11783470_01,R2,ExamResult,12.8%,"polarity=present; mentions=m5; mention_texts=[""12.8%""]; spans=[[453,458]]; char_start=453; char_end=458; evidence_text=12.8%; confianca=0.3461"
+PMC11783470_01,E2,Exam,ferritin,"polarity=present; mentions=m6; mention_texts=[""ferritin""]; spans=[[460,468]]; char_start=460; char_end=468; evidence_text=ferritin; mesh=D005293; confianca=1.0"
+PMC11783470_01,R3,ExamResult,200 ng/ml,"polarity=present; mentions=m7; mention_texts=[""200 ng/mL""]; spans=[[469,478]]; char_start=469; char_end=478; evidence_text=200 ng/mL; confianca=0.4466"
+PMC11783470_01,M2,Medication,and iron 76 mcg,"polarity=present; mentions=m8; mention_texts=[""and iron 76 mcg""]; spans=[[480,495]]; char_start=480; char_end=495; evidence_text=and iron 76 mcg; mesh=D007501; confianca=1.0"
+PMC11783470_01,E3,Exam,biopsy,"polarity=present; mentions=m9; mention_texts=[""Biopsy""]; spans=[[879,885]]; char_start=879; char_end=885; evidence_text=Biopsy; mesh=D001706; confianca=1.0"
+PMC11783470_01,A1,AnatomicalSite,gastric lesion demonstrated well-circumscribed proliferation,"polarity=present; mentions=m10; mention_texts=[""gastric lesion demonstrated well-circumscribed proliferation""]; spans=[[893,953]]; char_start=893; char_end=953; evidence_text=gastric lesion demonstrated well-circumscribed proliferation; mesh=ANAT001; confianca=1.0"
+PMC11783470_01,D1,Diagnosis,oga,"polarity=present; mentions=m11; mention_texts=[""OGA""]; spans=[[1022,1025]]; char_start=1022; char_end=1025; evidence_text=OGA; confianca=0.3961"
+PMC11783470_01,E4,Exam,known diagnosis of oga (image 2,"polarity=present; mentions=m12; mention_texts=[""known diagnosis of OGA (Image 2)""]; spans=[[1370,1402]]; char_start=1370; char_end=1402; evidence_text=known diagnosis of OGA (Image 2); mesh=D003933; confianca=1.0"
+PMC11783470_01,O1,Outcome,recurrence,"polarity=absent; mentions=m13; mention_texts=[""recurrence""]; spans=[[1689,1699]]; char_start=1689; char_end=1699; evidence_text=recurrence; mesh=D012008; confianca=1.0"
+PMC11783470_01,C1,Concept,D009369,code=D009369; vocabulary=MeSH
+PMC11783470_01,C2,Concept,D006454,code=D006454; vocabulary=MeSH
+PMC11783470_01,C3,Concept,D014168,code=D014168; vocabulary=MeSH
+PMC11783470_01,C4,Concept,D005293,code=D005293; vocabulary=MeSH
+PMC11783470_01,C5,Concept,D007501,code=D007501; vocabulary=MeSH
+PMC11783470_01,C6,Concept,D001706,code=D001706; vocabulary=MeSH
+PMC11783470_01,C7,Concept,ANAT001,code=ANAT001; vocabulary=AnatomicalSite
+PMC11783470_01,C8,Concept,D003933,code=D003933; vocabulary=MeSH
+PMC11783470_01,C9,Concept,D012008,code=D012008; vocabulary=MeSH

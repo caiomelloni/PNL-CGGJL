@@ -1,0 +1,10 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC11259348_02,e1,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[49,87]]; char_start=49; char_end=87; evidence_text=presence of erythrocyte alloantibodies; confianca=1.0"
+PMC11259348_02,e2,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[92,148]]; char_start=92; char_end=148; evidence_text=ABO incompatibility of the patient with transfused units; confianca=1.0"
+PMC11259348_02,e3,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[2091,2120]]; char_start=2091; char_end=2120; evidence_text=ten blood packs were selected; confianca=1.0"
+PMC11259348_02,e4,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m5""]]; evidence_spans=[[2545,2574]]; char_start=2545; char_end=2574; evidence_text=serum was added to one volume; confianca=1.0"
+PMC11259348_02,e5,P1,E3,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m7""]]; evidence_spans=[[2729,2759]]; char_start=2729; char_end=2759; evidence_text=person was added to one volume; confianca=1.0"
+PMC11259348_02,e6,E1,R1,HAS_RESULT,"mention_pairs=[[""m3"",""m4""]]; evidence_spans=[[2091,2129]]; char_start=2091; char_end=2129; evidence_text=ten blood packs were selected, and 50%; confianca=0.7851"
+PMC11259348_02,e7,E2,R1,HAS_RESULT,"mention_pairs=[[""m5"",""m6""]]; evidence_spans=[[2545,2581]]; char_start=2545; char_end=2581; evidence_text=serum was added to one volume of 50%; confianca=0.8974"
+PMC11259348_02,e8,E3,R1,HAS_RESULT,"mention_pairs=[[""m7"",""m8""]]; evidence_spans=[[2729,2766]]; char_start=2729; char_end=2766; evidence_text=person was added to one volume of 50%; confianca=0.8964"
+PMC11259348_02,e9,M1,C1,SAME_AS,

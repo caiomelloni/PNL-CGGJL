@@ -1,0 +1,48 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC10106591_01,e1,P1,S1,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[212,222]]; char_start=212; char_end=222; evidence_text=chest pain; confianca=1.0"
+PMC10106591_01,e2,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[357,408]]; char_start=357; char_end=408; evidence_text=tightness in her throat without shortness of breath; confianca=1.0"
+PMC10106591_01,e3,P1,S2,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[410,422]]; char_start=410; char_end=422; evidence_text=palpitations; confianca=1.0"
+PMC10106591_01,e4,P1,S3,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m4""]]; evidence_spans=[[427,438]]; char_start=427; char_end=438; evidence_text=diaphoresis; confianca=1.0"
+PMC10106591_01,e5,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m5""]]; evidence_spans=[[717,761]]; char_start=717; char_end=761; evidence_text=abnormal glucose tolerance for the past year; confianca=1.0"
+PMC10106591_01,e6,P1,M2,TREATED_WITH,"mention_pairs=[[""P1"",""m6""]]; evidence_spans=[[1000,1023]]; char_start=1000; char_end=1023; evidence_text=oxygen saturation level; confianca=1.0"
+PMC10106591_01,e7,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m8""]]; evidence_spans=[[1570,1612]]; char_start=1570; char_end=1612; evidence_text=reduced left ventricular ejection fraction; confianca=1.0"
+PMC10106591_01,e8,P1,M3,TREATED_WITH,"mention_pairs=[[""P1"",""m10""]]; evidence_spans=[[1666,1710]]; char_start=1666; char_end=1710; evidence_text=laboratory tests indicated normal troponin I; confianca=1.0"
+PMC10106591_01,e9,P1,M4,TREATED_WITH,"mention_pairs=[[""P1"",""m12""]]; evidence_spans=[[1756,1784]]; char_start=1756; char_end=1784; evidence_text=creatine kinase MB isoenzyme; confianca=1.0"
+PMC10106591_01,e10,P1,M5,TREATED_WITH,"mention_pairs=[[""P1"",""m14""]]; evidence_spans=[[1831,1840]]; char_start=1831; char_end=1840; evidence_text=myoglobin; confianca=1.0"
+PMC10106591_01,e11,P1,M6,TREATED_WITH,"mention_pairs=[[""P1"",""m16""]]; evidence_spans=[[1958,1981]]; char_start=1958; char_end=1981; evidence_text=dose of aspirin (300 mg; confianca=1.0"
+PMC10106591_01,e12,P1,M7,TREATED_WITH,"mention_pairs=[[""P1"",""m17""]]; evidence_spans=[[1985,2004]]; char_start=1985; char_end=2004; evidence_text=clopidogrel (300 mg; confianca=1.0"
+PMC10106591_01,e13,P1,D2,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m18""]]; evidence_spans=[[2608,2632]]; char_start=2608; char_end=2632; evidence_text=CAS was highly suspected; confianca=1.0"
+PMC10106591_01,e14,P1,D3,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m19""]]; evidence_spans=[[2663,2666]]; char_start=2663; char_end=2666; evidence_text=CAS; confianca=1.0"
+PMC10106591_01,e15,P1,M8,TREATED_WITH,"mention_pairs=[[""P1"",""m20""],[""P1"",""m32""]]; evidence_spans=[[2676,2685],[3846,3889]]; char_start=2676; char_end=2685; evidence_text=diltiazem; confianca=1.0"
+PMC10106591_01,e16,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m22""]]; evidence_spans=[[2842,2862]]; char_start=2842; char_end=2862; evidence_text=patient was on 50 mg; confianca=1.0"
+PMC10106591_01,e17,P1,E3,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m27""]]; evidence_spans=[[3161,3189]]; char_start=3161; char_end=3189; evidence_text=at the first diagonal branch; confianca=1.0"
+PMC10106591_01,e18,P1,E4,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m28""]]; evidence_spans=[[3226,3250]]; char_start=3226; char_end=3250; evidence_text=of the circumflex branch; confianca=1.0"
+PMC10106591_01,e19,P1,D4,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m29""]]; evidence_spans=[[3736,3748]]; char_start=3736; char_end=3748; evidence_text=CAS was made; confianca=1.0"
+PMC10106591_01,e20,P1,E5,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m30""]]; evidence_spans=[[3750,3767]]; char_start=3750; char_end=3767; evidence_text=Repeated troponin; confianca=1.0"
+PMC10106591_01,e21,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m33""]]; evidence_spans=[[4226,4236]]; char_start=4226; char_end=4236; evidence_text=recurrence; confianca=1.0"
+PMC10106591_01,e22,P1,S4,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m35""]]; evidence_spans=[[4269,4277]]; char_start=4269; char_end=4277; evidence_text=symptoms; confianca=1.0"
+PMC10106591_01,e23,S1,D1,SUPPORTS,"mention_pairs=[[""m1"",""m2""]]; evidence_spans=[[212,408]]; char_start=212; char_end=408; evidence_text=chest pain that started 2 weeks before she attended the ER involved intermittent retrosternal pain occurring at midnight at rest, accompanied by tightness in her throat without shortness of breath; confianca=0.9389"
+PMC10106591_01,e24,S2,D1,SUPPORTS,"mention_pairs=[[""m3"",""m2""]]; evidence_spans=[[357,422]]; char_start=357; char_end=422; evidence_text=tightness in her throat without shortness of breath, palpitations; confianca=0.9664"
+PMC10106591_01,e25,S3,D1,SUPPORTS,"mention_pairs=[[""m4"",""m2""]]; evidence_spans=[[357,438]]; char_start=357; char_end=438; evidence_text=tightness in her throat without shortness of breath, palpitations, or diaphoresis; confianca=0.9597"
+PMC10106591_01,e26,E1,R2,HAS_RESULT,"mention_pairs=[[""m8"",""m9""]]; evidence_spans=[[1570,1622]]; char_start=1570; char_end=1622; evidence_text=reduced left ventricular ejection fraction (LVEF 50%; confianca=0.904"
+PMC10106591_01,e27,E1,R3,HAS_RESULT,"mention_pairs=[[""m8"",""m11""]]; evidence_spans=[[1570,1725]]; char_start=1570; char_end=1725; evidence_text=reduced left ventricular ejection fraction (LVEF 50%, normal range: 55%-75%) (Figures 1B,C). ER laboratory tests indicated normal troponin I of 0.016 ng/mL; confianca=0.5559"
+PMC10106591_01,e28,E2,R6,HAS_RESULT,"mention_pairs=[[""m22"",""m23""]]; evidence_spans=[[2842,2912]]; char_start=2842; char_end=2912; evidence_text=patient was on 50 mg of diltiazem hydrochloride intravenously (at 5 mL; confianca=0.8232"
+PMC10106591_01,e29,E3,R7,HAS_RESULT,"mention_pairs=[[""m27"",""m24""]]; evidence_spans=[[3051,3189]]; char_start=3051; char_end=3189; evidence_text=20%-30% stenosis at the opening and middle segment of the left anterior descending artery (LAD), 30% stenosis at the first diagonal branch; confianca=0.9441"
+PMC10106591_01,e30,E3,R8,HAS_RESULT,"mention_pairs=[[""m27"",""m25""]]; evidence_spans=[[3054,3189]]; char_start=3054; char_end=3189; evidence_text=-30% stenosis at the opening and middle segment of the left anterior descending artery (LAD), 30% stenosis at the first diagonal branch; confianca=0.949"
+PMC10106591_01,e31,E5,R9,HAS_RESULT,"mention_pairs=[[""m30"",""m31""]]; evidence_spans=[[3750,3780]]; char_start=3750; char_end=3780; evidence_text=Repeated troponin (0.031 ng/mL; confianca=0.8743"
+PMC10106591_01,e32,S4,A3,LOCATED_IN,"mention_pairs=[[""m35"",""m34""]]; evidence_spans=[[4240,4277]]; char_start=4240; char_end=4277; evidence_text=chest pain or other reported symptoms; confianca=0.9914"
+PMC10106591_01,e33,S1,C1,SAME_AS,
+PMC10106591_01,e34,D1,C2,SAME_AS,
+PMC10106591_01,e35,M1,C3,SAME_AS,
+PMC10106591_01,e36,M2,C4,SAME_AS,
+PMC10106591_01,e37,E1,C5,SAME_AS,
+PMC10106591_01,e38,M3,C6,SAME_AS,
+PMC10106591_01,e39,M4,C7,SAME_AS,
+PMC10106591_01,e40,M5,C8,SAME_AS,
+PMC10106591_01,e41,M6,C9,SAME_AS,
+PMC10106591_01,e42,M7,C10,SAME_AS,
+PMC10106591_01,e43,M8,C11,SAME_AS,
+PMC10106591_01,e44,A1,C12,SAME_AS,
+PMC10106591_01,e45,E5,C13,SAME_AS,
+PMC10106591_01,e46,O1,C14,SAME_AS,
+PMC10106591_01,e47,A3,C15,SAME_AS,

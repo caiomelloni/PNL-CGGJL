@@ -1,0 +1,12 @@
+case_id,node_id,type,label,attributes
+PMC3437073_01,P1,Patient,case PMC3437073_01,
+PMC3437073_01,A1,AnatomicalSite,upper abdomen over a period of one year,"polarity=present; mentions=m1; mention_texts=[""upper abdomen over a period of one year""]; spans=[[98,137]]; char_start=98; char_end=137; evidence_text=upper abdomen over a period of one year; mesh=ANAT033; confianca=1.0"
+PMC3437073_01,E1,Exam,x-rays,"polarity=present; mentions=m2; mention_texts=[""X-rays""]; spans=[[609,615]]; char_start=609; char_end=615; evidence_text=X-rays; confianca=0.2145"
+PMC3437073_01,E2,Exam,ultrasound,"polarity=present; mentions=m3; mention_texts=[""Ultrasound""]; spans=[[806,816]]; char_start=806; char_end=816; evidence_text=Ultrasound; confianca=1.0"
+PMC3437073_01,E3,Exam,ct,"polarity=present; mentions=m4; mention_texts=[""CT""]; spans=[[890,892]]; char_start=890; char_end=892; evidence_text=CT; confianca=0.6112"
+PMC3437073_01,D1,Diagnosis,characteristic tuberculoid granuloma with epithelioid cells,"polarity=present; mentions=m5; mention_texts=[""characteristic tuberculoid granuloma with epithelioid cells""]; spans=[[1605,1664]]; char_start=1605; char_end=1664; evidence_text=characteristic tuberculoid granuloma with epithelioid cells; mesh=D006099; confianca=1.0"
+PMC3437073_01,M1,Medication,isoniazid (inh) 300 mg,"polarity=present; mentions=m6; mention_texts=[""Isoniazid (INH) 300 mg""]; spans=[[1848,1870]]; char_start=1848; char_end=1870; evidence_text=Isoniazid (INH) 300 mg; mesh=D007538; confianca=1.0"
+PMC3437073_01,O1,Outcome,improved,"polarity=present; mentions=m7; mention_texts=[""improved""]; spans=[[2021,2029]]; char_start=2021; char_end=2029; evidence_text=improved; confianca=0.7924"
+PMC3437073_01,C1,Concept,ANAT033,code=ANAT033; vocabulary=AnatomicalSite
+PMC3437073_01,C2,Concept,D006099,code=D006099; vocabulary=MeSH
+PMC3437073_01,C3,Concept,D007538,code=D007538; vocabulary=MeSH

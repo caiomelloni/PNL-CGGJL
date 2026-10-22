@@ -1,0 +1,7 @@
+case_id,node_id,type,label,attributes
+PMC2817501_01,P1,Patient,case PMC2817501_01,
+PMC2817501_01,E1,Exam,a left ventricular ejection fraction,"polarity=present; mentions=m1; mention_texts=[""a left ventricular ejection fraction""]; spans=[[749,785]]; char_start=749; char_end=785; evidence_text=a left ventricular ejection fraction; mesh=D013318; confianca=1.0"
+PMC2817501_01,R1,ExamResult,30%,"polarity=present; mentions=m2; mention_texts=[""30%""]; spans=[[789,792]]; char_start=789; char_end=792; evidence_text=30%; confianca=0.3726"
+PMC2817501_01,E2,Exam,coronary,"polarity=present; mentions=m3; mention_texts=[""Coronary""]; spans=[[914,922]]; char_start=914; char_end=922; evidence_text=Coronary; confianca=0.1745"
+PMC2817501_01,R2,ExamResult,90%,"polarity=present; mentions=m4; mention_texts=[""90%""]; spans=[[946,949]]; char_start=946; char_end=949; evidence_text=90%; confianca=0.2874"
+PMC2817501_01,C1,Concept,D013318,code=D013318; vocabulary=MeSH

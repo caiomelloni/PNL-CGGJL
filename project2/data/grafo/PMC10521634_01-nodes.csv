@@ -1,0 +1,20 @@
+case_id,node_id,type,label,attributes
+PMC10521634_01,P1,Patient,case PMC10521634_01,
+PMC10521634_01,E1,Exam,a hemoglobin,"polarity=present; mentions=m1; mention_texts=[""a hemoglobin""]; spans=[[685,697]]; char_start=685; char_end=697; evidence_text=a hemoglobin; mesh=D006454; confianca=1.0"
+PMC10521634_01,R1,ExamResult,11.5g/dl,"polarity=present; mentions=m2; mention_texts=[""11.5g/dl""]; spans=[[712,720]]; char_start=712; char_end=720; evidence_text=11.5g/dl; confianca=0.4527"
+PMC10521634_01,E2,Exam,a crp,"polarity=present; mentions=m3; mention_texts=[""a CRP""]; spans=[[755,760]]; char_start=755; char_end=760; evidence_text=a CRP; confianca=0.2561"
+PMC10521634_01,R2,ExamResult,5mg/dl,"polarity=present; mentions=m4; mention_texts=[""5mg/dl""]; spans=[[770,776]]; char_start=770; char_end=776; evidence_text=5mg/dl; confianca=0.5323"
+PMC10521634_01,D1,Diagnosis,infections and vdz 300 mg,"polarity=present; mentions=m5; mention_texts=[""infections and VDZ 300 mg""]; spans=[[869,894]]; char_start=869; char_end=894; evidence_text=infections and VDZ 300 mg; mesh=D007239; confianca=1.0"
+PMC10521634_01,E3,Exam,ct,"polarity=present; mentions=m6|m11; mention_texts=[""CT"",""CT""]; spans=[[1685,1687],[2805,2807]]; char_start=1685; char_end=1687; evidence_text=CT; confianca=0.6579"
+PMC10521634_01,A1,AnatomicalSite,colon,"polarity=present; mentions=m7; mention_texts=[""colon""]; spans=[[2040,2045]]; char_start=2040; char_end=2045; evidence_text=colon; mesh=ANAT009; confianca=1.0"
+PMC10521634_01,F1,Finding,malignancy,"polarity=absent; mentions=m8; mention_texts=[""malignancy""]; spans=[[2063,2073]]; char_start=2063; char_end=2073; evidence_text=malignancy; mesh=D009369; confianca=1.0"
+PMC10521634_01,O1,Outcome,discharged,"polarity=present; mentions=m9; mention_texts=[""discharged""]; spans=[[2605,2615]]; char_start=2605; char_end=2615; evidence_text=discharged; confianca=0.7059"
+PMC10521634_01,O2,Outcome,complication,"polarity=present; mentions=m10; mention_texts=[""complication""]; spans=[[2745,2757]]; char_start=2745; char_end=2757; evidence_text=complication; confianca=1.0"
+PMC10521634_01,T1,Treatment,drainage,"polarity=present; mentions=m12; mention_texts=[""drainage""]; spans=[[2842,2850]]; char_start=2842; char_end=2850; evidence_text=drainage; mesh=D004322; confianca=1.0"
+PMC10521634_01,E4,Exam,endoscopy,"polarity=present; mentions=m13; mention_texts=[""endoscopy""]; spans=[[2911,2920]]; char_start=2911; char_end=2920; evidence_text=endoscopy; mesh=D004724; confianca=1.0"
+PMC10521634_01,C1,Concept,D006454,code=D006454; vocabulary=MeSH
+PMC10521634_01,C2,Concept,D007239,code=D007239; vocabulary=MeSH
+PMC10521634_01,C3,Concept,ANAT009,code=ANAT009; vocabulary=AnatomicalSite
+PMC10521634_01,C4,Concept,D009369,code=D009369; vocabulary=MeSH
+PMC10521634_01,C5,Concept,D004322,code=D004322; vocabulary=MeSH
+PMC10521634_01,C6,Concept,D004724,code=D004724; vocabulary=MeSH

@@ -1,0 +1,34 @@
+case_id,node_id,type,label,attributes
+PMC11420039_01,P1,Patient,case PMC11420039_01,
+PMC11420039_01,D1,Diagnosis,"widespread erythematous patches and vesicles on the limbs, which had appeared successively over a period of 2 weeks, and had previously been diagnosed as ""eczema"" at another hospital","polarity=present; mentions=m1; mention_texts=[""widespread erythematous patches and vesicles on the limbs, which had appeared successively over a period of 2 weeks, and had previously been diagnosed as \""eczema\"" at another hospital""]; spans=[[35,217]]; char_start=35; char_end=217; evidence_text=widespread erythematous patches and vesicles on the limbs, which had appeared successively over a period of 2 weeks, and had previously been diagnosed as ""eczema"" at another hospital; mesh=D004485; confianca=1.0"
+PMC11420039_01,E1,Exam,he staining,"polarity=present; mentions=m2; mention_texts=[""HE staining""]; spans=[[1103,1114]]; char_start=1103; char_end=1114; evidence_text=HE staining; mesh=D013194; confianca=1.0"
+PMC11420039_01,D2,Diagnosis,significant infiltration of eosinophils ( figures 3a,"polarity=present; mentions=m3; mention_texts=[""significant infiltration of eosinophils ( Figures 3A""]; spans=[[1120,1172]]; char_start=1120; char_end=1172; evidence_text=significant infiltration of eosinophils ( Figures 3A; confianca=0.2692"
+PMC11420039_01,D3,Diagnosis,bp,"polarity=present; mentions=m4; mention_texts=[""BP""]; spans=[[1253,1255]]; char_start=1253; char_end=1255; evidence_text=BP; confianca=0.4608"
+PMC11420039_01,M1,Medication,treated with methylprednisolone 40 mg,"polarity=present; mentions=m5; mention_texts=[""treated with methylprednisolone 40 mg""]; spans=[[1273,1310]]; char_start=1273; char_end=1310; evidence_text=treated with methylprednisolone 40 mg; mesh=D008775; confianca=1.0"
+PMC11420039_01,D4,Diagnosis,a dose of 20 mg,"polarity=present; mentions=m6; mention_texts=[""a dose of 20 mg""]; spans=[[1404,1419]]; char_start=1404; char_end=1419; evidence_text=a dose of 20 mg; confianca=0.1977"
+PMC11420039_01,S1,Symptom,the morning and 16 mg,"polarity=present; mentions=m7; mention_texts=[""the morning and 16 mg""]; spans=[[1423,1444]]; char_start=1423; char_end=1444; evidence_text=the morning and 16 mg; confianca=0.1956"
+PMC11420039_01,O1,Outcome,improved,"polarity=present; mentions=m8|m26|m27; mention_texts=[""improved"",""improved"",""improved""]; spans=[[1512,1520],[4775,4783],[4864,4872]]; char_start=1512; char_end=1520; evidence_text=improved; confianca=0.7563"
+PMC11420039_01,O2,Outcome,discharged,"polarity=present; mentions=m9|m14; mention_texts=[""discharged"",""discharged""]; spans=[[1534,1544],[2132,2142]]; char_start=1534; char_end=1544; evidence_text=discharged; confianca=0.724"
+PMC11420039_01,D5,Diagnosis,was adjusted to 16 mg,"polarity=present; mentions=m10; mention_texts=[""was adjusted to 16 mg""]; spans=[[1821,1842]]; char_start=1821; char_end=1842; evidence_text=was adjusted to 16 mg; confianca=0.2117"
+PMC11420039_01,S2,Symptom,the morning and 12 mg,"polarity=present; mentions=m11; mention_texts=[""the morning and 12 mg""]; spans=[[1846,1867]]; char_start=1846; char_end=1867; evidence_text=the morning and 12 mg; confianca=0.1857"
+PMC11420039_01,M2,Medication,initial dose of 600 mg,"polarity=present; mentions=m12; mention_texts=[""initial dose of 600 mg""]; spans=[[1970,1992]]; char_start=1970; char_end=1992; evidence_text=initial dose of 600 mg; confianca=0.2157"
+PMC11420039_01,R1,ExamResult,followed by 300 mg,"polarity=present; mentions=m13; mention_texts=[""followed by 300 mg""]; spans=[[2018,2036]]; char_start=2018; char_end=2036; evidence_text=followed by 300 mg; confianca=0.1794"
+PMC11420039_01,A1,AnatomicalSite,chest,"polarity=present; mentions=m15; mention_texts=[""Chest""]; spans=[[2585,2590]]; char_start=2585; char_end=2590; evidence_text=Chest; mesh=ANAT032; confianca=1.0"
+PMC11420039_01,E2,Exam,ct,"polarity=present; mentions=m16; mention_texts=[""CT""]; spans=[[2591,2593]]; char_start=2591; char_end=2593; evidence_text=CT; confianca=0.6362"
+PMC11420039_01,A2,AnatomicalSite,head,"polarity=present; mentions=m17; mention_texts=[""head""]; spans=[[2638,2642]]; char_start=2638; char_end=2642; evidence_text=head; mesh=ANAT024; confianca=1.0"
+PMC11420039_01,E3,Exam,mri,"polarity=present; mentions=m18|m24; mention_texts=[""MRI"",""MRI""]; spans=[[2650,2653],[4048,4051]]; char_start=2650; char_end=2653; evidence_text=MRI; confianca=0.3607"
+PMC11420039_01,F1,Finding,significant abnormalities,"polarity=absent; mentions=m19; mention_texts=[""significant abnormalities""]; spans=[[2664,2689]]; char_start=2664; char_end=2689; evidence_text=significant abnormalities; confianca=0.5156"
+PMC11420039_01,D6,Diagnosis,viral septicemia,"polarity=present; mentions=m20; mention_texts=[""viral septicemia""]; spans=[[3050,3066]]; char_start=3050; char_end=3066; evidence_text=viral septicemia; mesh=D018805; confianca=1.0"
+PMC11420039_01,M3,Medication,acyclovir,"polarity=present; mentions=m21; mention_texts=[""acyclovir""]; spans=[[3084,3093]]; char_start=3084; char_end=3093; evidence_text=acyclovir; mesh=D000212; confianca=1.0"
+PMC11420039_01,D7,Diagnosis,was reduced to 4 mg,"polarity=absent; mentions=m22; mention_texts=[""was reduced to 4 mg""]; spans=[[3280,3299]]; char_start=3280; char_end=3299; evidence_text=was reduced to 4 mg; confianca=0.1795"
+PMC11420039_01,D8,Diagnosis,secondary sjogren's syndrome,"polarity=present; mentions=m23; mention_texts=[""Secondary Sjogren's Syndrome""]; spans=[[3892,3920]]; char_start=3892; char_end=3920; evidence_text=Secondary Sjogren's Syndrome; mesh=D012859; confianca=1.0"
+PMC11420039_01,R2,ExamResult,a dose of 20 g,"polarity=present; mentions=m25; mention_texts=[""a dose of 20 g""]; spans=[[4529,4543]]; char_start=4529; char_end=4543; evidence_text=a dose of 20 g; confianca=0.159"
+PMC11420039_01,O3,Outcome,complications,"polarity=present; mentions=m28; mention_texts=[""complications""]; spans=[[5111,5124]]; char_start=5111; char_end=5124; evidence_text=complications; confianca=0.2433"
+PMC11420039_01,C1,Concept,D004485,code=D004485; vocabulary=MeSH
+PMC11420039_01,C2,Concept,D013194,code=D013194; vocabulary=MeSH
+PMC11420039_01,C3,Concept,D008775,code=D008775; vocabulary=MeSH
+PMC11420039_01,C4,Concept,ANAT032,code=ANAT032; vocabulary=AnatomicalSite
+PMC11420039_01,C5,Concept,ANAT024,code=ANAT024; vocabulary=AnatomicalSite
+PMC11420039_01,C6,Concept,D018805,code=D018805; vocabulary=MeSH
+PMC11420039_01,C7,Concept,D000212,code=D000212; vocabulary=MeSH
+PMC11420039_01,C8,Concept,D012859,code=D012859; vocabulary=MeSH

@@ -1,0 +1,24 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC7718649_01,e1,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m1""],[""P1"",""m4""],[""P1"",""m13""]]; evidence_spans=[[89,113],[1629,1654],[3343,3360]]; char_start=89; char_end=113; evidence_text=SLE is prednisone (10 mg; confianca=1.0"
+PMC7718649_01,e2,P1,M2,TREATED_WITH,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[826,843]]; char_start=826; char_end=843; evidence_text=oseltamivir 75 mg; confianca=1.0"
+PMC7718649_01,e3,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m3""],[""P1"",""m5""],[""P1"",""m16""],[""P1"",""m20""]]; evidence_spans=[[1393,1395],[1964,1966],[3862,3864],[4753,4755]]; char_start=1393; char_end=1395; evidence_text=CT; confianca=1.0"
+PMC7718649_01,e4,P1,S1,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m6""]]; evidence_spans=[[2417,2430]]; char_start=2417; char_end=2430; evidence_text=mild coughing; confianca=1.0"
+PMC7718649_01,e5,P1,M3,TREATED_WITH,"mention_pairs=[[""P1"",""m9""]]; evidence_spans=[[3080,3103]]; char_start=3080; char_end=3103; evidence_text=Glycosylated hemoglobin; confianca=1.0"
+PMC7718649_01,e6,P1,M4,TREATED_WITH,"mention_pairs=[[""P1"",""m11""]]; evidence_spans=[[3118,3158]]; char_start=3118; char_end=3158; evidence_text=postprandial blood sugar was higher than; confianca=1.0"
+PMC7718649_01,e7,P1,M5,TREATED_WITH,"mention_pairs=[[""P1"",""m14""]]; evidence_spans=[[3485,3504]]; char_start=3485; char_end=3504; evidence_text=Pantoprazole (40 mg; confianca=1.0"
+PMC7718649_01,e8,P1,M6,TREATED_WITH,"mention_pairs=[[""P1"",""m15""]]; evidence_spans=[[3694,3709]]; char_start=3694; char_end=3709; evidence_text=acarbose (50 mg; confianca=1.0"
+PMC7718649_01,e9,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m17""],[""P1"",""m19""],[""P1"",""m22""],[""P1"",""m28""]]; evidence_spans=[[4168,4176],[4254,4262],[4902,4910],[5707,5715]]; char_start=4168; char_end=4176; evidence_text=improved; confianca=1.0"
+PMC7718649_01,e10,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m18""]]; evidence_spans=[[4209,4229]]; char_start=4209; char_end=4229; evidence_text=was reduced to 15 mg; confianca=1.0"
+PMC7718649_01,e11,P1,S2,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m23""]]; evidence_spans=[[5080,5101]]; char_start=5080; char_end=5101; evidence_text=and loxoprofen (60 mg; confianca=1.0"
+PMC7718649_01,e12,P1,O2,HAS_OUTCOME,"mention_pairs=[[""P1"",""m24""],[""P1"",""m29""]]; evidence_spans=[[5287,5298],[5751,5762]]; char_start=5287; char_end=5298; evidence_text=improvement; confianca=1.0"
+PMC7718649_01,e13,P1,M7,TREATED_WITH,"mention_pairs=[[""P1"",""m25""]]; evidence_spans=[[5434,5475]]; char_start=5434; char_end=5475; evidence_text=immunoglobulin G (IgG) of SARS-CoV-2 were; confianca=1.0"
+PMC7718649_01,e14,P1,O3,HAS_OUTCOME,"mention_pairs=[[""P1"",""m30""]]; evidence_spans=[[5887,5897]]; char_start=5887; char_end=5897; evidence_text=discharged; confianca=1.0"
+PMC7718649_01,e15,E1,R4,HAS_RESULT,"mention_pairs=[[""m20"",""m21""]]; evidence_spans=[[4753,4877]]; char_start=4753; char_end=4877; evidence_text=CT (February 23, 2020) showed a modest upturn in the lesions (Figure 2b). The dosage of prednisone was then reduced to 10 mg; confianca=0.7189"
+PMC7718649_01,e16,M1,C1,SAME_AS,
+PMC7718649_01,e17,M2,C2,SAME_AS,
+PMC7718649_01,e18,A1,C3,SAME_AS,
+PMC7718649_01,e19,M3,C4,SAME_AS,
+PMC7718649_01,e20,M4,C5,SAME_AS,
+PMC7718649_01,e21,M5,C6,SAME_AS,
+PMC7718649_01,e22,M6,C7,SAME_AS,
+PMC7718649_01,e23,M7,C8,SAME_AS,

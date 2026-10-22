@@ -1,0 +1,21 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC3950436_01,e1,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[467,477]]; char_start=467; char_end=477; evidence_text=recurrence; confianca=1.0"
+PMC3950436_01,e2,P1,S1,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[1080,1088]]; char_start=1080; char_end=1088; evidence_text=daughter; confianca=1.0"
+PMC3950436_01,e3,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[1446,1474]]; char_start=1446; char_end=1474; evidence_text=oxygen hemoglobin saturation; confianca=1.0"
+PMC3950436_01,e4,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m5""]]; evidence_spans=[[1550,1566]]; char_start=1550; char_end=1566; evidence_text=a dose of 120 mg; confianca=1.0"
+PMC3950436_01,e5,P1,S2,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m7""]]; evidence_spans=[[1673,1700]]; char_start=1673; char_end=1700; evidence_text=by administration of 80 mcg; confianca=1.0"
+PMC3950436_01,e6,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m9""]]; evidence_spans=[[1808,1822]]; char_start=1808; char_end=1822; evidence_text=EMLA 5 g cream; confianca=1.0"
+PMC3950436_01,e7,P1,E3,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m11""]]; evidence_spans=[[2234,2240]]; char_start=2234; char_end=2240; evidence_text=O2 Sat; confianca=1.0"
+PMC3950436_01,e8,P1,E4,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m13""]]; evidence_spans=[[2247,2252]]; char_start=2247; char_end=2252; evidence_text=A 24G; confianca=1.0"
+PMC3950436_01,e9,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m14""]]; evidence_spans=[[2346,2360]]; char_start=2346; char_end=2360; evidence_text=5 ml lidocaine; confianca=1.0"
+PMC3950436_01,e10,S2,D1,SUPPORTS,"mention_pairs=[[""m7"",""m5""]]; evidence_spans=[[1550,1700]]; char_start=1550; char_end=1700; evidence_text=a dose of 120 mg (3 mg/kg) diluted in 10 ml normal saline was administered through the gastrostomy tube. That was followed by administration of 80 mcg; confianca=0.9604"
+PMC3950436_01,e11,E1,R1,HAS_RESULT,"mention_pairs=[[""m3"",""m4""]]; evidence_spans=[[1446,1478]]; char_start=1446; char_end=1478; evidence_text=oxygen hemoglobin saturation 98%; confianca=0.8624"
+PMC3950436_01,e12,E1,R2,HAS_RESULT,"mention_pairs=[[""m3"",""m6""]]; evidence_spans=[[1446,1593]]; char_start=1446; char_end=1593; evidence_text=oxygen hemoglobin saturation 98% and respiratory rate (RR) 17/min.
+Ketamine (Tekam, Hikma, Jordan) with a dose of 120 mg (3 mg/kg) diluted in 10 ml; confianca=0.5515"
+PMC3950436_01,e13,E2,R2,HAS_RESULT,"mention_pairs=[[""m9"",""m8""]]; evidence_spans=[[1776,1822]]; char_start=1776; char_end=1822; evidence_text=diluted in 10 ml normal saline. EMLA 5 g cream; confianca=0.9663"
+PMC3950436_01,e14,E2,R3,HAS_RESULT,"mention_pairs=[[""m9"",""m10""]]; evidence_spans=[[1808,1825]]; char_start=1808; char_end=1825; evidence_text=EMLA 5 g cream 5%; confianca=0.8788"
+PMC3950436_01,e15,E4,R1,HAS_RESULT,"mention_pairs=[[""m13"",""m12""]]; evidence_spans=[[2242,2252]]; char_start=2242; char_end=2252; evidence_text=98%. A 24G; confianca=0.9795"
+PMC3950436_01,e16,E4,R4,HAS_RESULT,"mention_pairs=[[""m13"",""m15""]]; evidence_spans=[[2247,2363]]; char_start=2247; char_end=2363; evidence_text=A 24G IV cannula was inserted in the left antecubital vein guided by ultrasound without complaint. 5 ml lidocaine 1%; confianca=0.5894"
+PMC3950436_01,e17,O1,C1,SAME_AS,
+PMC3950436_01,e18,E1,C2,SAME_AS,
+PMC3950436_01,e19,M1,C3,SAME_AS,

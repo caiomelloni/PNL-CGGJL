@@ -1,0 +1,28 @@
+case_id,node_id,type,label,attributes
+PMC4782471_01,P1,Patient,case PMC4782471_01,
+PMC4782471_01,D1,Diagnosis,"perimembranous vsd measuring , no aortic regurgitation, mild left ventricular dilatation, and no pulmonary hypertension","polarity=present; mentions=m1; mention_texts=[""perimembranous VSD measuring 5 mm, no aortic regurgitation, mild left ventricular dilatation, and no pulmonary hypertension""]; spans=[[44,167]]; char_start=44; char_end=167; evidence_text=perimembranous VSD measuring 5 mm, no aortic regurgitation, mild left ventricular dilatation, and no pulmonary hypertension; size=5 mm; mesh=D006976; confianca=1.0"
+PMC4782471_01,D2,Diagnosis,breathlessness on exertion and were advised that the defect was unlikely to close spontaneously at her age,"polarity=present; mentions=m2; mention_texts=[""breathlessness on exertion and were advised that the defect was unlikely to close spontaneously at her age""]; spans=[[233,339]]; char_start=233; char_end=339; evidence_text=breathlessness on exertion and were advised that the defect was unlikely to close spontaneously at her age; mesh=D004417; confianca=1.0"
+PMC4782471_01,R1,ExamResult,she was given 50 mg,"polarity=present; mentions=m3; mention_texts=[""She was given 50 mg""]; spans=[[657,676]]; char_start=657; char_end=676; evidence_text=She was given 50 mg; confianca=0.2045"
+PMC4782471_01,O1,Outcome,complications,"polarity=absent; mentions=m4; mention_texts=[""complications""]; spans=[[831,844]]; char_start=831; char_end=844; evidence_text=complications; confianca=0.2285"
+PMC4782471_01,E1,Exam,erythrocyte sedimentation rate,"polarity=present; mentions=m5; mention_texts=[""erythrocyte sedimentation rate""]; spans=[[1372,1402]]; char_start=1372; char_end=1402; evidence_text=erythrocyte sedimentation rate; mesh=D001799; confianca=1.0"
+PMC4782471_01,R2,ExamResult,/h,"polarity=present; mentions=m6; mention_texts=[""120 mm/h""]; spans=[[1406,1414]]; char_start=1406; char_end=1414; evidence_text=120 mm/h; size=120 mm; confianca=0.2857"
+PMC4782471_01,E2,Exam,c-reactive protein,"polarity=present; mentions=m7; mention_texts=[""C-reactive protein""]; spans=[[1416,1434]]; char_start=1416; char_end=1434; evidence_text=C-reactive protein; mesh=D002097; confianca=1.0"
+PMC4782471_01,R3,ExamResult,91 mg/dl,"polarity=present; mentions=m8; mention_texts=[""91 mg/dl""]; spans=[[1438,1446]]; char_start=1438; char_end=1446; evidence_text=91 mg/dl; confianca=0.6186"
+PMC4782471_01,E3,Exam,a white blood cell count,"polarity=present; mentions=m9; mention_texts=[""a white blood cell count""]; spans=[[1448,1472]]; char_start=1448; char_end=1472; evidence_text=a white blood cell count; mesh=D007958; confianca=1.0"
+PMC4782471_01,R4,ExamResult,"28,000/mm3","polarity=present; mentions=m10; mention_texts=[""28,000/mm3""]; spans=[[1476,1486]]; char_start=1476; char_end=1486; evidence_text=28,000/mm3; confianca=0.3143"
+PMC4782471_01,E4,Exam,as hemoglobin of 6 g,"polarity=present; mentions=m11; mention_texts=[""as hemoglobin of 6 g""]; spans=[[1521,1541]]; char_start=1521; char_end=1541; evidence_text=as hemoglobin of 6 g; mesh=D006454; confianca=1.0"
+PMC4782471_01,T1,Treatment,blood transfusion,"polarity=present; mentions=m12; mention_texts=[""blood transfusion""]; spans=[[1566,1583]]; char_start=1566; char_end=1583; evidence_text=blood transfusion; mesh=D001803; confianca=1.0"
+PMC4782471_01,D3,Diagnosis,infective endocarditis,"polarity=present; mentions=m13; mention_texts=[""infective endocarditis""]; spans=[[2007,2029]]; char_start=2007; char_end=2029; evidence_text=infective endocarditis; mesh=D004696; confianca=1.0"
+PMC4782471_01,D4,Diagnosis,sensitivity results showed resistance,"polarity=present; mentions=m14; mention_texts=[""sensitivity results showed resistance""]; spans=[[2061,2098]]; char_start=2061; char_end=2098; evidence_text=sensitivity results showed resistance; confianca=0.23"
+PMC4782471_01,M1,Medication,ciprofloxacin,"polarity=present; mentions=m15; mention_texts=[""ciprofloxacin""]; spans=[[2131,2144]]; char_start=2131; char_end=2144; evidence_text=ciprofloxacin; mesh=D002939; confianca=1.0"
+PMC4782471_01,O2,Outcome,improvement,"polarity=absent; mentions=m16; mention_texts=[""improvement""]; spans=[[2271,2282]]; char_start=2271; char_end=2282; evidence_text=improvement; confianca=1.0"
+PMC4782471_01,O3,Outcome,died,"polarity=present; mentions=m17; mention_texts=[""died""]; spans=[[3244,3248]]; char_start=3244; char_end=3248; evidence_text=died; confianca=0.356"
+PMC4782471_01,C1,Concept,D006976,code=D006976; vocabulary=MeSH
+PMC4782471_01,C2,Concept,D004417,code=D004417; vocabulary=MeSH
+PMC4782471_01,C3,Concept,D001799,code=D001799; vocabulary=MeSH
+PMC4782471_01,C4,Concept,D002097,code=D002097; vocabulary=MeSH
+PMC4782471_01,C5,Concept,D007958,code=D007958; vocabulary=MeSH
+PMC4782471_01,C6,Concept,D006454,code=D006454; vocabulary=MeSH
+PMC4782471_01,C7,Concept,D001803,code=D001803; vocabulary=MeSH
+PMC4782471_01,C8,Concept,D004696,code=D004696; vocabulary=MeSH
+PMC4782471_01,C9,Concept,D002939,code=D002939; vocabulary=MeSH

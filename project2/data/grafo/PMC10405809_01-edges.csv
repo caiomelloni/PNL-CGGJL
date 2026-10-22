@@ -1,0 +1,16 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC10405809_01,e1,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[36,104]]; char_start=36; char_end=104; evidence_text=progressive dysphagia to solids and lost 10 kg weight over two years; confianca=1.0"
+PMC10405809_01,e2,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m2""],[""P1"",""m5""],[""P1"",""m7""]]; evidence_spans=[[1257,1276],[2010,2012],[2231,2233]]; char_start=1257; char_end=1276; evidence_text=computed tomography; confianca=1.0"
+PMC10405809_01,e3,P1,F1,HAS_FINDING,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[1788,1798]]; char_start=1788; char_end=1798; evidence_text=malignancy; confianca=1.0"
+PMC10405809_01,e4,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m6""]]; evidence_spans=[[2039,2045]]; char_start=2039; char_end=2045; evidence_text=biopsy; confianca=1.0"
+PMC10405809_01,e5,P1,D2,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m8""]]; evidence_spans=[[2387,2390]]; char_start=2387; char_end=2390; evidence_text=KJD; confianca=1.0"
+PMC10405809_01,e6,P1,D3,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m9""]]; evidence_spans=[[2395,2420]]; char_start=2395; char_end=2420; evidence_text=peptic stricture was made; confianca=1.0"
+PMC10405809_01,e7,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m10""]]; evidence_spans=[[2554,2581]]; char_start=2554; char_end=2581; evidence_text=on capsule omeprazole 20 mg; confianca=1.0"
+PMC10405809_01,e8,E1,F2,REVEALS,"mention_pairs=[[""m5"",""m4""]]; evidence_spans=[[1960,2012]]; char_start=1960; char_end=2012; evidence_text=malignancy, the long duration of symptoms, benign CT; confianca=0.9885"
+PMC10405809_01,e9,D1,C1,SAME_AS,
+PMC10405809_01,e10,E1,C2,SAME_AS,
+PMC10405809_01,e11,F1,C3,SAME_AS,
+PMC10405809_01,e12,F2,C3,SAME_AS,
+PMC10405809_01,e13,E2,C4,SAME_AS,
+PMC10405809_01,e14,D3,C5,SAME_AS,
+PMC10405809_01,e15,M1,C6,SAME_AS,

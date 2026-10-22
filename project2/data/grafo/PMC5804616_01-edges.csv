@@ -1,0 +1,24 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC5804616_01,e1,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[717,736]]; char_start=717; char_end=736; evidence_text=computed tomography; confianca=1.0"
+PMC5804616_01,e2,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[1279,1318]]; char_start=1279; char_end=1318; evidence_text=after intravenously administering 35 mg; confianca=1.0"
+PMC5804616_01,e3,P1,E3,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[2651,2678]]; char_start=2651; char_end=2678; evidence_text=anesthesia was induced with; confianca=1.0"
+PMC5804616_01,e4,P1,E4,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m7""]]; evidence_spans=[[3030,3061]]; char_start=3030; char_end=3061; evidence_text=followed by continuous infusion; confianca=1.0"
+PMC5804616_01,e5,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m9""]]; evidence_spans=[[3337,3382]]; char_start=3337; char_end=3382; evidence_text=oxygen saturation (SpO2) was maintained above; confianca=1.0"
+PMC5804616_01,e6,P1,E5,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m11""],[""P1"",""m19""]]; evidence_spans=[[3476,3508],[6937,6969]]; char_start=3476; char_end=3508; evidence_text=SpO2 suddenly dropped from 98 to; confianca=1.0"
+PMC5804616_01,e7,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m13""]]; evidence_spans=[[3946,3954]]; char_start=3946; char_end=3954; evidence_text=improved; confianca=1.0"
+PMC5804616_01,e8,P1,E6,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m14""]]; evidence_spans=[[4085,4090]]; char_start=4085; char_end=4090; evidence_text=X-ray; confianca=1.0"
+PMC5804616_01,e9,P1,E7,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m15""]]; evidence_spans=[[4216,4245]]; char_start=4216; char_end=4245; evidence_text=SpO2 returned to the baseline; confianca=1.0"
+PMC5804616_01,e10,P1,O2,HAS_OUTCOME,"mention_pairs=[[""P1"",""m18""]]; evidence_spans=[[4582,4592]]; char_start=4582; char_end=4592; evidence_text=discharged; confianca=1.0"
+PMC5804616_01,e11,P1,E8,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m21""]]; evidence_spans=[[7849,7881]]; char_start=7849; char_end=7881; evidence_text=was encountered in only one case; confianca=1.0"
+PMC5804616_01,e12,E3,R1,HAS_RESULT,"mention_pairs=[[""m3"",""m4""]]; evidence_spans=[[2651,2681]]; char_start=2651; char_end=2681; evidence_text=anesthesia was induced with 4%; confianca=0.8636"
+PMC5804616_01,e13,E4,R2,HAS_RESULT,"mention_pairs=[[""m7"",""m6""]]; evidence_spans=[[2992,3061]]; char_start=2992; char_end=3061; evidence_text=1% lidocaine was injected epidurally, followed by continuous infusion; confianca=0.9723"
+PMC5804616_01,e14,E4,R3,HAS_RESULT,"mention_pairs=[[""m7"",""m8""]]; evidence_spans=[[3030,3069]]; char_start=3030; char_end=3069; evidence_text=followed by continuous infusion of 0.3%; confianca=0.8955"
+PMC5804616_01,e15,E5,R4,HAS_RESULT,"mention_pairs=[[""m11"",""m10""]]; evidence_spans=[[3383,3508]]; char_start=3383; char_end=3508; evidence_text=98% during the former part of the surgical procedure.
+Approximately 60 min into the surgery, SpO2 suddenly dropped from 98 to; confianca=0.9265"
+PMC5804616_01,e16,E5,R5,HAS_RESULT,"mention_pairs=[[""m11"",""m12""],[""m19"",""m20""]]; evidence_spans=[[3476,3512],[6937,6973]]; char_start=3476; char_end=3512; evidence_text=SpO2 suddenly dropped from 98 to 89%; confianca=0.8574"
+PMC5804616_01,e17,E7,R6,HAS_RESULT,"mention_pairs=[[""m15"",""m16""]]; evidence_spans=[[4216,4250]]; char_start=4216; char_end=4250; evidence_text=SpO2 returned to the baseline (99%; confianca=0.8599"
+PMC5804616_01,e18,E7,R7,HAS_RESULT,"mention_pairs=[[""m15"",""m17""]]; evidence_spans=[[4216,4401]]; char_start=4216; char_end=4401; evidence_text=SpO2 returned to the baseline (99%) with an FiO2 of 0.4. The patient was extubated uneventfully in the operating room. The postoperative course was mostly uneventful, except that 650 ml; confianca=0.5665"
+PMC5804616_01,e19,E8,R8,HAS_RESULT,"mention_pairs=[[""m21"",""m22""]]; evidence_spans=[[7849,7887]]; char_start=7849; char_end=7887; evidence_text=was encountered in only one case (2.1%; confianca=0.8561"
+PMC5804616_01,e20,E1,C1,SAME_AS,
+PMC5804616_01,e21,A1,C2,SAME_AS,
+PMC5804616_01,e22,M1,C3,SAME_AS,

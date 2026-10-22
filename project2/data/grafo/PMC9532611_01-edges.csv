@@ -1,0 +1,5 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC9532611_01,e1,P1,S1,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[113,124]]; char_start=113; char_end=124; evidence_text=hypokalemic; confianca=1.0"
+PMC9532611_01,e2,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[126,183]]; char_start=126; char_end=183; evidence_text=1.8 mmol/l) weakness that was accompanied by hypertension; confianca=1.0"
+PMC9532611_01,e3,S1,D1,SUPPORTS,"mention_pairs=[[""m1"",""m2""]]; evidence_spans=[[113,183]]; char_start=113; char_end=183; evidence_text=hypokalemic (1.8 mmol/l) weakness that was accompanied by hypertension; confianca=0.9701"
+PMC9532611_01,e4,D1,C1,SAME_AS,

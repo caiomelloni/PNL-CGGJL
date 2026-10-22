@@ -1,0 +1,18 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC7086412_02,e1,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[459,496]]; char_start=459; char_end=496; evidence_text=elevated prepregnancy body mass index; confianca=1.0"
+PMC7086412_02,e2,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m2""],[""P1"",""m13""]]; evidence_spans=[[504,540],[1448,1482]]; char_start=504; char_end=540; evidence_text=Her hemoglobin A1c was nondiagnostic; confianca=1.0"
+PMC7086412_02,e3,P1,E3,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m4""]]; evidence_spans=[[549,584]]; char_start=549; char_end=584; evidence_text=but her early GTT returned elevated; confianca=1.0"
+PMC7086412_02,e4,P1,E4,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m6""]]; evidence_spans=[[708,720]]; char_start=708; char_end=720; evidence_text=values of 86; confianca=1.0"
+PMC7086412_02,e5,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m8""],[""P1"",""m11""]]; evidence_spans=[[777,878],[1172,1238]]; char_start=777; char_end=878; evidence_text=glucose intolerance was made due to having a single elevated value per the Carpenter Coustan criteria; confianca=1.0"
+PMC7086412_02,e6,P1,E5,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m9""]]; evidence_spans=[[1096,1108]]; char_start=1096; char_end=1108; evidence_text=values of 89; confianca=1.0"
+PMC7086412_02,e7,P1,D2,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m12""]]; evidence_spans=[[1348,1397]]; char_start=1348; char_end=1397; evidence_text=intrauterine fetal demise as previously described; confianca=1.0"
+PMC7086412_02,e8,P1,D3,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m15""]]; evidence_spans=[[3053,3078]]; char_start=3053; char_end=3078; evidence_text=an infant weighing 3590 g; confianca=1.0"
+PMC7086412_02,e9,E3,R1,HAS_RESULT,"mention_pairs=[[""m4"",""m3""]]; evidence_spans=[[542,584]]; char_start=542; char_end=584; evidence_text=5.0%), but her early GTT returned elevated; confianca=0.9792"
+PMC7086412_02,e10,E3,R2,HAS_RESULT,"mention_pairs=[[""m4"",""m5""]]; evidence_spans=[[549,597]]; char_start=549; char_end=597; evidence_text=but her early GTT returned elevated at 160 mg/dL; confianca=0.8886"
+PMC7086412_02,e11,E4,R3,HAS_RESULT,"mention_pairs=[[""m6"",""m7""]]; evidence_spans=[[708,745]]; char_start=708; char_end=745; evidence_text=values of 86, 184, 147, and 135 mg/dL; confianca=0.9077"
+PMC7086412_02,e12,E5,R4,HAS_RESULT,"mention_pairs=[[""m9"",""m10""]]; evidence_spans=[[1096,1133]]; char_start=1096; char_end=1133; evidence_text=values of 89, 216, 153, and 101 mg/dL; confianca=0.9112"
+PMC7086412_02,e13,E2,R5,HAS_RESULT,"mention_pairs=[[""m13"",""m14""]]; evidence_spans=[[1448,1490]]; char_start=1448; char_end=1490; evidence_text=results was a hemoglobin A1c value of 6.6%; confianca=0.8926"
+PMC7086412_02,e14,E1,C1,SAME_AS,
+PMC7086412_02,e15,E2,C2,SAME_AS,
+PMC7086412_02,e16,D1,C3,SAME_AS,
+PMC7086412_02,e17,D2,C4,SAME_AS,

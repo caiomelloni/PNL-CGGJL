@@ -1,0 +1,5 @@
+case_id,node_id,type,label,attributes
+PMC3557982_01,P1,Patient,case PMC3557982_01,
+PMC3557982_01,O1,Outcome,died,"polarity=present; mentions=m1|m2; mention_texts=[""died"",""died""]; spans=[[2493,2497],[2628,2632]]; char_start=2493; char_end=2497; evidence_text=died; confianca=0.3422"
+PMC3557982_01,D1,Diagnosis,clinical data on hadv-14 infection and the apparently enhanced virulence of this strain,"polarity=present; mentions=m3; mention_texts=[""clinical data on HAdV-14 infection and the apparently enhanced virulence of this strain""]; spans=[[2710,2797]]; char_start=2710; char_end=2797; evidence_text=clinical data on HAdV-14 infection and the apparently enhanced virulence of this strain; mesh=D007239; confianca=1.0"
+PMC3557982_01,C1,Concept,D007239,code=D007239; vocabulary=MeSH

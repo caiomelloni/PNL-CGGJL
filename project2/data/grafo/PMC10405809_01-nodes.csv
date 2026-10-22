@@ -1,0 +1,16 @@
+case_id,node_id,type,label,attributes
+PMC10405809_01,P1,Patient,case PMC10405809_01,
+PMC10405809_01,D1,Diagnosis,progressive dysphagia to solids and lost 10 kg weight over two years,"polarity=present; mentions=m1; mention_texts=[""progressive dysphagia to solids and lost 10 kg weight over two years""]; spans=[[36,104]]; char_start=36; char_end=104; evidence_text=progressive dysphagia to solids and lost 10 kg weight over two years; mesh=D003680; confianca=1.0"
+PMC10405809_01,E1,Exam,computed tomography,"polarity=present; mentions=m2|m5|m7; mention_texts=[""computed tomography"",""CT"",""CT""]; spans=[[1257,1276],[2010,2012],[2231,2233]]; char_start=1257; char_end=1276; evidence_text=computed tomography; mesh=D014054; confianca=1.0"
+PMC10405809_01,F1,Finding,malignancy,"polarity=absent; mentions=m3; mention_texts=[""malignancy""]; spans=[[1788,1798]]; char_start=1788; char_end=1798; evidence_text=malignancy; mesh=D009369; confianca=1.0"
+PMC10405809_01,F2,Finding,malignancy,"polarity=present; mentions=m4; mention_texts=[""malignancy""]; spans=[[1960,1970]]; char_start=1960; char_end=1970; evidence_text=malignancy; mesh=D009369; confianca=1.0"
+PMC10405809_01,E2,Exam,biopsy,"polarity=present; mentions=m6; mention_texts=[""biopsy""]; spans=[[2039,2045]]; char_start=2039; char_end=2045; evidence_text=biopsy; mesh=D001706; confianca=1.0"
+PMC10405809_01,D2,Diagnosis,kjd,"polarity=present; mentions=m8; mention_texts=[""KJD""]; spans=[[2387,2390]]; char_start=2387; char_end=2390; evidence_text=KJD; confianca=0.3368"
+PMC10405809_01,D3,Diagnosis,peptic stricture was made,"polarity=present; mentions=m9; mention_texts=[""peptic stricture was made""]; spans=[[2395,2420]]; char_start=2395; char_end=2420; evidence_text=peptic stricture was made; mesh=D003251; confianca=1.0"
+PMC10405809_01,M1,Medication,on capsule omeprazole 20 mg,"polarity=present; mentions=m10; mention_texts=[""on capsule omeprazole 20 mg""]; spans=[[2554,2581]]; char_start=2554; char_end=2581; evidence_text=on capsule omeprazole 20 mg; mesh=D009853; confianca=1.0"
+PMC10405809_01,C1,Concept,D003680,code=D003680; vocabulary=MeSH
+PMC10405809_01,C2,Concept,D014054,code=D014054; vocabulary=MeSH
+PMC10405809_01,C3,Concept,D009369,code=D009369; vocabulary=MeSH
+PMC10405809_01,C4,Concept,D001706,code=D001706; vocabulary=MeSH
+PMC10405809_01,C5,Concept,D003251,code=D003251; vocabulary=MeSH
+PMC10405809_01,C6,Concept,D009853,code=D009853; vocabulary=MeSH

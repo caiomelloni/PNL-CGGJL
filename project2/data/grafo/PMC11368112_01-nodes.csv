@@ -1,0 +1,27 @@
+case_id,node_id,type,label,attributes
+PMC11368112_01,P1,Patient,case PMC11368112_01,
+PMC11368112_01,F1,Finding,other obvious abnormalities,"polarity=absent; mentions=m1; mention_texts=[""other obvious abnormalities""]; spans=[[430,457]]; char_start=430; char_end=457; evidence_text=other obvious abnormalities; confianca=0.4784"
+PMC11368112_01,E1,Exam,12.65 x 109/l; neutrophils,"polarity=present; mentions=m2; mention_texts=[""12.65 x 109/L; neutrophils""]; spans=[[504,530]]; char_start=504; char_end=530; evidence_text=12.65 x 109/L; neutrophils; confianca=0.2354"
+PMC11368112_01,E2,Exam,85%; crp,"polarity=present; mentions=m3; mention_texts=[""85%; CRP""]; spans=[[532,540]]; char_start=532; char_end=540; evidence_text=85%; CRP; confianca=0.2109"
+PMC11368112_01,R1,ExamResult,65 mg/l; esr,"polarity=present; mentions=m4; mention_texts=[""65 mg/L; ESR""]; spans=[[542,554]]; char_start=542; char_end=554; evidence_text=65 mg/L; ESR; confianca=0.2741"
+PMC11368112_01,R2,ExamResult,/h,"polarity=present; mentions=m5; mention_texts=[""55 mm/h""]; spans=[[556,563]]; char_start=556; char_end=563; evidence_text=55 mm/h; size=55 mm; confianca=0.2738"
+PMC11368112_01,E3,Exam,d-dimer,"polarity=present; mentions=m6; mention_texts=[""D-dimer""]; spans=[[569,576]]; char_start=569; char_end=576; evidence_text=D-dimer; confianca=1.0"
+PMC11368112_01,R3,ExamResult,26.12 mg/l,"polarity=present; mentions=m7; mention_texts=[""26.12 mg/L""]; spans=[[578,588]]; char_start=578; char_end=588; evidence_text=26.12 mg/L; confianca=0.3696"
+PMC11368112_01,E4,Exam,ultrasound,"polarity=present; mentions=m8; mention_texts=[""ultrasound""]; spans=[[597,607]]; char_start=597; char_end=607; evidence_text=ultrasound; confianca=1.0"
+PMC11368112_01,D1,Diagnosis,pulmonary embolism (pe,"polarity=present; mentions=m9; mention_texts=[""pulmonary embolism (PE)""]; spans=[[1060,1083]]; char_start=1060; char_end=1083; evidence_text=pulmonary embolism (PE); mesh=D011655; confianca=1.0"
+PMC11368112_01,S1,Symptom,similar high fever,"polarity=present; mentions=m10; mention_texts=[""similar high fever""]; spans=[[1409,1427]]; char_start=1409; char_end=1427; evidence_text=similar high fever; mesh=D005334; confianca=1.0"
+PMC11368112_01,A1,AnatomicalSite,cardiac,"polarity=present; mentions=m11; mention_texts=[""cardiac""]; spans=[[1457,1464]]; char_start=1457; char_end=1464; evidence_text=cardiac; mesh=ANAT006; confianca=1.0"
+PMC11368112_01,F2,Finding,cystic mass containing yellow cloudy fluid,"polarity=present; mentions=m12; mention_texts=[""cystic mass containing yellow cloudy fluid""]; spans=[[1787,1829]]; char_start=1787; char_end=1829; evidence_text=cystic mass containing yellow cloudy fluid; confianca=1.0"
+PMC11368112_01,E5,Exam,biopsy,"polarity=present; mentions=m13; mention_texts=[""biopsy""]; spans=[[2548,2554]]; char_start=2548; char_end=2554; evidence_text=biopsy; mesh=D001706; confianca=1.0"
+PMC11368112_01,M1,Medication,including methylprednisolone at 80 mg,"polarity=present; mentions=m14; mention_texts=[""including methylprednisolone at 80 mg""]; spans=[[2932,2969]]; char_start=2932; char_end=2969; evidence_text=including methylprednisolone at 80 mg; mesh=D008775; confianca=1.0"
+PMC11368112_01,R4,ExamResult,with 60 mg,"polarity=present; mentions=m15; mention_texts=[""with 60 mg""]; spans=[[2993,3003]]; char_start=2993; char_end=3003; evidence_text=with 60 mg; confianca=0.2121"
+PMC11368112_01,R5,ExamResult,reduced by 5 mg,"polarity=present; mentions=m16; mention_texts=[""reduced by 5 mg""]; spans=[[3030,3045]]; char_start=3030; char_end=3045; evidence_text=reduced by 5 mg; confianca=0.1749"
+PMC11368112_01,R6,ExamResult,weekly to reach 5 mg,"polarity=present; mentions=m17; mention_texts=[""weekly to reach 5 mg""]; spans=[[3046,3066]]; char_start=3046; char_end=3066; evidence_text=weekly to reach 5 mg; confianca=0.1876"
+PMC11368112_01,M2,Medication,cyclosporine at 200 mg,"polarity=present; mentions=m18; mention_texts=[""cyclosporine at 200 mg""]; spans=[[3075,3097]]; char_start=3075; char_end=3097; evidence_text=cyclosporine at 200 mg; mesh=D016572; confianca=1.0"
+PMC11368112_01,O1,Outcome,discharged,"polarity=present; mentions=m19; mention_texts=[""discharged""]; spans=[[3317,3327]]; char_start=3317; char_end=3327; evidence_text=discharged; confianca=0.7055"
+PMC11368112_01,C1,Concept,D011655,code=D011655; vocabulary=MeSH
+PMC11368112_01,C2,Concept,D005334,code=D005334; vocabulary=MeSH
+PMC11368112_01,C3,Concept,ANAT006,code=ANAT006; vocabulary=AnatomicalSite
+PMC11368112_01,C4,Concept,D001706,code=D001706; vocabulary=MeSH
+PMC11368112_01,C5,Concept,D008775,code=D008775; vocabulary=MeSH
+PMC11368112_01,C6,Concept,D016572,code=D016572; vocabulary=MeSH

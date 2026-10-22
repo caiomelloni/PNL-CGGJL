@@ -1,0 +1,4 @@
+case_id,node_id,type,label,attributes
+PMC9532611_02,P1,Patient,case PMC9532611_02,
+PMC9532611_02,F1,Finding,vagina,"polarity=absent; mentions=m1; mention_texts=[""vagina""]; spans=[[410,416]]; char_start=410; char_end=416; evidence_text=vagina; confianca=0.1596"
+PMC9532611_02,E1,Exam,17alpha-hydroxyprogesterone,"polarity=present; mentions=m2; mention_texts=[""17alpha-hydroxyprogesterone""]; spans=[[789,816]]; char_start=789; char_end=816; evidence_text=17alpha-hydroxyprogesterone; confianca=0.1529"

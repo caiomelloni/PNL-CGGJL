@@ -1,0 +1,18 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC6343374_01,e1,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[17,44]]; char_start=17; char_end=44; evidence_text=male infant weighing 2760 g; confianca=1.0"
+PMC6343374_01,e2,P1,D2,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[144,150]]; char_start=144; char_end=150; evidence_text=TAC 4A; confianca=1.0"
+PMC6343374_01,e3,P1,D3,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[157,180]]; char_start=157; char_end=180; evidence_text=interrupted aortic arch; confianca=1.0"
+PMC6343374_01,e4,P1,D4,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m4""]]; evidence_spans=[[191,226]]; char_start=191; char_end=226; evidence_text=trivial truncal valve regurgitation; confianca=1.0"
+PMC6343374_01,e5,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m5""]]; evidence_spans=[[240,270]]; char_start=240; char_end=270; evidence_text=valve appeared to be more than; confianca=1.0"
+PMC6343374_01,e6,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m7""]]; evidence_spans=[[1794,1804]]; char_start=1794; char_end=1804; evidence_text=discharged; confianca=1.0"
+PMC6343374_01,e7,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m8""]]; evidence_spans=[[2130,2144]]; char_start=2130; char_end=2144; evidence_text=TAC-IAA showed; confianca=1.0"
+PMC6343374_01,e8,P1,T1,TREATED_WITH,"mention_pairs=[[""P1"",""m10""]]; evidence_spans=[[2574,2611]]; char_start=2574; char_end=2611; evidence_text=in the congenital heart surgery study; confianca=1.0"
+PMC6343374_01,e9,P1,O2,HAS_OUTCOME,"mention_pairs=[[""P1"",""m12""]]; evidence_spans=[[2742,2754]]; char_start=2742; char_end=2754; evidence_text=complication; confianca=1.0"
+PMC6343374_01,e10,P1,S1,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m13""]]; evidence_spans=[[3613,3628]]; char_start=3613; char_end=3628; evidence_text=lower incidence; confianca=1.0"
+PMC6343374_01,e11,P1,E3,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m14""]]; evidence_spans=[[3716,3726]]; char_start=3716; char_end=3726; evidence_text=ultrasound; confianca=1.0"
+PMC6343374_01,e12,P1,E4,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m15""]]; evidence_spans=[[3771,3812]]; char_start=3771; char_end=3812; evidence_text=of the self-expandable stent increased by; confianca=1.0"
+PMC6343374_01,e13,P1,S2,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m17""]]; evidence_spans=[[5431,5438]]; char_start=5431; char_end=5438; evidence_text=journal; confianca=1.0"
+PMC6343374_01,e14,E1,R1,HAS_RESULT,"mention_pairs=[[""m5"",""m6""]]; evidence_spans=[[240,274]]; char_start=240; char_end=274; evidence_text=valve appeared to be more than 75%; confianca=0.8599"
+PMC6343374_01,e15,E2,R2,HAS_RESULT,"mention_pairs=[[""m8"",""m9""]]; evidence_spans=[[2130,2150]]; char_start=2130; char_end=2150; evidence_text=TAC-IAA showed 12.5%; confianca=0.8788"
+PMC6343374_01,e16,E4,R4,HAS_RESULT,"mention_pairs=[[""m15"",""m16""]]; evidence_spans=[[3771,3816]]; char_start=3771; char_end=3816; evidence_text=of the self-expandable stent increased by 33%; confianca=0.8455"
+PMC6343374_01,e17,T1,C1,SAME_AS,

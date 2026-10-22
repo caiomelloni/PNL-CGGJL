@@ -1,0 +1,6 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC9969157_01,e1,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m1""],[""P1"",""m4""]]; evidence_spans=[[902,931],[2737,2765]]; char_start=902; char_end=931; evidence_text=10% dextrose fluids at 150 ml; confianca=1.0"
+PMC9969157_01,e2,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[2401,2406]]; char_start=2401; char_end=2406; evidence_text=x-ray; confianca=1.0"
+PMC9969157_01,e3,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[2495,2498]]; char_start=2495; char_end=2498; evidence_text=NEC; confianca=1.0"
+PMC9969157_01,e4,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m5""]]; evidence_spans=[[3095,3110]]; char_start=3095; char_end=3110; evidence_text=discharged home; confianca=1.0"
+PMC9969157_01,e5,M1,C1,SAME_AS,

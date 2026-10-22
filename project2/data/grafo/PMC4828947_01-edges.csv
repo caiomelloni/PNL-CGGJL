@@ -1,0 +1,14 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC4828947_01,e1,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[33,86]]; char_start=33; char_end=86; evidence_text=chronic drug-resistant seizures since the age of four; confianca=1.0"
+PMC4828947_01,e2,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[652,686]]; char_start=652; char_end=686; evidence_text=treated with oxcarbazepine 1200 mg; confianca=1.0"
+PMC4828947_01,e3,P1,M2,TREATED_WITH,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[691,716]]; char_start=691; char_end=716; evidence_text=and valproic acid 1500 mg; confianca=1.0"
+PMC4828947_01,e4,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m5""],[""P1"",""m8""]]; evidence_spans=[[970,996],[1469,1472]]; char_start=970; char_end=996; evidence_text=magnetic resonance imaging; confianca=1.0"
+PMC4828947_01,e5,P1,D2,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m9""]]; evidence_spans=[[2158,2162]]; char_start=2158; char_end=2162; evidence_text=DNET; confianca=1.0"
+PMC4828947_01,e6,P1,D3,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m10""]]; evidence_spans=[[2164,2175]]; char_start=2164; char_end=2175; evidence_text=WHO Grade I; confianca=1.0"
+PMC4828947_01,e7,E1,F1,REVEALS,"mention_pairs=[[""m5"",""m4""]]; evidence_spans=[[945,996]]; char_start=945; char_end=996; evidence_text=abnormalities. A 3-Tesla magnetic resonance imaging; confianca=0.9841"
+PMC4828947_01,e8,E1,F2,REVEALS,"mention_pairs=[[""m5"",""m6""]]; evidence_spans=[[970,1032]]; char_start=970; char_end=1032; evidence_text=magnetic resonance imaging (MRI) scan showed a cortical lesion; confianca=0.9831"
+PMC4828947_01,e9,E1,F3,REVEALS,"mention_pairs=[[""m8"",""m7""]]; evidence_spans=[[1459,1472]]; char_start=1459; char_end=1472; evidence_text=lesion on MRI; confianca=0.9875"
+PMC4828947_01,e10,D1,C1,SAME_AS,
+PMC4828947_01,e11,M1,C2,SAME_AS,
+PMC4828947_01,e12,M2,C3,SAME_AS,
+PMC4828947_01,e13,E1,C4,SAME_AS,

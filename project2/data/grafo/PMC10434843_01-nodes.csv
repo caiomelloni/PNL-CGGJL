@@ -1,0 +1,34 @@
+case_id,node_id,type,label,attributes
+PMC10434843_01,P1,Patient,case PMC10434843_01,
+PMC10434843_01,S1,Symptom,increasing weakness of the right hand in the preceding months,"polarity=present; mentions=m1; mention_texts=[""increasing weakness of the right hand in the preceding months""]; spans=[[123,184]]; char_start=123; char_end=184; evidence_text=increasing weakness of the right hand in the preceding months; confianca=1.0"
+PMC10434843_01,E1,Exam,magnetic resonance imaging,"polarity=present; mentions=m2; mention_texts=[""Magnetic resonance imaging""]; spans=[[536,562]]; char_start=536; char_end=562; evidence_text=Magnetic resonance imaging; mesh=D008279; confianca=1.0"
+PMC10434843_01,A1,AnatomicalSite,head,"polarity=present; mentions=m3; mention_texts=[""head""]; spans=[[576,580]]; char_start=576; char_end=580; evidence_text=head; mesh=ANAT024; confianca=1.0"
+PMC10434843_01,A2,AnatomicalSite,cervical,"polarity=present; mentions=m4; mention_texts=[""cervical""]; spans=[[585,593]]; char_start=585; char_end=593; evidence_text=cervical; mesh=ANAT031; confianca=1.0"
+PMC10434843_01,F1,Finding,abnormalities,"polarity=absent; mentions=m5; mention_texts=[""abnormalities""]; spans=[[610,623]]; char_start=610; char_end=623; evidence_text=abnormalities; confianca=0.6544"
+PMC10434843_01,O1,Outcome,improvement,"polarity=absent; mentions=m6; mention_texts=[""improvement""]; spans=[[719,730]]; char_start=719; char_end=730; evidence_text=improvement; confianca=1.0"
+PMC10434843_01,M1,Medication,slightly increased total protein levels,"polarity=present; mentions=m7; mention_texts=[""slightly increased total protein levels""]; spans=[[1921,1960]]; char_start=1921; char_end=1960; evidence_text=slightly increased total protein levels; mesh=D011506; confianca=1.0"
+PMC10434843_01,R1,ExamResult,603 mg/l,"polarity=present; mentions=m8; mention_texts=[""603 mg/l""]; spans=[[1962,1970]]; char_start=1962; char_end=1970; evidence_text=603 mg/l; confianca=0.3897"
+PMC10434843_01,M2,Medication,activated hla-dr expressing cd4+ t cells,"polarity=present; mentions=m9; mention_texts=[""activated HLA-DR expressing CD4+ T cells""]; spans=[[2152,2192]]; char_start=2152; char_end=2192; evidence_text=activated HLA-DR expressing CD4+ T cells; mesh=D006684; confianca=1.0"
+PMC10434843_01,R2,ExamResult,33.7%,"polarity=present; mentions=m10; mention_texts=[""33.7%""]; spans=[[2194,2199]]; char_start=2194; char_end=2199; evidence_text=33.7%; confianca=0.2968"
+PMC10434843_01,E2,Exam,ultrasonography,"polarity=present; mentions=m11; mention_texts=[""ultrasonography""]; spans=[[3801,3816]]; char_start=3801; char_end=3816; evidence_text=ultrasonography; mesh=D014463; confianca=1.0"
+PMC10434843_01,F2,Finding,malignancy,"polarity=present; mentions=m12; mention_texts=[""malignancy""]; spans=[[4357,4367]]; char_start=4357; char_end=4367; evidence_text=malignancy; mesh=D009369; confianca=1.0"
+PMC10434843_01,A3,AnatomicalSite,abdomen,"polarity=present; mentions=m13; mention_texts=[""abdomen""]; spans=[[4407,4414]]; char_start=4407; char_end=4414; evidence_text=abdomen; mesh=ANAT033; confianca=1.0"
+PMC10434843_01,A4,AnatomicalSite,thyroid,"polarity=present; mentions=m14; mention_texts=[""thyroid""]; spans=[[4419,4426]]; char_start=4419; char_end=4426; evidence_text=thyroid; mesh=ANAT017; confianca=1.0"
+PMC10434843_01,E3,Exam,tomography-computed tomography,"polarity=present; mentions=m15; mention_texts=[""tomography-computed tomography""]; spans=[[4496,4526]]; char_start=4496; char_end=4526; evidence_text=tomography-computed tomography; mesh=D014054; confianca=1.0"
+PMC10434843_01,O2,Outcome,clinical improvement in his daily activities as he was now able to open drawers again,"polarity=present; mentions=m16; mention_texts=[""clinical improvement in his daily activities as he was now able to open drawers again""]; spans=[[4911,4996]]; char_start=4911; char_end=4996; evidence_text=clinical improvement in his daily activities as he was now able to open drawers again; confianca=1.0"
+PMC10434843_01,O3,Outcome,improvement,"polarity=present; mentions=m17; mention_texts=[""improvement""]; spans=[[5031,5042]]; char_start=5031; char_end=5042; evidence_text=improvement; confianca=1.0"
+PMC10434843_01,O4,Outcome,improved,"polarity=present; mentions=m18; mention_texts=[""improved""]; spans=[[5264,5272]]; char_start=5264; char_end=5272; evidence_text=improved; confianca=0.7295"
+PMC10434843_01,D1,Diagnosis,lewis-sumner syndrome,"polarity=present; mentions=m19; mention_texts=[""Lewis-Sumner syndrome""]; spans=[[5761,5782]]; char_start=5761; char_end=5782; evidence_text=Lewis-Sumner syndrome; mesh=D013577; confianca=1.0"
+PMC10434843_01,D2,Diagnosis,amyotrophic lateral sclerosis as well as other more common causes of caspr2 antibodies,"polarity=present; mentions=m20; mention_texts=[""amyotrophic lateral sclerosis as well as other more common causes of CASPR2 antibodies""]; spans=[[5787,5873]]; char_start=5787; char_end=5873; evidence_text=amyotrophic lateral sclerosis as well as other more common causes of CASPR2 antibodies; mesh=D000690; confianca=1.0"
+PMC10434843_01,C1,Concept,D008279,code=D008279; vocabulary=MeSH
+PMC10434843_01,C2,Concept,ANAT024,code=ANAT024; vocabulary=AnatomicalSite
+PMC10434843_01,C3,Concept,ANAT031,code=ANAT031; vocabulary=AnatomicalSite
+PMC10434843_01,C4,Concept,D011506,code=D011506; vocabulary=MeSH
+PMC10434843_01,C5,Concept,D006684,code=D006684; vocabulary=MeSH
+PMC10434843_01,C6,Concept,D014463,code=D014463; vocabulary=MeSH
+PMC10434843_01,C7,Concept,D009369,code=D009369; vocabulary=MeSH
+PMC10434843_01,C8,Concept,ANAT033,code=ANAT033; vocabulary=AnatomicalSite
+PMC10434843_01,C9,Concept,ANAT017,code=ANAT017; vocabulary=AnatomicalSite
+PMC10434843_01,C10,Concept,D014054,code=D014054; vocabulary=MeSH
+PMC10434843_01,C11,Concept,D013577,code=D013577; vocabulary=MeSH
+PMC10434843_01,C12,Concept,D000690,code=D000690; vocabulary=MeSH

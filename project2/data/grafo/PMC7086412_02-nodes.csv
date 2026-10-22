@@ -1,0 +1,19 @@
+case_id,node_id,type,label,attributes
+PMC7086412_02,P1,Patient,case PMC7086412_02,
+PMC7086412_02,E1,Exam,elevated prepregnancy body mass index,"polarity=present; mentions=m1; mention_texts=[""elevated prepregnancy body mass index""]; spans=[[459,496]]; char_start=459; char_end=496; evidence_text=elevated prepregnancy body mass index; mesh=D015992; confianca=1.0"
+PMC7086412_02,E2,Exam,her hemoglobin a1c was nondiagnostic,"polarity=present; mentions=m2|m13; mention_texts=[""Her hemoglobin A1c was nondiagnostic"",""results was a hemoglobin A1c value""]; spans=[[504,540],[1448,1482]]; char_start=504; char_end=540; evidence_text=Her hemoglobin A1c was nondiagnostic; mesh=D006454; confianca=1.0"
+PMC7086412_02,R1,ExamResult,5.0%,"polarity=present; mentions=m3; mention_texts=[""5.0%""]; spans=[[542,546]]; char_start=542; char_end=546; evidence_text=5.0%; confianca=0.2823"
+PMC7086412_02,E3,Exam,but her early gtt returned elevated,"polarity=present; mentions=m4; mention_texts=[""but her early GTT returned elevated""]; spans=[[549,584]]; char_start=549; char_end=584; evidence_text=but her early GTT returned elevated; confianca=0.2651"
+PMC7086412_02,R2,ExamResult,160 mg/dl,"polarity=present; mentions=m5; mention_texts=[""160 mg/dL""]; spans=[[588,597]]; char_start=588; char_end=597; evidence_text=160 mg/dL; confianca=0.5937"
+PMC7086412_02,E4,Exam,values of 86,"polarity=present; mentions=m6; mention_texts=[""values of 86""]; spans=[[708,720]]; char_start=708; char_end=720; evidence_text=values of 86; confianca=0.2"
+PMC7086412_02,R3,ExamResult,135 mg/dl,"polarity=present; mentions=m7; mention_texts=[""135 mg/dL""]; spans=[[736,745]]; char_start=736; char_end=745; evidence_text=135 mg/dL; confianca=0.5966"
+PMC7086412_02,D1,Diagnosis,glucose intolerance was made due to having a single elevated value per the carpenter coustan criteria,"polarity=absent; mentions=m8|m11; mention_texts=[""glucose intolerance was made due to having a single elevated value per the Carpenter Coustan criteria"",""glucose intolerance was made due to having a single elevated value""]; spans=[[777,878],[1172,1238]]; char_start=777; char_end=878; evidence_text=glucose intolerance was made due to having a single elevated value per the Carpenter Coustan criteria; mesh=D018149; confianca=1.0"
+PMC7086412_02,E5,Exam,values of 89,"polarity=present; mentions=m9; mention_texts=[""values of 89""]; spans=[[1096,1108]]; char_start=1096; char_end=1108; evidence_text=values of 89; confianca=0.1955"
+PMC7086412_02,R4,ExamResult,101 mg/dl,"polarity=present; mentions=m10; mention_texts=[""101 mg/dL""]; spans=[[1124,1133]]; char_start=1124; char_end=1133; evidence_text=101 mg/dL; confianca=0.5624"
+PMC7086412_02,D2,Diagnosis,intrauterine fetal demise as previously described,"polarity=present; mentions=m12; mention_texts=[""intrauterine fetal demise as previously described""]; spans=[[1348,1397]]; char_start=1348; char_end=1397; evidence_text=intrauterine fetal demise as previously described; mesh=D005313; confianca=1.0"
+PMC7086412_02,R5,ExamResult,6.6%,"polarity=present; mentions=m14; mention_texts=[""6.6%""]; spans=[[1486,1490]]; char_start=1486; char_end=1490; evidence_text=6.6%; confianca=0.3015"
+PMC7086412_02,D3,Diagnosis,an infant weighing 3590 g,"polarity=present; mentions=m15; mention_texts=[""an infant weighing 3590 g""]; spans=[[3053,3078]]; char_start=3053; char_end=3078; evidence_text=an infant weighing 3590 g; confianca=0.1625"
+PMC7086412_02,C1,Concept,D015992,code=D015992; vocabulary=MeSH
+PMC7086412_02,C2,Concept,D006454,code=D006454; vocabulary=MeSH
+PMC7086412_02,C3,Concept,D018149,code=D018149; vocabulary=MeSH
+PMC7086412_02,C4,Concept,D005313,code=D005313; vocabulary=MeSH

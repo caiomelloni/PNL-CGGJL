@@ -41,8 +41,6 @@ project2/data/mencoes_tipadas.csv
 # Issue #32: corpus e arquivos reproduzíveis; resultados pequenos da amostra ficam em experimentos/.
 project2/data/corpus/
 project2/data/termos.json
-project2/data/grafo/*
-!project2/data/grafo/PMC5137649_01-*.csv
 project2/data/interim/
 project2/data/demo/
 project2/data/mock/relacoes/

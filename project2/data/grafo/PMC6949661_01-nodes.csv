@@ -1,0 +1,9 @@
+case_id,node_id,type,label,attributes
+PMC6949661_01,P1,Patient,case PMC6949661_01,
+PMC6949661_01,S1,Symptom,palpitations,"polarity=absent; mentions=m1; mention_texts=[""palpitations""]; spans=[[275,287]]; char_start=275; char_end=287; evidence_text=palpitations; confianca=0.3019"
+PMC6949661_01,E1,Exam,computed tomography,"polarity=present; mentions=m2|m3; mention_texts=[""Computed tomography"",""CT""]; spans=[[604,623],[1969,1971]]; char_start=604; char_end=623; evidence_text=Computed tomography; mesh=D014054; confianca=1.0"
+PMC6949661_01,E2,Exam,endoscopy,"polarity=present; mentions=m4; mention_texts=[""Endoscopy""]; spans=[[2295,2304]]; char_start=2295; char_end=2304; evidence_text=Endoscopy; mesh=D004724; confianca=1.0"
+PMC6949661_01,F1,Finding,malignancy,"polarity=absent; mentions=m5; mention_texts=[""malignancy""]; spans=[[3487,3497]]; char_start=3487; char_end=3497; evidence_text=malignancy; mesh=D009369; confianca=1.0"
+PMC6949661_01,C1,Concept,D014054,code=D014054; vocabulary=MeSH
+PMC6949661_01,C2,Concept,D004724,code=D004724; vocabulary=MeSH
+PMC6949661_01,C3,Concept,D009369,code=D009369; vocabulary=MeSH

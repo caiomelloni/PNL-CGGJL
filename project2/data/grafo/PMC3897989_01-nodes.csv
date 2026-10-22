@@ -1,0 +1,50 @@
+case_id,node_id,type,label,attributes
+PMC3897989_01,P1,Patient,case PMC3897989_01,
+PMC3897989_01,A1,AnatomicalSite,skin,"polarity=present; mentions=m1; mention_texts=[""skin""]; spans=[[325,329]]; char_start=325; char_end=329; evidence_text=skin; mesh=ANAT018; confianca=1.0"
+PMC3897989_01,F1,Finding,mild upper abdominal tenderness,"polarity=present; mentions=m2; mention_texts=[""mild upper abdominal tenderness""]; spans=[[331,362]]; char_start=331; char_end=362; evidence_text=mild upper abdominal tenderness; mesh=ANAT033; confianca=1.0"
+PMC3897989_01,A2,AnatomicalSite,heart,"polarity=present; mentions=m3; mention_texts=[""heart""]; spans=[[384,389]]; char_start=384; char_end=389; evidence_text=heart; mesh=ANAT006; confianca=1.0"
+PMC3897989_01,E1,Exam,direct bilirubin (dbil) were elevated to,"polarity=present; mentions=m4; mention_texts=[""direct bilirubin (DBil) were elevated to""]; spans=[[636,676]]; char_start=636; char_end=676; evidence_text=direct bilirubin (DBil) were elevated to; mesh=D001663; confianca=1.0"
+PMC3897989_01,R1,ExamResult,79 u/l,"polarity=present; mentions=m5; mention_texts=[""79 U/L""]; spans=[[677,683]]; char_start=677; char_end=683; evidence_text=79 U/L; confianca=0.3769"
+PMC3897989_01,R2,ExamResult,51 u/l,"polarity=present; mentions=m6; mention_texts=[""51 U/L""]; spans=[[696,702]]; char_start=696; char_end=702; evidence_text=51 U/L; confianca=0.3761"
+PMC3897989_01,R3,ExamResult,"5-35 u/l), 540 u/l (30-110 u/l","polarity=present; mentions=m7; mention_texts=[""(5-35 U/L), 540 U/L (30-110 U/L)""]; spans=[[703,735]]; char_start=703; char_end=735; evidence_text=(5-35 U/L), 540 U/L (30-110 U/L); confianca=0.2886"
+PMC3897989_01,R4,ExamResult,197 u/l,"polarity=present; mentions=m8; mention_texts=[""197 U/L""]; spans=[[737,744]]; char_start=737; char_end=744; evidence_text=197 U/L; confianca=0.3623"
+PMC3897989_01,R5,ExamResult,"were 3,180 mg/dl (694-1620 mg/dl) and","polarity=present; mentions=m9; mention_texts=[""were 3,180 mg/dL (694-1620 mg/dL) and""]; spans=[[852,889]]; char_start=852; char_end=889; evidence_text=were 3,180 mg/dL (694-1620 mg/dL) and; confianca=0.3473"
+PMC3897989_01,R6,ExamResult,344 mg/dl,"polarity=present; mentions=m10; mention_texts=[""344 mg/dL""]; spans=[[890,899]]; char_start=890; char_end=899; evidence_text=344 mg/dL; confianca=0.5456"
+PMC3897989_01,E2,Exam,computed tomography,"polarity=present; mentions=m11; mention_texts=[""computed tomography""]; spans=[[1189,1208]]; char_start=1189; char_end=1208; evidence_text=computed tomography; mesh=D014054; confianca=1.0"
+PMC3897989_01,E3,Exam,mri,"polarity=present; mentions=m12|m30; mention_texts=[""MRI"",""MRI""]; spans=[[1244,1247],[3473,3476]]; char_start=1244; char_end=1247; evidence_text=MRI; mesh=D008279; confianca=1.0"
+PMC3897989_01,E4,Exam,cea,"polarity=present; mentions=m13; mention_texts=[""CEA""]; spans=[[1736,1739]]; char_start=1736; char_end=1739; evidence_text=CEA; confianca=0.2186"
+PMC3897989_01,R7,ExamResult,66.89 ng/ml,"polarity=present; mentions=m14; mention_texts=[""66.89 ng/mL""]; spans=[[1743,1754]]; char_start=1743; char_end=1754; evidence_text=66.89 ng/mL; confianca=0.4068"
+PMC3897989_01,D1,Diagnosis,pbc and udca (250 mg,"polarity=present; mentions=m15; mention_texts=[""PBC and UDCA (250 mg""]; spans=[[2208,2228]]; char_start=2208; char_end=2228; evidence_text=PBC and UDCA (250 mg; confianca=0.3174"
+PMC3897989_01,T1,Treatment,three times per day) was initiated immediately after nasobiliary drainage,"polarity=present; mentions=m16; mention_texts=[""three times per day) was initiated immediately after nasobiliary drainage""]; spans=[[2230,2303]]; char_start=2230; char_end=2303; evidence_text=three times per day) was initiated immediately after nasobiliary drainage; mesh=D004322; confianca=1.0"
+PMC3897989_01,O1,Outcome,improved,"polarity=present; mentions=m17|m29; mention_texts=[""improved"",""improved""]; spans=[[2321,2329],[3454,3462]]; char_start=2321; char_end=2329; evidence_text=improved; confianca=0.7398"
+PMC3897989_01,E5,Exam,ct-guided,"polarity=present; mentions=m18|m38; mention_texts=[""CT-guided"",""CT-guided""]; spans=[[2537,2546],[4263,4272]]; char_start=2537; char_end=2546; evidence_text=CT-guided; confianca=0.4256"
+PMC3897989_01,E6,Exam,biopsy,"polarity=present; mentions=m19|m39; mention_texts=[""biopsy"",""biopsy""]; spans=[[2558,2564],[4278,4284]]; char_start=2558; char_end=2564; evidence_text=biopsy; mesh=D001706; confianca=1.0"
+PMC3897989_01,D2,Diagnosis,type i aip was confirmed in accordance with the diagnostic criteria,"polarity=present; mentions=m20; mention_texts=[""type I AIP was confirmed in accordance with the diagnostic criteria""]; spans=[[2826,2893]]; char_start=2826; char_end=2893; evidence_text=type I AIP was confirmed in accordance with the diagnostic criteria; confianca=0.4267"
+PMC3897989_01,T2,Treatment,dbil just before steroid therapy were,"polarity=present; mentions=m21; mention_texts=[""DBil just before steroid therapy were""]; spans=[[3026,3063]]; char_start=3026; char_end=3063; evidence_text=DBil just before steroid therapy were; mesh=D013812; confianca=1.0"
+PMC3897989_01,R8,ExamResult,376 u/l,"polarity=present; mentions=m22; mention_texts=[""376 U/L""]; spans=[[3064,3071]]; char_start=3064; char_end=3071; evidence_text=376 U/L; confianca=0.3576"
+PMC3897989_01,R9,ExamResult,38 u/l,"polarity=present; mentions=m23; mention_texts=[""38 U/L""]; spans=[[3073,3079]]; char_start=3073; char_end=3079; evidence_text=38 U/L; confianca=0.3848"
+PMC3897989_01,E7,Exam,one week later were 243 u/l,"polarity=present; mentions=m24; mention_texts=[""one week later were 243 U/L""]; spans=[[3132,3159]]; char_start=3132; char_end=3159; evidence_text=one week later were 243 U/L; confianca=0.2825"
+PMC3897989_01,R10,ExamResult,47 u/l,"polarity=present; mentions=m25; mention_texts=[""47 U/L""]; spans=[[3161,3167]]; char_start=3161; char_end=3167; evidence_text=47 U/L; confianca=0.3859"
+PMC3897989_01,R11,ExamResult,with oral mep 32 mg,"polarity=present; mentions=m26; mention_texts=[""with oral MEP 32 mg""]; spans=[[3265,3284]]; char_start=3265; char_end=3284; evidence_text=with oral MEP 32 mg; confianca=0.1675"
+PMC3897989_01,R12,ExamResult,the dose to 32 mg,"polarity=present; mentions=m27; mention_texts=[""the dose to 32 mg""]; spans=[[3362,3379]]; char_start=3362; char_end=3379; evidence_text=the dose to 32 mg; confianca=0.1548"
+PMC3897989_01,S1,Symptom,the morning and 16 mg,"polarity=present; mentions=m28; mention_texts=[""the morning and 16 mg""]; spans=[[3383,3404]]; char_start=3383; char_end=3404; evidence_text=the morning and 16 mg; confianca=0.1954"
+PMC3897989_01,E8,Exam,dbil were 135 u/l,"polarity=present; mentions=m31; mention_texts=[""DBil were 135 U/L""]; spans=[[3644,3661]]; char_start=3644; char_end=3661; evidence_text=DBil were 135 U/L; confianca=0.2592"
+PMC3897989_01,R13,ExamResult,134 u/l,"polarity=present; mentions=m32; mention_texts=[""134 U/L""]; spans=[[3663,3670]]; char_start=3663; char_end=3670; evidence_text=134 U/L; confianca=0.3793"
+PMC3897989_01,O2,Outcome,discharged,"polarity=present; mentions=m33; mention_texts=[""discharged""]; spans=[[3733,3743]]; char_start=3733; char_end=3743; evidence_text=discharged; confianca=0.7062"
+PMC3897989_01,D3,Diagnosis,off weekly by 5 mg,"polarity=present; mentions=m34; mention_texts=[""off weekly by 5 mg""]; spans=[[3791,3809]]; char_start=3791; char_end=3809; evidence_text=off weekly by 5 mg; confianca=0.1951"
+PMC3897989_01,D4,Diagnosis,herpes zoster,"polarity=present; mentions=m35; mention_texts=[""herpes zoster""]; spans=[[4039,4052]]; char_start=4039; char_end=4052; evidence_text=herpes zoster; mesh=D006562; confianca=1.0"
+PMC3897989_01,M1,Medication,treated with acyclovir (500 mg,"polarity=present; mentions=m36; mention_texts=[""treated with acyclovir (500 mg""]; spans=[[4057,4087]]; char_start=4057; char_end=4087; evidence_text=treated with acyclovir (500 mg; mesh=D000212; confianca=1.0"
+PMC3897989_01,E9,Exam,x-ray,"polarity=present; mentions=m37; mention_texts=[""X-ray""]; spans=[[4152,4157]]; char_start=4152; char_end=4157; evidence_text=X-ray; confianca=0.27"
+PMC3897989_01,D5,Diagnosis,pulmonary abscess,"polarity=present; mentions=m40; mention_texts=[""pulmonary abscess""]; spans=[[4387,4404]]; char_start=4387; char_end=4404; evidence_text=pulmonary abscess; mesh=D008169; confianca=1.0"
+PMC3897989_01,C1,Concept,ANAT018,code=ANAT018; vocabulary=AnatomicalSite
+PMC3897989_01,C2,Concept,ANAT033,code=ANAT033; vocabulary=AnatomicalSite
+PMC3897989_01,C3,Concept,ANAT006,code=ANAT006; vocabulary=AnatomicalSite
+PMC3897989_01,C4,Concept,D001663,code=D001663; vocabulary=MeSH
+PMC3897989_01,C5,Concept,D014054,code=D014054; vocabulary=MeSH
+PMC3897989_01,C6,Concept,D008279,code=D008279; vocabulary=MeSH
+PMC3897989_01,C7,Concept,D004322,code=D004322; vocabulary=MeSH
+PMC3897989_01,C8,Concept,D001706,code=D001706; vocabulary=MeSH
+PMC3897989_01,C9,Concept,D013812,code=D013812; vocabulary=MeSH
+PMC3897989_01,C10,Concept,D006562,code=D006562; vocabulary=MeSH
+PMC3897989_01,C11,Concept,D000212,code=D000212; vocabulary=MeSH
+PMC3897989_01,C12,Concept,D008169,code=D008169; vocabulary=MeSH

@@ -1,0 +1,9 @@
+case_id,node_id,type,label,attributes
+PMC11259348_02,P1,Patient,case PMC11259348_02,
+PMC11259348_02,M1,Medication,presence of erythrocyte alloantibodies,"polarity=present; mentions=m1; mention_texts=[""presence of erythrocyte alloantibodies""]; spans=[[49,87]]; char_start=49; char_end=87; evidence_text=presence of erythrocyte alloantibodies; mesh=D007518; confianca=1.0"
+PMC11259348_02,D1,Diagnosis,abo incompatibility of the patient with transfused units,"polarity=present; mentions=m2; mention_texts=[""ABO incompatibility of the patient with transfused units""]; spans=[[92,148]]; char_start=92; char_end=148; evidence_text=ABO incompatibility of the patient with transfused units; confianca=0.2135"
+PMC11259348_02,E1,Exam,ten blood packs were selected,"polarity=present; mentions=m3; mention_texts=[""ten blood packs were selected""]; spans=[[2091,2120]]; char_start=2091; char_end=2120; evidence_text=ten blood packs were selected; confianca=0.2992"
+PMC11259348_02,R1,ExamResult,50%,"polarity=present; mentions=m4|m6|m8; mention_texts=[""50%"",""50%"",""50%""]; spans=[[2126,2129],[2578,2581],[2763,2766]]; char_start=2126; char_end=2129; evidence_text=50%; confianca=0.4266"
+PMC11259348_02,E2,Exam,serum was added to one volume,"polarity=present; mentions=m5; mention_texts=[""serum was added to one volume""]; spans=[[2545,2574]]; char_start=2545; char_end=2574; evidence_text=serum was added to one volume; confianca=0.3332"
+PMC11259348_02,E3,Exam,person was added to one volume,"polarity=present; mentions=m7; mention_texts=[""person was added to one volume""]; spans=[[2729,2759]]; char_start=2729; char_end=2759; evidence_text=person was added to one volume; confianca=0.3145"
+PMC11259348_02,C1,Concept,D007518,code=D007518; vocabulary=MeSH

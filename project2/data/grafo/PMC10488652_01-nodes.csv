@@ -1,0 +1,23 @@
+case_id,node_id,type,label,attributes
+PMC10488652_01,P1,Patient,case PMC10488652_01,
+PMC10488652_01,A1,AnatomicalSite,cervical,"polarity=present; mentions=m1; mention_texts=[""cervical""]; spans=[[416,424]]; char_start=416; char_end=424; evidence_text=cervical; mesh=ANAT031; confianca=1.0"
+PMC10488652_01,S1,Symptom,grade ii edema,"polarity=present; mentions=m2; mention_texts=[""grade II edema""]; spans=[[494,508]]; char_start=494; char_end=508; evidence_text=grade II edema; mesh=D004487; confianca=1.0"
+PMC10488652_01,D1,Diagnosis,class ii mesangial lupus nephritis,"polarity=present; mentions=m3; mention_texts=[""class II mesangial lupus nephritis""]; spans=[[822,856]]; char_start=822; char_end=856; evidence_text=class II mesangial lupus nephritis; mesh=D008181; confianca=1.0"
+PMC10488652_01,E1,Exam,hemoglobin,"polarity=present; mentions=m4; mention_texts=[""hemoglobin""]; spans=[[995,1005]]; char_start=995; char_end=1005; evidence_text=hemoglobin; mesh=D006454; confianca=1.0"
+PMC10488652_01,R1,ExamResult,6.2 g/dl,"polarity=present; mentions=m5; mention_texts=[""6.2 g/dl""]; spans=[[1006,1014]]; char_start=1006; char_end=1014; evidence_text=6.2 g/dl; confianca=0.6268"
+PMC10488652_01,E2,Exam,hematocrit,"polarity=present; mentions=m6; mention_texts=[""hematocrit""]; spans=[[1016,1026]]; char_start=1016; char_end=1026; evidence_text=hematocrit; mesh=D006400; confianca=1.0"
+PMC10488652_01,R2,ExamResult,18.1%,"polarity=present; mentions=m7; mention_texts=[""18.1%""]; spans=[[1027,1032]]; char_start=1027; char_end=1032; evidence_text=18.1%; confianca=0.2944"
+PMC10488652_01,M1,Medication,cold agglutinin syndrome,"polarity=absent; mentions=m8; mention_texts=[""cold agglutinin syndrome""]; spans=[[1146,1170]]; char_start=1146; char_end=1170; evidence_text=cold agglutinin syndrome; mesh=D000373; confianca=1.0"
+PMC10488652_01,R3,ExamResult,a dose of 40 mg,"polarity=present; mentions=m9; mention_texts=[""a dose of 40 mg""]; spans=[[1351,1366]]; char_start=1351; char_end=1366; evidence_text=a dose of 40 mg; confianca=0.1903"
+PMC10488652_01,R4,ExamResult,a dose of 200 mg,"polarity=present; mentions=m10|m15; mention_texts=[""a dose of 200 mg"",""a dose of 200 mg""]; spans=[[1424,1440],[1806,1822]]; char_start=1424; char_end=1440; evidence_text=a dose of 200 mg; confianca=0.2323"
+PMC10488652_01,O1,Outcome,clinical improvement,"polarity=present; mentions=m11; mention_texts=[""clinical improvement""]; spans=[[1487,1507]]; char_start=1487; char_end=1507; evidence_text=clinical improvement; confianca=1.0"
+PMC10488652_01,O2,Outcome,complications,"polarity=absent; mentions=m12; mention_texts=[""complications""]; spans=[[1639,1652]]; char_start=1639; char_end=1652; evidence_text=complications; confianca=0.2098"
+PMC10488652_01,O3,Outcome,discharged,"polarity=present; mentions=m13; mention_texts=[""discharged""]; spans=[[1670,1680]]; char_start=1670; char_end=1680; evidence_text=discharged; confianca=0.7421"
+PMC10488652_01,R5,ExamResult,a dose of 5 mg,"polarity=present; mentions=m14; mention_texts=[""a dose of 5 mg""]; spans=[[1755,1769]]; char_start=1755; char_end=1769; evidence_text=a dose of 5 mg; confianca=0.1818"
+PMC10488652_01,R6,ExamResult,a dose of 500 mg,"polarity=present; mentions=m16; mention_texts=[""a dose of 500 mg""]; spans=[[1865,1881]]; char_start=1865; char_end=1881; evidence_text=a dose of 500 mg; confianca=0.2393"
+PMC10488652_01,C1,Concept,ANAT031,code=ANAT031; vocabulary=AnatomicalSite
+PMC10488652_01,C2,Concept,D004487,code=D004487; vocabulary=MeSH
+PMC10488652_01,C3,Concept,D008181,code=D008181; vocabulary=MeSH
+PMC10488652_01,C4,Concept,D006454,code=D006454; vocabulary=MeSH
+PMC10488652_01,C5,Concept,D006400,code=D006400; vocabulary=MeSH
+PMC10488652_01,C6,Concept,D000373,code=D000373; vocabulary=MeSH

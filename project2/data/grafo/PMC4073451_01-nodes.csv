@@ -1,0 +1,15 @@
+case_id,node_id,type,label,attributes
+PMC4073451_01,P1,Patient,case PMC4073451_01,
+PMC4073451_01,F1,Finding,lesion,"polarity=present; mentions=m1; mention_texts=[""lesion""]; spans=[[533,539]]; char_start=533; char_end=539; evidence_text=lesion; confianca=1.0"
+PMC4073451_01,F2,Finding,views showed hypodense expansive lesion,"polarity=present; mentions=m2; mention_texts=[""views showed hypodense expansive lesion""]; spans=[[548,587]]; char_start=548; char_end=587; evidence_text=views showed hypodense expansive lesion; confianca=1.0"
+PMC4073451_01,A1,AnatomicalSite,buccal,"polarity=present; mentions=m3; mention_texts=[""buccal""]; spans=[[593,599]]; char_start=593; char_end=599; evidence_text=buccal; mesh=ANAT027; confianca=1.0"
+PMC4073451_01,E1,Exam,biopsy,"polarity=present; mentions=m4; mention_texts=[""biopsy""]; spans=[[688,694]]; char_start=688; char_end=694; evidence_text=biopsy; mesh=D001706; confianca=1.0"
+PMC4073451_01,E2,Exam,ct,"polarity=present; mentions=m5|m9; mention_texts=[""CT"",""CT""]; spans=[[1320,1322],[1614,1616]]; char_start=1320; char_end=1322; evidence_text=CT; mesh=D014054; confianca=1.0"
+PMC4073451_01,F3,Finding,hypodense lesion,"polarity=present; mentions=m6; mention_texts=[""hypodense lesion""]; spans=[[1355,1371]]; char_start=1355; char_end=1371; evidence_text=hypodense lesion; confianca=1.0"
+PMC4073451_01,A2,AnatomicalSite,bone,"polarity=present; mentions=m7|m8; mention_texts=[""bone"",""bone""]; spans=[[1410,1414],[1426,1430]]; char_start=1410; char_end=1414; evidence_text=bone; mesh=ANAT019; confianca=1.0"
+PMC4073451_01,O1,Outcome,recurrence,"polarity=present; mentions=m10; mention_texts=[""recurrence""]; spans=[[1830,1840]]; char_start=1830; char_end=1840; evidence_text=recurrence; mesh=D012008; confianca=1.0"
+PMC4073451_01,C1,Concept,ANAT027,code=ANAT027; vocabulary=AnatomicalSite
+PMC4073451_01,C2,Concept,D001706,code=D001706; vocabulary=MeSH
+PMC4073451_01,C3,Concept,D014054,code=D014054; vocabulary=MeSH
+PMC4073451_01,C4,Concept,ANAT019,code=ANAT019; vocabulary=AnatomicalSite
+PMC4073451_01,C5,Concept,D012008,code=D012008; vocabulary=MeSH

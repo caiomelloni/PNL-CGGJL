@@ -1,0 +1,18 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC10488652_01,e1,P1,S1,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[494,508]]; char_start=494; char_end=508; evidence_text=grade II edema; confianca=1.0"
+PMC10488652_01,e2,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[822,856]]; char_start=822; char_end=856; evidence_text=class II mesangial lupus nephritis; confianca=1.0"
+PMC10488652_01,e3,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m4""]]; evidence_spans=[[995,1005]]; char_start=995; char_end=1005; evidence_text=hemoglobin; confianca=1.0"
+PMC10488652_01,e4,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m6""]]; evidence_spans=[[1016,1026]]; char_start=1016; char_end=1026; evidence_text=hematocrit; confianca=1.0"
+PMC10488652_01,e5,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m8""]]; evidence_spans=[[1146,1170]]; char_start=1146; char_end=1170; evidence_text=cold agglutinin syndrome; confianca=1.0"
+PMC10488652_01,e6,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m11""]]; evidence_spans=[[1487,1507]]; char_start=1487; char_end=1507; evidence_text=clinical improvement; confianca=1.0"
+PMC10488652_01,e7,P1,O2,HAS_OUTCOME,"mention_pairs=[[""P1"",""m12""]]; evidence_spans=[[1639,1652]]; char_start=1639; char_end=1652; evidence_text=complications; confianca=1.0"
+PMC10488652_01,e8,P1,O3,HAS_OUTCOME,"mention_pairs=[[""P1"",""m13""]]; evidence_spans=[[1670,1680]]; char_start=1670; char_end=1680; evidence_text=discharged; confianca=1.0"
+PMC10488652_01,e9,S1,A1,LOCATED_IN,"mention_pairs=[[""m2"",""m1""]]; evidence_spans=[[416,508]]; char_start=416; char_end=508; evidence_text=cervical adenopathies, synovitis in bilateral metacarpophalangeal joints, and grade II edema; confianca=0.9913"
+PMC10488652_01,e10,E2,R1,HAS_RESULT,"mention_pairs=[[""m6"",""m5""]]; evidence_spans=[[1006,1026]]; char_start=1006; char_end=1026; evidence_text=6.2 g/dl, hematocrit; confianca=0.9786"
+PMC10488652_01,e11,E2,R2,HAS_RESULT,"mention_pairs=[[""m6"",""m7""]]; evidence_spans=[[1016,1032]]; char_start=1016; char_end=1032; evidence_text=hematocrit 18.1%; confianca=0.8832"
+PMC10488652_01,e12,A1,C1,SAME_AS,
+PMC10488652_01,e13,S1,C2,SAME_AS,
+PMC10488652_01,e14,D1,C3,SAME_AS,
+PMC10488652_01,e15,E1,C4,SAME_AS,
+PMC10488652_01,e16,E2,C5,SAME_AS,
+PMC10488652_01,e17,M1,C6,SAME_AS,

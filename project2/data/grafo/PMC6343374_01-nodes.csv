@@ -1,0 +1,20 @@
+case_id,node_id,type,label,attributes
+PMC6343374_01,P1,Patient,case PMC6343374_01,
+PMC6343374_01,D1,Diagnosis,male infant weighing 2760 g,"polarity=present; mentions=m1; mention_texts=[""male infant weighing 2760 g""]; spans=[[17,44]]; char_start=17; char_end=44; evidence_text=male infant weighing 2760 g; confianca=0.1521"
+PMC6343374_01,D2,Diagnosis,tac 4a,"polarity=present; mentions=m2; mention_texts=[""TAC 4A""]; spans=[[144,150]]; char_start=144; char_end=150; evidence_text=TAC 4A; confianca=0.3417"
+PMC6343374_01,D3,Diagnosis,interrupted aortic arch,"polarity=present; mentions=m3; mention_texts=[""interrupted aortic arch""]; spans=[[157,180]]; char_start=157; char_end=180; evidence_text=interrupted aortic arch; confianca=0.2775"
+PMC6343374_01,D4,Diagnosis,trivial truncal valve regurgitation,"polarity=present; mentions=m4; mention_texts=[""trivial truncal valve regurgitation""]; spans=[[191,226]]; char_start=191; char_end=226; evidence_text=trivial truncal valve regurgitation; confianca=0.2367"
+PMC6343374_01,E1,Exam,valve appeared to be more than,"polarity=present; mentions=m5; mention_texts=[""valve appeared to be more than""]; spans=[[240,270]]; char_start=240; char_end=270; evidence_text=valve appeared to be more than; confianca=0.2416"
+PMC6343374_01,R1,ExamResult,75%,"polarity=present; mentions=m6; mention_texts=[""75%""]; spans=[[271,274]]; char_start=271; char_end=274; evidence_text=75%; confianca=0.2721"
+PMC6343374_01,O1,Outcome,discharged,"polarity=present; mentions=m7; mention_texts=[""discharged""]; spans=[[1794,1804]]; char_start=1794; char_end=1804; evidence_text=discharged; confianca=0.7421"
+PMC6343374_01,E2,Exam,tac-iaa showed,"polarity=present; mentions=m8; mention_texts=[""TAC-IAA showed""]; spans=[[2130,2144]]; char_start=2130; char_end=2144; evidence_text=TAC-IAA showed; confianca=0.1964"
+PMC6343374_01,R2,ExamResult,12.5%,"polarity=present; mentions=m9; mention_texts=[""12.5%""]; spans=[[2145,2150]]; char_start=2145; char_end=2150; evidence_text=12.5%; confianca=0.3118"
+PMC6343374_01,T1,Treatment,in the congenital heart surgery study,"polarity=present; mentions=m10; mention_texts=[""in the congenital heart surgery study""]; spans=[[2574,2611]]; char_start=2574; char_end=2611; evidence_text=in the congenital heart surgery study; mesh=ANAT006; confianca=1.0"
+PMC6343374_01,R3,ExamResult,13.2%,"polarity=present; mentions=m11; mention_texts=[""13.2%""]; spans=[[2616,2621]]; char_start=2616; char_end=2621; evidence_text=13.2%; confianca=0.3104"
+PMC6343374_01,O2,Outcome,complication,"polarity=present; mentions=m12; mention_texts=[""complication""]; spans=[[2742,2754]]; char_start=2742; char_end=2754; evidence_text=complication; confianca=1.0"
+PMC6343374_01,S1,Symptom,lower incidence,"polarity=present; mentions=m13; mention_texts=[""lower incidence""]; spans=[[3613,3628]]; char_start=3613; char_end=3628; evidence_text=lower incidence; confianca=0.4452"
+PMC6343374_01,E3,Exam,ultrasound,"polarity=present; mentions=m14; mention_texts=[""ultrasound""]; spans=[[3716,3726]]; char_start=3716; char_end=3726; evidence_text=ultrasound; confianca=1.0"
+PMC6343374_01,E4,Exam,of the self-expandable stent increased by,"polarity=present; mentions=m15; mention_texts=[""of the self-expandable stent increased by""]; spans=[[3771,3812]]; char_start=3771; char_end=3812; evidence_text=of the self-expandable stent increased by; confianca=0.2477"
+PMC6343374_01,R4,ExamResult,33%,"polarity=present; mentions=m16; mention_texts=[""33%""]; spans=[[3813,3816]]; char_start=3813; char_end=3816; evidence_text=33%; confianca=0.3002"
+PMC6343374_01,S2,Symptom,journal,"polarity=present; mentions=m17; mention_texts=[""journal""]; spans=[[5431,5438]]; char_start=5431; char_end=5438; evidence_text=journal; confianca=0.4186"
+PMC6343374_01,C1,Concept,ANAT006,code=ANAT006; vocabulary=AnatomicalSite

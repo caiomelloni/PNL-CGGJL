@@ -1,0 +1,16 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC3917415_01,e1,P1,M1,TREATED_WITH,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[208,236]]; char_start=208; char_end=236; evidence_text=and cyclophosphamide of 50mg; confianca=1.0"
+PMC3917415_01,e2,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[447,465]]; char_start=447; char_end=465; evidence_text=hypocomplementemia; confianca=1.0"
+PMC3917415_01,e3,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m4""]]; evidence_spans=[[491,493]]; char_start=491; char_end=493; evidence_text=C4; confianca=1.0"
+PMC3917415_01,e4,P1,M2,TREATED_WITH,"mention_pairs=[[""P1"",""m6""]]; evidence_spans=[[509,566]]; char_start=509; char_end=566; evidence_text=anti-double-stranded deoxyribonucleic acid (DNA) antibody; confianca=1.0"
+PMC3917415_01,e5,P1,E3,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m8""]]; evidence_spans=[[606,625]]; char_start=606; char_end=625; evidence_text=Computed tomography; confianca=1.0"
+PMC3917415_01,e6,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m9""]]; evidence_spans=[[1306,1323]]; char_start=1306; char_end=1323; evidence_text=ruptured aneurysm; confianca=1.0"
+PMC3917415_01,e7,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m10""]]; evidence_spans=[[1728,1741]]; char_start=1728; char_end=1741; evidence_text=complications; confianca=1.0"
+PMC3917415_01,e8,P1,O2,HAS_OUTCOME,"mention_pairs=[[""P1"",""m11""]]; evidence_spans=[[1992,2007]]; char_start=1992; char_end=2007; evidence_text=discharged home; confianca=1.0"
+PMC3917415_01,e9,E2,R1,HAS_RESULT,"mention_pairs=[[""m4"",""m3""]]; evidence_spans=[[482,493]]; char_start=482; char_end=493; evidence_text=66mg/dL, C4; confianca=0.9788"
+PMC3917415_01,e10,E2,R2,HAS_RESULT,"mention_pairs=[[""m4"",""m5""]]; evidence_spans=[[491,502]]; char_start=491; char_end=502; evidence_text=C4: 14mg/dL; confianca=0.8905"
+PMC3917415_01,e11,E3,R3,HAS_RESULT,"mention_pairs=[[""m8"",""m7""]]; evidence_spans=[[577,625]]; char_start=577; char_end=625; evidence_text=6.5IU/mL (normal range <20). Computed tomography; confianca=0.958"
+PMC3917415_01,e12,M1,C1,SAME_AS,
+PMC3917415_01,e13,M2,C2,SAME_AS,
+PMC3917415_01,e14,E3,C3,SAME_AS,
+PMC3917415_01,e15,D1,C4,SAME_AS,

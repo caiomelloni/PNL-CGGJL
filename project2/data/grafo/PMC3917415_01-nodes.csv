@@ -1,0 +1,17 @@
+case_id,node_id,type,label,attributes
+PMC3917415_01,P1,Patient,case PMC3917415_01,
+PMC3917415_01,M1,Medication,and cyclophosphamide of 50mg,"polarity=present; mentions=m1; mention_texts=[""and cyclophosphamide of 50mg""]; spans=[[208,236]]; char_start=208; char_end=236; evidence_text=and cyclophosphamide of 50mg; mesh=D003520; confianca=1.0"
+PMC3917415_01,E1,Exam,hypocomplementemia,"polarity=present; mentions=m2; mention_texts=[""hypocomplementemia""]; spans=[[447,465]]; char_start=447; char_end=465; evidence_text=hypocomplementemia; confianca=0.2067"
+PMC3917415_01,R1,ExamResult,66mg/dl,"polarity=present; mentions=m3; mention_texts=[""66mg/dL""]; spans=[[482,489]]; char_start=482; char_end=489; evidence_text=66mg/dL; confianca=0.4339"
+PMC3917415_01,E2,Exam,c4,"polarity=present; mentions=m4; mention_texts=[""C4""]; spans=[[491,493]]; char_start=491; char_end=493; evidence_text=C4; confianca=0.2102"
+PMC3917415_01,R2,ExamResult,14mg/dl,"polarity=present; mentions=m5; mention_texts=[""14mg/dL""]; spans=[[495,502]]; char_start=495; char_end=502; evidence_text=14mg/dL; confianca=0.4455"
+PMC3917415_01,M2,Medication,anti-double-stranded deoxyribonucleic acid (dna) antibody,"polarity=present; mentions=m6; mention_texts=[""anti-double-stranded deoxyribonucleic acid (DNA) antibody""]; spans=[[509,566]]; char_start=509; char_end=566; evidence_text=anti-double-stranded deoxyribonucleic acid (DNA) antibody; mesh=D004247; confianca=1.0"
+PMC3917415_01,R3,ExamResult,6.5iu/ml,"polarity=present; mentions=m7; mention_texts=[""6.5IU/mL""]; spans=[[577,585]]; char_start=577; char_end=585; evidence_text=6.5IU/mL; confianca=0.386"
+PMC3917415_01,E3,Exam,computed tomography,"polarity=present; mentions=m8; mention_texts=[""Computed tomography""]; spans=[[606,625]]; char_start=606; char_end=625; evidence_text=Computed tomography; mesh=D014054; confianca=1.0"
+PMC3917415_01,D1,Diagnosis,ruptured aneurysm,"polarity=present; mentions=m9; mention_texts=[""ruptured aneurysm""]; spans=[[1306,1323]]; char_start=1306; char_end=1323; evidence_text=ruptured aneurysm; mesh=D017542; confianca=1.0"
+PMC3917415_01,O1,Outcome,complications,"polarity=present; mentions=m10; mention_texts=[""complications""]; spans=[[1728,1741]]; char_start=1728; char_end=1741; evidence_text=complications; confianca=0.2135"
+PMC3917415_01,O2,Outcome,discharged home,"polarity=present; mentions=m11; mention_texts=[""discharged home""]; spans=[[1992,2007]]; char_start=1992; char_end=2007; evidence_text=discharged home; confianca=0.5499"
+PMC3917415_01,C1,Concept,D003520,code=D003520; vocabulary=MeSH
+PMC3917415_01,C2,Concept,D004247,code=D004247; vocabulary=MeSH
+PMC3917415_01,C3,Concept,D014054,code=D014054; vocabulary=MeSH
+PMC3917415_01,C4,Concept,D017542,code=D017542; vocabulary=MeSH

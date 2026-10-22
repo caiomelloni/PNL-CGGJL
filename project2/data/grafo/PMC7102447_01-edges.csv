@@ -1,0 +1,22 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC7102447_01,e1,P1,D1,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[63,75]]; char_start=63; char_end=75; evidence_text=hypertension; confianca=1.0"
+PMC7102447_01,e2,P1,D2,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[77,83]]; char_start=77; char_end=83; evidence_text=asthma; confianca=1.0"
+PMC7102447_01,e3,P1,H1,HAS_HISTORY,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[99,128]]; char_start=99; char_end=128; evidence_text=invasive bioprosthetic mitral; confianca=1.0"
+PMC7102447_01,e4,P1,T1,TREATED_WITH,"mention_pairs=[[""P1"",""m4""]]; evidence_spans=[[218,275]]; char_start=218; char_end=275; evidence_text=severe respiratory distress requiring emergent intubation; confianca=1.0"
+PMC7102447_01,e5,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m5""]]; evidence_spans=[[436,463]]; char_start=436; char_end=463; evidence_text=Initial troponin was normal; confianca=1.0"
+PMC7102447_01,e6,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m7""]]; evidence_spans=[[502,533]]; char_start=502; char_end=533; evidence_text=were elevated to 21.2 ng/mL and; confianca=1.0"
+PMC7102447_01,e7,P1,E3,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m9""]]; evidence_spans=[[787,806]]; char_start=787; char_end=806; evidence_text=computed tomography; confianca=1.0"
+PMC7102447_01,e8,P1,S1,HAS_SYMPTOM,"mention_pairs=[[""P1"",""m11""]]; evidence_spans=[[910,928]]; char_start=910; char_end=928; evidence_text=interstitial edema; confianca=1.0"
+PMC7102447_01,e9,P1,D3,DIAGNOSED_WITH,"mention_pairs=[[""P1"",""m12""]]; evidence_spans=[[1670,1680]]; char_start=1670; char_end=1680; evidence_text=thrombosis; confianca=1.0"
+PMC7102447_01,e10,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m13""]]; evidence_spans=[[1777,1785]]; char_start=1777; char_end=1785; evidence_text=improved; confianca=1.0"
+PMC7102447_01,e11,E1,R1,HAS_RESULT,"mention_pairs=[[""m5"",""m6""]]; evidence_spans=[[436,477]]; char_start=436; char_end=477; evidence_text=Initial troponin was normal at 0.04 ng/mL; confianca=0.8966"
+PMC7102447_01,e12,E2,R2,HAS_RESULT,"mention_pairs=[[""m7"",""m8""]]; evidence_spans=[[502,541]]; char_start=502; char_end=541; evidence_text=were elevated to 21.2 ng/mL and 308 U/L; confianca=0.8586"
+PMC7102447_01,e13,S1,A1,LOCATED_IN,"mention_pairs=[[""m11"",""m10""]]; evidence_spans=[[830,928]]; char_start=830; char_end=928; evidence_text=chest revealed moderate patchy ground-glass and nodular airspace opacities with interstitial edema; confianca=0.9915"
+PMC7102447_01,e14,D1,C1,SAME_AS,
+PMC7102447_01,e15,D2,C2,SAME_AS,
+PMC7102447_01,e16,T1,C3,SAME_AS,
+PMC7102447_01,e17,E1,C4,SAME_AS,
+PMC7102447_01,e18,E3,C5,SAME_AS,
+PMC7102447_01,e19,A1,C6,SAME_AS,
+PMC7102447_01,e20,S1,C7,SAME_AS,
+PMC7102447_01,e21,D3,C8,SAME_AS,

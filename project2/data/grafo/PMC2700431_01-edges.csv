@@ -1,0 +1,4 @@
+case_id,edge_id,source_id,target_id,relation,attributes
+PMC2700431_01,e1,P1,E1,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m1""]]; evidence_spans=[[1198,1208]]; char_start=1198; char_end=1208; evidence_text=radiograph; confianca=1.0"
+PMC2700431_01,e2,P1,O1,HAS_OUTCOME,"mention_pairs=[[""P1"",""m2""]]; evidence_spans=[[1653,1661]]; char_start=1653; char_end=1661; evidence_text=improved; confianca=1.0"
+PMC2700431_01,e3,P1,E2,UNDERWENT_EXAM,"mention_pairs=[[""P1"",""m3""]]; evidence_spans=[[1701,1708]]; char_start=1701; char_end=1708; evidence_text=expired; confianca=1.0"
