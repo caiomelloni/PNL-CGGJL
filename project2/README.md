@@ -9,7 +9,7 @@ Equipe `CGGJL`: Caio Melloni (167974), Gabriel Lorhan Rodrigues Dourado (197496)
 
 ## Demonstração Executável
 
-O [visualizador interativo](data/visualizador/README.md) conta com **abas comparativas** que permitem visualizar e alternar instantaneamente entre os grafos do **Projeto 1** (regras/baselines) e do **Projeto 2** (ML/supervisão fraca) para cada caso clínico. Ao clicar em qualquer nó ou aresta, os atributos e o trecho exato de evidência textual são destacados no `case_text` original.
+O [visualizador interativo](https://caiomelloni.github.io/PNL-CGGJL/) conta com **abas comparativas** que permitem visualizar e alternar instantaneamente entre os grafos do **Projeto 1** (regras/baselines) e do **Projeto 2** (ML/supervisão fraca) para cada caso clínico. Ao clicar em qualquer nó ou aresta, os atributos e o trecho exato de evidência textual são destacados no `case_text` original.
 
 Para gerar os dados do visualizador e abri-lo localmente, execute a partir da raiz do repositório:
 
