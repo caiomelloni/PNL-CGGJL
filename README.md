@@ -8,6 +8,7 @@ O enunciado dos projetos vem do repositório da disciplina: [santanche/nlp2learn
 
 - [Projeto 1 — grafos clínicos com regras](project1/README.md)
 - [Projeto 2 — N-gramas e aprendizado de máquina](project2/README.md)
+- [Projeto 3 — modelos de linguagem e diagnóstico diferencial](project3/README.md)
 
 ## Equipe
 
