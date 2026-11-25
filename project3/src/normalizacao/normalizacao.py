@@ -5,12 +5,15 @@ um BERT biomédico treinado para que sinônimos fiquem próximos. Uma menção r
 termo mais parecido (similaridade de cosseno).
 
     python -m project3.src.normalizacao.normalizacao indice
+    python -m project3.src.normalizacao.normalizacao calibrar
+    python -m project3.src.normalizacao.normalizacao csv --entrada <menções.csv> --saida <saída.csv>
 """
 from __future__ import annotations
 
 import argparse
 import csv
 import json
+import re
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
@@ -25,6 +28,20 @@ MODELO = "cambridgeltl/SapBERT-from-PubMedBERT-fulltext"
 MAX_TOKENS = 25  # o SapBERT foi treinado com nomes curtos; o resto do texto é cortado
 LOTE = 512
 COLUNAS_TERMOS = ["term", "code", "preferred_term", "category"]
+ARQUIVO_LIMIAR = Path(__file__).resolve().parent / "limiar.json"  # versionado; gerado por `calibrar`
+CURVA = REPO / "project3" / "data" / "resultados" / "normalizacao_calibracao.csv"
+LIMIAR_PADRAO = 0.8
+# Categorias do gazetteer que cada tipo pode receber com --filtrar-tipo (ver CATEGORIA_TIPO do P2).
+# `drugs` entra em Exam porque os analitos (hemoglobin, troponin) estão na árvore D do MeSH.
+CATEGORIAS_DO_TIPO = {
+    "Medication": {"drugs"},
+    "Diagnosis": {"diseases", "mental_disorders"},
+    "Symptom": {"diseases", "mental_disorders"},
+    "Finding": {"diseases", "mental_disorders"},
+    "Exam": {"exams", "drugs"},
+    "Treatment": {"treatments", "drugs"},
+    "AnatomicalSite": {"anatomical_site"},
+}
 
 
 @dataclass(frozen=True)
@@ -134,15 +151,162 @@ def vizinhos(textos: list[str], k: int = 1, pasta: Path = INDICE) -> list[list[V
     return idx.buscar(codificador(idx.info["modelo"]).codificar([t.lower() for t in textos]), k)
 
 
+def mascara_do_tipo(idx: Indice, tipo: str) -> np.ndarray | None:
+    """Termos cujas categorias combinam com o tipo; None quando o tipo aceita qualquer categoria."""
+    categorias = CATEGORIAS_DO_TIPO.get(tipo)
+    if categorias is None:
+        return None
+    if not hasattr(idx, "_mascaras"):
+        idx._mascaras = {}
+    if tipo not in idx._mascaras:
+        idx._mascaras[tipo] = np.array([t["category"] in categorias for t in idx.termos])
+    return idx._mascaras[tipo]
+
+
+def ler_limiar(arquivo: Path = ARQUIVO_LIMIAR) -> float:
+    return float(json.loads(arquivo.read_text())["limiar"]) if arquivo.is_file() else LIMIAR_PADRAO
+
+
+def normalizar(textos: list[str], tipos: list[str] | None = None, *, limiar: float | None = None,
+               filtrar_tipo: bool = False, pasta: Path = INDICE) -> list[tuple[str, float]]:
+    """(código, similaridade) de cada texto; código vazio quando a similaridade fica abaixo do limiar.
+
+    `tipos` é paralelo a `textos`. Com `filtrar_tipo`, só termos de categorias compatíveis com o tipo
+    (ex.: Medication só procura em `drugs`). O score volta mesmo quando o código fica vazio.
+    """
+    if tipos is not None and len(tipos) != len(textos):
+        raise ValueError("textos e tipos precisam ter o mesmo tamanho")
+    if not textos:
+        return []
+    limiar = ler_limiar() if limiar is None else limiar
+    idx = indice(pasta)
+    unicos = sorted({t.strip().lower() for t in textos})
+    vetores = dict(zip(unicos, codificador(idx.info["modelo"]).codificar(unicos)))
+    tipos = tipos or [""] * len(textos)
+    resposta: list[tuple[str, float] | None] = [None] * len(textos)
+    por_tipo: dict[str, list[int]] = {}
+    for i, tipo in enumerate(tipos):
+        por_tipo.setdefault(tipo if filtrar_tipo else "", []).append(i)
+    for tipo, posicoes in por_tipo.items():
+        consultas = np.stack([vetores[textos[i].strip().lower()] for i in posicoes])
+        for i, viz in zip(posicoes, idx.buscar(consultas, 1, mascara_do_tipo(idx, tipo))):
+            melhor = viz[0]
+            resposta[i] = (melhor.codigo if melhor.score >= limiar else "", round(melhor.score, 4))
+    return resposta  # type: ignore[return-value]
+
+
+def normalizar_csv(entrada: Path, saida: Path, *, filtrar_tipo: bool = False, limiar: float | None = None,
+                   pasta: Path = INDICE) -> int:
+    """Reescreve um CSV de menções tipadas com `mesh` e `mesh_score` preenchidos."""
+    with entrada.open(encoding="utf-8", newline="") as f:
+        leitor = csv.DictReader(f)
+        colunas, linhas = list(leitor.fieldnames or []), list(leitor)
+    for coluna in ("texto", "tipo"):
+        if coluna not in colunas:
+            raise ValueError(f"{entrada} não tem a coluna {coluna!r}")
+    colunas += [c for c in ("mesh", "mesh_score") if c not in colunas]
+    codigos = normalizar([l["texto"] for l in linhas], [l["tipo"] for l in linhas],
+                         filtrar_tipo=filtrar_tipo, limiar=limiar, pasta=pasta)
+    for linha, (codigo, score) in zip(linhas, codigos):
+        linha["mesh"], linha["mesh_score"] = codigo, f"{score:.4f}"
+    saida.parent.mkdir(parents=True, exist_ok=True)
+    with saida.open("w", encoding="utf-8", newline="") as f:
+        escritor = csv.DictWriter(f, fieldnames=colunas)
+        escritor.writeheader()
+        escritor.writerows(linhas)
+    return len(linhas)
+
+
+# --- Calibração do limiar sem tocar no gold -------------------------------------------------------
+
+def _palavras(termo: str) -> frozenset[str]:
+    return frozenset(re.findall(r"[a-z0-9]+", termo.lower()))
+
+
+def validacao_sinonimos(idx: Indice, n: int = 5000, semente: int = 0) -> list[tuple[float, bool]]:
+    """(score, acertou) ao buscar um sinônimo do MeSH que foi tirado do índice.
+
+    Para n códigos com mais de um termo, escolhe um termo e o esconde, junto com todo termo de mesmas
+    palavras (`Infarction, Myocardial` = `Myocardial Infarction`). Simula uma menção que o gazetteer
+    não tem escrita igual: o vizinho mais próximo ainda dá o código certo?
+    """
+    chaves = [_palavras(t["term"]) for t in idx.termos]
+    por_chave: dict[frozenset[str], list[int]] = {}
+    por_codigo: dict[str, set[frozenset[str]]] = {}
+    for j, (t, chave) in enumerate(zip(idx.termos, chaves)):
+        por_chave.setdefault(chave, []).append(j)
+        por_codigo.setdefault(t["code"], set()).add(chave)
+    rng = np.random.default_rng(semente)
+    candidatos = sorted(c for c, ks in por_codigo.items() if len(ks) > 1)
+    escolhidos = rng.choice(len(candidatos), size=min(n, len(candidatos)), replace=False)
+    resultado = []
+    for c in escolhidos:
+        codigo = candidatos[c]
+        chave = sorted(por_codigo[codigo], key=sorted)[rng.integers(len(por_codigo[codigo]))]
+        consulta = por_chave[chave][0]
+        sims = idx.vetores @ idx.vetores[consulta]
+        sims[por_chave[chave]] = -np.inf
+        resultado.append((float(sims.max()), idx.termos[int(sims.argmax())]["code"] == codigo))
+    return resultado
+
+
+def escolher_limiar(pares: list[tuple[float, bool]], faixa: float = 0.05, minimo: float = 0.5) -> float:
+    """Menor score a partir do qual toda faixa de largura `faixa` acerta pelo menos `minimo`.
+
+    Abaixo do limiar, o vizinho mais próximo erra mais do que acerta: melhor deixar o código vazio.
+    """
+    scores = np.array([s for s, _ in pares])
+    acertos = np.array([a for _, a in pares])
+    limiar = 1.0
+    for inicio in np.arange(0.99, 0.0, -0.01):
+        na_faixa = (scores >= inicio) & (scores < inicio + faixa)
+        if na_faixa.sum() >= 20 and acertos[na_faixa].mean() < minimo:
+            break
+        limiar = round(float(inicio), 2)
+    return limiar
+
+
+def calibrar(pasta: Path = INDICE, arquivo: Path = ARQUIVO_LIMIAR, curva: Path = CURVA, n: int = 5000) -> float:
+    pares = validacao_sinonimos(indice(pasta), n)
+    limiar = escolher_limiar(pares)
+    acertos = [a for s, a in pares if s >= limiar]
+    arquivo.write_text(json.dumps({
+        "limiar": limiar, "modelo": indice(pasta).info["modelo"], "sinonimos": len(pares),
+        "acuracia_acima": round(sum(acertos) / max(len(acertos), 1), 4),
+        "cobertura": round(len(acertos) / len(pares), 4),
+        "metodo": "sinônimo do MeSH escondido do índice; ver validacao_sinonimos e escolher_limiar",
+    }, indent=2, ensure_ascii=False) + "\n")
+    curva.parent.mkdir(parents=True, exist_ok=True)
+    with curva.open("w", encoding="utf-8", newline="") as f:
+        escritor = csv.writer(f)
+        escritor.writerow(["faixa_inicio", "faixa_fim", "sinonimos", "acuracia"])
+        for inicio in np.arange(0.40, 1.0, 0.05):
+            na_faixa = [a for s, a in pares if inicio <= s < inicio + 0.05 or (inicio >= 0.95 and s >= 1)]
+            escritor.writerow([f"{inicio:.2f}", f"{inicio + 0.05:.2f}", len(na_faixa),
+                               f"{sum(na_faixa) / len(na_faixa):.4f}" if na_faixa else ""])
+    return limiar
+
+
 def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest="comando", required=True)
     p_indice = sub.add_parser("indice", help="codifica os gazetteers e salva o índice")
     p_indice.add_argument("--saida", type=Path, default=INDICE)
     p_indice.add_argument("--modelo", default=MODELO)
+    sub.add_parser("calibrar", help="escolhe o limiar com sinônimos do MeSH (sem usar o gold)")
+    p_csv = sub.add_parser("csv", help="preenche mesh e mesh_score num CSV de menções tipadas")
+    p_csv.add_argument("--entrada", type=Path, required=True)
+    p_csv.add_argument("--saida", type=Path, required=True)
+    p_csv.add_argument("--filtrar-tipo", action="store_true", help="só categorias compatíveis com o tipo")
+    p_csv.add_argument("--limiar", type=float, default=None)
     args = parser.parse_args(argv)
     if args.comando == "indice":
         print(f"índice salvo em {construir_indice(args.saida, args.modelo)}")
+    elif args.comando == "calibrar":
+        print(f"limiar = {calibrar()} (salvo em {ARQUIVO_LIMIAR.relative_to(REPO)})")
+    else:
+        n = normalizar_csv(args.entrada, args.saida, filtrar_tipo=args.filtrar_tipo, limiar=args.limiar)
+        print(f"{n} menções normalizadas em {args.saida}")
 
 
 if __name__ == "__main__":

@@ -3,6 +3,7 @@ import csv
 import json
 import tempfile
 import unittest
+import unittest.mock
 from pathlib import Path
 
 import numpy as np
@@ -62,6 +63,64 @@ class BuscaTests(unittest.TestCase):
     def test_indice_ausente_explica_como_gerar(self):
         with self.assertRaisesRegex(FileNotFoundError, "normalizacao indice"):
             norm.Indice(Path(self.tmp.name) / "nao_existe")
+
+
+class CodificadorFalso:
+    """Vetores fixos por texto, para testar sem baixar o SapBERT."""
+    VETORES = {"fever": [1, 0, 0], "high fever": [0.9, 0.3, 0], "gastric": [0, 0.2, 1],
+               "febrile drug": [0.6, 0.8, 0], "banana": [1, -1, -1]}
+
+    def codificar(self, textos):
+        v = np.array([self.VETORES[t] for t in textos], dtype=np.float32)
+        return v / np.linalg.norm(v, axis=1, keepdims=True)
+
+
+class NormalizarTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.pasta = Path(self.tmp.name)
+        termos = [("fever", "D005334", "diseases"), ("antipyretic", "D018712", "drugs"),
+                  ("stomach", "ANAT001", "anatomical_site")]
+        indice_falso(self.pasta, termos, [[1, 0, 0], [0.5, 1, 0], [0, 0, 1]])
+        norm.indice.cache_clear()
+        self.patch = unittest.mock.patch.object(norm, "codificador", lambda modelo: CodificadorFalso())
+        self.patch.start()
+
+    def tearDown(self):
+        self.patch.stop()
+        norm.indice.cache_clear()
+        self.tmp.cleanup()
+
+    def test_codigo_e_score_com_limiar(self):
+        saida = norm.normalizar(["Fever ", "high fever", "banana"], limiar=0.8, pasta=self.pasta)
+        self.assertEqual([c for c, _ in saida], ["D005334", "D005334", ""])
+        self.assertAlmostEqual(saida[0][1], 1.0, places=2)
+        self.assertGreater(saida[2][1], 0)  # o score volta mesmo sem código
+
+    def test_filtro_por_tipo(self):
+        # "febrile drug" fica mais perto de antipyretic, mas um Symptom só procura em diseases.
+        (sem,) = norm.normalizar(["febrile drug"], ["Symptom"], limiar=0, pasta=self.pasta)
+        (com,) = norm.normalizar(["febrile drug"], ["Symptom"], limiar=0, filtrar_tipo=True, pasta=self.pasta)
+        self.assertEqual((sem[0], com[0]), ("D018712", "D005334"))
+
+    def test_tamanhos_diferentes_falham(self):
+        with self.assertRaises(ValueError):
+            norm.normalizar(["fever"], ["Symptom", "Finding"], pasta=self.pasta)
+
+    def test_csv_mantem_colunas_e_preenche_mesh(self):
+        entrada, saida = self.pasta / "mencoes.csv", self.pasta / "saida.csv"
+        entrada.write_text("case_id,id,start,end,texto,tipo,mesh,polaridade,confianca,fonte\n"
+                           "C1,m1,0,5,fever,Symptom,,present,1.0,llm:x\n"
+                           "C1,m2,9,16,gastric,AnatomicalSite,X999,present,0.9,llm:x\n")
+        self.assertEqual(norm.normalizar_csv(entrada, saida, limiar=0.8, pasta=self.pasta), 2)
+        with saida.open(encoding="utf-8", newline="") as f:
+            leitor = csv.DictReader(f)
+            linhas = list(leitor)
+        self.assertEqual(leitor.fieldnames[:10], ["case_id", "id", "start", "end", "texto", "tipo", "mesh",
+                                                  "polaridade", "confianca", "fonte"])
+        self.assertEqual(leitor.fieldnames[-1], "mesh_score")
+        self.assertEqual([l["mesh"] for l in linhas], ["D005334", "ANAT001"])  # o código antigo é trocado
+        self.assertEqual(linhas[0]["fonte"], "llm:x")
 
 
 if __name__ == "__main__":
