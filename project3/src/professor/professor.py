@@ -285,6 +285,12 @@ def main() -> None:
             linha = {"variante": variante, **resumir(execucao)}
             if gold:
                 linha.update(medir(ler_csv(pasta / "mencoes_tipadas.csv"), gold))
+            if variante == "proposicoes":
+                # Sem gabarito ainda dá para ver o quanto a variante muda: F1 contra a direta.
+                concordancia = medir(ler_csv(pasta / "mencoes_tipadas.csv"),
+                                     ler_csv(SAIDA / "comparacao" / "direta" / "mencoes_tipadas.csv"))
+                linha.update({"concordancia_f1_exato": concordancia["f1_exato"],
+                              "concordancia_tipo": concordancia["acuracia_tipo"]})
             linhas.append(linha)
         gravar_csv(RESULTADOS / "quebra_frases.csv", list(linhas[-1]), linhas)
         for linha in linhas:

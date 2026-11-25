@@ -45,9 +45,14 @@ Opções globais (antes do subcomando): `--corpus` (padrão `project1/data/case_
 ([`custo_professor.csv`](../../data/resultados/custo_professor.csv)): 86,2 menções e US$ 0,048
 estimados por caso (US$ 48 por 1000 casos), 22,6 s por caso, 1 alucinação em 3.275 menções.
 
+Quebra de frases, 10 casos de validação ([`quebra_frases.csv`](../../data/resultados/quebra_frases.csv)):
+a variante `proposicoes` custa 70% mais e concorda com a direta em F1 0,90 (exato), sem
+menos alucinação. Sem gabarito de validação, a direta fica como padrão.
+
 ## Limitações
 
 - Sem `divisoes.csv`, usa uma divisão provisória: gold = `teste`, 1 em cada 5 artigos em `validacao`.
 - Sem MACCROBAT, roda zero-shot; o silver do P2 só entra com `--exemplos`.
-- `comparar` só mede F1 se houver anotação de casos de `validacao`; sem ela, compara contagem, alucinação e custo.
+- `comparar` só mede F1 se houver anotação de casos de `validacao`; sem ela, compara contagem,
+  alucinação, custo e a concordância entre as variantes.
 - `confianca` fica vazia: o LLM não dá probabilidade por menção.
