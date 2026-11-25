@@ -31,6 +31,9 @@ COLUNAS_TERMOS = ["term", "code", "preferred_term", "category"]
 ARQUIVO_LIMIAR = Path(__file__).resolve().parent / "limiar.json"  # versionado; gerado por `calibrar`
 CURVA = REPO / "project3" / "data" / "resultados" / "normalizacao_calibracao.csv"
 LIMIAR_PADRAO = 0.8
+# Padrão escolhido depois de ver o gold (data/resultados/normalizacao.csv): seleção declarada no README.
+METODOS = ("lexico+sapbert", "sapbert")
+METODO_PADRAO = "lexico+sapbert"
 # Categorias do gazetteer que cada tipo pode receber com --filtrar-tipo (ver CATEGORIA_TIPO do P2).
 # `drugs` entra em Exam porque os analitos (hemoglobin, troponin) estão na árvore D do MeSH.
 CATEGORIAS_DO_TIPO = {
@@ -167,17 +170,40 @@ def ler_limiar(arquivo: Path = ARQUIVO_LIMIAR) -> float:
     return float(json.loads(arquivo.read_text())["limiar"]) if arquivo.is_file() else LIMIAR_PADRAO
 
 
-def normalizar(textos: list[str], tipos: list[str] | None = None, *, limiar: float | None = None,
-               filtrar_tipo: bool = False, pasta: Path = INDICE) -> list[tuple[str, float]]:
-    """(código, similaridade) de cada texto; código vazio quando a similaridade fica abaixo do limiar.
+def _lexico_p2(textos: list[str], textos_caso: list[str]) -> list[str]:
+    """Código do léxico do P2 (casamento exato, com siglas definidas no caso); "" quando não conhece."""
+    from project2.src.tipos import lexico
 
-    `tipos` é paralelo a `textos`. Com `filtrar_tipo`, só termos de categorias compatíveis com o tipo
-    (ex.: Medication só procura em `drugs`). O score volta mesmo quando o código fica vazio.
+    return [lexico.consultar(t, caso).mesh for t, caso in zip(textos, textos_caso)]
+
+
+def normalizar(textos: list[str], tipos: list[str] | None = None, *, metodo: str = METODO_PADRAO,
+               textos_caso: list[str] | None = None, limiar: float | None = None,
+               filtrar_tipo: bool = False, pasta: Path = INDICE) -> list[tuple[str, float]]:
+    """(código, score) de cada texto; código vazio quando nada passa do limiar.
+
+    metodo="lexico+sapbert" (padrão): o léxico do P2 responde primeiro (score 1.0); o SapBERT cobre
+    o que o léxico não conhece. metodo="sapbert": só o vizinho mais próximo do SapBERT.
+    `tipos` e `textos_caso` (texto do caso, para expandir siglas no léxico) são paralelos a `textos`.
+    Com `filtrar_tipo`, o SapBERT só procura em categorias compatíveis com o tipo. O score do
+    SapBERT volta mesmo quando o código fica vazio.
     """
-    if tipos is not None and len(tipos) != len(textos):
-        raise ValueError("textos e tipos precisam ter o mesmo tamanho")
+    if metodo not in METODOS:
+        raise ValueError(f"metodo deve ser um de {METODOS}")
+    for nome, lista in (("tipos", tipos), ("textos_caso", textos_caso)):
+        if lista is not None and len(lista) != len(textos):
+            raise ValueError(f"textos e {nome} precisam ter o mesmo tamanho")
     if not textos:
         return []
+    if metodo == "lexico+sapbert":
+        lexico = _lexico_p2(textos, textos_caso or [""] * len(textos))
+        faltam = [i for i, c in enumerate(lexico) if not c]
+        sap = normalizar([textos[i] for i in faltam], [tipos[i] for i in faltam] if tipos else None,
+                         metodo="sapbert", limiar=limiar, filtrar_tipo=filtrar_tipo, pasta=pasta)
+        resposta = [(c, 1.0) for c in lexico]
+        for i, r in zip(faltam, sap):
+            resposta[i] = r
+        return resposta
     limiar = ler_limiar() if limiar is None else limiar
     idx = indice(pasta)
     unicos = sorted({t.strip().lower() for t in textos})
@@ -195,17 +221,31 @@ def normalizar(textos: list[str], tipos: list[str] | None = None, *, limiar: flo
     return resposta  # type: ignore[return-value]
 
 
-def normalizar_csv(entrada: Path, saida: Path, *, filtrar_tipo: bool = False, limiar: float | None = None,
-                   pasta: Path = INDICE) -> int:
-    """Reescreve um CSV de menções tipadas com `mesh` e `mesh_score` preenchidos."""
+def textos_dos_casos(ids: set[str], corpus: Path | None) -> dict[str, str]:
+    """case_id -> case_text dos casos pedidos, lidos com project2.src.comum (CSV ou Parquet)."""
+    if corpus is None:
+        return {}
+    from project2.src.comum import iter_casos
+
+    return {cid: texto for cid, texto in iter_casos(corpus) if cid in ids}
+
+
+def normalizar_csv(entrada: Path, saida: Path, *, metodo: str = METODO_PADRAO, corpus: Path | None = None,
+                   filtrar_tipo: bool = False, limiar: float | None = None, pasta: Path = INDICE) -> int:
+    """Reescreve um CSV de menções tipadas com `mesh` e `mesh_score` preenchidos.
+
+    `corpus` (opcional) é o arquivo dos casos; com ele o léxico expande siglas definidas no texto.
+    """
     with entrada.open(encoding="utf-8", newline="") as f:
         leitor = csv.DictReader(f)
         colunas, linhas = list(leitor.fieldnames or []), list(leitor)
-    for coluna in ("texto", "tipo"):
+    for coluna in ("case_id", "texto", "tipo"):
         if coluna not in colunas:
             raise ValueError(f"{entrada} não tem a coluna {coluna!r}")
     colunas += [c for c in ("mesh", "mesh_score") if c not in colunas]
-    codigos = normalizar([l["texto"] for l in linhas], [l["tipo"] for l in linhas],
+    casos = textos_dos_casos({l["case_id"] for l in linhas}, corpus)
+    codigos = normalizar([l["texto"] for l in linhas], [l["tipo"] for l in linhas], metodo=metodo,
+                         textos_caso=[casos.get(l["case_id"], "") for l in linhas],
                          filtrar_tipo=filtrar_tipo, limiar=limiar, pasta=pasta)
     for linha, (codigo, score) in zip(linhas, codigos):
         linha["mesh"], linha["mesh_score"] = codigo, f"{score:.4f}"
@@ -297,6 +337,9 @@ def main(argv: list[str] | None = None) -> None:
     p_csv = sub.add_parser("csv", help="preenche mesh e mesh_score num CSV de menções tipadas")
     p_csv.add_argument("--entrada", type=Path, required=True)
     p_csv.add_argument("--saida", type=Path, required=True)
+    p_csv.add_argument("--metodo", choices=METODOS, default=METODO_PADRAO)
+    p_csv.add_argument("--corpus", type=Path, default=None,
+                       help="casos (CSV/Parquet) para o léxico expandir siglas, ex.: project1/data/case_texts.csv")
     p_csv.add_argument("--filtrar-tipo", action="store_true", help="só categorias compatíveis com o tipo")
     p_csv.add_argument("--limiar", type=float, default=None)
     args = parser.parse_args(argv)
@@ -305,7 +348,8 @@ def main(argv: list[str] | None = None) -> None:
     elif args.comando == "calibrar":
         print(f"limiar = {calibrar()} (salvo em {ARQUIVO_LIMIAR.relative_to(REPO)})")
     else:
-        n = normalizar_csv(args.entrada, args.saida, filtrar_tipo=args.filtrar_tipo, limiar=args.limiar)
+        n = normalizar_csv(args.entrada, args.saida, metodo=args.metodo, corpus=args.corpus,
+                           filtrar_tipo=args.filtrar_tipo, limiar=args.limiar)
         print(f"{n} menções normalizadas em {args.saida}")
 
 

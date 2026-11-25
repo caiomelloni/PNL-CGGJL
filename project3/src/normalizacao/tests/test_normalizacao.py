@@ -92,16 +92,28 @@ class NormalizarTests(unittest.TestCase):
         self.tmp.cleanup()
 
     def test_codigo_e_score_com_limiar(self):
-        saida = norm.normalizar(["Fever ", "high fever", "banana"], limiar=0.8, pasta=self.pasta)
+        saida = norm.normalizar(["Fever ", "high fever", "banana"], metodo="sapbert", limiar=0.8, pasta=self.pasta)
         self.assertEqual([c for c, _ in saida], ["D005334", "D005334", ""])
         self.assertAlmostEqual(saida[0][1], 1.0, places=2)
         self.assertGreater(saida[2][1], 0)  # o score volta mesmo sem código
 
     def test_filtro_por_tipo(self):
         # "febrile drug" fica mais perto de antipyretic, mas um Symptom só procura em diseases.
-        (sem,) = norm.normalizar(["febrile drug"], ["Symptom"], limiar=0, pasta=self.pasta)
-        (com,) = norm.normalizar(["febrile drug"], ["Symptom"], limiar=0, filtrar_tipo=True, pasta=self.pasta)
+        (sem,) = norm.normalizar(["febrile drug"], ["Symptom"], metodo="sapbert", limiar=0, pasta=self.pasta)
+        (com,) = norm.normalizar(["febrile drug"], ["Symptom"], metodo="sapbert", limiar=0, filtrar_tipo=True,
+                                pasta=self.pasta)
         self.assertEqual((sem[0], com[0]), ("D018712", "D005334"))
+
+    def test_lexico_primeiro_e_sapbert_no_que_sobra(self):
+        lexico = {"fever": "D999999", "high fever": ""}
+        with unittest.mock.patch.object(norm, "_lexico_p2", lambda textos, casos: [lexico[t] for t in textos]):
+            saida = norm.normalizar(["fever", "high fever"], limiar=0.8, pasta=self.pasta)
+        self.assertEqual(saida[0], ("D999999", 1.0))  # o léxico ganha mesmo discordando do SapBERT
+        self.assertEqual(saida[1][0], "D005334")
+
+    def test_metodo_desconhecido_falha(self):
+        with self.assertRaises(ValueError):
+            norm.normalizar(["fever"], metodo="outro", pasta=self.pasta)
 
     def test_tamanhos_diferentes_falham(self):
         with self.assertRaises(ValueError):
@@ -112,7 +124,7 @@ class NormalizarTests(unittest.TestCase):
         entrada.write_text("case_id,id,start,end,texto,tipo,mesh,polaridade,confianca,fonte\n"
                            "C1,m1,0,5,fever,Symptom,,present,1.0,llm:x\n"
                            "C1,m2,9,16,gastric,AnatomicalSite,X999,present,0.9,llm:x\n")
-        self.assertEqual(norm.normalizar_csv(entrada, saida, limiar=0.8, pasta=self.pasta), 2)
+        self.assertEqual(norm.normalizar_csv(entrada, saida, metodo="sapbert", limiar=0.8, pasta=self.pasta), 2)
         with saida.open(encoding="utf-8", newline="") as f:
             leitor = csv.DictReader(f)
             linhas = list(leitor)
