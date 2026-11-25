@@ -45,3 +45,8 @@ project2/data/interim/
 project2/data/demo/
 project2/data/mock/relacoes/
 project2/data/relacoes.csv
+
+# Projeto 3 · saídas geradas (ver o README de cada módulo); data/resultados/ é versionado
+project3/data/interim/
+project3/data/processed/
+project3/models/
