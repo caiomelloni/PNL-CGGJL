@@ -115,6 +115,12 @@ class TestAuxiliares(unittest.TestCase):
         self.assertEqual(cliente.ler_json('```json\n{"a": 1}\n```'), {"a": 1})
         self.assertEqual(cliente.ler_json('{"a": 1}'), {"a": 1})
 
+    def test_ler_json_fica_com_a_ultima_versao(self):
+        texto = '{"a": 1}\n\nWait, corrected version:\n\n{"a": 2, "b": {"c": 3}}'
+        self.assertEqual(cliente.ler_json(texto), {"a": 2, "b": {"c": 3}})
+        with self.assertRaises(ValueError):
+            cliente.ler_json("não sei")
+
     def test_custo_usa_a_tabela_e_zero_fora_dela(self):
         self.assertAlmostEqual(cliente.custo("claude-haiku-5-5", 1_000_000, 1_000_000), 0.60)
         self.assertEqual(cliente.custo("modelo-local", 10**6, 10**6), 0.0)

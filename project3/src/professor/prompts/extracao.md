@@ -22,7 +22,10 @@ You annotate clinical case reports. Given a passage, list every clinical mention
 3. Leave measurements out: "a 6cm cystic lesion" -> "cystic lesion".
 4. No punctuation at the edges.
 5. Keep modifiers needed for the meaning: "extensive colitis", "contrast enhanced computed tomography", "acute appendicitis".
-6. An anatomical site inside a longer mention is also listed on its own: "mass in the right lung" gives Finding "mass in the right lung" and AnatomicalSite "right lung".
+6. Mentions never overlap: no mention contains another one.
+7. A location written as a complement is a separate mention: "a cystic lesion in the pancreas" gives Finding "cystic lesion" and AnatomicalSite "pancreas"; "enlargement of the liver" gives Finding "enlargement" and AnatomicalSite "liver".
+8. A site that is part of a fixed term stays inside it and is not listed alone: "abdominal pain" is one Symptom, "chest X-ray" is one Exam, "liver biopsy" is one Exam.
+9. No fragments: never list part of a word group as a mention of its own ("bile" from "bile duct", "upper abdominal" from "right upper abdominal").
 
 ## Polarity
 

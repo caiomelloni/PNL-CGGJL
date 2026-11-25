@@ -234,6 +234,21 @@ _json_mod = json  # `chamar` tem um parâmetro chamado `json` (contrato), que es
 
 
 def ler_json(texto: str):
-    """JSON da resposta, tolerando cercas ```json ... ``` em volta."""
-    limpo = re.sub(r"^\s*```(?:json)?\s*|\s*```\s*$", "", texto.strip())
-    return _json_mod.loads(limpo)
+    """Último objeto JSON da resposta, tolerando cercas ```json e texto em volta.
+
+    Às vezes o modelo se corrige no meio ("Wait — here is the corrected version: {...}"): vale a
+    última versão. Sem nenhum JSON válido, levanta ValueError.
+    """
+    limpo = re.sub(r"```(?:json)?", "", texto)
+    decodificador, achados, i = _json_mod.JSONDecoder(), [], 0
+    while (i := limpo.find("{", i)) != -1:
+        try:
+            objeto, fim = decodificador.raw_decode(limpo, i)
+        except ValueError:
+            i += 1
+            continue
+        achados.append(objeto)
+        i = fim
+    if not achados:
+        raise ValueError(f"Resposta sem JSON: {texto[:100]!r}")
+    return achados[-1]

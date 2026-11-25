@@ -41,8 +41,9 @@ Opções globais (antes do subcomando): `--corpus` (padrão `project1/data/case_
 
 ## Resultados
 
-Pendente: depende de uma chave de API e do `divisoes.csv`. Sairá em
-[`custo_professor.csv`](../../data/resultados/custo_professor.csv) e [`quebra_frases.csv`](../../data/resultados/quebra_frases.csv).
+`claude-sonnet-5-5` via `claude_cli`, zero-shot, 38 casos de treino
+([`custo_professor.csv`](../../data/resultados/custo_professor.csv)): 86,2 menções e US$ 0,048
+estimados por caso (US$ 48 por 1000 casos), 22,6 s por caso, 1 alucinação em 3.275 menções.
 
 ## Limitações
 

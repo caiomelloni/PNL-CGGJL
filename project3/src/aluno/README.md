@@ -32,8 +32,9 @@ python -m unittest project3.tests.test_aluno
 
 ## Resultados
 
-Pendente: depende das menções do professor. A curva sairá em [`curva_aluno.csv`](../../data/resultados/curva_aluno.csv),
-medida na `validacao` contra os rótulos do professor.
+Na `validacao`, contra os rótulos do professor ([`curva_aluno.csv`](../../data/resultados/curva_aluno.csv)):
+com 100% dos 38 casos de treino, F1 de fronteira 0,55 (exato) e 0,73 (sobreposição), acerto de tipo 0,48.
+A curva ainda sobe de 50% para 100%: mais casos do professor devem ajudar.
 
 ## Limitações
 

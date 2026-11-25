@@ -160,7 +160,10 @@ def extrair_caso(case_id: str, texto: str, sistema: str, variante: str = "direta
                        json=True, provedor=provedor)
             _somar(stats, r)
             modelo_usado = r.modelo
-            itens = ler_json(r.texto).get("mencoes", [])
+            dados = ler_json(r.texto)
+            if "mencoes" not in dados:
+                raise ValueError("resposta sem a chave mencoes")
+            itens = dados["mencoes"]
         except (RecusaLLM, ValueError, AttributeError) as erro:  # JSON inválido também cai aqui
             stats["respostas_invalidas"] += 1
             print(f"aviso: {case_id} [{inicio}:{fim}] sem resposta válida: {erro}", file=sys.stderr)
