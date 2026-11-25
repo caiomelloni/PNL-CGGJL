@@ -1,11 +1,12 @@
 """Etapa 3 (Frente B): o "aluno", um CRF treinado com as menções do professor (destilação).
 
-    python -m project3.src.aluno.aluno treinar [--fracao 1.0]
-    python -m project3.src.aluno.aluno prever [--particoes teste validacao | --todos] [--corpus CSV]
-    python -m project3.src.aluno.aluno curva
+    python -m project3.src.aluno.aluno [--modelo crf|bert] treinar [--fracao 1.0]
+    python -m project3.src.aluno.aluno [--modelo crf|bert] prever [--particoes teste validacao | --todos]
+    python -m project3.src.aluno.aluno [--modelo crf|bert] curva
 
-Mesmo CRF e mesmas pistas por palavra do P2 (`project2/src/entidades`). Duas diferenças:
-1. Aprende com os rótulos do LLM, e não com as regras do P1.
+Dois modelos com a mesma rotulagem: o CRF e as pistas por palavra do P2 (`project2/src/entidades`)
+e um BERT biomédico (`bert.py`). Em relação ao P2:
+1. Aprendem com os rótulos do LLM, e não com as regras do P1.
 2. O rótulo de cada palavra carrega tipo e polaridade (`B-Symptom-absent`), então o aluno sozinho
    gera o contrato completo de menções tipadas, sem as etapas 3 e 4 do P2.
 """
@@ -110,6 +111,14 @@ def treinar(casos: list[tuple[str, str]], mencoes: dict[str, list[dict]]) -> skl
     return crf
 
 
+def linhas_do_caso(case_id: str, texto: str, achadas: list[dict], versao: str) -> list[dict]:
+    """Spans previstos -> linhas no contrato de menções tipadas."""
+    return [{"case_id": case_id, "id": f"a{n}", "start": s["start"], "end": s["end"],
+             "texto": texto[s["start"]:s["end"]], "tipo": s["tipo"], "mesh": "", "polaridade": s["polaridade"],
+             "confianca": s["confianca"], "fonte": f"aluno:{versao}"}
+            for n, s in enumerate(sorted(achadas, key=lambda s: (s["start"], s["end"])), 1)]
+
+
 def prever_caso(crf, case_id: str, texto: str) -> list[dict]:
     frases = frases_do_caso(texto)
     X = [[pistas_da_palavra(f, i) for i in range(len(f))] for f in frases]
@@ -118,25 +127,33 @@ def prever_caso(crf, case_id: str, texto: str) -> list[dict]:
         # Confiança: média, nas palavras da menção, da probabilidade do rótulo escolhido.
         probs = [m[r] for m, r in zip(marginais, rotulos)]
         achadas += spans(frase, rotulos, probs)
-    return [{"case_id": case_id, "id": f"a{n}", "start": s["start"], "end": s["end"],
-             "texto": texto[s["start"]:s["end"]], "tipo": s["tipo"], "mesh": "", "polaridade": s["polaridade"],
-             "confianca": s["confianca"], "fonte": f"aluno:{VERSAO}"}
-            for n, s in enumerate(sorted(achadas, key=lambda s: (s["start"], s["end"])), 1)]
+    return linhas_do_caso(case_id, texto, achadas, VERSAO)
 
 
-def salvar(crf, info: dict) -> None:
-    MODELOS.mkdir(parents=True, exist_ok=True)
-    with open(MODELOS / "crf.pkl", "wb") as handle:
+def descrever(crf) -> dict:
+    return {"versao": VERSAO, "c1": C1, "c2": C2, "rotulos": len(crf.classes_)}
+
+
+def salvar(crf, pasta: Path) -> None:
+    pasta.mkdir(parents=True, exist_ok=True)
+    with open(pasta / "crf.pkl", "wb") as handle:
         pickle.dump(crf, handle)
-    (MODELOS / "metadados.json").write_text(json.dumps(info, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def carregar():
-    caminho = MODELOS / "crf.pkl"
+def carregar(pasta: Path):
+    caminho = pasta / "crf.pkl"
     if not caminho.is_file():
         raise FileNotFoundError(f"{caminho} não existe: rode `treinar` antes")
     with open(caminho, "rb") as handle:
         return pickle.load(handle)
+
+
+def modelo_aluno(nome: str):
+    """O módulo com treinar/prever_caso/descrever/salvar/carregar do modelo pedido."""
+    if nome == "bert":
+        from project3.src.aluno import bert  # torch e transformers só para quem usa o BERT
+        return bert
+    return sys.modules[__name__]
 
 
 # ================================================================== comandos ==
@@ -144,6 +161,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--corpus", type=Path, default=CASOS_PADRAO)
     parser.add_argument("--professor", type=Path, default=PROFESSOR, help="menções do LLM")
+    parser.add_argument("--modelo", choices=["crf", "bert"], default="bert",
+                        help="bert (padrão, melhor na validação) ou crf (sem torch)")
     sub = parser.add_subparsers(dest="comando", required=True)
     p_treinar = sub.add_parser("treinar", help="treina com as menções do professor em treino")
     p_treinar.add_argument("--fracao", type=float, default=1.0)
@@ -156,13 +175,14 @@ def main() -> None:
     args = parser.parse_args()
 
     particoes = ler_divisoes(corpus=args.corpus)
+    backend, pasta = modelo_aluno(args.modelo), MODELOS / args.modelo
 
     if args.comando == "prever":
-        crf = carregar()
+        modelo = backend.carregar(pasta)
         linhas, n = [], 0
         for case_id, texto in iter_casos(args.corpus):
             if args.todos or particoes.get(case_id) in args.particoes:
-                achadas = prever_caso(crf, case_id, texto)
+                achadas = backend.prever_caso(modelo, case_id, texto)
                 validar_contrato(case_id, texto, achadas)
                 linhas += achadas
                 n += 1
@@ -175,10 +195,11 @@ def main() -> None:
     if args.comando == "treinar":
         ids = casos_de_treino(particoes, mencoes, args.fracao)
         inicio = time.perf_counter()
-        crf = treinar([(c, textos[c]) for c in ids], mencoes)
-        info = {"versao": VERSAO, "casos_treino": len(ids), "fracao": args.fracao, "c1": C1, "c2": C2,
-                "rotulos": sorted(crf.classes_), "segundos_treino": round(time.perf_counter() - inicio, 1)}
-        salvar(crf, info)
+        modelo = backend.treinar([(c, textos[c]) for c in ids], mencoes)
+        info = {**backend.descrever(modelo), "casos_treino": len(ids), "fracao": args.fracao,
+                "segundos_treino": round(time.perf_counter() - inicio, 1)}
+        backend.salvar(modelo, pasta)
+        (pasta / "metadados.json").write_text(json.dumps(info, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print(json.dumps(info, ensure_ascii=False, indent=2))
         return
 
@@ -189,12 +210,15 @@ def main() -> None:
     linhas = []
     for fracao in FRACOES:
         ids = casos_de_treino(particoes, mencoes, fracao)
-        crf = treinar([(c, textos[c]) for c in ids], mencoes)
-        pred = [m for c in validacao for m in prever_caso(crf, c, textos[c])]
-        linhas.append({"fracao": fracao, "casos_treino": len(ids), "casos_validacao": len(validacao),
+        modelo = backend.treinar([(c, textos[c]) for c in ids], mencoes)
+        pred = [m for c in validacao for m in backend.prever_caso(modelo, c, textos[c])]
+        linhas.append({"modelo": args.modelo, "fracao": fracao, "casos_treino": len(ids), "casos_validacao": len(validacao),
                        **medir(pred, gold)})
         print(linhas[-1])
-    gravar_csv(RESULTADOS / "curva_aluno.csv", list(linhas[0]), linhas)
+    # Uma tabela para os dois modelos: troca só as linhas do modelo que acabou de rodar.
+    caminho = RESULTADOS / "curva_aluno.csv"
+    outras = [l for l in ler_csv(caminho) if l.get("modelo", "crf") != args.modelo] if caminho.is_file() else []
+    gravar_csv(caminho, list(linhas[0]), outras + linhas)
 
 
 if __name__ == "__main__":

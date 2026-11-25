@@ -1,0 +1,3 @@
+# só para o aluno BERT (--modelo bert); o CRF usa project2/src/entidades/requirements.txt
+torch>=2.15
+transformers>=5.24

@@ -1,4 +1,6 @@
 """Aluno: rótulos com tipo e polaridade, treino só com `treino` e saída no contrato."""
+import importlib.util
+import tempfile
 import unittest
 import warnings
 from pathlib import Path
@@ -69,6 +71,43 @@ class TestTreino(unittest.TestCase):
         self.assertEqual(list(linhas[0]), professor.COLUNAS)
         self.assertTrue(all(0 <= l["confianca"] <= 1 and l["fonte"].startswith("aluno:") for l in linhas))
         self.assertIn(("fever", "Symptom"), {(l["texto"], l["tipo"]) for l in linhas})
+
+
+def bert_minusculo(pasta: Path) -> Path:
+    """BERT aleatório de 1 camada com vocabulário das palavras do teste: sem download, sem rede."""
+    from transformers import BertConfig, BertModel, BertTokenizerFast
+
+    palavras = {t["texto"] for _, texto in TEXTOS for f in aluno.frases_do_caso(texto) for t in f}
+    pasta.mkdir(parents=True, exist_ok=True)
+    vocab = ["[PAD]", "[UNK]", "[CLS]", "[SEP]", "[MASK]", *sorted(palavras)]
+    (pasta / "vocab.txt").write_text("\n".join(vocab) + "\n", encoding="utf-8")
+    BertTokenizerFast(vocab_file=str(pasta / "vocab.txt"), do_lower_case=False).save_pretrained(pasta)
+    BertModel(BertConfig(vocab_size=len(vocab), hidden_size=32, num_hidden_layers=1, num_attention_heads=2,
+                         intermediate_size=64)).save_pretrained(pasta)
+    return pasta
+
+
+@unittest.skipUnless(importlib.util.find_spec("torch") and importlib.util.find_spec("transformers"),
+                     "torch/transformers não instalados")
+class TestBert(unittest.TestCase):
+    def test_treina_salva_carrega_e_preve_no_contrato(self):
+        from project3.src.aluno import bert
+
+        pasta = Path(tempfile.mkdtemp())
+        modelo = bert.treinar(TEXTOS, mencoes_do_professor(), nome=str(bert_minusculo(pasta / "base")), epocas=2)
+        bert.salvar(modelo, pasta / "treinado")
+        modelo = bert.carregar(pasta / "treinado")
+        case_id, texto = TEXTOS[1]
+        linhas = bert.prever_caso(modelo, case_id, texto)
+        professor.validar_contrato(case_id, texto, linhas)
+        self.assertTrue(all(l["fonte"] == "aluno:bert-v1" and 0 <= l["confianca"] <= 1 for l in linhas))
+        self.assertIn("B-Symptom-absent", modelo.rotulos)
+
+    def test_janelas_cortam_frases_longas(self):
+        from project3.src.aluno import bert
+
+        frase = [{"texto": "x", "start": i, "end": i + 1} for i in range(250)]
+        self.assertEqual([len(j) for j in bert.janelas(frase)], [120, 120, 10])
 
 
 if __name__ == "__main__":

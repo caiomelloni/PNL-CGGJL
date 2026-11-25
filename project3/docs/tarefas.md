@@ -409,5 +409,6 @@ Quem tomar a decisão atualiza esta seção.
 - **N de casos do professor:** na amostra, todos os 38 de `treino` (US$ 0,048 e 22,6 s por caso,
   [`custo_professor.csv`](../data/resultados/custo_professor.csv)). No corpus completo, o limite é
   tempo e cota (~6 h por 1000 casos): decidir quando a frente A informar o tamanho.
-- **Arquitetura do aluno:** CRF retreinado, e BERT pequeno se houver tempo.
+- **Arquitetura do aluno:** BioBERT (`dmis-lab/biobert-base-cased-v1.2`), melhor que o CRF retreinado
+  em todas as medidas da [curva](../data/resultados/curva_aluno.csv); o CRF fica como alternativa sem torch.
 - **Hospedagem da aplicação:** definida pela frente E.
