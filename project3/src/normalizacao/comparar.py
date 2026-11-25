@@ -11,6 +11,7 @@ import csv
 from pathlib import Path
 
 from project2.src.comum import CASOS_PADRAO
+from project3.src.avaliacao_diagnostico.arvore import ARVORE, Arvore
 from project3.src.normalizacao.normalizacao import REPO, _lexico_p2, normalizar, textos_dos_casos
 
 GOLD = REPO / "project2" / "data" / "gold" / "mencoes.csv"
@@ -37,17 +38,24 @@ def prever(mencoes: list[dict[str, str]]) -> dict[str, list[str]]:
     }
 
 
-def medir(gold: list[str], previsto: list[str]) -> dict[str, float]:
-    """acuracia = acertos/menções; precisao = acertos/códigos previstos; cobertura = previstos/menções."""
+def medir(gold: list[str], previsto: list[str], arvore=None) -> dict[str, float]:
+    """acuracia = acertos/menções; precisao = acertos/códigos previstos; cobertura = previstos/menções.
+
+    Com `arvore`, `acuracia_hier` conta também o pai ou filho direto no MeSH (coluna separada).
+    """
     n, dados = len(gold), sum(1 for p in previsto if p)
     acertos = sum(1 for g, p in zip(gold, previsto) if g and g == p)
-    return {"mencoes": n, "com_codigo_previsto": dados, "acertos": acertos,
-            "acuracia": round(acertos / n, 4) if n else 0.0,
-            "precisao": round(acertos / dados, 4) if dados else 0.0,
-            "cobertura": round(dados / n, 4) if n else 0.0}
+    saida = {"mencoes": n, "com_codigo_previsto": dados, "acertos": acertos,
+             "acuracia": round(acertos / n, 4) if n else 0.0,
+             "precisao": round(acertos / dados, 4) if dados else 0.0,
+             "cobertura": round(dados / n, 4) if n else 0.0}
+    if arvore is not None:
+        hier = sum(1 for g, p in zip(gold, previsto) if g and p and arvore.parentes(g, p))
+        saida["acuracia_hier"] = round(hier / n, 4) if n else 0.0
+    return saida
 
 
-def comparar(mencoes: list[dict[str, str]], previsoes: dict[str, list[str]]) -> list[dict]:
+def comparar(mencoes: list[dict[str, str]], previsoes: dict[str, list[str]], arvore=None) -> list[dict]:
     """Uma linha por (sistema, grupo). Grupos: menções com código no gold (todas, só MeSH `D…`,
     só anatômicas `ANAT…`) e `sem_codigo`, onde qualquer código previsto é um erro."""
     grupos = {
@@ -61,7 +69,7 @@ def comparar(mencoes: list[dict[str, str]], previsoes: dict[str, list[str]]) -> 
         for grupo, pertence in grupos.items():
             idx = [i for i, m in enumerate(mencoes) if pertence(m["mesh"])]
             linhas.append({"sistema": sistema, "grupo": grupo,
-                           **medir([mencoes[i]["mesh"] for i in idx], [previsto[i] for i in idx])})
+                           **medir([mencoes[i]["mesh"] for i in idx], [previsto[i] for i in idx], arvore)})
     return linhas
 
 
@@ -70,15 +78,19 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--saida", type=Path, default=SAIDA)
     args = parser.parse_args(argv)
     mencoes = ler_gold()
-    linhas = comparar(mencoes, prever(mencoes))
+    arvore = Arvore.ler() if ARVORE.is_file() else None
+    if arvore is None:
+        print(f"aviso: {ARVORE} não existe; sem acuracia_hier")
+    linhas = comparar(mencoes, prever(mencoes), arvore)
     args.saida.parent.mkdir(parents=True, exist_ok=True)
     with args.saida.open("w", encoding="utf-8", newline="") as f:
-        escritor = csv.DictWriter(f, fieldnames=COLUNAS)
+        escritor = csv.DictWriter(f, fieldnames=COLUNAS + (["acuracia_hier"] if arvore else []))
         escritor.writeheader()
         escritor.writerows(linhas)
     for l in linhas:
         print(f"{l['sistema']:20} {l['grupo']:16} n={l['mencoes']:3} acertos={l['acertos']:3} "
-              f"acurácia={l['acuracia']:.3f} precisão={l['precisao']:.3f} cobertura={l['cobertura']:.3f}")
+              f"acurácia={l['acuracia']:.3f} precisão={l['precisao']:.3f} cobertura={l['cobertura']:.3f}"
+              + (f" hier={l['acuracia_hier']:.3f}" if "acuracia_hier" in l else ""))
 
 
 if __name__ == "__main__":

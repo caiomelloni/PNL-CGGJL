@@ -152,6 +152,8 @@ def main(argv: list[str] | None = None) -> None:
     args = parser.parse_args(argv)
     if args.metadados and args.corte is None:
         parser.error("--metadados precisa de --corte")
+    if not args.predicoes.is_file():
+        raise SystemExit(f"{args.predicoes} não existe: gere com o lote da frente D (project3/src/diagnostico)")
     certos = respostas(casos_de_teste(args.divisoes), args.grafos)
     arvore = Arvore.ler(args.arvore) if args.arvore.is_file() else None
     if arvore is None:
