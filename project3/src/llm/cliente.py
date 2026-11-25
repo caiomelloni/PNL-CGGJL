@@ -2,11 +2,13 @@
 
 Três responsabilidades:
 1. Cache em disco: a mesma pergunta (modelo, sistema, prompt, temperatura) nunca é paga duas vezes.
-2. Provedor trocável: `P3_LLM_PROVEDOR=anthropic` (padrão) ou `ollama`, sem mudar quem chama.
+2. Provedor trocável: `P3_LLM_PROVEDOR=anthropic` (padrão), `claude_cli` (login do Claude Code)
+   ou `ollama`, sem mudar quem chama.
 3. Registro de uso: cada chamada vira uma linha em `data/interim/uso_llm.csv` (tokens, tempo, custo).
 
 Variáveis de ambiente: `P3_LLM_PROVEDOR`, `P3_LLM_MODELO`, `P3_LLM_API_KEY` (Anthropic),
-`P3_LLM_URL` (Ollama, padrão http://localhost:11434) e `P3_LLM_ESFORCO` (Anthropic, opcional).
+`P3_LLM_URL` (Ollama, padrão http://localhost:11434), `P3_LLM_CLI` (caminho da CLI `claude`, se não
+estiver no PATH) e `P3_LLM_ESFORCO` (Anthropic, opcional).
 """
 from __future__ import annotations
 
@@ -117,15 +119,53 @@ def ollama(prompt: str, sistema: str, modelo: str, temperatura: float, json_: bo
             "tokens_saida": dados.get("eval_count", 0), "custo_usd": 0.0}
 
 
-PROVEDORES: dict[str, Provedor] = {"anthropic": anthropic_, "ollama": ollama}
+def claude_cli(prompt: str, sistema: str, modelo: str, temperatura: float, json_: bool) -> dict:
+    """Claude Code em modo não interativo (`claude -p`), com o login local em vez de chave de API.
+
+    Roda numa pasta temporária vazia para não carregar CLAUDE.md nem a memória do projeto, troca o
+    prompt de sistema do Claude Code pelo nosso e desliga as ferramentas: ele só responde.
+    """
+    import shutil
+    import subprocess
+    import tempfile
+
+    executavel = os.environ.get("P3_LLM_CLI") or shutil.which("claude")
+    if not executavel:
+        raise FileNotFoundError("CLI `claude` não encontrada: instale o Claude Code ou defina P3_LLM_CLI")
+    comando = [executavel, "-p", "--output-format", "json", "--model", modelo, "--tools", ""]
+    if sistema:
+        comando += ["--system-prompt", sistema]
+    with tempfile.TemporaryDirectory() as pasta:
+        # O prompt vai pela entrada padrão: casos longos não esbarram no limite de argumentos.
+        processo = subprocess.run(comando, input=prompt, capture_output=True, text=True, cwd=pasta, timeout=600)
+    try:
+        dados = json.loads(processo.stdout)
+    except ValueError:
+        raise RuntimeError(f"claude -p falhou ({processo.returncode}): {processo.stderr.strip()[:300]}") from None
+    if dados.get("stop_reason") == "refusal":
+        raise RecusaLLM("recusado pela CLI")
+    if dados.get("is_error") or dados.get("subtype") != "success":
+        # Ex.: cota da assinatura esgotada. Para a execução; rodar de novo retoma pelo cache.
+        raise RuntimeError(f"claude -p: {dados.get('subtype')} {str(dados.get('result', ''))[:300]}")
+    u = dados.get("usage", {})
+    return {"texto": dados["result"],
+            "tokens_entrada": sum(u.get(k, 0) for k in ("input_tokens", "cache_creation_input_tokens",
+                                                         "cache_read_input_tokens")),
+            "tokens_saida": u.get("output_tokens", 0),
+            # Estimativa a preço de tabela da API: pela assinatura não há cobrança por token.
+            "custo_usd": float(dados.get("total_cost_usd", 0.0))}
+
+
+PROVEDORES: dict[str, Provedor] = {"anthropic": anthropic_, "ollama": ollama, "claude_cli": claude_cli}
+MODELOS_PADRAO = {"anthropic": MODELO_ANTHROPIC, "claude_cli": "claude-sonnet-5-5"}
 
 
 def modelo_padrao(provedor: str | None = None) -> str:
     provedor = provedor or os.environ.get("P3_LLM_PROVEDOR", "anthropic")
     if modelo := os.environ.get("P3_LLM_MODELO"):
         return modelo
-    if provedor == "anthropic":
-        return MODELO_ANTHROPIC
+    if provedor in MODELOS_PADRAO:
+        return MODELOS_PADRAO[provedor]
     raise ValueError(f"Defina P3_LLM_MODELO para o provedor {provedor}")
 
 

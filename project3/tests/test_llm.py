@@ -1,5 +1,6 @@
 """Cliente LLM com um provedor falso: nenhum teste acessa a rede."""
 import csv
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -69,6 +70,44 @@ class TestChamar(unittest.TestCase):
     def test_provedor_desconhecido_falha(self):
         with self.assertRaises(ValueError):
             cliente.chamar("oi", modelo="m", provedor="inexistente")
+
+
+class TestClaudeCli(unittest.TestCase):
+    """`claude -p` simulado: nenhum teste executa a CLI de verdade."""
+
+    def rodar(self, saida: dict, returncode=0):
+        processo = mock.Mock(stdout=json.dumps(saida), stderr="", returncode=returncode)
+        with mock.patch("subprocess.run", return_value=processo) as run, \
+                mock.patch.dict("os.environ", {"P3_LLM_CLI": "/bin/claude"}):
+            gerado = cliente.claude_cli("trecho", "sistema", "claude-sonnet-5-5", 0.0, True)
+        return gerado, run.call_args
+
+    def test_monta_o_comando_e_le_tokens_e_custo(self):
+        gerado, chamada = self.rodar({"subtype": "success", "is_error": False, "result": '{"mencoes": []}',
+                                      "total_cost_usd": 0.02, "usage": {"input_tokens": 2, "output_tokens": 9,
+                                      "cache_creation_input_tokens": 4000, "cache_read_input_tokens": 300}})
+        self.assertEqual(gerado, {"texto": '{"mencoes": []}', "tokens_entrada": 4302, "tokens_saida": 9,
+                                  "custo_usd": 0.02})
+        comando = chamada.args[0]
+        self.assertEqual(comando[:2], ["/bin/claude", "-p"])
+        self.assertEqual(comando[comando.index("--model") + 1], "claude-sonnet-5-5")
+        self.assertEqual(comando[comando.index("--tools") + 1], "")
+        self.assertEqual(comando[comando.index("--system-prompt") + 1], "sistema")
+        self.assertEqual(chamada.kwargs["input"], "trecho")
+        self.assertNotEqual(Path(chamada.kwargs["cwd"]).resolve(), Path.cwd().resolve())
+
+    def test_erro_da_cli_para_a_execucao(self):
+        with self.assertRaises(RuntimeError) as erro:
+            self.rodar({"subtype": "error_during_execution", "is_error": True, "result": "limite"})
+        self.assertNotIsInstance(erro.exception, cliente.RecusaLLM)
+
+    def test_recusa_vira_recusa_llm(self):
+        with self.assertRaises(cliente.RecusaLLM):
+            self.rodar({"subtype": "success", "is_error": False, "stop_reason": "refusal", "result": ""})
+
+    def test_modelo_padrao_e_o_sonnet(self):
+        with mock.patch.dict("os.environ", {}, clear=True):
+            self.assertEqual(cliente.modelo_padrao("claude_cli"), "claude-sonnet-5-5")
 
 
 class TestAuxiliares(unittest.TestCase):
