@@ -7,6 +7,9 @@ Lê as predições da frente D e compara com os diagnósticos dos grafos dos cas
 Resposta certa de um caso: os códigos MeSH dos nós `Diagnosis` presentes (polarity != absent) do
 grafo dele. Casos de teste: partição `teste` do MultiCaRe em `divisoes.csv`; enquanto ela não
 existe, os 8 casos do gold do P2. Caso sem predição de um sistema conta como erro desse sistema.
+Se alguma sugestão citar um caso do mesmo artigo do caso testado, o comando para (vazamento).
+
+    python -m project3.src.avaliacao_diagnostico.avaliar --metadados <metadata.csv> --corte 2024
 """
 from __future__ import annotations
 
@@ -18,6 +21,7 @@ from pathlib import Path
 
 from project2.src.avaliacao.avaliar import _parse_attrs
 from project2.src.comum import casos_gold
+from project3.src.avaliacao_diagnostico import vazamento
 from project3.src.avaliacao_diagnostico.arvore import ARVORE, Arvore
 
 REPO = Path(__file__).resolve().parents[3]
@@ -115,6 +119,16 @@ def avaliar(predicoes: dict[str, dict[str, list[Sugestao]]], certos: dict[str, s
     return linhas
 
 
+def anos_dos_artigos(metadados: Path, coluna: str = "year") -> dict[str, int]:
+    """article_id -> ano de publicação (análise de memorização, regra 5)."""
+    anos = {}
+    for l in ler_csv(metadados):
+        valor = (l.get(coluna) or "").strip()
+        if valor[:4].isdigit():
+            anos[l["article_id"]] = int(valor[:4])
+    return anos
+
+
 def escrever(linhas: list[dict], saida: Path = SAIDA) -> None:
     saida.parent.mkdir(parents=True, exist_ok=True)
     colunas = list(dict.fromkeys(k for l in linhas for k in l))
@@ -131,12 +145,29 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--divisoes", type=Path, default=DIVISOES)
     parser.add_argument("--arvore", type=Path, default=ARVORE)
     parser.add_argument("--saida", type=Path, default=SAIDA)
+    parser.add_argument("--metadados", type=Path, default=None,
+                        help="CSV com article_id e ano de publicação, para separar antes/depois do corte do LLM")
+    parser.add_argument("--coluna-ano", default="year")
+    parser.add_argument("--corte", type=int, default=None, help="ano da data de corte do LLM")
     args = parser.parse_args(argv)
+    if args.metadados and args.corte is None:
+        parser.error("--metadados precisa de --corte")
     certos = respostas(casos_de_teste(args.divisoes), args.grafos)
     arvore = Arvore.ler(args.arvore) if args.arvore.is_file() else None
     if arvore is None:
         print(f"aviso: {args.arvore} não existe; sem métricas hierárquicas")
-    linhas = avaliar(ler_predicoes(args.predicoes), certos, arvore)
+    predicoes = ler_predicoes(args.predicoes)
+    if problemas := vazamento.problemas_das_fontes(predicoes, vazamento.ler_artigos(args.divisoes)):
+        raise SystemExit("vazamento: sugestões citam casos do mesmo artigo:\n  " + "\n  ".join(problemas[:20]))
+    grupos = {"todos": set(certos)}
+    if args.metadados:
+        anos = anos_dos_artigos(args.metadados, args.coluna_ano)
+        artigos = vazamento.ler_artigos(args.divisoes)
+        ano = {c: anos.get(vazamento.article_id(c, artigos)) for c in certos}
+        grupos[f"ate_{args.corte}"] = {c for c, a in ano.items() if a is not None and a <= args.corte}
+        grupos[f"depois_{args.corte}"] = {c for c, a in ano.items() if a is not None and a > args.corte}
+    linhas = [{"grupo": g, **l} for g, casos in grupos.items()
+              for l in avaliar(predicoes, {c: certos[c] for c in casos}, arvore)]
     escrever(linhas, args.saida)
     print(f"{len(certos)} casos de teste com diagnóstico codificado (grafos em {args.grafos})")
     for l in linhas:

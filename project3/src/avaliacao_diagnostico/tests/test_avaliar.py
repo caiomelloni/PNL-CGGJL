@@ -88,6 +88,18 @@ class AvaliarTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "casos_fonte"):
             av.ler_predicoes(escrever(self.pasta, "ruim.csv", "sistema,case_id,rank,mesh,rotulo,score\nx,A,1,D1,a,1\n"))
 
+    def test_separa_antes_e_depois_do_corte(self):
+        meta = escrever(self.pasta, "metadata.csv", "article_id,year\nPMC3437073,2012\nPMC9532611,2022\n")
+        self.assertEqual(av.anos_dos_artigos(meta), {"PMC3437073": 2012, "PMC9532611": 2022})
+        pred = escrever(self.pasta, "p.csv", "sistema,case_id,rank,mesh,rotulo,score,casos_fonte\n"
+                        "llm,PMC9532611_01,1,D006973,hypertension,0.9,\n")
+        saida = self.pasta / "d.csv"
+        av.main(["--predicoes", str(pred), "--grafos", str(av.GRAFOS_P2), "--saida", str(saida),
+                 "--arvore", str(self.pasta / "sem_arvore.csv"), "--metadados", str(meta), "--corte", "2020"])
+        linhas = {l["grupo"]: l for l in av.ler_csv(saida)}
+        self.assertEqual(set(linhas), {"todos", "ate_2020", "depois_2020"})
+        self.assertEqual((linhas["ate_2020"]["top1"], linhas["depois_2020"]["top1"]), ("0.0", "1.0"))
+
     def test_escreve_tabela(self):
         saida = self.pasta / "diagnostico.csv"
         av.escrever(av.avaliar(self.pred, self.certos, ARVORE), saida)
