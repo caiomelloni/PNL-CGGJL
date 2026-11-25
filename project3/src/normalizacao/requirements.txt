@@ -1,0 +1,4 @@
+# embeddings do MeSH (SapBERT); a GPU é opcional
+torch>=2.4
+transformers>=4.44
+numpy>=1.26

@@ -1,0 +1,8 @@
+{
+  "limiar": 0.78,
+  "modelo": "cambridgeltl/SapBERT-from-PubMedBERT-fulltext",
+  "sinonimos": 5000,
+  "acuracia_acima": 0.8531,
+  "cobertura": 0.919,
+  "metodo": "sinônimo do MeSH escondido do índice; ver validacao_sinonimos e escolher_limiar"
+}

@@ -45,3 +45,11 @@ project2/data/interim/
 project2/data/demo/
 project2/data/mock/relacoes/
 project2/data/relacoes.csv
+
+# Projeto 3 · frente C: índice de embeddings do MeSH (gerado por project3.src.normalizacao)
+project3/data/processed/indice_mesh/
+# Projeto 3 · intermediários (cache de LLM, menções); ver docs/tarefas.md, regra 7
+project3/data/interim/
+# Projeto 3 · frente C: descritores do MeSH (NLM) e árvore gerada a partir deles
+project3/data/external/mesh/
+project3/data/processed/mesh_arvore.csv
