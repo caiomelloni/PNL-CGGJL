@@ -153,9 +153,31 @@ class TestConversorMaccrobat(unittest.TestCase):
             self.assertEqual(len(mencoes), 2)
             for m in mencoes:
                 self.assertEqual(m["texto"], texto[int(m["start"]) : int(m["end"])])
-                self.assertEqual(m["polaridade"], "")
+                self.assertEqual(m["polaridade"], "present")
                 self.assertEqual(m["fonte"], "maccrobat")
             self.assertEqual([m["tipo"] for m in mencoes], ["Symptom", "AnatomicalSite"])
+
+    def test_negacao_vem_do_atributo_do_evento(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            base = Path(tmp)
+            entrada, saida = base / "brat", base / "out"
+            entrada.mkdir()
+            texto = "No fever, possible cough and chest pain."
+            (entrada / "7.txt").write_text(texto, encoding="utf-8")
+            (entrada / "7.ann").write_text("\n".join([
+                "T1\tSign_symptom 3 8\tfever",
+                "E1\tSign_symptom:T1 ",
+                "T2\tSign_symptom 19 24\tcough",
+                "E2\tSign_symptom:T2 ",
+                "T3\tSign_symptom 29 39\tchest pain",
+                "A1\tPOLARITY E1 NEG",
+                "A2\tPOLARITY E2 MAYBE_POS",
+            ]) + "\n", encoding="utf-8")
+            resumo = maccrobat.converter(entrada=entrada, saida=saida)
+            with (saida / "mencoes.csv").open(encoding="utf-8", newline="") as f:
+                polaridades = {m["texto"]: m["polaridade"] for m in csv.DictReader(f)}
+        self.assertEqual(polaridades, {"fever": "absent", "cough": "present", "chest pain": "present"})
+        self.assertEqual(resumo["por_polaridade"], {"present": 2, "absent": 1})
 
     def test_falha_quando_offset_diverge(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

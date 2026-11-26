@@ -33,4 +33,4 @@ python -m unittest discover -s project3/tests -v
 ## Limitações
 
 - `professor` e `aluno` entram automaticamente na tabela assim que a Frente B publicar seus CSVs em `project3/data/interim/{professor,aluno}/`.
-- Em `maccrobat_teste`, polaridade e relações ficam vazias porque o MACCROBAT não possui anotações equivalentes.
+- Em `maccrobat_teste`, relações ficam vazias porque as do MACCROBAT não correspondem às nossas; a polaridade vem dos atributos `POLARITY` do brat.

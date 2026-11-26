@@ -87,7 +87,9 @@ def sistemas_padrao(raiz: Path = REPO) -> list[SistemaConfig]:
             relacoes=raiz / "project3/data/interim/professor/relacoes.csv",
             grafo_dir=raiz / "project3/data/processed/grafo/professor",
             alucinacoes=raiz / "project3/data/interim/professor/alucinacoes.csv",
-            metricas_execucao=raiz / "project3/data/interim/uso_llm.csv",
+            # Por caso (case_id, segundos, custo_usd). O uso_llm.csv não tem case_id: somaria todas as
+            # chamadas do log, de todas as execuções, e inflaria o custo por caso.
+            metricas_execucao=raiz / "project3/data/interim/professor/execucao.csv",
             custo_padrao=None,
         ),
         SistemaConfig(
@@ -121,7 +123,8 @@ def _contar_alucinacoes(caminho: Path | None, casos_alvo: set[str]) -> int:
         return 0
     total = 0
     for linha in _ler_csv(caminho):
-        if linha.get("case_id", "").strip() in casos_alvo:
+        # Só `nao_encontrado` é alucinação; tipo_invalido, texto_vazio etc. são outros descartes.
+        if linha.get("case_id", "").strip() in casos_alvo and linha.get("motivo", "nao_encontrado") == "nao_encontrado":
             total += 1
     return total
 
@@ -296,7 +299,7 @@ def avaliar_extracao(
                         gold_mencoes=macc_m,
                         casos_alvo=macc_teste_ids,
                         gold_relacoes=None,
-                        avaliar_polaridade=False,
+                        avaliar_polaridade=True,
                     )
                 )
 
