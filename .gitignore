@@ -46,7 +46,9 @@ project2/data/demo/
 project2/data/mock/relacoes/
 project2/data/relacoes.csv
 
-# Projeto 3 · saídas geradas (ver o README de cada módulo); data/resultados/ é versionado
+# Projeto 3 · corpus, cache de LLM, modelos e saídas geradas (ver project3/docs/tarefas.md)
+project3/data/external/
 project3/data/interim/
 project3/data/processed/
 project3/models/
+
