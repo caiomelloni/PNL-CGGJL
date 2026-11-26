@@ -23,11 +23,11 @@ from pathlib import Path
 
 import sklearn_crfsuite
 
-from project2.src.comum import CASOS_PADRAO, iter_casos
+
 from project2.src.entidades.entidades import achatar, frases_do_caso, pistas_da_palavra
 from project3.src.professor.divisoes import garantir_fora_do_teste, ler_divisoes
-from project3.src.professor.professor import (COLUNAS, RESULTADOS, gravar_csv, ler_csv, medir,
-                                              ordem_fixa, validar_contrato)
+from project3.src.professor.professor import (COLUNAS, RESULTADOS, corpora_padrao, gravar_csv, iter_corpora,
+                                              ler_csv, medir, ordem_fixa, validar_contrato)
 
 REPO = Path(__file__).resolve().parents[3]
 PROFESSOR = REPO / "project3/data/interim/professor/mencoes_tipadas.csv"
@@ -159,7 +159,8 @@ def modelo_aluno(nome: str):
 # ================================================================== comandos ==
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--corpus", type=Path, default=CASOS_PADRAO)
+    parser.add_argument("--corpus", type=Path, nargs="+", default=None,
+                        help="arquivos de casos (padrão: amostra do P1 + MACCROBAT, se convertido)")
     parser.add_argument("--professor", type=Path, default=PROFESSOR, help="menções do LLM")
     parser.add_argument("--modelo", choices=["crf", "bert"], default="bert",
                         help="bert (padrão, melhor na validação) ou crf (sem torch)")
@@ -174,24 +175,30 @@ def main() -> None:
     sub.add_parser("curva", help="F1 na validação com 10/25/50/100%% dos rótulos")
     args = parser.parse_args()
 
-    particoes = ler_divisoes(corpus=args.corpus)
+    corpora = args.corpus or corpora_padrao()
+    particoes = ler_divisoes(corpus=corpora[0])
     backend, pasta = modelo_aluno(args.modelo), MODELOS / args.modelo
 
     if args.comando == "prever":
         modelo = backend.carregar(pasta)
-        linhas, n = [], 0
-        for case_id, texto in iter_casos(args.corpus):
+        linhas, n, inicio = [], 0, time.perf_counter()
+        for case_id, texto in iter_corpora(corpora):
             if args.todos or particoes.get(case_id) in args.particoes:
                 achadas = backend.prever_caso(modelo, case_id, texto)
                 validar_contrato(case_id, texto, achadas)
                 linhas += achadas
                 n += 1
         gravar_csv(args.saida, COLUNAS, linhas)
+        # Telemetria lida pela avaliação da Frente A (segundos_por_caso, custo_usd_por_caso).
+        segundos = time.perf_counter() - inicio
+        resumo = {"modelo": args.modelo, "casos": n, "mencoes": len(linhas), "segundos": round(segundos, 2),
+                  "segundos_por_caso": round(segundos / (n or 1), 4), "custo_usd_por_caso": 0.0}
+        (args.saida.parent / "resumo.json").write_text(json.dumps(resumo, indent=2) + "\n", encoding="utf-8")
         print(f"{args.saida}: {n} casos, {len(linhas)} menções")
         return
 
     mencoes = mencoes_por_caso(args.professor)
-    textos = dict(iter_casos(args.corpus))
+    textos = dict(iter_corpora(corpora))
     if args.comando == "treinar":
         ids = casos_de_treino(particoes, mencoes, args.fracao)
         inicio = time.perf_counter()

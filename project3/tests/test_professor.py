@@ -156,6 +156,20 @@ class TestParticoes(unittest.TestCase):
         mencoes.write_text("\n".join(linhas) + "\n")
         self.assertEqual(professor.escolher_exemplos(mencoes, professor.CASOS_PADRAO, particoes), [])
 
+    def test_selecao_so_com_casos_disponiveis_e_limite_por_particao(self):
+        particoes = {**self.provisorias(), "MAC1": "validacao", "MAC2": "validacao", "MAC3": "teste"}
+        disponiveis = {"MAC1", "MAC2", "MAC3", *sorted(casos_gold())[:2]}
+        escolhidos = professor.selecionar(particoes, ["teste", "validacao"], 0, disponiveis, {"validacao": 1})
+        self.assertTrue(set(escolhidos) <= disponiveis)
+        self.assertEqual(sum(particoes[c] == "validacao" for c in escolhidos), 1)
+        self.assertEqual(sum(particoes[c] == "teste" for c in escolhidos), 3)
+
+    def test_sem_pedido_o_prompt_nao_tem_exemplos(self):
+        with mock.patch.object(professor, "escolher_exemplos") as escolher:
+            sistema = professor.sistema_padrao(self.provisorias(), None)
+        escolher.assert_not_called()
+        self.assertNotIn("## Examples", sistema)
+
     def test_selecao_e_estavel_e_nao_repete(self):
         particoes = self.provisorias()
         a = professor.selecionar(particoes, ["teste"], 5)

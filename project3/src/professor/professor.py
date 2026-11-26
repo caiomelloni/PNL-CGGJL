@@ -1,7 +1,7 @@
 """Etapa 2 (Frente B): o LLM "professor" extrai menções tipadas dos casos.
 
     python -m project3.src.professor.professor custo [--n 50]
-    python -m project3.src.professor.professor rodar [--n-treino N] [--variante direta|proposicoes]
+    python -m project3.src.professor.professor rodar [--n-treino N] [--n-validacao N] [--variante direta|proposicoes]
     python -m project3.src.professor.professor comparar [--gold CSV_DE_VALIDACAO]
 
 Cada caso é cortado em trechos de frases inteiras. Para cada trecho o LLM devolve JSON com
@@ -38,6 +38,17 @@ MAX_TRECHO = 1200  # caracteres por chamada: ~3 trechos por caso da amostra
 
 
 # ================================================================ arquivos CSV ==
+def corpora_padrao() -> list[Path]:
+    """A amostra do P1 e, se já convertido pela Frente A, o MACCROBAT (que traz validação anotada)."""
+    return [CASOS_PADRAO] + ([MACCROBAT / "casos.csv"] if (MACCROBAT / "casos.csv").is_file() else [])
+
+
+def iter_corpora(corpora: list[Path]):
+    """(case_id, texto) de vários arquivos de casos, na ordem dada."""
+    for corpus in corpora:
+        yield from iter_casos(corpus)
+
+
 def ler_csv(caminho: Path) -> list[dict]:
     with open(caminho, encoding="utf-8", newline="") as handle:
         return list(csv.DictReader(handle))
@@ -103,7 +114,7 @@ def escolher_exemplos(mencoes: Path, casos: Path, particoes: dict[str, str], k: 
                             key=lambda m: (int(m["start"]), int(m["end"])))
             n_tipos = len({m["tipo"] for m in dentro})
             if len(dentro) >= 4 and n_tipos >= 3:
-                itens = [{"texto": m["texto"], "tipo": m["tipo"], "polaridade": m.get("polaridade") or "present"}
+                itens = [{"texto": m["texto"], "tipo": m["tipo"], "polaridade": (m.get("polaridade") or "present")}
                          for m in dentro]
                 candidatos.append((-n_tipos, case_id, inicio, texto[inicio:fim], itens))
     escolhidos, casos_usados = [], set()
@@ -124,21 +135,22 @@ def montar_sistema(exemplos: list[tuple[str, list]]) -> str:
 
 
 def sistema_padrao(particoes: dict[str, str], exemplos: str | None) -> str:
-    """Exemplos do MACCROBAT convertido (Frente A) se existir; senão zero-shot.
+    """Zero-shot por padrão; `--exemplos maccrobat` ou `--exemplos <csv de menções da amostra>` liga o few-shot.
 
-    `exemplos` força outro CSV de menções sobre o corpus (ex.: o silver do P2) ou "nenhum".
-    O silver não é o padrão porque vem das regras do P1: poucas menções e fronteiras ruins.
+    Nenhuma fonte de exemplos é o padrão: o silver do P2 vem das regras do P1 (poucas menções,
+    fronteiras ruins) e o MACCROBAT segue outra convenção ("abdominal pain" vira sítio + sintoma,
+    sem Finding), que contradiz o guia do P2. Usar exemplos é um experimento, não um padrão.
     """
-    if exemplos == "nenhum":
+    if not exemplos or exemplos == "nenhum":
         return montar_sistema([])
-    if exemplos:
-        mencoes, casos = Path(exemplos), CASOS_PADRAO
-    elif (MACCROBAT / "mencoes.csv").is_file():
+    if exemplos == "maccrobat":
         mencoes, casos = MACCROBAT / "mencoes.csv", MACCROBAT / "casos.csv"
     else:
-        print("aviso: sem MACCROBAT convertido; seguindo sem exemplos (zero-shot)", file=sys.stderr)
-        return montar_sistema([])
-    return montar_sistema(escolher_exemplos(mencoes, casos, particoes))
+        mencoes, casos = Path(exemplos), CASOS_PADRAO
+    escolhidos = escolher_exemplos(mencoes, casos, particoes)
+    if escolhidos and all(m["polaridade"] == "present" for _, itens in escolhidos for m in itens):
+        print("aviso: nenhum exemplo tem polaridade absent; a fonte pode não anotar negação", file=sys.stderr)
+    return montar_sistema(escolhidos)
 
 
 # ================================================================== extração ==
@@ -200,15 +212,26 @@ def ordem_fixa(case_ids) -> list[str]:
     return sorted(case_ids, key=lambda c: hashlib.sha256(c.encode()).hexdigest())
 
 
-def selecionar(particoes: dict[str, str], alvo: list[str], n_treino: int) -> list[str]:
-    escolhidos = [c for c in ordem_fixa(particoes) if particoes[c] in alvo]
-    treino = [c for c in ordem_fixa(particoes) if particoes[c] == "treino"][:n_treino]
+def selecionar(particoes: dict[str, str], alvo: list[str], n_treino: int,
+               disponiveis: set[str] | None = None, limites: dict[str, int] | None = None) -> list[str]:
+    """Casos das partições `alvo` (cada uma até `limites[p]`) e mais `n_treino` casos de treino.
+
+    Só entra caso presente nos corpora carregados (`disponiveis`): o divisoes.csv cobre o MultiCaRe
+    inteiro, mas o professor só roda nos textos que recebeu.
+    """
+    limites = limites or {}
+    ordem = [c for c in ordem_fixa(particoes) if disponiveis is None or c in disponiveis]
+    escolhidos = []
+    for particao in alvo:
+        escolhidos += [c for c in ordem if particoes[c] == particao][:limites.get(particao)]
+    treino = [c for c in ordem if particoes[c] == "treino"][:n_treino]
     return list(dict.fromkeys(escolhidos + treino))
 
 
-def rodar(case_ids: list[str], corpus: Path, particoes: dict[str, str], sistema: str,
+def rodar(case_ids: list[str], corpora: list[Path], particoes: dict[str, str], sistema: str,
           variante: str = "direta", saida: Path = SAIDA, modelo: str | None = None) -> list[dict]:
-    textos = {c: t for c, t in iter_casos(corpus) if c in set(case_ids)}
+    alvo = set(case_ids)
+    textos = {c: t for c, t in iter_corpora(corpora) if c in alvo}
     todas, perdidas, execucao = [], [], []
     for k, case_id in enumerate(case_ids, 1):
         linhas, alucinacoes, stats = extrair_caso(case_id, textos[case_id], sistema, variante, modelo)
@@ -241,14 +264,17 @@ def resumir(execucao: list[dict]) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--corpus", type=Path, default=CASOS_PADRAO)
+    parser.add_argument("--corpus", type=Path, nargs="+", default=None,
+                        help="arquivos de casos (padrão: amostra do P1 + MACCROBAT, se convertido)")
     parser.add_argument("--modelo", help="padrão: P3_LLM_MODELO ou o do provedor")
-    parser.add_argument("--exemplos", help='CSV de menções para o few-shot, ou "nenhum"')
+    parser.add_argument("--exemplos", help='few-shot: "maccrobat" ou CSV de menções da amostra (padrão: nenhum)')
     sub = parser.add_subparsers(dest="comando", required=True)
     p_custo = sub.add_parser("custo", help="mede o custo nos primeiros casos de treino")
     p_custo.add_argument("--n", type=int, default=50)
     p_rodar = sub.add_parser("rodar", help="extrai teste, validação e N casos de treino")
     p_rodar.add_argument("--n-treino", type=int, default=0)
+    p_rodar.add_argument("--n-validacao", type=int, help="limita os casos de validação (padrão: todos)")
+    p_rodar.add_argument("--n-teste", type=int, help="limita os casos de teste (padrão: todos)")
     p_rodar.add_argument("--particoes", nargs="+", default=["teste", "validacao"])
     p_rodar.add_argument("--variante", choices=["direta", "proposicoes"], default="direta")
     p_comparar = sub.add_parser("comparar", help="direta × proposições na validação")
@@ -256,23 +282,26 @@ def main() -> None:
     p_comparar.add_argument("--n", type=int, help="limita o número de casos de validação")
     args = parser.parse_args()
 
-    particoes = ler_divisoes(corpus=args.corpus)
+    corpora = args.corpus or corpora_padrao()
+    particoes = ler_divisoes(corpus=corpora[0])
+    disponiveis = {c for c, _ in iter_corpora(corpora)}
     sistema = sistema_padrao(particoes, args.exemplos)
 
     if args.comando == "custo":
-        casos = selecionar(particoes, [], args.n)
-        execucao = rodar(casos, args.corpus, particoes, sistema, saida=SAIDA / "custo", modelo=args.modelo)
+        casos = selecionar(particoes, [], args.n, disponiveis)
+        execucao = rodar(casos, corpora, particoes, sistema, saida=SAIDA / "custo", modelo=args.modelo)
         linha = {"modelo": args.modelo or modelo_padrao(), **resumir(execucao)}
         linha["custo_usd_1000_casos"] = round(linha["custo_usd_por_caso"] * 1000, 2)
         gravar_csv(RESULTADOS / "custo_professor.csv", list(linha), [linha])
         print(json.dumps(linha, ensure_ascii=False, indent=2))
     elif args.comando == "rodar":
         saida = SAIDA if args.variante == "direta" else SAIDA / "proposicoes"
-        casos = selecionar(particoes, args.particoes, args.n_treino)
-        print(json.dumps(resumir(rodar(casos, args.corpus, particoes, sistema, args.variante, saida,
+        casos = selecionar(particoes, args.particoes, args.n_treino, disponiveis,
+                           {"validacao": args.n_validacao, "teste": args.n_teste})
+        print(json.dumps(resumir(rodar(casos, corpora, particoes, sistema, args.variante, saida,
                                        args.modelo)), ensure_ascii=False, indent=2))
     else:
-        casos = selecionar(particoes, ["validacao"], 0)[:args.n]
+        casos = selecionar(particoes, ["validacao"], 0, disponiveis)[:args.n]
         gold = []
         if args.gold:
             # Só validação: o gabarito do P2 e o teste nunca servem para escolher a variante.
@@ -281,10 +310,13 @@ def main() -> None:
         linhas = []
         for variante in ("direta", "proposicoes"):
             pasta = SAIDA / "comparacao" / variante
-            execucao = rodar(casos, args.corpus, particoes, sistema, variante, pasta, args.modelo)
+            execucao = rodar(casos, corpora, particoes, sistema, variante, pasta, args.modelo)
             linha = {"variante": variante, **resumir(execucao)}
             if gold:
-                linha.update(medir(ler_csv(pasta / "mencoes_tipadas.csv"), gold))
+                # F1 só nos casos que têm gabarito: os demais não podem contar como erro.
+                com_gold = {g["case_id"] for g in gold}
+                pred = [m for m in ler_csv(pasta / "mencoes_tipadas.csv") if m["case_id"] in com_gold]
+                linha.update({"casos_com_gold": len(com_gold), **medir(pred, gold)})
             if variante == "proposicoes":
                 # Sem gabarito ainda dá para ver o quanto a variante muda: F1 contra a direta.
                 concordancia = medir(ler_csv(pasta / "mencoes_tipadas.csv"),

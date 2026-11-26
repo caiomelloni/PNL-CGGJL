@@ -18,7 +18,8 @@ python -m project3.src.aluno.aluno prever --todos  # data/interim/aluno/mencoes_
 python -m unittest project3.tests.test_aluno
 ~~~
 
-`prever` aceita `--corpus <cases.csv>` para o corpus completo. O BioBERT
+`--corpus <arquivos de casos…>` (antes do subcomando) troca a amostra do P1 + MACCROBAT por outros
+corpora, como o MultiCaRe completo. `prever` também grava `data/interim/aluno/resumo.json` (tempo por caso). O BioBERT
 (`dmis-lab/biobert-base-cased-v1.2`) é baixado do Hugging Face no primeiro `treinar`.
 
 ## Entradas e saídas

@@ -10,20 +10,21 @@ Pré-requisito: cliente LLM configurado ([`../llm/README.md`](../llm/README.md))
 
 ~~~bash
 python -m project3.src.professor.professor custo --n 50          # mede o custo e define N
-python -m project3.src.professor.professor rodar --n-treino N    # teste + validação + N de treino
-python -m project3.src.professor.professor comparar --gold <menções anotadas de validação>
+python -m project3.src.professor.professor rodar --n-treino N [--n-validacao N]   # teste + validação + N de treino
+python -m project3.src.professor.professor comparar --gold project3/data/interim/maccrobat/mencoes.csv
 python -m unittest project3.tests.test_professor
 ~~~
 
-Opções globais (antes do subcomando): `--corpus` (padrão `project1/data/case_texts.csv`), `--modelo`,
-`--exemplos <csv>|nenhum`. Rodar de novo é barato: o que já foi perguntado vem do cache.
+Opções globais (antes do subcomando): `--corpus <arquivos de casos…>` (padrão: amostra do P1 e, se
+convertido, o MACCROBAT), `--modelo` e `--exemplos maccrobat|<csv>` (padrão: zero-shot). Só entram casos
+presentes nos corpora. Rodar de novo é barato: o que já foi perguntado vem do cache.
 
 ## Entradas e saídas
 
 | Arquivo | Entrada/Saída | Colunas | Versionado? |
 |---|---|---|---|
 | `data/divisoes.csv` (Frente A) | Entrada | [contrato](../../docs/tarefas.md#divisoescsv-frente-a-versionado) | Sim |
-| `data/interim/maccrobat/{casos,mencoes}.csv` (Frente A) | Entrada | exemplos few-shot, só `treino` | Não |
+| `data/interim/maccrobat/{casos,mencoes}.csv` (Frente A) | Entrada | casos extras; gabarito de `validacao`; few-shot opcional (só `treino`) | Não |
 | `prompts/extracao.md`, `prompts/proposicoes.md` | Entrada | prompts | Sim |
 | `data/interim/professor/mencoes_tipadas.csv` | Saída | [contrato de menções](../../docs/tarefas.md#menções-tipadas-contrato-de-project2datamencoes_tipadascsv), `fonte=llm:<modelo>` | Não |
 | `data/interim/professor/alucinacoes.csv` | Saída | `case_id, texto, tipo, motivo` | Não |
@@ -52,7 +53,8 @@ menos alucinação. Sem gabarito de validação, a direta fica como padrão.
 ## Limitações
 
 - Sem `divisoes.csv`, usa uma divisão provisória: gold = `teste`, 1 em cada 5 artigos em `validacao`.
-- Sem MACCROBAT, roda zero-shot; o silver do P2 só entra com `--exemplos`.
+- Zero-shot por padrão: o silver do P2 é fraco e o MACCROBAT segue outra convenção de fronteira
+  ("abdominal pain" vira sítio + sintoma, sem `Finding`); few-shot só com `--exemplos`.
 - `comparar` só mede F1 se houver anotação de casos de `validacao`; sem ela, compara contagem,
   alucinação, custo e a concordância entre as variantes.
 - `confianca` fica vazia: o LLM não dá probabilidade por menção.
