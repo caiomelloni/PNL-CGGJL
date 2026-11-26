@@ -9,8 +9,32 @@ from dataclasses import dataclass
 from .dados import Caso
 
 
+PALAVRAS_COMUNS = frozenset(
+    "a an and are as at be been by did for from had has have in into is it no not of on or "
+    "that the their there to was were with without".split()
+)
+UNIDADES = frozenset("mg g kg ng pg mcg µg μg ug dl ml l u iu mmol mol meq mm cm mmhg bpm %".split())
+TOKEN = re.compile(r"[0-9]+(?:[.,][0-9]+)?|[^\W\d_]+|%")
+
+
 def termos(texto: str) -> list[str]:
-    return re.findall(r"[^\W\d_]+", texto.casefold())
+    return [t for t in TOKEN.findall(texto.casefold())
+            if t not in PALAVRAS_COMUNS and t not in UNIDADES and not t[0].isdigit()]
+
+
+def termos_dos_achados(consulta) -> list[str]:
+    resultado = []
+    for achado in consulta:
+        nome = achado["label"].casefold()
+        conceitos = termos(nome)
+        medidas = [t.replace(",", ".") for t in TOKEN.findall(nome)
+                   if t[0].isdigit() or t in UNIDADES]
+        for conceito in conceitos:
+            chave = f"{achado['polarity']}:{conceito}"
+            resultado.append(chave)
+            if medidas:
+                resultado.append(f"{chave}:{' '.join(medidas)}")
+    return resultado
 
 
 def texto_da_consulta(consulta: list[dict] | tuple[dict, ...]) -> str:
@@ -122,13 +146,21 @@ class Indice:
         else:
             textos = [texto_da_consulta(caso.consulta) for caso in casos]
         self.mesh = None if texto_integral else VetoresTfidf([codigos_mesh(caso.consulta) for caso in casos])
-        self.texto = VetoresTextuais(textos, embeddings)
+        self.achados = None
+        self.texto = None
+        if embeddings is None and not texto_integral:
+            self.achados = VetoresTfidf([termos_dos_achados(caso.consulta) for caso in casos])
+        else:
+            self.texto = VetoresTextuais(textos, embeddings)
 
     def buscar(
         self, consulta: list[dict], excluir_artigos: set[str], limite: int,
     ) -> list[Vizinho]:
         por_mesh = {} if self.mesh is None else self.mesh.similaridades(codigos_mesh(consulta))
-        por_palavras = self.texto.similaridades(texto_da_consulta(consulta))
+        if self.achados is None:
+            por_palavras = self.texto.similaridades(texto_da_consulta(consulta))
+        else:
+            por_palavras = self.achados.similaridades(termos_dos_achados(consulta))
         usar_mesh = any(self.casos[i].article_id not in excluir_artigos for i in por_mesh)
         vizinhos = []
         for i in por_mesh.keys() | por_palavras.keys():

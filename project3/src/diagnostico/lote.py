@@ -85,6 +85,8 @@ def main(argv: list[str] | None = None) -> None:
             raise ValueError("Nenhum caso MultiCaRe na partição de teste.")
 
         sistemas = tuple(dict.fromkeys(args.sistemas))
+        if not args.aceitar_amostra and not args.modelo_embeddings and any(s != "llm" for s in sistemas):
+            raise ValueError("Informe --modelo-embeddings para a avaliação ou --aceitar-amostra para desenvolvimento.")
         motor = Motor(
             grafos=args.grafos, grafos_p2=args.grafos_p2, corpus=args.corpus, divisoes=args.divisoes,
             modelo_embeddings=args.modelo_embeddings, excluir_da_base=set(teste.values()),
@@ -108,6 +110,8 @@ def main(argv: list[str] | None = None) -> None:
     except (OSError, ValueError, RuntimeError, ImportError) as erro:
         parser.exit(1, f"{erro}\n")
     print(f"{len(disponiveis)} casos em {args.saida}")
+    vazias = sum(not motor.casos[cid].consulta for cid in disponiveis)
+    print(f"Consultas sem achados permitidos: {vazias}")
     for sistema in sistemas:
         print(f"  {sistema}: {contagem[sistema]} sugestões")
 

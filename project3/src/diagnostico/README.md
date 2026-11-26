@@ -25,7 +25,7 @@ python3 -m pip install -r project3/src/diagnostico/requirements.txt
 python3 -m project3.src.diagnostico.lote --modelo-embeddings sentence-transformers/all-MiniLM-L6-v2
 ```
 
-Sem modelo configurado a busca textual usa TF-IDF para desenvolvimento. Defina
+No lote, a busca lexical de desenvolvimento exige `--aceitar-amostra`. A execução final dos sistemas com busca exige um modelo de embeddings. Defina
 `P3_DIAGNOSTICO_EMBEDDINGS` para usar o mesmo modelo na API e no lote. Os quatro sistemas que chamam
 o LLM usam o mesmo cliente da Frente B. A CLI reporta a cobertura e a contagem de sugestões por sistema.
 
@@ -61,7 +61,7 @@ formato de contexto do RAG com grafo. O modo `llm` recebe só a consulta.
 
 A busca no grafo combina similaridade MeSH (65%) e textual (35%) quando há correspondência de
 códigos. Os códigos carregam a polaridade e a parte textual assume o peso inteiro quando não há
-correspondência MeSH. O lote reserva os artigos do teste, tanto na busca quanto no ajuste do
+correspondência MeSH. No modo lexical do grafo, cada termo carrega a polaridade do achado. Valores e unidades reforçam a correspondência quando acompanham um termo do mesmo rótulo. O lote informa quantas consultas ficaram sem achados e reserva os artigos do teste, tanto na busca quanto no ajuste do
 TF-IDF. O prompt usa referências locais aos casos recuperados e a API as converte nos
 `case_id` originais. O motor descarta citações fora dos casos recuperados.
 
