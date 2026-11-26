@@ -32,5 +32,5 @@ python -m unittest discover -s project3/tests -v
 
 ## Limitações
 
-- `professor` e `aluno` entram automaticamente na tabela assim que a Frente B publicar seus CSVs em `project3/data/interim/{professor,aluno}/`.
-- Em `maccrobat_teste`, polaridade e relações ficam vazias porque o MACCROBAT não possui anotações equivalentes.
+- `professor` e `aluno` entram automaticamente na tabela assim que a Frente B publicar seus CSVs em `project3/data/interim/{professor,aluno}/` (usando `professor/execucao.csv` para tempo/custo por caso e `motivo == "nao_encontrado"` em `alucinacoes.csv`).
+- Em `maccrobat_teste`, relações ficam vazias porque o MACCROBAT não possui anotações equivalentes; além disso, o MACCROBAT separa modificadores anatômicos (ex.: `"abdominal pain"`) e não distingue `Finding` de `Symptom`, pelo que convém destacar o F1 por sobreposição nessa base.

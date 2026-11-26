@@ -39,6 +39,6 @@ python -m unittest discover -s project3/tests -v
 
 ## Limitações
 
-- MACCROBAT não separa `Finding` de `Sign_symptom` (`Finding` tem 0 ocorrências no MACCROBAT) e não anota polaridade (`polaridade` vazia).
+- MACCROBAT não separa `Finding` de `Sign_symptom` (`Finding` tem 0 ocorrências no MACCROBAT); negações (`POLARITY NEG`/`MAYBE_NEG` via `A` → `E` → `T`) são mapeadas para `absent` e as demais para `present`.
 - `35` menções descontínuas (`;` nos offsets brat) são descartadas para manter `texto == case_text[start:end]`.
 - Os grafos finais de `aluno/` dependem de `project3/data/interim/aluno/mencoes_tipadas.csv` (Frente B).

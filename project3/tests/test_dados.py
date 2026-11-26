@@ -129,14 +129,16 @@ class TestConversorMaccrobat(unittest.TestCase):
             saida = base / "out"
             entrada.mkdir()
 
-            texto = "A 30-year-old man presented with fever and chest pain."
+            texto = "A 30-year-old man presented without fever and with chest pain."
             (entrada / "12345.txt").write_text(texto, encoding="utf-8")
             (entrada / "12345.ann").write_text(
                 "\n".join([
                     "T1\tAge 2 13\t30-year-old",
-                    "T2\tSign_symptom 33 38\tfever",
-                    "T3\tSign_symptom 33 38;43 53\tfever chest pain",
-                    "T4\tBiological_structure 43 48\tchest",
+                    "T2\tSign_symptom 36 41\tfever",
+                    "E1\tSign_symptom:T2 ",
+                    "A1\tPOLARITY E1 NEG",
+                    "T3\tSign_symptom 36 41;51 61\tfever chest pain",
+                    "T4\tBiological_structure 51 56\tchest",
                     "R1\tMODIFY Arg1:T2 Arg2:T4",
                 ]) + "\n",
                 encoding="utf-8",
@@ -147,15 +149,16 @@ class TestConversorMaccrobat(unittest.TestCase):
             self.assertEqual(resumo["mencoes_convertidas"], 2)
             self.assertEqual(resumo["descartadas_sem_equivalente"], 1)
             self.assertEqual(resumo["descartadas_descontinuas"], 1)
+            self.assertEqual(resumo["por_polaridade"], {"absent": 1, "present": 1})
 
             with (saida / "mencoes.csv").open(encoding="utf-8", newline="") as f:
                 mencoes = list(csv.DictReader(f))
             self.assertEqual(len(mencoes), 2)
             for m in mencoes:
                 self.assertEqual(m["texto"], texto[int(m["start"]) : int(m["end"])])
-                self.assertEqual(m["polaridade"], "")
                 self.assertEqual(m["fonte"], "maccrobat")
             self.assertEqual([m["tipo"] for m in mencoes], ["Symptom", "AnatomicalSite"])
+            self.assertEqual([m["polaridade"] for m in mencoes], ["absent", "present"])
 
     def test_falha_quando_offset_diverge(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

@@ -87,7 +87,7 @@ def sistemas_padrao(raiz: Path = REPO) -> list[SistemaConfig]:
             relacoes=raiz / "project3/data/interim/professor/relacoes.csv",
             grafo_dir=raiz / "project3/data/processed/grafo/professor",
             alucinacoes=raiz / "project3/data/interim/professor/alucinacoes.csv",
-            metricas_execucao=raiz / "project3/data/interim/uso_llm.csv",
+            metricas_execucao=raiz / "project3/data/interim/professor/execucao.csv",
             custo_padrao=None,
         ),
         SistemaConfig(
@@ -121,7 +121,8 @@ def _contar_alucinacoes(caminho: Path | None, casos_alvo: set[str]) -> int:
         return 0
     total = 0
     for linha in _ler_csv(caminho):
-        if linha.get("case_id", "").strip() in casos_alvo:
+        motivo = (linha.get("motivo") or "nao_encontrado").strip()
+        if linha.get("case_id", "").strip() in casos_alvo and motivo == "nao_encontrado":
             total += 1
     return total
 
@@ -131,7 +132,7 @@ def _ler_telemetria(
     casos_alvo: set[str],
     custo_padrao: float | None,
 ) -> tuple[str, str]:
-    """Extrai (segundos_por_caso, custo_usd_por_caso) de JSON de resumo ou CSV de uso."""
+    """Extrai (segundos_por_caso, custo_usd_por_caso) de JSON de resumo ou CSV por caso."""
     segundos = ""
     custo = f"{custo_padrao:.6f}" if custo_padrao is not None else ""
 
@@ -148,13 +149,13 @@ def _ler_telemetria(
             custo = f"{float(dados['custo_usd_por_caso']):.6f}"
         return segundos, custo
 
-    # CSV de telemetria (ex.: uso_llm.csv com colunas opcionais case_id, segundos, custo_usd)
+    # CSV de telemetria por caso (ex.: professor/execucao.csv com case_id, segundos, custo_usd)
     linhas = _ler_csv(caminho)
-    filtradas = [l for l in linhas if not l.get("case_id") or l["case_id"].strip() in casos_alvo]
+    filtradas = [l for l in linhas if (l.get("case_id") or "").strip() in casos_alvo]
     if not filtradas:
         return segundos, custo
 
-    n_ref = len({l["case_id"].strip() for l in filtradas if l.get("case_id")}) or len(casos_alvo)
+    n_ref = len({l["case_id"].strip() for l in filtradas})
     if n_ref <= 0:
         return segundos, custo
 
@@ -296,7 +297,7 @@ def avaliar_extracao(
                         gold_mencoes=macc_m,
                         casos_alvo=macc_teste_ids,
                         gold_relacoes=None,
-                        avaliar_polaridade=False,
+                        avaliar_polaridade=True,
                     )
                 )
 

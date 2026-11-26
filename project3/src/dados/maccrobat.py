@@ -124,6 +124,7 @@ def converter(
     mencoes_csv = saida / "mencoes.csv"
 
     por_tipo: Counter[str] = Counter()
+    por_polaridade: Counter[str] = Counter()
     tipos_nao_mapeados: Counter[str] = Counter()
     descartadas_mapa = 0
     descartadas_descontinuas = 0
@@ -153,13 +154,41 @@ def converter(
             })
             total_casos += 1
 
-            mencoes_doc: list[tuple[int, int, str, str]] = []
-            for linha in caminho_ann.read_text(encoding="utf-8").splitlines():
+            linhas_ann = caminho_ann.read_text(encoding="utf-8").splitlines()
+            evento_para_t: dict[str, str] = {}
+            for linha in linhas_ann:
+                if not linha.startswith("E"):
+                    continue
+                partes = linha.split("\t")
+                if len(partes) < 2:
+                    continue
+                e_id = partes[0].strip()
+                primeiro_par = partes[1].strip().split()[0]
+                if ":" in primeiro_par:
+                    evento_para_t[e_id] = primeiro_par.split(":", 1)[1]
+
+            negados_t: set[str] = set()
+            for linha in linhas_ann:
+                if not linha.startswith("A"):
+                    continue
+                partes = linha.split("\t")
+                if len(partes) < 2:
+                    continue
+                toks = partes[1].split()
+                if len(toks) >= 3 and toks[0] == "POLARITY" and toks[2] in {"NEG", "MAYBE_NEG"}:
+                    alvo = toks[1]
+                    t_id = evento_para_t.get(alvo) if alvo.startswith("E") else alvo
+                    if t_id:
+                        negados_t.add(t_id)
+
+            mencoes_doc: list[tuple[int, int, str, str, str]] = []
+            for linha in linhas_ann:
                 if not linha.startswith("T"):
                     continue
                 partes = linha.split("\t")
                 if len(partes) < 3:
                     continue
+                t_id = partes[0].strip()
                 tipo_orig, spans = partes[1].split(" ", 1)
                 texto_ann = partes[2]
 
@@ -182,10 +211,11 @@ def converter(
                         f"Offset incompatível em {doc_id} ({start}:{end}): "
                         f"esperado {texto_ann!r}, obtido {texto_real!r}"
                     )
-                mencoes_doc.append((start, end, texto_real, tipo_p3))
+                polaridade = "absent" if t_id in negados_t else "present"
+                mencoes_doc.append((start, end, texto_real, tipo_p3, polaridade))
 
             mencoes_doc.sort(key=lambda item: (item[0], item[1], item[3]))
-            for indice, (start, end, texto_real, tipo_p3) in enumerate(mencoes_doc, start=1):
+            for indice, (start, end, texto_real, tipo_p3, polaridade) in enumerate(mencoes_doc, start=1):
                 w_mencoes.writerow({
                     "case_id": doc_id,
                     "id": f"M{indice}",
@@ -194,11 +224,12 @@ def converter(
                     "texto": texto_real,
                     "tipo": tipo_p3,
                     "mesh": "",
-                    "polaridade": "",
+                    "polaridade": polaridade,
                     "confianca": "1.0",
                     "fonte": "maccrobat",
                 })
                 por_tipo[tipo_p3] += 1
+                por_polaridade[polaridade] += 1
                 total_mencoes += 1
 
     if tipos_nao_mapeados:
@@ -210,6 +241,7 @@ def converter(
         "descartadas_sem_equivalente": descartadas_mapa,
         "descartadas_descontinuas": descartadas_descontinuas,
         "por_tipo": dict(por_tipo.most_common()),
+        "por_polaridade": dict(por_polaridade),
         "observacao_finding": "MACCROBAT não separa Finding de Sign_symptom; Finding permanece com 0 ocorrências.",
     }
     (saida / "resumo.json").write_text(

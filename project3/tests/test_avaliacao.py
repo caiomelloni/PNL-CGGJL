@@ -40,7 +40,7 @@ class TestAvaliacaoExtracao(unittest.TestCase):
             with macc_m.open("w", encoding="utf-8", newline="") as f:
                 w = csv.DictWriter(f, fieldnames=["case_id", "id", "start", "end", "texto", "tipo", "mesh", "polaridade", "confianca", "fonte"])
                 w.writeheader()
-                w.writerow({"case_id": "9001", "id": "M1", "start": 0, "end": 5, "texto": "fever", "tipo": "Symptom", "mesh": "", "polaridade": "", "confianca": "1.0", "fonte": "maccrobat"})
+                w.writerow({"case_id": "9001", "id": "M1", "start": 0, "end": 5, "texto": "fever", "tipo": "Symptom", "mesh": "", "polaridade": "absent", "confianca": "1.0", "fonte": "maccrobat"})
 
             with divisoes.open("w", encoding="utf-8", newline="") as f:
                 w = csv.DictWriter(f, fieldnames=["fonte", "case_id", "article_id", "particao"])
@@ -52,7 +52,7 @@ class TestAvaliacaoExtracao(unittest.TestCase):
                 w.writeheader()
                 w.writerow({"case_id": "PMC1_01", "id": "M1", "start": 0, "end": 5, "texto": "fever", "tipo": "Symptom", "mesh": "", "polaridade": "present", "confianca": "0.9", "fonte": "llm:demo"})
                 w.writerow({"case_id": "PMC1_01", "id": "M2", "start": 10, "end": 16, "texto": "cough", "tipo": "Symptom", "mesh": "", "polaridade": "absent", "confianca": "0.9", "fonte": "llm:demo"})
-                w.writerow({"case_id": "9001", "id": "M1", "start": 0, "end": 5, "texto": "fever", "tipo": "Symptom", "mesh": "", "polaridade": "present", "confianca": "0.9", "fonte": "llm:demo"})
+                w.writerow({"case_id": "9001", "id": "M1", "start": 0, "end": 5, "texto": "fever", "tipo": "Symptom", "mesh": "", "polaridade": "absent", "confianca": "0.9", "fonte": "llm:demo"})
 
             with prof_r.open("w", encoding="utf-8", newline="") as f:
                 w = csv.DictWriter(f, fieldnames=["case_id", "origem", "destino", "relacao", "confianca"])
@@ -62,15 +62,18 @@ class TestAvaliacaoExtracao(unittest.TestCase):
             with prof_aluc.open("w", encoding="utf-8", newline="") as f:
                 w = csv.DictWriter(f, fieldnames=["case_id", "texto", "tipo", "motivo"])
                 w.writeheader()
-                w.writerow({"case_id": "PMC1_01", "texto": "inventado", "tipo": "Diagnosis", "motivo": "ausente"})
-                w.writerow({"case_id": "9001", "texto": "inventado2", "tipo": "Symptom", "motivo": "ausente"})
-                w.writerow({"case_id": "9001", "texto": "inventado3", "tipo": "Symptom", "motivo": "ausente"})
+                w.writerow({"case_id": "PMC1_01", "texto": "inventado", "tipo": "Diagnosis", "motivo": "nao_encontrado"})
+                w.writerow({"case_id": "PMC1_01", "texto": "fever", "tipo": "Desconhecido", "motivo": "tipo_invalido"})
+                w.writerow({"case_id": "9001", "texto": "inventado2", "tipo": "Symptom", "motivo": "nao_encontrado"})
+                w.writerow({"case_id": "9001", "texto": "inventado3", "tipo": "Symptom", "motivo": "nao_encontrado"})
+                w.writerow({"case_id": "9001", "texto": "", "tipo": "Symptom", "motivo": "texto_vazio"})
 
             with uso_llm.open("w", encoding="utf-8", newline="") as f:
                 w = csv.DictWriter(f, fieldnames=["case_id", "segundos", "custo_usd"])
                 w.writeheader()
                 w.writerow({"case_id": "PMC1_01", "segundos": "2.5", "custo_usd": "0.012"})
                 w.writerow({"case_id": "9001", "segundos": "1.5", "custo_usd": "0.008"})
+                w.writerow({"case_id": "", "segundos": "999.0", "custo_usd": "99.0"})
 
             with aluno_m.open("w", encoding="utf-8", newline="") as f:
                 w = csv.DictWriter(f, fieldnames=["case_id", "id", "start", "end", "texto", "tipo", "mesh", "polaridade", "confianca", "fonte"])
@@ -113,7 +116,7 @@ class TestAvaliacaoExtracao(unittest.TestCase):
             self.assertEqual(len(linhas), len(lidas))
             por_chave = {(r["conjunto"], r["sistema"], r["criterio"]): r for r in lidas}
 
-            # Professor no gold_p2: F1 1.0 em menções, tipos, polaridade e relações + 1 alucinação
+            # Professor no gold_p2: F1 1.0 em menções, tipos, polaridade e relações + 1 alucinação (ignora tipo_invalido)
             pg = por_chave[("gold_p2", "professor", "exato")]
             self.assertEqual(pg["mencoes_f1"], "1.0000")
             self.assertEqual(pg["tipos_macro_f1"], "1.0000")
@@ -123,10 +126,11 @@ class TestAvaliacaoExtracao(unittest.TestCase):
             self.assertEqual(pg["segundos_por_caso"], "2.5000")
             self.assertEqual(pg["custo_usd_por_caso"], "0.012000")
 
-            # Professor no maccrobat_teste: sem polaridade/relações + 2 alucinações
+            # Professor no maccrobat_teste: avalia polaridade, sem relações + 2 alucinações (ignora texto_vazio)
             pm = por_chave[("maccrobat_teste", "professor", "exato")]
             self.assertEqual(pm["mencoes_f1"], "1.0000")
-            self.assertEqual(pm["polaridade_acuracia"], "")
+            self.assertEqual(pm["polaridade_acuracia"], "1.0000")
+            self.assertEqual(pm["polaridade_f1_absent"], "1.0000")
             self.assertEqual(pm["relacoes_f1"], "")
             self.assertEqual(pm["alucinacoes"], "2")
 
