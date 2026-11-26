@@ -1,0 +1,42 @@
+tipo_maccrobat,tipo_p3,observacao
+Diagnostic_procedure,Exam,Exames laboratoriais de imagem ou procedimentos diagnósticos
+Sign_symptom,Symptom,"Sinais e sintomas no MACCROBAT; sem equivalente separado para Finding (decisão documentada)"
+Biological_structure,AnatomicalSite,Estruturas anatômicas
+Lab_value,ExamResult,Valores numéricos ou qualitativos de exames
+Disease_disorder,Diagnosis,Doenças e síndromes diagnosticadas
+Medication,Medication,Fármacos e medicamentos
+Therapeutic_procedure,Treatment,Tratamentos não medicamentosos e cirurgias
+History,History,Histórico clínico pessoal
+Family_history,History,Histórico familiar (incluído em History pelo guia de anotação do P2)
+Outcome,Outcome,Desfecho ou evolução clínica
+Detailed_description,,Descartado (modificador sem tipo equivalente no esquema P2/P3)
+Date,,Descartado (expressão temporal)
+Clinical_event,,Descartado (evento genérico como admissão/apresentação)
+Severity,,Descartado (modificador de gravidade)
+Dosage,,Descartado (atributo de dose)
+Nonbiological_location,,Descartado (local não anatômico como hospital ou país)
+Coreference,,Descartado (correferência genérica)
+Duration,,Descartado (expressão temporal)
+Age,,Descartado (atributo demográfico do paciente)
+Sex,,Descartado (atributo demográfico do paciente)
+Administration,,Descartado (via de administração)
+Distance,,Descartado (medida fica fora das menções no guia do P2)
+Activity,,Descartado (atividade cotidiana)
+Frequency,,Descartado (frequência de dose ou sintoma)
+Shape,,Descartado (modificador morfológico)
+Personal_background,,Descartado (origem/etnia)
+Time,,Descartado (expressão temporal)
+Subject,,Descartado (sujeito/familiar)
+Color,,Descartado (modificador visual)
+Quantitative_concept,,Descartado (quantificador genérico)
+Texture,,Descartado (modificador físico)
+Area,,Descartado (medida de área)
+Qualitative_concept,,Descartado (qualificador genérico)
+Volume,,Descartado (medida de volume)
+Other_event,,Descartado (evento miscelâneo)
+Other_entity,,Descartado (entidade miscelânea)
+Occupation,,Descartado (ocupação profissional)
+Biological_attribute,,Descartado (atributo biológico miscelâneo)
+Height,,Descartado (medida antropométrica)
+Weight,,Descartado (medida antropométrica)
+Mass,,Descartado (medida de massa)
