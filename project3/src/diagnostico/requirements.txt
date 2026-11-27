@@ -1,0 +1,2 @@
+# Dependência opcional para embeddings densos. A busca lexical roda com Python padrão.
+sentence-transformers>=3,<6
