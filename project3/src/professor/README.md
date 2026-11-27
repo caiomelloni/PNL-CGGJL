@@ -17,7 +17,7 @@ python -m unittest project3.tests.test_professor
 ~~~
 
 Opções globais (antes do subcomando): `--corpus <arquivos de casos…>` (padrão: amostra do P1 e, se
-convertido, o MACCROBAT), `--modelo` e `--exemplos maccrobat|<csv>` (padrão: zero-shot). Só entram casos
+convertido, o MACCROBAT), `--modelo` e `--exemplos maccrobat|nenhum|<csv>` (padrão: `maccrobat`). Só entram casos
 presentes nos corpora. Rodar de novo é barato: o que já foi perguntado vem do cache.
 
 ## Entradas e saídas
@@ -48,15 +48,22 @@ presentes nos corpora. Rodar de novo é barato: o que já foi perguntado vem do 
 ([`custo_professor.csv`](../../data/resultados/custo_professor.csv)): 86,2 menções e US$ 0,048
 estimados por caso (US$ 48 por 1000 casos), 22,6 s por caso, 1 alucinação em 3.275 menções.
 
-Quebra de frases, 10 casos de validação ([`quebra_frases.csv`](../../data/resultados/quebra_frases.csv)):
-a variante `proposicoes` custa 70% mais e concorda com a direta em F1 0,90 (exato), sem
-menos alucinação. Sem gabarito de validação, a direta fica como padrão.
+Na validação, contra o gabarito humano de 30 documentos do MACCROBAT:
+
+| Configuração | F1 exato | F1 sobreposição | Acerto de tipo | F1 `absent` | US$/caso |
+|---|---|---|---|---|---|
+| zero-shot, direta | 0,572 | 0,829 | 0,566 | 0,726 | 0,061 |
+| **few-shot, direta** (padrão) | **0,604** | **0,834** | **0,589** | **0,745** | 0,063 |
+| zero-shot, proposições | 0,571 | 0,827 | 0,565 | 0,744 | 0,107 |
+
+Fontes: [`few_shot.csv`](../../data/resultados/few_shot.csv) e [`quebra_frases.csv`](../../data/resultados/quebra_frases.csv).
+Quebrar em proposições não melhora o F1 e custa 77% mais.
 
 ## Limitações
 
 - Sem `divisoes.csv`, usa uma divisão provisória: gold = `teste`, 1 em cada 5 artigos em `validacao`.
-- Zero-shot por padrão: o silver do P2 é fraco e o MACCROBAT segue outra convenção de fronteira
-  ("abdominal pain" vira sítio + sintoma, sem `Finding`); few-shot só com `--exemplos`.
+- Few-shot do MACCROBAT por padrão (melhor na [validação](../../data/resultados/few_shot.csv)), mas o
+  MACCROBAT segue outra convenção de fronteira e não tem `Finding`; o ganho medido é contra o gabarito dele.
 - `comparar` só mede F1 se houver anotação de casos de `validacao`; sem ela, compara contagem,
   alucinação, custo e a concordância entre as variantes.
 - `confianca` fica vazia: o LLM não dá probabilidade por menção.

@@ -164,11 +164,16 @@ class TestParticoes(unittest.TestCase):
         self.assertEqual(sum(particoes[c] == "validacao" for c in escolhidos), 1)
         self.assertEqual(sum(particoes[c] == "teste" for c in escolhidos), 3)
 
-    def test_sem_pedido_o_prompt_nao_tem_exemplos(self):
+    def test_nenhum_e_zero_shot(self):
         with mock.patch.object(professor, "escolher_exemplos") as escolher:
-            sistema = professor.sistema_padrao(self.provisorias(), None)
+            sistema = professor.sistema_padrao(self.provisorias(), "nenhum")
         escolher.assert_not_called()
         self.assertNotIn("## Examples", sistema)
+
+    def test_padrao_sem_maccrobat_falha_em_vez_de_mudar_o_prompt(self):
+        with mock.patch.object(professor, "MACCROBAT", Path("/nao/existe")):
+            with self.assertRaises(FileNotFoundError):
+                professor.sistema_padrao(self.provisorias(), None)
 
     def test_selecao_e_estavel_e_nao_repete(self):
         particoes = self.provisorias()

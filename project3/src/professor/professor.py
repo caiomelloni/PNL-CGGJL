@@ -136,16 +136,20 @@ def montar_sistema(exemplos: list[tuple[str, list]]) -> str:
 
 
 def sistema_padrao(particoes: dict[str, str], exemplos: str | None) -> str:
-    """Zero-shot por padrão; `--exemplos maccrobat` ou `--exemplos <csv de menções da amostra>` liga o few-shot.
+    """Few-shot com 3 trechos do `treino` do MACCROBAT (padrão), "nenhum" (zero-shot) ou um CSV de menções.
 
-    Nenhuma fonte de exemplos é o padrão: o silver do P2 vem das regras do P1 (poucas menções,
-    fronteiras ruins) e o MACCROBAT segue outra convenção ("abdominal pain" vira sítio + sintoma,
-    sem Finding), que contradiz o guia do P2. Usar exemplos é um experimento, não um padrão.
+    O few-shot venceu o zero-shot em todas as medidas na validação do MACCROBAT
+    (data/resultados/few_shot.csv). Sem o MACCROBAT convertido o comando falha, em vez de mudar o
+    prompt sem avisar: rode `python -m project3.src.dados.maccrobat tudo` ou passe `--exemplos nenhum`.
     """
-    if not exemplos or exemplos == "nenhum":
+    exemplos = exemplos or "maccrobat"
+    if exemplos == "nenhum":
         return montar_sistema([])
     if exemplos == "maccrobat":
         mencoes, casos = MACCROBAT / "mencoes.csv", MACCROBAT / "casos.csv"
+        if not mencoes.is_file():
+            raise FileNotFoundError(f"{mencoes} não existe: rode `python -m project3.src.dados.maccrobat tudo` "
+                                    "ou passe `--exemplos nenhum` para o zero-shot")
     else:
         mencoes, casos = Path(exemplos), CASOS_PADRAO
     escolhidos = escolher_exemplos(mencoes, casos, particoes)
@@ -299,7 +303,7 @@ def main() -> None:
     parser.add_argument("--corpus", type=Path, nargs="+", default=None,
                         help="arquivos de casos (padrão: amostra do P1 + MACCROBAT, se convertido)")
     parser.add_argument("--modelo", help="padrão: P3_LLM_MODELO ou o do provedor")
-    parser.add_argument("--exemplos", help='few-shot: "maccrobat" ou CSV de menções da amostra (padrão: nenhum)')
+    parser.add_argument("--exemplos", help='"maccrobat" (padrão), "nenhum" (zero-shot) ou CSV de menções da amostra')
     sub = parser.add_subparsers(dest="comando", required=True)
     p_custo = sub.add_parser("custo", help="mede o custo nos primeiros casos de treino")
     p_custo.add_argument("--n", type=int, default=50)
