@@ -11,7 +11,8 @@ Pré-requisito: cliente LLM configurado ([`../llm/README.md`](../llm/README.md))
 ~~~bash
 python -m project3.src.professor.professor custo --n 50          # mede o custo e define N
 python -m project3.src.professor.professor rodar --n-treino N [--n-validacao N]   # teste + validação + N de treino
-python -m project3.src.professor.professor comparar --gold project3/data/interim/maccrobat/mencoes.csv
+python -m project3.src.professor.professor comparar --gold project3/data/interim/maccrobat/mencoes.csv        # direta × proposições
+python -m project3.src.professor.professor exemplos --gold project3/data/interim/maccrobat/mencoes.csv        # zero-shot × few-shot
 python -m unittest project3.tests.test_professor
 ~~~
 
@@ -31,6 +32,7 @@ presentes nos corpora. Rodar de novo é barato: o que já foi perguntado vem do 
 | `data/interim/professor/execucao.csv` | Saída | chamadas, menções, alucinações, tokens, segundos e custo por caso | Não |
 | `data/resultados/custo_professor.csv` | Saída | custo, tokens e tempo por caso | Sim |
 | `data/resultados/quebra_frases.csv` | Saída | `direta` × `proposicoes` na validação | Sim |
+| `data/resultados/few_shot.csv` | Saída | zero-shot × few-shot do MACCROBAT na validação | Sim |
 
 `motivo`: `nao_encontrado` (alucinação), `tipo_invalido`, `texto_vazio` ou `item_invalido`.
 

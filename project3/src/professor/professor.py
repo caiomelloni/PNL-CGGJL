@@ -2,7 +2,8 @@
 
     python -m project3.src.professor.professor custo [--n 50]
     python -m project3.src.professor.professor rodar [--n-treino N] [--n-validacao N] [--variante direta|proposicoes]
-    python -m project3.src.professor.professor comparar [--gold CSV_DE_VALIDACAO]
+    python -m project3.src.professor.professor comparar [--gold CSV_DE_VALIDACAO]   # direta × proposições
+    python -m project3.src.professor.professor exemplos [--gold CSV_DE_VALIDACAO]   # zero-shot × few-shot
 
 Cada caso é cortado em trechos de frases inteiras. Para cada trecho o LLM devolve JSON com
 `texto, tipo, polaridade`; a ancoragem acha cada texto no trecho e descarta o que não existe
@@ -262,6 +263,37 @@ def resumir(execucao: list[dict]) -> dict:
             "custo_usd_por_caso": round(soma("custo_usd") / n, 5)}
 
 
+def comparar_configs(configs: list[tuple[str, str, str]], eixo: str, casos: list[str], corpora: list[Path],
+                     particoes: dict[str, str], gold_csv: Path | None, modelo: str | None, tabela: Path) -> list[dict]:
+    """Roda cada configuração (nome, sistema, variante) nos casos de validação e grava uma linha por uma.
+
+    Com `gold_csv`, mede F1 só nos casos de validação que têm gabarito: o teste e o gabarito do P2
+    nunca servem para escolher configuração. Sem gabarito, a concordância com a primeira
+    configuração ainda mostra o quanto as outras mudam.
+    """
+    gold = []
+    if gold_csv:
+        gold = [l for l in ler_csv(gold_csv) if particoes.get(l["case_id"]) == "validacao" and l["case_id"] in set(casos)]
+    com_gold = {g["case_id"] for g in gold}
+    linhas, referencia = [], None
+    for nome, sistema, variante in configs:
+        pasta = SAIDA / "comparacao" / nome
+        linha = {eixo: nome, **resumir(rodar(casos, corpora, particoes, sistema, variante, pasta, modelo))}
+        pred = ler_csv(pasta / "mencoes_tipadas.csv")
+        if gold:
+            linha.update({"casos_com_gold": len(com_gold),
+                          **medir([m for m in pred if m["case_id"] in com_gold], gold)})
+        if referencia is None:
+            referencia = pred
+        else:
+            concordancia = medir(pred, referencia)
+            linha.update({"concordancia_f1_exato": concordancia["f1_exato"],
+                          "concordancia_tipo": concordancia["acuracia_tipo"]})
+        linhas.append(linha)
+    gravar_csv(tabela, list(linhas[-1]), linhas)
+    return linhas
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--corpus", type=Path, nargs="+", default=None,
@@ -280,6 +312,9 @@ def main() -> None:
     p_comparar = sub.add_parser("comparar", help="direta × proposições na validação")
     p_comparar.add_argument("--gold", type=Path, help="menções anotadas de casos de validação")
     p_comparar.add_argument("--n", type=int, help="limita o número de casos de validação")
+    p_exemplos = sub.add_parser("exemplos", help="zero-shot × few-shot do MACCROBAT na validação")
+    p_exemplos.add_argument("--gold", type=Path, help="menções anotadas de casos de validação")
+    p_exemplos.add_argument("--n", type=int, help="limita o número de casos de validação")
     args = parser.parse_args()
 
     corpora = args.corpus or corpora_padrao()
@@ -301,33 +336,17 @@ def main() -> None:
         print(json.dumps(resumir(rodar(casos, corpora, particoes, sistema, args.variante, saida,
                                        args.modelo)), ensure_ascii=False, indent=2))
     else:
+        # comparar: direta × proposições; exemplos: zero-shot × few-shot do MACCROBAT (direta).
         casos = selecionar(particoes, ["validacao"], 0, disponiveis)[:args.n]
-        gold = []
-        if args.gold:
-            # Só validação: o gabarito do P2 e o teste nunca servem para escolher a variante.
-            gold = [l for l in ler_csv(args.gold)
-                    if particoes.get(l["case_id"]) == "validacao" and l["case_id"] in set(casos)]
-        linhas = []
-        for variante in ("direta", "proposicoes"):
-            pasta = SAIDA / "comparacao" / variante
-            execucao = rodar(casos, corpora, particoes, sistema, variante, pasta, args.modelo)
-            linha = {"variante": variante, **resumir(execucao)}
-            if gold:
-                # F1 só nos casos que têm gabarito: os demais não podem contar como erro.
-                com_gold = {g["case_id"] for g in gold}
-                pred = [m for m in ler_csv(pasta / "mencoes_tipadas.csv") if m["case_id"] in com_gold]
-                linha.update({"casos_com_gold": len(com_gold), **medir(pred, gold)})
-            if variante == "proposicoes":
-                # Sem gabarito ainda dá para ver o quanto a variante muda: F1 contra a direta.
-                concordancia = medir(ler_csv(pasta / "mencoes_tipadas.csv"),
-                                     ler_csv(SAIDA / "comparacao" / "direta" / "mencoes_tipadas.csv"))
-                linha.update({"concordancia_f1_exato": concordancia["f1_exato"],
-                              "concordancia_tipo": concordancia["acuracia_tipo"]})
-            linhas.append(linha)
-        gravar_csv(RESULTADOS / "quebra_frases.csv", list(linhas[-1]), linhas)
-        for linha in linhas:
-            print(linha)
-
+        if args.comando == "comparar":
+            configs = [("direta", sistema, "direta"), ("proposicoes", sistema, "proposicoes")]
+            eixo, tabela = "variante", "quebra_frases.csv"
+        else:
+            configs = [("zero_shot", montar_sistema([]), "direta"),
+                       ("few_shot_maccrobat", sistema_padrao(particoes, "maccrobat"), "direta")]
+            eixo, tabela = "exemplos", "few_shot.csv"
+        print(json.dumps(comparar_configs(configs, eixo, casos, corpora, particoes, args.gold, args.modelo,
+                                          RESULTADOS / tabela), ensure_ascii=False, indent=2))
 
 if __name__ == "__main__":
     main()
