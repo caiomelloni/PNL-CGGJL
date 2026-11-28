@@ -1,0 +1,2 @@
+modelo,casos,chamadas,mencoes_por_caso,taxa_alucinacao,tokens_entrada_por_caso,tokens_saida_por_caso,segundos_por_caso,custo_usd_por_caso,custo_usd_1000_casos
+claude-sonnet-5-5,38,138,86.9,0.0003,7093,3428,22.59,0.04802,48.02

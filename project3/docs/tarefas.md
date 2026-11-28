@@ -404,7 +404,11 @@ substitutos da última coluna.
 Quem tomar a decisão atualiza esta seção.
 
 - **Modelo do LLM** (professor e RAG): API ou local. O cliente comum permite trocar; o ideal é
-  rodar os dois e reportar ambos.
-- **N de casos do professor:** definido pela frente B após medir o custo.
-- **Arquitetura do aluno:** CRF retreinado, e BERT pequeno se houver tempo.
+  rodar os dois e reportar ambos. O professor usa `claude-sonnet-5-5` pelo provedor `claude_cli`
+  (login do Claude Code, sem chave de API).
+- **N de casos do professor:** na amostra, todos os 38 de `treino` (US$ 0,048 e 22,6 s por caso,
+  [`custo_professor.csv`](../data/resultados/custo_professor.csv)). No corpus completo, o limite é
+  tempo e cota (~6 h por 1000 casos): decidir quando a frente A informar o tamanho.
+- **Arquitetura do aluno:** BioBERT (`dmis-lab/biobert-base-cased-v1.2`), melhor que o CRF retreinado
+  em todas as medidas da [curva](../data/resultados/curva_aluno.csv); o CRF fica como alternativa sem torch.
 - **Hospedagem da aplicação:** definida pela frente E.
