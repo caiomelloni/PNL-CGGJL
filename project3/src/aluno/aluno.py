@@ -26,8 +26,8 @@ import sklearn_crfsuite
 
 from project2.src.entidades.entidades import achatar, frases_do_caso, pistas_da_palavra
 from project3.src.professor.divisoes import garantir_fora_do_teste, ler_divisoes
-from project3.src.professor.professor import (COLUNAS, RESULTADOS, corpora_padrao, gravar_csv, iter_corpora,
-                                              ler_csv, medir, ordem_fixa, validar_contrato)
+from project3.src.professor.professor import (COLUNAS, MACCROBAT, RESULTADOS, corpora_padrao, gravar_csv,
+                                              iter_corpora, ler_csv, medir, ordem_fixa, validar_contrato)
 
 REPO = Path(__file__).resolve().parents[3]
 PROFESSOR = REPO / "project3/data/interim/professor/mencoes_tipadas.csv"
@@ -172,7 +172,7 @@ def main() -> None:
     grupo.add_argument("--particoes", nargs="+", default=["teste", "validacao"])
     grupo.add_argument("--todos", action="store_true", help="todos os casos do corpus")
     p_prever.add_argument("--saida", type=Path, default=SAIDA)
-    sub.add_parser("curva", help="F1 na validação com 10/25/50/100%% dos rótulos")
+    sub.add_parser("curva", help="F1 na validação do MACCROBAT com 10/25/50/100%% dos rótulos")
     args = parser.parse_args()
 
     corpora = args.corpus or corpora_padrao()
@@ -210,10 +210,13 @@ def main() -> None:
         print(json.dumps(info, ensure_ascii=False, indent=2))
         return
 
-    validacao = [c for c in ordem_fixa(mencoes) if particoes.get(c) == "validacao"]
+    # Referência: o gabarito humano da validação do MACCROBAT. A amostra do MultiCaRe tem só 2 casos
+    # de validação na divisão oficial, pouco para comparar frações.
+    humano = mencoes_por_caso(MACCROBAT / "mencoes.csv") if (MACCROBAT / "mencoes.csv").is_file() else {}
+    validacao = [c for c in ordem_fixa(humano) if particoes.get(c) == "validacao" and c in textos]
     if not validacao:
-        sys.exit("Sem menções do professor na validação: rode `professor rodar --particoes validacao` antes")
-    gold = [m for c in validacao for m in mencoes[c]]
+        sys.exit("Sem a validação do MACCROBAT: rode a conversão da Frente A (`dados.maccrobat`) antes")
+    gold = [m for c in validacao for m in humano[c]]
     linhas = []
     for fracao in FRACOES:
         ids = casos_de_treino(particoes, mencoes, fracao)

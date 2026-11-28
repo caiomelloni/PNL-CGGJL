@@ -8,7 +8,8 @@ P2 (`project2/src/entidades`).
 ## Como rodar
 
 Pré-requisitos: `pip install -r project2/src/entidades/requirements.txt -r project3/src/aluno/requirements.txt`
-e as menções do professor em `treino` e `validacao` ([`../professor/README.md`](../professor/README.md)).
+as menções do professor em `treino` ([`../professor/README.md`](../professor/README.md)) e, para a
+`curva`, o MACCROBAT convertido (`project3/src/dados/maccrobat.py`).
 Da raiz do repositório (`--modelo crf` antes do subcomando troca para o CRF):
 
 ~~~bash
@@ -40,20 +41,22 @@ corpora, como o MultiCaRe completo. `prever` também grava `data/interim/aluno/r
 
 ## Resultados
 
-Na `validacao`, contra os rótulos do professor, com os 38 casos de treino
-([`curva_aluno.csv`](../../data/resultados/curva_aluno.csv)):
+Treinado com os rótulos do professor nos 39 casos de `treino` e medido contra o gabarito humano dos
+30 documentos de `validacao` do MACCROBAT ([`curva_aluno.csv`](../../data/resultados/curva_aluno.csv)):
 
 | Modelo | F1 exato | F1 sobreposição | Acerto de tipo | F1 `absent` |
 |---|---|---|---|---|
-| CRF | 0,55 | 0,73 | 0,48 | 0,49 |
-| BERT | 0,74 | 0,86 | 0,82 | 0,86 |
+| CRF | 0,43 | 0,70 | 0,36 | 0,49 |
+| BERT | 0,57 | 0,82 | 0,58 | 0,69 |
 
-O BERT prevê os 56 casos em ~14 s (~0,15 s por caso, contra 22,6 s do professor). As duas curvas
-ainda sobem de 50% para 100% dos rótulos.
+O BERT chega perto do próprio professor nessa validação (F1 exato 0,60) e prevê ~0,13 s por caso,
+contra 12,9 s do professor ([`extracao.csv`](../../data/resultados/extracao.csv)). De 50% para 100% dos
+rótulos o F1 exato estabiliza; só tipo e `absent` ainda sobem um pouco.
 
 ## Limitações
 
 - BIO plano: entre menções sobrepostas fica a mais longa (o professor já evita sobreposição).
 - Hiperparâmetros fixos (CRF `c1`/`c2`; BERT 8 épocas, taxa 5e-5), para não ajustar na validação da curva.
 - Casos de treino em que o professor não achou nenhuma menção ficam de fora do treino.
-- A curva compara com o professor, não com anotação humana: mede quão bem o aluno imita.
+- A curva é medida no MACCROBAT, e não no MultiCaRe: a amostra tem só 2 casos de `validacao` na
+  divisão oficial. As convenções de anotação do MACCROBAT (sem `Finding`) puxam os números para baixo.
