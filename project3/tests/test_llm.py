@@ -101,6 +101,19 @@ class TestClaudeCli(unittest.TestCase):
             self.rodar({"subtype": "error_during_execution", "is_error": True, "result": "limite"})
         self.assertNotIsInstance(erro.exception, cliente.RecusaLLM)
 
+    def test_falha_de_rede_tenta_de_novo_e_depois_desiste(self):
+        erro = mock.Mock(stdout=json.dumps({"subtype": "success", "is_error": False,
+                                            "result": "API Error: Can't reach the API server"}), stderr="", returncode=0)
+        ok = mock.Mock(stdout=json.dumps({"subtype": "success", "is_error": False, "result": "{}",
+                                          "usage": {}, "total_cost_usd": 0}), stderr="", returncode=0)
+        with mock.patch.object(cliente, "ESPERAS_CLI", (0, 0)), mock.patch.dict("os.environ", {"P3_LLM_CLI": "/bin/claude"}):
+            with mock.patch("subprocess.run", side_effect=[erro, ok]) as run:
+                self.assertEqual(cliente.claude_cli("t", "", "m", 0.0, True)["texto"], "{}")
+            self.assertEqual(run.call_count, 2)
+            with mock.patch("subprocess.run", return_value=erro) as run, self.assertRaises(RuntimeError):
+                cliente.claude_cli("t", "", "m", 0.0, True)
+            self.assertEqual(run.call_count, 3)
+
     def test_recusa_vira_recusa_llm(self):
         with self.assertRaises(cliente.RecusaLLM):
             self.rodar({"subtype": "success", "is_error": False, "stop_reason": "refusal", "result": ""})

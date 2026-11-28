@@ -36,6 +36,8 @@ PRECOS = {
 }
 # Modelos que aceitam o fallback do servidor quando um classificador de segurança recusa o pedido.
 COM_FALLBACK = {"claude-opus-5-5", "claude-sonnet-5-5"}
+# Esperas (s) antes de cada nova tentativa da CLI quando a falha é de rede ou do servidor.
+ESPERAS_CLI = (30, 60, 120)
 INSTRUCAO_JSON = "Respond with valid JSON only, with no text before or after it."
 COLUNAS_USO = ["quando", "provedor", "modelo", "tokens_entrada", "tokens_saida", "segundos",
                "custo_usd", "do_cache", "chave"]
@@ -135,16 +137,24 @@ def claude_cli(prompt: str, sistema: str, modelo: str, temperatura: float, json_
     comando = [executavel, "-p", "--output-format", "json", "--model", modelo, "--tools", ""]
     if sistema:
         comando += ["--system-prompt", sistema]
-    with tempfile.TemporaryDirectory() as pasta:
-        # O prompt vai pela entrada padrão: casos longos não esbarram no limite de argumentos.
-        processo = subprocess.run(comando, input=prompt, capture_output=True, text=True, cwd=pasta, timeout=600)
-    try:
-        dados = json.loads(processo.stdout)
-    except ValueError:
-        raise RuntimeError(f"claude -p falhou ({processo.returncode}): {processo.stderr.strip()[:300]}") from None
+    for espera in (*ESPERAS_CLI, None):
+        with tempfile.TemporaryDirectory() as pasta:
+            # O prompt vai pela entrada padrão: casos longos não esbarram no limite de argumentos.
+            processo = subprocess.run(comando, input=prompt, capture_output=True, text=True, cwd=pasta, timeout=600)
+        try:
+            dados = json.loads(processo.stdout)
+        except ValueError:
+            dados = {"is_error": True, "subtype": "saida_invalida", "result": processo.stderr.strip()}
+        # Falha de rede ou servidor ("API Error: Can't reach the API server…"): esperar e tentar de novo.
+        transitorio = dados.get("is_error") or str(dados.get("result", "")).startswith("API Error")
+        if not transitorio or espera is None:
+            break
+        time.sleep(espera)
+    if dados.get("subtype") == "saida_invalida":
+        raise RuntimeError(f"claude -p falhou ({processo.returncode}): {str(dados['result'])[:300]}")
     if dados.get("stop_reason") == "refusal":
         raise RecusaLLM("recusado pela CLI")
-    if dados.get("is_error") or dados.get("subtype") != "success":
+    if dados.get("is_error") or dados.get("subtype") != "success" or str(dados.get("result", "")).startswith("API Error"):
         # Ex.: cota da assinatura esgotada. Para a execução; rodar de novo retoma pelo cache.
         raise RuntimeError(f"claude -p: {dados.get('subtype')} {str(dados.get('result', ''))[:300]}")
     u = dados.get("usage", {})
