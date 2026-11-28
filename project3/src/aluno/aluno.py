@@ -198,7 +198,12 @@ def main() -> None:
         return
 
     mencoes = mencoes_por_caso(args.professor)
-    textos = dict(iter_corpora(corpora))
+    # Referência da curva: o gabarito humano da validação do MACCROBAT. A amostra do MultiCaRe tem só
+    # 2 casos de validação na divisão oficial, pouco para comparar frações.
+    humano = mencoes_por_caso(MACCROBAT / "mencoes.csv") if (MACCROBAT / "mencoes.csv").is_file() else {}
+    # Só os textos usados: com o MultiCaRe completo em --corpus, carregar tudo ocuparia gigabytes.
+    usados = set(mencoes) | set(humano)
+    textos = {c: t for c, t in iter_corpora(corpora) if c in usados}
     if args.comando == "treinar":
         ids = casos_de_treino(particoes, mencoes, args.fracao)
         inicio = time.perf_counter()
@@ -210,9 +215,6 @@ def main() -> None:
         print(json.dumps(info, ensure_ascii=False, indent=2))
         return
 
-    # Referência: o gabarito humano da validação do MACCROBAT. A amostra do MultiCaRe tem só 2 casos
-    # de validação na divisão oficial, pouco para comparar frações.
-    humano = mencoes_por_caso(MACCROBAT / "mencoes.csv") if (MACCROBAT / "mencoes.csv").is_file() else {}
     validacao = [c for c in ordem_fixa(humano) if particoes.get(c) == "validacao" and c in textos]
     if not validacao:
         sys.exit("Sem a validação do MACCROBAT: rode a conversão da Frente A (`dados.maccrobat`) antes")

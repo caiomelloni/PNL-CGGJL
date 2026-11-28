@@ -182,6 +182,20 @@ class TestParticoes(unittest.TestCase):
         self.assertEqual(len(a), len(set(a)))
         self.assertEqual(sum(particoes[c] == "treino" for c in a), 5)
 
+    def test_amostra_vem_antes_do_corpus_completo(self):
+        particoes = {f"N{k}": "treino" for k in range(20)} | {"A1": "treino", "A2": "treino"}
+        escolhidos = professor.selecionar(particoes, [], 3, prioridade={"A1", "A2"})
+        self.assertEqual(set(escolhidos[:2]), {"A1", "A2"})
+        self.assertEqual(len(escolhidos), 3)
+
+    def test_caso_repetido_entre_corpora_vale_o_primeiro(self):
+        pasta = Path(tempfile.mkdtemp())
+        for nome, texto in [("a.csv", "da amostra"), ("b.csv", "do completo")]:
+            (pasta / nome).write_text(f"case_id,case_text\nX1,{texto}\nY{nome[0]},outro\n")
+        casos = list(professor.iter_corpora([pasta / "a.csv", pasta / "b.csv"]))
+        self.assertEqual(dict(casos)["X1"], "da amostra")
+        self.assertEqual([c for c, _ in casos], ["X1", "Ya", "Yb"])
+
 
 if __name__ == "__main__":
     unittest.main()

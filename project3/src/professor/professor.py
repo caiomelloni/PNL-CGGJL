@@ -45,9 +45,14 @@ def corpora_padrao() -> list[Path]:
 
 
 def iter_corpora(corpora: list[Path]):
-    """(case_id, texto) de vários arquivos de casos, na ordem dada."""
+    """(case_id, texto) de vários arquivos de casos, na ordem dada. Caso repetido vale o do primeiro
+    arquivo: a amostra do P1 vem antes do corpus completo e mantém o texto (e o cache) de sempre."""
+    vistos = set()
     for corpus in corpora:
-        yield from iter_casos(corpus)
+        for case_id, texto in iter_casos(corpus):
+            if case_id not in vistos:
+                vistos.add(case_id)
+                yield case_id, texto
 
 
 def ler_csv(caminho: Path) -> list[dict]:
@@ -218,14 +223,17 @@ def ordem_fixa(case_ids) -> list[str]:
 
 
 def selecionar(particoes: dict[str, str], alvo: list[str], n_treino: int,
-               disponiveis: set[str] | None = None, limites: dict[str, int] | None = None) -> list[str]:
+               disponiveis: set[str] | None = None, limites: dict[str, int] | None = None,
+               prioridade: set[str] = frozenset()) -> list[str]:
     """Casos das partições `alvo` (cada uma até `limites[p]`) e mais `n_treino` casos de treino.
 
     Só entra caso presente nos corpora carregados (`disponiveis`): o divisoes.csv cobre o MultiCaRe
-    inteiro, mas o professor só roda nos textos que recebeu.
+    inteiro, mas o professor só roda nos textos que recebeu. Em cada partição, os casos de
+    `prioridade` (a amostra do P1, já rodada e no cache) vêm antes dos outros, na ordem fixa.
     """
     limites = limites or {}
     ordem = [c for c in ordem_fixa(particoes) if disponiveis is None or c in disponiveis]
+    ordem = [c for c in ordem if c in prioridade] + [c for c in ordem if c not in prioridade]
     escolhidos = []
     for particao in alvo:
         escolhidos += [c for c in ordem if particoes[c] == particao][:limites.get(particao)]
@@ -324,10 +332,11 @@ def main() -> None:
     corpora = args.corpus or corpora_padrao()
     particoes = ler_divisoes(corpus=corpora[0])
     disponiveis = {c for c, _ in iter_corpora(corpora)}
+    prioridade = {c for c, _ in iter_casos(corpora[0])}
     sistema = sistema_padrao(particoes, args.exemplos)
 
     if args.comando == "custo":
-        casos = selecionar(particoes, [], args.n, disponiveis)
+        casos = selecionar(particoes, [], args.n, disponiveis, prioridade=prioridade)
         execucao = rodar(casos, corpora, particoes, sistema, saida=SAIDA / "custo", modelo=args.modelo)
         linha = {"modelo": args.modelo or modelo_padrao(), **resumir(execucao)}
         linha["custo_usd_1000_casos"] = round(linha["custo_usd_por_caso"] * 1000, 2)
@@ -336,12 +345,12 @@ def main() -> None:
     elif args.comando == "rodar":
         saida = SAIDA if args.variante == "direta" else SAIDA / "proposicoes"
         casos = selecionar(particoes, args.particoes, args.n_treino, disponiveis,
-                           {"validacao": args.n_validacao, "teste": args.n_teste})
+                           {"validacao": args.n_validacao, "teste": args.n_teste}, prioridade)
         print(json.dumps(resumir(rodar(casos, corpora, particoes, sistema, args.variante, saida,
                                        args.modelo)), ensure_ascii=False, indent=2))
     else:
         # comparar: direta × proposições; exemplos: zero-shot × few-shot do MACCROBAT (direta).
-        casos = selecionar(particoes, ["validacao"], 0, disponiveis)[:args.n]
+        casos = selecionar(particoes, ["validacao"], 0, disponiveis, prioridade=prioridade)[:args.n]
         if args.comando == "comparar":
             configs = [("direta", sistema, "direta"), ("proposicoes", sistema, "proposicoes")]
             eixo, tabela = "variante", "quebra_frases.csv"
