@@ -20,6 +20,21 @@ Opções globais (antes do subcomando): `--corpus <arquivos de casos…>` (padr�
 convertido, o MACCROBAT), `--modelo` e `--exemplos maccrobat|nenhum|<csv>` (padrão: `maccrobat`). Só entram casos
 presentes nos corpora. Rodar de novo é barato: o que já foi perguntado vem do cache.
 
+A rodada da destilação (N = 100, abaixo) usou o MultiCaRe completo
+(`python -m project2.src.comum.coletar --registro 20416562`, ~190 MB) para ter casos de treino além da amostra:
+
+~~~bash
+export P3_LLM_PROVEDOR=claude_cli   # sem isso o padrão é a API paga da Anthropic
+python -m project3.src.professor.professor \
+  --corpus project1/data/case_texts.csv project2/data/corpus/csv/full/cases.csv project3/data/interim/maccrobat/casos.csv \
+  --exemplos maccrobat rodar --n-treino 100 --n-teste 15 --n-validacao 2
+~~~
+
+Caso repetido entre corpora vale o do primeiro arquivo, e em cada partição os casos do primeiro
+corpus (a amostra) vêm antes dos outros. Por isso `--n-teste 15 --n-validacao 2` são exatamente os
+casos da amostra, e os 100 de treino são os 39 da amostra mais 61 do corpus completo, na ordem fixa.
+`--exemplos maccrobat` está ali só para separar a lista de `--corpus` do subcomando.
+
 ## Entradas e saídas
 
 | Arquivo | Entrada/Saída | Colunas | Versionado? |
@@ -59,6 +74,31 @@ Na validação, contra o gabarito humano de 30 documentos do MACCROBAT:
 Fontes: [`few_shot.csv`](../../data/resultados/few_shot.csv) e [`quebra_frases.csv`](../../data/resultados/quebra_frases.csv).
 Quebrar em proposições não melhora o F1 e custa 77% mais.
 
+### Rodada da destilação: um subconjunto, não o corpus inteiro
+
+O professor rodou em **117 casos**: os 15 de `teste` e os 2 de `validacao` da amostra, mais **N = 100
+de `treino`**. Não rodou nos ~10 mil casos de `teste` nem nos ~79 mil de `treino` do MultiCaRe: no
+custo medido, isso passaria de US$ 600 e 90 h só para o teste. O aluno aprende com esses 100 casos e
+é ele quem processa o resto do corpus. A curva do aluno
+([`../aluno/README.md`](../aluno/README.md#resultados)) mostra que o BERT quase não melhora acima de
+25 casos, então a falta de mais rótulos do professor não deve ser o gargalo.
+
+Custo da rodada (`claude-sonnet-5-5` via `claude_cli`, few-shot, em 28/11/2026; só chamadas novas, o
+resto veio do cache):
+
+| Medida | Valor |
+|---|---|
+| Casos com chamadas novas | 100 (todos de `treino`) |
+| Chamadas ao LLM | 336 |
+| Tokens | 2,15 M de entrada + 0,49 M de saída (~21,6 mil + 4,9 mil por caso) |
+| Custo | US$ 6,42 equivalentes na API, **pagos com a cota da assinatura** (sem gasto em dinheiro) |
+| Tempo | 56 min de LLM (~34 s por caso), em série |
+| Menções | 10.823 nos 117 casos (92,5 por caso), 0 alucinações, 0 respostas inválidas |
+| Extrapolação | US$ 0,064 e 34 s por caso: ~US$ 650 e ~94 h no `teste` inteiro do MultiCaRe |
+
+No gold do P2 (8 casos de `teste`), o professor tem F1 exato 0,61 e sobreposição 0,65
+([`extracao.csv`](../../data/resultados/extracao.csv)).
+
 ## Limitações
 
 - Sem `divisoes.csv`, usa uma divisão provisória: gold = `teste`, 1 em cada 5 artigos em `validacao`.
@@ -67,3 +107,6 @@ Quebrar em proposições não melhora o F1 e custa 77% mais.
 - `comparar` só mede F1 se houver anotação de casos de `validacao`; sem ela, compara contagem,
   alucinação, custo e a concordância entre as variantes.
 - `confianca` fica vazia: o LLM não dá probabilidade por menção.
+- Rótulos do professor só em 117 casos (100 de treino); o `teste` dele é o da amostra (15 casos, 8 com gold).
+- O custo em US$ é o que a CLI informa como equivalente na API; com `claude_cli` ele consome cota
+  da assinatura do Claude Code, não dinheiro.
